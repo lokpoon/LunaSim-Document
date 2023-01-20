@@ -1,0 +1,11 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: LunaSim-lux calculator
+- file: LunaSim-moonlight LED scheduler
+- file: LunaSim-twilight and sunlight LED scheduler
+- file: Lightbox-hardware and setup
+- file: Lightbox-python LED control
