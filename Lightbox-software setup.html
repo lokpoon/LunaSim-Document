@@ -108,8 +108,8 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    LunaSim Overview
+                <a class="reference internal" href="overview.html">
+                    Overview
                 </a>
             </li>
         </ul>
@@ -368,18 +368,19 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-example-cell">
-   An example cell
+  <a class="reference internal nav-link" href="#setting-up-a-new-raspberry-pi">
+   Setting up a new Raspberry Pi
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">
-   Create a notebook with MyST Markdown
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">
-   Quickly add YAML metadata for MyST Notebooks
+  <a class="reference internal nav-link" href="#setting-up-the-lightbox-py-as-a-systemd-service">
+   Setting up the
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     lightbox.py
+    </span>
+   </code>
+   as a systemd service
   </a>
  </li>
 </ul>
@@ -402,18 +403,19 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-example-cell">
-   An example cell
+  <a class="reference internal nav-link" href="#setting-up-a-new-raspberry-pi">
+   Setting up a new Raspberry Pi
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">
-   Create a notebook with MyST Markdown
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">
-   Quickly add YAML metadata for MyST Notebooks
+  <a class="reference internal nav-link" href="#setting-up-the-lightbox-py-as-a-systemd-service">
+   Setting up the
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     lightbox.py
+    </span>
+   </code>
+   as a systemd service
   </a>
  </li>
 </ul>
@@ -428,48 +430,125 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="lightbox-software-setup">
 <h1>Lightbox-software setup<a class="headerlink" href="#lightbox-software-setup" title="Permalink to this headline">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this headline">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<section id="setting-up-a-new-raspberry-pi">
+<h2>Setting up a new Raspberry Pi<a class="headerlink" href="#setting-up-a-new-raspberry-pi" title="Permalink to this headline">#</a></h2>
+<ol>
+<li><p>On a computer go to Raspberry Pi’s website <a class="reference external" href="https://www.raspberrypi.com/software/">https://www.raspberrypi.com/software/</a> to download and install the Raspberry Pi Imager.</p></li>
+<li><p>In Raspberry Pi Imager, install <strong>Raspberry Pi OS (Legacy)</strong> on the micro SD card.</p></li>
+<li><p>Connect the monitor, keyboard, and mouse to the PI.</p></li>
+<li><p>Insert the micro SD card into the Pi.</p></li>
+<li><p>Connect power to the Pi to boot it up.</p></li>
+<li><p>Follow the setup pages instructions. Connect to the internet, and the perform prompted update on first launch. Note down the username and password you have set.</p></li>
+<li><p>Install Python 3.9.9.</p>
+<p>Reference: <a class="reference external" href="https://linuxhint.com/update-python-raspberry-pi/">How to Update Python on Raspberry Pi</a></p>
+<p>Enter the following sequence of commands in terminal:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">https://www.python.org/ftp/python/3.9.9/Python-3.9.9.tgz</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-zxvf</span> <span class="pre">Python-3.9.9.tgz</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Python-3.9.9</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">./configure</span> <span class="pre">--enable-optimizations</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">make</span> <span class="pre">altinstall</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/usr/bin</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">python</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/usr/local/bin/python3.9</span> <span class="pre">python</span></code></p></li>
+</ul>
+</li>
+<li><p>Check Python version (3.9.9):</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code></p>
+</li>
+<li><p>Modify Pi to run the <em>ws2811</em> library.</p>
+<p>Reference: <a class="reference external" href="https://tutorials-raspberrypi.com/connect-control-raspberry-pi-ws2812-rgb-led-strips/">Connect and Control WS2812 RGB LED Strips via Raspberry Pi</a></p>
+<p>In terminal:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">gcc</span> <span class="pre">make</span> <span class="pre">build-essential</span> <span class="pre">python-dev</span> <span class="pre">git</span> <span class="pre">scons</span> <span class="pre">swig</span></code> (confirm with Y)</p></li>
+<li><p>To deactivate audio output, we edit the <code class="docutils literal notranslate"><span class="pre">.conf</span></code> file by:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/modprobe.d/snd-blacklist.conf</span></code></p>
+<p>And add this line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">blacklist</span> <span class="n">snd_bcm2835</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<p>Then save file with CTRL + O.</p>
+<p>And close the editor with CTRL + X.</p>
+</li>
+<li><p>Edit another <code class="docutils literal notranslate"><span class="pre">.conf</span></code> file:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/boot/config.txt</span></code></p>
+<p>Comment out the line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dtparam</span><span class="o">=</span><span class="n">audio</span><span class="o">=</span><span class="n">on</span>
 </pre></div>
 </div>
+<p>by adding a # in front of it.</p>
+<p>Then save file with CTRL + O.</p>
+<p>And close the editor with CTRL + X.</p>
+</li>
+<li><p>Reboot Pi:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">reboot</span></code></p>
+</li>
+</ul>
+</li>
+<li><p>Download <em>rpi_ws281x</em> library</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/jgarff/rpi_ws281x</span></code></p></li>
+</ul>
+</li>
+<li><p>We need to modify some lines to specify using SK6812:</p>
+<ul>
+<li><p>Using the file explorer, open the <code class="docutils literal notranslate"><span class="pre">main.c</span></code> file found in <em>/home/pi/rpi_ws281x/</em></p></li>
+<li><p>Line 63 is turned on by default for LED ws2811, so turn it off by adding // at the front.</p></li>
+<li><p>Instead, turn on line 64 for SK6812 by deleting the // at the front.</p></li>
+<li><p>On line 66, edit it to the number of total numbers of LEDs connected.</p></li>
+<li><p>On line 67, edit number to 1.</p></li>
+<li><p>Save file.</p></li>
+<li><p>Then we compile the library for Python.</p>
+<p>In terminal:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">rpi_ws281x/</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">scons</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Everytime you edit main.c, for example changing the number LED connected, it requires a recompile.</p>
 </div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
-</div>
-</section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this headline">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
-<ol class="simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
+</li>
+<li><p>Now the Pi should be ready to control the SK6812 LED strips using our <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code></p></li>
 </ol>
-<p>That’s all that is needed to get started!</p>
 </section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Permalink to this headline">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
+<section id="setting-up-the-lightbox-py-as-a-systemd-service">
+<h2>Setting up the <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code> as a systemd service<a class="headerlink" href="#setting-up-the-lightbox-py-as-a-systemd-service" title="Permalink to this headline">#</a></h2>
+<ol>
+<li><p>Create a new service file.</p>
+<p>In terminal:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/systemd/system/lightbox_failsafe.service</span></code></p>
+</li>
+<li><p>In the editor, paste in the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Unit]
+Description=relaunch lightbox.py when crashed`
+
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=sudo /usr/bin/python3 /home/pi/Desktop/control/lightbox.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target
 </pre></div>
 </div>
+</li>
+<li><p>CTRL + X to close the editor.</p>
+<p>When prompted the file name, confirm that it is <code class="docutils literal notranslate"><span class="pre">lightbox_failsafe.service</span></code> and enter Y to save.</p>
+</li>
+<li><p>Refresh the system service files. It may ask for the username and password.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Everytime you edit lightbox_failsafe.service, it requires a refresh.</p>
+</div>
+</li>
+</ol>
 </section>
 </section>
 

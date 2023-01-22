@@ -107,8 +107,8 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    LunaSim Overview
+                <a class="reference internal" href="overview.html">
+                    Overview
                 </a>
             </li>
         </ul>
@@ -367,18 +367,35 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-example-cell">
-   An example cell
+  <a class="reference internal nav-link" href="#requirements">
+   Requirements
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#led-schedule-csv">
+     1. LED_schedule.csv
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-the-location-of-files">
+     2. Check the location of files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-sure-that-the-led-strips-are-not-frozen">
+     3. Make sure that the LED strips are not frozen
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">
-   Create a notebook with MyST Markdown
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">
-   Quickly add YAML metadata for MyST Notebooks
+  <a class="reference internal nav-link" href="#to-run-lightbox-failsafe-service">
+   To run
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     lightbox_failsafe.service
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -401,18 +418,35 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-example-cell">
-   An example cell
+  <a class="reference internal nav-link" href="#requirements">
+   Requirements
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#led-schedule-csv">
+     1. LED_schedule.csv
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-the-location-of-files">
+     2. Check the location of files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-sure-that-the-led-strips-are-not-frozen">
+     3. Make sure that the LED strips are not frozen
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">
-   Create a notebook with MyST Markdown
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">
-   Quickly add YAML metadata for MyST Notebooks
+  <a class="reference internal nav-link" href="#to-run-lightbox-failsafe-service">
+   To run
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     lightbox_failsafe.service
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -427,48 +461,63 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="lightbox-launch-procedure">
 <h1>Lightbox-launch procedure<a class="headerlink" href="#lightbox-launch-procedure" title="Permalink to this headline">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this headline">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-</pre></div>
-</div>
-</div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
-</div>
+<p>In the previous software setup section, we have created a <code class="docutils literal notranslate"><span class="pre">lightbox_failsafe.service</span></code> that link to the <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code> located in <em>Desktop/control</em>. Instead of launching <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code> directly, we would launch the <code class="docutils literal notranslate"><span class="pre">lightbox_failsafe.service</span></code> so that the program will relaunch itself upon crashing.</p>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h2>
+<p>Things to check before the launch:</p>
+<section id="led-schedule-csv">
+<h3>1. LED_schedule.csv<a class="headerlink" href="#led-schedule-csv" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code> to run, the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> must contain a row matching the time at launch. Meaning you cannot have a <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> where the first row is a time in the future. So, when creating the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code>, set the beginning date time ahead of when you will run the script.</p></li>
+<li><p>It also means that you should not delete entire rows with excel in the middle of the  <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code>.</p></li>
+</ul>
 </section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this headline">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
-<ol class="simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
+<section id="check-the-location-of-files">
+<h3>2. Check the location of files<a class="headerlink" href="#check-the-location-of-files" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Within <em>Desktop/control</em></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="make-sure-that-the-led-strips-are-not-frozen">
+<h3>3. Make sure that the LED strips are not frozen<a class="headerlink" href="#make-sure-that-the-led-strips-are-not-frozen" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The LED strip should never be frozen during operation. However, it may become unresponsive after the service file is stopped, or other accidents such as lose connection of the GPIO cable.</p></li>
+<li><p>We recommend resetting the LED strip before every launch, by unplugging both the power and the GPIO cable, and reconnecting them.</p></li>
+</ul>
+</section>
+</section>
+<section id="to-run-lightbox-failsafe-service">
+<h2>To run <code class="docutils literal notranslate"><span class="pre">lightbox_failsafe.service</span></code><a class="headerlink" href="#to-run-lightbox-failsafe-service" title="Permalink to this headline">#</a></h2>
+<p>In terminal,</p>
+<ol>
+<li><p>Enable the service file:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">lightbox_failsafe.service</span></code></p>
+</li>
+<li><p>Check task running and the CPU usage:</p>
+<p><code class="docutils literal notranslate"><span class="pre">htop</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting 8 sec before the start of every minutes, one of the CPU core will increase usage to 100%. lightbox_failsafe.service would be listed as the top task in the list. The LED will be be updated a the start of the minute, and CPU usage will return to normal.</p>
+</div>
+</li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">LED_history.log</span></code> file will be created in <em>Desktop/control</em>. This logs allows the user to check what intensities the first 10 LEDs in the array have been instructed to output.</p></li>
+<li><p>To stop the service file:</p>
+<p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">lightbox_failsafe.service</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The LED strip will maintain it’s last instructed intensity. Unplug the power cord and GPIO connection to reset it.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Whenever the Pi is reboot, lightbox_failsafe.service launchs automatically.</p>
+</div>
+</li>
 </ol>
-<p>That’s all that is needed to get started!</p>
-</section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Permalink to this headline">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
-</pre></div>
-</div>
 </section>
 </section>
 

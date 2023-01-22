@@ -15,40 +15,158 @@ kernelspec:
 
 # Lightbox-software setup
 
-Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See [the Notebooks with MyST Markdown documentation](https://jupyterbook.org/file-types/myst-notebooks.html) for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.
+## Setting up a new Raspberry Pi
 
-## An example cell
+1. On a computer go to Raspberry Pi’s website https://www.raspberrypi.com/software/ to download and install the Raspberry Pi Imager.
 
-With MyST Markdown, you can define code cells with a directive like so:
+2. In Raspberry Pi Imager, install **Raspberry Pi OS (Legacy)** on the micro SD card.
 
-```{code-cell}
-print(2 + 2)
-```
+3. Connect the monitor, keyboard, and mouse to the PI.
 
-When your book is built, the contents of any `{code-cell}` blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.
+4. Insert the micro SD card into the Pi.
 
-```{seealso}
-Jupyter Book uses [Jupytext](https://jupytext.readthedocs.io/en/latest/) to convert text-based files to notebooks, and can support [many other text-based notebook files](https://jupyterbook.org/file-types/jupytext.html).
-```
+5. Connect power to the Pi to boot it up.
 
-## Create a notebook with MyST Markdown
+6. Follow the setup pages instructions. Connect to the internet, and the perform prompted update on first launch. Note down the username and password you have set.
 
-MyST Markdown notebooks are defined by two things:
+7. Install Python 3.9.9. 
+   
+   Reference: [How to Update Python on Raspberry Pi](https://linuxhint.com/update-python-raspberry-pi/)
+   
+   Enter the following sequence of commands in terminal:
+   
+   - `wget https://www.python.org/ftp/python/3.9.9/Python-3.9.9.tgz`
+   
+   - `tar -zxvf Python-3.9.9.tgz`
+   
+   - `cd Python-3.9.9`
+   
+   - `./configure --enable-optimizations`
+   
+   - `sudo make altinstall`
+   
+   - `cd /usr/bin`
+   
+   - `sudo rm python`
+   
+   - `sudo ln -s /usr/local/bin/python3.9 python`
 
-1. YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-   See the YAML at the top of this page for example.
-2. The presence of `{code-cell}` directives, which will be executed with your book.
+8. Check Python version (3.9.9):
+   
+   `python --version`
 
-That's all that is needed to get started!
+9. Modify Pi to run the *ws2811* library. 
+   
+   Reference: [Connect and Control WS2812 RGB LED Strips via Raspberry Pi](https://tutorials-raspberrypi.com/connect-control-raspberry-pi-ws2812-rgb-led-strips/)
+   
+   In terminal:
+   
+   - `sudo apt-get update`
+   
+   - `sudo apt-get install gcc make build-essential python-dev git scons swig` (confirm with Y)
+   
+   - To deactivate audio output, we edit the `.conf` file by:
+     
+     `sudo nano /etc/modprobe.d/snd-blacklist.conf`
+     
+     And add this line:
+     
+     ```
+     blacklist snd_bcm2835
+     ```
+     
+     Then save file with CTRL + O.
+     
+     And close the editor with CTRL + X.
+   
+   - Edit another `.conf` file:
+     
+     `sudo nano /boot/config.txt`
+     
+     Comment out the line
+     
+     ```
+     dtparam=audio=on
+     ```
+     
+     by adding a # in front of it.
+     
+     Then save file with CTRL + O.
+     
+     And close the editor with CTRL + X.
+   
+   - Reboot Pi:
+     
+     `sudo reboot`
 
-## Quickly add YAML metadata for MyST Notebooks
+10. Download *rpi_ws281x* library
+    
+    - `cd`
+    
+    - `git clone https://github.com/jgarff/rpi_ws281x`
 
-If you have a markdown file and you'd like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:
+11. We need to modify some lines to specify using SK6812: 
+    
+    - Using the file explorer, open the `main.c` file found in */home/pi/rpi_ws281x/*
+    
+    - Line 63 is turned on by default for LED ws2811, so turn it off by adding // at the front.
+    
+    - Instead, turn on line 64 for SK6812 by deleting the // at the front.
+    
+    - On line 66, edit it to the number of total numbers of LEDs connected.
+    
+    - On line 67, edit number to 1.
+    
+    - Save file.
+    
+    - Then we compile the library for Python.
+      
+      In terminal:
+      
+      `cd rpi_ws281x/`
+    
+    - `sudo scons`
+    
+    ```{note}
+    Everytime you edit main.c, for example changing the number LED connected, it requires a recompile.
+    ```
 
-```
-jupyter-book myst init path/to/markdownfile.md
-```
+12. Now the Pi should be ready to control the SK6812 LED strips using our `lightbox.py`
+
+## Setting up the `lightbox.py` as a systemd service
+
+1. Create a new service file.
+   
+   In terminal:
+   
+   `sudo nano /etc/systemd/system/lightbox_failsafe.service`
+
+2. In the editor, paste in the following lines:
+   
+   ```
+   [Unit]
+   Description=relaunch lightbox.py when crashed`
+   
+   [Service]
+   User=root
+   Group=root
+   Type=simple
+   ExecStart=sudo /usr/bin/python3 /home/pi/Desktop/control/lightbox.py
+   Restart=always
+   RestartSec=3
+   
+   [Install]
+   WantedBy=default.target
+   ```
+
+3. CTRL + X to close the editor.
+   
+   When prompted the file name, confirm that it is `lightbox_failsafe.service` and enter Y to save.
+
+4. Refresh the system service files. It may ask for the username and password.
+   
+   `sudo systemctl daemon-reload`
+   
+   ```{note}
+   Everytime you edit lightbox_failsafe.service, it requires a refresh.
+   ```

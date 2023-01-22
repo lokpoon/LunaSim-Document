@@ -15,40 +15,58 @@ kernelspec:
 
 # Lightbox-launch procedure
 
-Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See [the Notebooks with MyST Markdown documentation](https://jupyterbook.org/file-types/myst-notebooks.html) for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.
+In the previous software setup section, we have created a `lightbox_failsafe.service` that link to the `lightbox.py` located in *Desktop/control*. Instead of launching `lightbox.py` directly, we would launch the `lightbox_failsafe.service` so that the program will relaunch itself upon crashing.
 
-## An example cell
+## Requirements
 
-With MyST Markdown, you can define code cells with a directive like so:
+Things to check before the launch:
 
-```{code-cell}
-print(2 + 2)
-```
+### 1. LED_schedule.csv
 
-When your book is built, the contents of any `{code-cell}` blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.
+- For the `lightbox.py` to run, the `LED_schedule.csv` must contain a row matching the time at launch. Meaning you cannot have a `LED_schedule.csv` where the first row is a time in the future. So, when creating the `LED_schedule.csv`, set the beginning date time ahead of when you will run the script.
 
-```{seealso}
-Jupyter Book uses [Jupytext](https://jupytext.readthedocs.io/en/latest/) to convert text-based files to notebooks, and can support [many other text-based notebook files](https://jupyterbook.org/file-types/jupytext.html).
-```
+- It also means that you should not delete entire rows with excel in the middle of the  `LED_schedule.csv`.
 
-## Create a notebook with MyST Markdown
+### 2. Check the location of files
 
-MyST Markdown notebooks are defined by two things:
+- Within *Desktop/control*
+  
+  - `lightbox.py`
+  
+  - `LED_schedule.csv`
 
-1. YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-   See the YAML at the top of this page for example.
-2. The presence of `{code-cell}` directives, which will be executed with your book.
+### 3. Make sure that the LED strips are not frozen
 
-That's all that is needed to get started!
+- The LED strip should never be frozen during operation. However, it may become unresponsive after the service file is stopped, or other accidents such as lose connection of the GPIO cable.
 
-## Quickly add YAML metadata for MyST Notebooks
+- We recommend resetting the LED strip before every launch, by unplugging both the power and the GPIO cable, and reconnecting them.
 
-If you have a markdown file and you'd like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:
+## To run `lightbox_failsafe.service`
 
-```
-jupyter-book myst init path/to/markdownfile.md
-```
+In terminal,
+
+1. Enable the service file:
+   
+   `sudo systemctl enable lightbox_failsafe.service`
+
+2. Check task running and the CPU usage:
+   
+   `htop`
+   
+   ```{note}
+   Starting 8 sec before the start of every minutes, one of the CPU core will increase usage to 100%. lightbox_failsafe.service would be listed as the top task in the list. The LED will be be updated a the start of the minute, and CPU usage will return to normal.
+   ```
+
+3. A `LED_history.log` file will be created in *Desktop/control*. This logs allows the user to check what intensities the first 10 LEDs in the array have been instructed to output.
+
+4. To stop the service file:
+   
+   `systemctl stop lightbox_failsafe.service`
+   
+   ```{note}
+   The LED strip will maintain it's last instructed intensity. Unplug the power cord and GPIO connection to reset it.
+   ```
+   
+   ```{note}
+   Whenever the Pi is reboot, lightbox_failsafe.service launchs automatically.
+   ```
