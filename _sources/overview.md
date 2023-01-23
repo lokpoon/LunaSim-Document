@@ -2,7 +2,7 @@
 
 **LunaSim** and **LS-lightbox**: An R program and LED system to simulate and recreate realistic moonlight and twilight illuminance for nighttime ecological studies.
 
-LunaSim is an R program that predicts ground illuminance (lux) of moonlight, twilight, and sunlight (plus startlight and airglow as a constant) at a any geographic location and time period. The LunaSim suite includes three independent R programs that generates different outputs:
+LunaSim is an R program that predicts ground illuminance (lux) of moonlight, twilight, and sunlight (plus startlight and airglow as a constant) at a any geographic location and time period. The LunaSim suite includes three independent R programs that generate different outputs:
 1. **LunaSim-Lux calculator** simply predicts moonlight and twilight illuminance.
 2. **LunaSim-Moonlight LED scheduler** predicts only moonlight illuminance, and convert them into LED intensity values (packaged in a .csv output) that serves as a schedule for the LS-lightbox.
 3. **LunaSim-Sunlight and twilight LED scheduler** predicts sunlight and twilight illuminance, and convert them into LED intensity values (packaged in a .csv output) that serves as a schedule for the LS-lightbox.
