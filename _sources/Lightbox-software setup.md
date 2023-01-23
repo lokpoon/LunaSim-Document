@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# Lightbox-software setup
+# LS-lightbox: Software setup
 
 ## Setting up a new Raspberry Pi
 

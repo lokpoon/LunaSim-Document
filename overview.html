@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Overview &#8212; LunaSim Documentation</title>
+    <title>Overview &#8212; LunaSim and LS-lightbox Documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="LunaSim-lux calculator" href="LunaSim-lux%20calculator.html" />
+    <link rel="next" title="LunaSim: Lux calculator" href="LunaSim-lux%20calculator.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -96,7 +96,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">LunaSim Documentation</h1>
+      <h1 class="site-logo" id="site-title">LunaSim and LS-lightbox Documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -115,32 +115,32 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="LunaSim-lux%20calculator.html">
-   LunaSim-lux calculator
+   LunaSim: Lux calculator
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="LunaSim-moonlight%20LED%20scheduler.html">
-   LunaSim-moonlight LED scheduler
+   LunaSim: Moonlight LED scheduler
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="LunaSim-twilight%20and%20sunlight%20LED%20scheduler.html">
-   LunaSim-twilight and sunlight LED scheduler
+   LunaSim: Sunlight and twilight LED scheduler
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Lightbox-hardware%20setup.html">
-   Lightbox-hardware setup
+   LS-lightbox: Hardware setup
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Lightbox-software%20setup.html">
-   Lightbox-software setup
+   LS-lightbox: Software setup
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Lightbox-launch%20procedure.html">
-   Lightbox-launch procedure
+   LS-lightbox: Launch procedure
   </a>
  </li>
 </ul>
@@ -298,12 +298,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of contents
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -315,6 +339,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of contents
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -324,18 +361,27 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h1>
-<p>LunaSim is an R program that predicts moonlight ground illuminance (lux) at a any geographic location and time period.
-Using it alongside the Lightbox, users can recreate realistic light condition of moonlight, twilight, and sunlight in a lab setting.</p>
+<p><strong>LunaSim</strong> and <strong>LS-lightbox</strong>: An R program and LED system to simulate and recreate realistic moonlight and twilight illuminance for nighttime ecological studies.</p>
+<p>LunaSim is an R program that predicts ground illuminance (lux) of moonlight, twilight, and sunlight (plus startlight and airglow as a constant) at a any geographic location and time period. The LunaSim suite includes three independent R programs that generates different outputs:</p>
+<ol class="simple">
+<li><p><strong>LunaSim-Lux calculator</strong> simply predicts moonlight and twilight illuminance.</p></li>
+<li><p><strong>LunaSim-Moonlight LED scheduler</strong> predicts only moonlight illuminance, and convert them into LED intensity values (packaged in a .csv output) that serves as a schedule for the LS-lightbox.</p></li>
+<li><p><strong>LunaSim-Sunlight and twilight LED scheduler</strong> predicts sunlight and twilight illuminance, and convert them into LED intensity values (packaged in a .csv output) that serves as a schedule for the LS-lightbox.</p></li>
+</ol>
+<p>LS-lightbox is a LED system for illuminating room,by using the schedule generated by <strong>LunaSim-Moonlight LED scheduler</strong> or <strong>LunaSim-Sunlight and twilight LED scheduler</strong>. User can run a moonlight schedule and a sunlight and twilight schedule at the same time using two LS-lightboxs, to fully recreate the major sources of natural light around the clock.</p>
+<section id="table-of-contents">
+<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="LunaSim-lux%20calculator.html">LunaSim-lux calculator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LunaSim-moonlight%20LED%20scheduler.html">LunaSim-moonlight LED scheduler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LunaSim-twilight%20and%20sunlight%20LED%20scheduler.html">LunaSim-twilight and sunlight LED scheduler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lightbox-hardware%20setup.html">Lightbox-hardware setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lightbox-software%20setup.html">Lightbox-software setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lightbox-launch%20procedure.html">Lightbox-launch procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LunaSim-lux%20calculator.html">LunaSim: Lux calculator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LunaSim-moonlight%20LED%20scheduler.html">LunaSim: Moonlight LED scheduler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LunaSim-twilight%20and%20sunlight%20LED%20scheduler.html">LunaSim: Sunlight and twilight LED scheduler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lightbox-hardware%20setup.html">LS-lightbox: Hardware setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lightbox-software%20setup.html">LS-lightbox: Software setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lightbox-launch%20procedure.html">LS-lightbox: Launch procedure</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -368,7 +414,7 @@ Using it alongside the Lightbox, users can recreate realistic light condition of
     <a class='right-next' id="next-link" href="LunaSim-lux%20calculator.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">LunaSim-lux calculator</p>
+        <p class="prev-next-title">LunaSim: Lux calculator</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

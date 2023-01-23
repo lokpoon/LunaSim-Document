@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# LunaSim-moonlight LED scheduler
+# LunaSim: Moonlight LED scheduler
 
 LunaSim-moonlight LED scheduler is designed to be used in conjunction with the Lightbox system to recreate moonlight illuminance in the lab.
 

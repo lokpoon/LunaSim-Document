@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# Lightbox-launch procedure
+# LS-lightbox: Launch procedure
 
 In the previous software setup section, we have created a `lightbox_failsafe.service` that link to the `lightbox.py` located in *Desktop/control*. Instead of launching `lightbox.py` directly, we would launch the `lightbox_failsafe.service` so that the program will relaunch itself upon crashing.
 

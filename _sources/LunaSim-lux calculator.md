@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# LunaSim-lux calculator
+# LunaSim: Lux calculator
 
 LunaSim-lux calculator is a standalone R program that predicts ground illuminance (lux) of moonlight. A basic prediction of twilight and sunlight illuminance is also provided as an option.
 
@@ -27,7 +27,7 @@ It is intended for use for ecological studies where biologists requires moonligh
 - Quickly plot illuminance over time
 
 :::{figure-md} markdown-fig
-<img src="images/one_month.png" alt="fishy" class="bg-primary mb-1" width="1000px">
+<img src="images/one_month.png" alt="one_month" class="bg-primary mb-1" width="1000px">
 
 Plot example of moonlight ground illuminance over a month in 2022 in Leticia, Colombia.
 :::
