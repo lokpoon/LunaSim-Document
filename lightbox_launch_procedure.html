@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lightbox-python LED control &#8212; LunaSim Documentation</title>
+    <title>LS-lightbox: Launch procedure &#8212; LunaSim and LS-lightbox Documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,6 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="LS-lightbox: Calibration" href="lightbox_calibration.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -95,7 +96,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">LunaSim Documentation</h1>
+      <h1 class="site-logo" id="site-title">LunaSim and LS-lightbox Documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -111,35 +112,40 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="LunaSim-lux%20calculator.html">
-   LunaSim-lux calculator
+  <a class="reference internal" href="lux_calculator.html">
+   LunaSim: Lux calculator
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="LunaSim-moonlight%20LED%20scheduler.html">
-   LunaSim-moonlight LED scheduler
+  <a class="reference internal" href="moonlight_LED_scheduler.html">
+   LunaSim: Moonlight LED scheduler
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="LunaSim-twilight%20and%20sunlight%20LED%20scheduler.html">
-   LunaSim-twilight and sunlight LED scheduler
+  <a class="reference internal" href="sunlight_and_twilight_LED_scheduler.html">
+   LunaSim: Sunlight and twilight LED scheduler
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Lightbox-hardware%20setup.html">
-   Lightbox-hardware setup
+  <a class="reference internal" href="lightlbox_hardware_setup.html">
+   LS-lightbox: Hardware setup
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Lightbox-software%20setup.html">
-   Lightbox-software setup
+  <a class="reference internal" href="lightbox_software_setup.html">
+   LS-lightbox: Software setup
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Lightbox-launch%20procedure.html">
-   Lightbox-launch procedure
+  <a class="reference internal" href="lightbox_calibration.html">
+   LS-lightbox: Calibration
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   LS-lightbox: Launch procedure
   </a>
  </li>
 </ul>
@@ -201,7 +207,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/lokpoon/LunaSim/master?urlpath=tree/docs/Lightbox-python LED control.md"
+        <a href="https://mybinder.org/v2/gh/lokpoon/LunaSim/master?urlpath=tree/docs/lightbox_launch_procedure.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -261,7 +267,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/lokpoon/LunaSim/issues/new?title=Issue%20on%20page%20%2FLightbox-python LED control.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/lokpoon/LunaSim/issues/new?title=Issue%20on%20page%20%2Flightbox_launch_procedure.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -289,7 +295,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Lightbox-python LED control.ipynb"
+        <a href="_sources/lightbox_launch_procedure.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -306,7 +312,7 @@ title="Download notebook file"
       </li>
       
       <li>
-        <a href="_sources/Lightbox-python LED control.md"
+        <a href="_sources/lightbox_launch_procedure.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -366,13 +372,35 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#initial-setup">
-   Initial setup
+  <a class="reference internal nav-link" href="#requirements">
+   Requirements
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#led-schedule-csv">
+     1. LED_schedule.csv
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-the-location-of-files">
+     2. Check the location of files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-sure-that-the-led-strips-are-not-frozen">
+     3. Make sure that the LED strips are not frozen
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#launch-with-a-new-output-csv">
-   Launch with a new output.csv
+  <a class="reference internal nav-link" href="#to-run-lightbox-failsafe-service">
+   To run
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     lightbox_failsafe.service
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -384,7 +412,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lightbox-python LED control</h1>
+                <h1>LS-lightbox: Launch procedure</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -395,13 +423,35 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#initial-setup">
-   Initial setup
+  <a class="reference internal nav-link" href="#requirements">
+   Requirements
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#led-schedule-csv">
+     1. LED_schedule.csv
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-the-location-of-files">
+     2. Check the location of files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-sure-that-the-led-strips-are-not-frozen">
+     3. Make sure that the LED strips are not frozen
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#launch-with-a-new-output-csv">
-   Launch with a new output.csv
+  <a class="reference internal nav-link" href="#to-run-lightbox-failsafe-service">
+   To run
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     lightbox_failsafe.service
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -414,33 +464,65 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lightbox-python-led-control">
-<h1>Lightbox-python LED control<a class="headerlink" href="#lightbox-python-led-control" title="Permalink to this headline">#</a></h1>
-<p>A custom python program runs on the Raspberry Pi. It reads the <code class="docutils literal notranslate"><span class="pre">moon_output.csv</span></code> (or <code class="docutils literal notranslate"><span class="pre">twilight_sun_output.csv</span></code>) generated from the LED scheduler to control the LED output.</p>
-<section id="initial-setup">
-<h2>Initial setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-</pre></div>
-</div>
-</div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="ls-lightbox-launch-procedure">
+<h1>LS-lightbox: Launch procedure<a class="headerlink" href="#ls-lightbox-launch-procedure" title="Permalink to this headline">#</a></h1>
+<p>In the previous software setup section, we have created a <code class="docutils literal notranslate"><span class="pre">lightbox_failsafe.service</span></code> that link to the <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code> located in <em>Desktop/control</em>. Instead of launching <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code> directly, we would launch the <code class="docutils literal notranslate"><span class="pre">lightbox_failsafe.service</span></code> so that the program will relaunch itself upon crashing.</p>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h2>
+<p>Things to check before the launch:</p>
+<section id="led-schedule-csv">
+<h3>1. LED_schedule.csv<a class="headerlink" href="#led-schedule-csv" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code> to run, the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> must contain a row matching the time at launch. Meaning you cannot have a <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> where the first row is a time in the future. So, when creating the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code>, set the beginning date time ahead of when you will run the script.</p></li>
+<li><p>It also means that you should not delete entire rows with excel in the middle of the  <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code>.</p></li>
+</ul>
 </section>
-<section id="launch-with-a-new-output-csv">
-<h2>Launch with a new output.csv<a class="headerlink" href="#launch-with-a-new-output-csv" title="Permalink to this headline">#</a></h2>
+<section id="check-the-location-of-files">
+<h3>2. Check the location of files<a class="headerlink" href="#check-the-location-of-files" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Within <em>Desktop/control</em></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="make-sure-that-the-led-strips-are-not-frozen">
+<h3>3. Make sure that the LED strips are not frozen<a class="headerlink" href="#make-sure-that-the-led-strips-are-not-frozen" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The LED strip should never be frozen during operation. However, it may become unresponsive after the service file is stopped, or other accidents such as lose connection of the GPIO cable.</p></li>
+<li><p>We recommend resetting the LED strip before every launch, by unplugging both the power and the GPIO cable, and reconnecting them.</p></li>
+</ul>
+</section>
+</section>
+<section id="to-run-lightbox-failsafe-service">
+<h2>To run <code class="docutils literal notranslate"><span class="pre">lightbox_failsafe.service</span></code><a class="headerlink" href="#to-run-lightbox-failsafe-service" title="Permalink to this headline">#</a></h2>
+<p>In terminal,</p>
+<ol>
+<li><p>Enable the service file:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">lightbox_failsafe.service</span></code></p>
+</li>
+<li><p>Check task running and the CPU usage:</p>
+<p><code class="docutils literal notranslate"><span class="pre">htop</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting 8 sec before the start of every minutes, one of the CPU core will increase usage to 100%. lightbox_failsafe.service would be listed as the top task in the list. The LED will be be updated a the start of the minute, and CPU usage will return to normal.</p>
+</div>
+</li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">LED_history.log</span></code> file will be created in <em>Desktop/control</em>. This logs allows the user to check what intensities the first 10 LEDs in the array have been instructed to output.</p></li>
+<li><p>To stop the service file:</p>
+<p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">lightbox_failsafe.service</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The LED strip will maintain it’s last instructed intensity. Unplug the power cord and GPIO connection to reset it.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Whenever the Pi is reboot, lightbox_failsafe.service launchs automatically.</p>
+</div>
+</li>
+</ol>
 </section>
 </section>
 
@@ -471,6 +553,13 @@ in-line with the rest of your content.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lightbox_calibration.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">LS-lightbox: Calibration</p>
+        </div>
+    </a>
 </div>
             </footer>
         </div>
