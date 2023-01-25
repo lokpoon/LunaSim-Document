@@ -48,6 +48,10 @@ In terminal,
 1. Enable the service file:
    
    `sudo systemctl enable lightbox_failsafe.service`
+   
+      ```{note}
+      The Raspberry Pi does not have sleeping or other enery saving mode, so no need to worry about these settings.
+      ```
 
 2. Check task running and the CPU usage:
    

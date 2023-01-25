@@ -15,3 +15,20 @@ kernelspec:
 
 # LS-lightbox: Hardware setup
 
+
+| Item  | SKU/model number | Company  | Quantity required | Price | Link   | Note |
+|-------|------------------|----------|-------------------|-------|--------|------|
+| Raspberry Pi 4 model B kit | XXX | GeeekPi | 1 or 2 | $200 | [Amazon](https://www.amazon.com/GeeekPi-Raspberry-2GB-Starter-Kit/dp/B0B7DFF7TY/ref=sr_1_5?crid=1BQNGTSE4SSDJ&keywords=raspberry+pi+4+kit&qid=1674623289&sprefix=raspberry+pi+4+kit%2Caps%2C121&sr=8-5&ufe=app_do%3Aamzn1.fos.f5122f16-c3e8-4386-bf32-63e904010ad0) | [1] |
+|   |  |   |   |  |  |  |
+| SK6812 RGBW LED strip | SK68121M144RGBWWW65 | BTF-Lighting | At least 2 | $35 | [Amazon](https://www.amazon.com/BTF-LIGHTING-Individually-Addressable-Flexible-Waterproof/dp/B01N2PCIB9/ref=sr_1_6?crid=3OWYKHJC7QV57&keywords=sk6812%2Bwarm&qid=1674596692&sprefix=sk6812%2Bwarm%2Caps%2C104&sr=8-6&th=1) | [2] |
+|   |  |   |   |  |  |  |
+
+*[1] Kit of the Raspberry Pi 4 (or 3) from any company would work. Beside the Pi itself, the kit should include all the accessories such as cable, power supply, case, SD card, etc. You only need the 2GB RAM option, but you can opt for more RAM (4GB or 8GB) if budget allows.
+
+*[2] We recommend the following options: 1m, 144 LED, Warm White. There is also the option of IP65 water resistant and IP30 normal version, choose the one more suitable for your application. Choose warm white because we do not want the big blue spike in the white channel spectrum. You can pick a different length and LED number as needed, but we believe 1m 144 LED is the best suited for most situations.
+
+:::{figure-md} markdown-fig
+<img src="images/raspberry-pi.png" alt="schematic" class="bg-primary mb-1" width="1000px">
+
+Connection diagram for the Pi and LED strips. Wire colors according to SK6812 made by BTF-Lighting, Guangdong, China.  
+:::
