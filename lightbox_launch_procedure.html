@@ -377,8 +377,13 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#led-schedule-csv">
-     1. LED_schedule.csv
+    <a class="reference internal nav-link" href="#generate-a-working-led-schedule-csv">
+     1. Generate a working
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       LED_schedule.csv
+      </span>
+     </code>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -428,8 +433,13 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#led-schedule-csv">
-     1. LED_schedule.csv
+    <a class="reference internal nav-link" href="#generate-a-working-led-schedule-csv">
+     1. Generate a working
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       LED_schedule.csv
+      </span>
+     </code>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -470,9 +480,10 @@ title="Print to PDF"
 <section id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h2>
 <p>Things to check before the launch:</p>
-<section id="led-schedule-csv">
-<h3>1. LED_schedule.csv<a class="headerlink" href="#led-schedule-csv" title="Permalink to this headline">#</a></h3>
+<section id="generate-a-working-led-schedule-csv">
+<h3>1. Generate a working <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code><a class="headerlink" href="#generate-a-working-led-schedule-csv" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
+<li><p>On a computer, generate a <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> with the LunaSim scheduler, with your desired parameters. Move the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> into your Pi’s <em>Desktop/control</em></p></li>
 <li><p>For the <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code> to run, the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> must contain a row matching the time at launch. Meaning you cannot have a <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> where the first row is a time in the future. So, when creating the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code>, set the beginning date time ahead of when you will run the script.</p></li>
 <li><p>It also means that you should not delete entire rows with excel in the middle of the  <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code>.</p></li>
 </ul>

@@ -133,6 +133,12 @@ kernelspec:
 
 12. Now the Pi should be ready to control the SK6812 LED strips using our `lightbox.py`
 
+## Create Desktop folder "control"
+
+1. Create a folder in Desktop named _control_
+
+2. Download `lightbox.py` from our Github site(link), and paste it in _Desktop/control_
+
 ## Setting up the `lightbox.py` as a systemd service
 
 1. Create a new service file.

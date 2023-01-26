@@ -350,12 +350,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assemble-pi-and-led-strips">
+   Assemble Pi and LED strips
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -367,6 +391,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assemble-pi-and-led-strips">
+   Assemble Pi and LED strips
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -391,45 +428,165 @@ title="Print to PDF"
 <tr class="row-even"><td><p>Raspberry Pi 4 model B kit</p></td>
 <td><p>XXX</p></td>
 <td><p>GeeekPi</p></td>
-<td><p>1 or 2</p></td>
+<td><p>1</p></td>
 <td><p>$200</p></td>
 <td><p><a class="reference external" href="https://www.amazon.com/GeeekPi-Raspberry-2GB-Starter-Kit/dp/B0B7DFF7TY/ref=sr_1_5?crid=1BQNGTSE4SSDJ&amp;keywords=raspberry+pi+4+kit&amp;qid=1674623289&amp;sprefix=raspberry+pi+4+kit%2Caps%2C121&amp;sr=8-5&amp;ufe=app_do%3Aamzn1.fos.f5122f16-c3e8-4386-bf32-63e904010ad0">Amazon</a></p></td>
 <td><p>[1]</p></td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p>RTC module (DS3231)</p></td>
+<td><p>3-01-1198</p></td>
+<td><p>HiLetgo</p></td>
+<td><p>1</p></td>
+<td><p>$</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/HiLetgo-DS3231-Precision-Arduino-Raspberry/dp/B01N1LZSK3/ref=sr_1_2?crid=33U6N5U6HSRWK&amp;keywords=rtc+ds+3231&amp;qid=1674685955&amp;sprefix=rtc+ds+3231%2Caps%2C72&amp;sr=8-2">Amazon</a></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Generic ouse and keyboard</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>1</p></td>
+<td><p>~40</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Generic HDMI monitor</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>1</p></td>
+<td><p>~$100</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
 </tr>
 <tr class="row-even"><td><p>SK6812 RGBW LED strip</p></td>
-<td><p>SK68121M144RGBWWW65</p></td>
+<td><p>SK68121M144-RGBWWW65</p></td>
 <td><p>BTF-Lighting</p></td>
 <td><p>At least 2</p></td>
 <td><p>$35</p></td>
 <td><p><a class="reference external" href="https://www.amazon.com/BTF-LIGHTING-Individually-Addressable-Flexible-Waterproof/dp/B01N2PCIB9/ref=sr_1_6?crid=3OWYKHJC7QV57&amp;keywords=sk6812%2Bwarm&amp;qid=1674596692&amp;sprefix=sk6812%2Bwarm%2Caps%2C104&amp;sr=8-6&amp;th=1">Amazon</a></p></td>
 <td><p>[2]</p></td>
 </tr>
+<tr class="row-odd"><td><p>2.54mm pitch crimp connector kit</p></td>
+<td><p>XXX</p></td>
+<td><p>OCR</p></td>
+<td><p>1</p></td>
+<td><p>$12</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/OCR-Connector-Housing-Assortment-640Pcs-Set/dp/B071JLCFT6/ref=sr_1_15?crid=1RCAOTD9CWZTD&amp;keywords=gpio+connector+kit&amp;qid=1674669821&amp;sprefix=gpio+connector+kit%2Caps%2C91&amp;sr=8-15"> Amazon </a></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>3 Pin JST SM connector cable (pack of 2m x 4)</p></td>
+<td><p>HL-LED79</p></td>
+<td><p>Hualand</p></td>
+<td><p>At least 1</p></td>
+<td><p>$12</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/Connector-WS2812B-Symphony-connectors%EF%BC%8CSM3P-controller/dp/B07G6PRDBQ/ref=sr_1_11?keywords=jst+3+pin+connector&amp;qid=1674670291&amp;sprefix=JST+3+pin+conn%2Caps%2C105&amp;sr=8-11"> Amazon </a></p></td>
+<td><p>[3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>5V10A DC power adapter</p></td>
+<td><p>P5V10A</p></td>
+<td><p>BTF-Lighting</p></td>
+<td><p>One per LED strip</p></td>
+<td><p>$22</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/BTF-LIGHTING-Plastic-Adapter-Transformer-WS2812B/dp/B01D8FM71S?ref_=ast_sto_dp&amp;th=1"> Amazon </a></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Lumber boards</p></td>
+<td><p>-</p></td>
+<td><p>Home Depot</p></td>
+<td><p>One set per LED strip</p></td>
+<td><p>$17</p></td>
+<td><p>-</p></td>
+<td><p>[4]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Generic black spray paint</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>1</p></td>
+<td><p>$6</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Neutral Density (ND) filter sheets</p></td>
+<td><p>-</p></td>
+<td><p>Lee Filters</p></td>
+<td><p>Depends</p></td>
+<td><p>~$20 per diffusion box</p></td>
+<td><p><a class="reference external" href="https://www.filmandvideolighting.com/lee-neutral-denisty-nd-gel-filter-sheet-film-video-photo-lighting.html">BarnDoor</a></p></td>
+<td><p>[5]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lux meter/radiometer/spectrometer</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>1</p></td>
+<td><p>$200 to &gt;5000</p></td>
+<td><p>-</p></td>
+<td><p>[6]</p></td>
+</tr>
+<tr class="row-even"><td><p>UPS backup battery power</p></td>
+<td><p>BE425M</p></td>
+<td><p>APC</p></td>
+<td><p>1</p></td>
+<td><p>$60</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/APC-Battery-Protector-Back-UPS-BE425M/dp/B01HDC236Q/ref=sr_1_7?keywords=uninterruptible%2Bpower%2Bsupply&amp;qid=1674685859&amp;sprefix=uninter%2Caps%2C105&amp;sr=8-7&amp;ufe=app_do%3Aamzn1.fos.006c50ae-5d4c-4777-9bc0-4513d670b6bc&amp;th=1">Amazon</a></p></td>
+<td><p>-</p></td>
+</tr>
 <tr class="row-odd"><td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
+<td><p>$</p></td>
 <td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>$</p></td>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-<p>*[1] Kit of the Raspberry Pi 4 (or 3) from any company would work. Beside the Pi itself, the kit should include all the accessories such as cable, power supply, case, SD card, etc. You only need the 2GB RAM option, but you can opt for more RAM (4GB or 8GB) if budget allows.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estimated total for one LS-lightbox system (excluding the illuminance meter) = $637</p>
+</div>
+<p>*[1] Equivalent kit of the Raspberry Pi 4 model B from any company would work. Beside the Pi itself, the kit should include all the accessories such as cable, power supply, case, SD card, etc. You only need the 2GB RAM option, but you can opt for more RAM (4GB or 8GB) if budget allows.</p>
+<p>You only need one Pi for moonlight recreation or sunlight and twilight recreation. You can use two Pi in conjunction to recreate both.</p>
 <p>*[2] We recommend the following options: 1m, 144 LED, Warm White. There is also the option of IP65 water resistant and IP30 normal version, choose the one more suitable for your application. Choose warm white because we do not want the big blue spike in the white channel spectrum. You can pick a different length and LED number as needed, but we believe 1m 144 LED is the best suited for most situations.</p>
+<p>You need two LED strips to start. You can add more in multiple of two to daisy chain a lot more strips, e.g., when trying to recreate more closely to sunlight illuminance.</p>
+<p>*[3] Buy enough connector cable so that you can daisy chain LED strips across the room.</p>
+<p>*[4] These are the lumber board dimensions for building one diffusion box:</p>
+<ul class="simple">
+<li><p>Base: One of 5/4” x 6” x 4’ <a class="reference external" href="https://www.homedepot.com/p/WeatherShield-5-4-in-x-6-in-x-4-ft-Premium-Ground-Contact-Pressure-Treated-Decking-Board-253944/300526781">home depot</a> ($6)</p></li>
+<li><p>Two Sides: Two of 1” x 4” x 4’ <a class="reference external" href="https://www.homedepot.com/p/WeatherShield-1-in-x-4-in-x-4-ft-Appearance-Grade-Pressure-Treated-Board-275086/300573653">home depot</a> ($7.4)</p></li>
+<li><p>End caps: Cut down a 1” x 4” x 4’ <a class="reference external" href="https://www.homedepot.com/p/WeatherShield-1-in-x-4-in-x-4-ft-Appearance-Grade-Pressure-Treated-Board-275086/300573653">home depot</a> ($3.7)</p></li>
+</ul>
+<p>*[5] The ND filter you will need depends on your starting (no filter) illuminance. You’ll likely need two or three filters per diffusion box. See “LS-lightbox: calibration”.</p>
+<p>Lee ND filter sheet lineup:
+Lee 298 (ND 0.15, ½ Stop) = Transmission 69.3%
+Lee 209 (ND 0.3, 1 Stop) = Transmission 51.2%
+Lee 210 (ND 0.6, 2 Stop) = Transmission 23.5%
+Lee 211 (ND 0.9, 3 Stop) = Transmission 13.7%
+Lee 299 (ND 1.2, 4 Stop) = Transmission 6.6%</p>
+<p>*[6] Lux meter is just a commercial term for radiometer, both measure illuminance in lx. We need to measure the illuminance of the LED for calibrating it. Spectrometer is like an upgraded radiometer. It measures spectral irradiance, giving you spectral information about the light. And spectral irradiance measurements can be easily converted into illuminance. Spectrometer is generally high cost.</p>
+<p>An accurate illuminance measuring device is critical for calibrating LS-lightbox, but a good one designed for low light is expensive. We do not want the cost of a good radiometer to discourage the use of LS-lightbox for moonlight experiments. Still, you should certainly get a meter that has NIST-Traceable calibration, like this <a class="reference external" href="https://www.intl-lighttech.com/products/ilt10c-luxlight-meter-nist-traceable-calibration?gclid=Cj0KCQiAw8OeBhCeARIsAGxWtUzB0YaQDpYF5fXMYee-U9zSQgnbmph4LrlmD0inkbSdw4FtaJ-AjjsaApwYEALw_wcB">ILT10C</a>. Lower cost meters can not measure at moonlight illuminance level (i.e., &gt;0.3lux), still we can calibrate the LS-lightbox. Please see further explanations and solutions in the “LS-lightbox calibration” section.</p>
+<p>For us, we use the International Light Technology <a class="reference external" href="https://www.intl-lighttech.com/products/ilt5000-researchlab-radiometer">ILT-5000</a> radiometer, with a SUD100/U detector equipped with Y4 photopic filter (total ~$4000).</p>
+<section id="assemble-pi-and-led-strips">
+<h2>Assemble Pi and LED strips<a class="headerlink" href="#assemble-pi-and-led-strips" title="Permalink to this headline">#</a></h2>
 <figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/raspberry-pi.png"><img alt="schematic" class="bg-primary mb-1" src="_images/raspberry-pi.png" style="width: 1000px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 2 </span><span class="caption-text">Connection diagram for the Pi and LED strips. Wire colors according to SK6812 made by BTF-Lighting, Guangdong, China.</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<figure class="align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/diffusion_box.png"><img alt="box" class="bg-primary mb-1" src="_images/diffusion_box.png" style="width: 1000px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Construction of a diffusion box housing one LED strip.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
