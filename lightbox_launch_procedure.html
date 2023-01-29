@@ -52,6 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Description of moonlight variation" href="moonlight_variation.html" />
     <link rel="prev" title="LS-lightbox: Calibration" href="lightbox_calibration.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -146,6 +147,16 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    LS-lightbox: Launch procedure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonlight_variation.html">
+   Description of moonlight variation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="light_measurment.html">
+   Note about light measurements
   </a>
  </li>
 </ul>
@@ -483,7 +494,7 @@ title="Print to PDF"
 <section id="generate-a-working-led-schedule-csv">
 <h3>1. Generate a working <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code><a class="headerlink" href="#generate-a-working-led-schedule-csv" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>On a computer, generate a <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> with the LunaSim scheduler, with your desired parameters. Move the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> into your Pi’s <em>Desktop/control</em></p></li>
+<li><p>On a computer, generate a <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> with the LunaSim scheduler, with your desired parameters. Make sure that your time zone was set correctly, and is a time zone without DST. Move the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> into your Pi’s <em>Desktop/control</em></p></li>
 <li><p>For the <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code> to run, the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> must contain a row matching the time at launch. Meaning you cannot have a <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> where the first row is a time in the future. So, when creating the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code>, set the beginning date time ahead of when you will run the script.</p></li>
 <li><p>It also means that you should not delete entire rows with excel in the middle of the  <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code>.</p></li>
 </ul>
@@ -574,6 +585,13 @@ title="Print to PDF"
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">LS-lightbox: Calibration</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="moonlight_variation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Description of moonlight variation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

@@ -149,6 +149,16 @@ const thebe_selector_output = ".output, .cell_output"
    LS-lightbox: Launch procedure
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonlight_variation.html">
+   Description of moonlight variation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="light_measurment.html">
+   Note about light measurements
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -350,12 +360,48 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#moonlight-recreation">
+   Moonlight recreation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sunlight-and-twilight-recreation">
+   Sunlight and twilight recreation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-more-led-strips">
+     Using more LED strips
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -367,6 +413,31 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#moonlight-recreation">
+   Moonlight recreation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sunlight-and-twilight-recreation">
+   Sunlight and twilight recreation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-more-led-strips">
+     Using more LED strips
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -375,7 +446,72 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="ls-lightbox-calibration">
-<h1>LS-lightbox: Calibration<a class="headerlink" href="#ls-lightbox-calibration" title="Permalink to this headline">#</a></h1>
+<span id="content-lightbox-calibration"></span><h1>LS-lightbox: Calibration<a class="headerlink" href="#ls-lightbox-calibration" title="Permalink to this headline">#</a></h1>
+<section id="moonlight-recreation">
+<h2>Moonlight recreation<a class="headerlink" href="#moonlight-recreation" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>To achieve moonlight level illuminance, the LED arrays must be physically dimmed. We use ND filter on the lightbox to reduce the light intensity without modifying the color spectrum.</p></li>
+<li><p>The user must first decide whether to recreate unobstructed ground illumination (i.e., a simulation in which there is no additional dimming), or a lower intensity to resembles the attenuation level in the desired natural habitat.</p></li>
+<li><p>To make an informed decision on what combination of ND filter sheets you would need for your specific room and setup, put the lightboxs at their permanent locations. Ideally on two top shelves on both sides of the room, so that light is directed to the ceiling and diffusely illuminate the entire room. Then measure the illuminance at the position of the animal enclosure. Let’s say that it measures 100 lx.</p>
+<ul>
+<li><p>To target a full moon illuminance of 0.25 lx, based on the transmission of the ND filter:</p></li>
+<li><p>Lee ND filter sheet lineup:</p>
+<ul>
+<li><p>Lee 298 (ND 0.15, ½ Stop) = Transmission 69.3%</p></li>
+<li><p>Lee 209 (ND 0.3, 1 Stop) = Transmission 51.2%</p></li>
+<li><p>Lee 210 (ND 0.6, 2 Stop) = Transmission 23.5%</p></li>
+<li><p>Lee 211 (ND 0.9, 3 Stop) = Transmission 13.7%</p></li>
+<li><p>Lee 299 (ND 1.2, 4 Stop) = Transmission 6.6%</p></li>
+</ul>
+</li>
+<li><p>In theory, using two sheets of 4 Stop ND: 100 lx :x: 6.6% :x: 6.6% = 0.44 lx</p></li>
+<li><p>Adding one sheet of ½ Stop ND: 0.44 lx :x: 69.3% = 0.30 lx</p></li>
+<li><p>To further reduce 0.30 lx to 0.25, we could do it through LunaSim-Moonlight LED scheduler.</p></li>
+<li><p>The above calculation is only to get an idea of which ND filter to buy. Next we must calibrate the lightbox by measuring the illuminance.</p></li>
+</ul>
+</li>
+<li><p>The calibration method depends on whether a low light sensitive spectrometer or radiometer (able to measure 0.01 lx) is available.</p>
+<ul>
+<li><p>If available, instruct the lightbox to generate a full moon illuminance, and layer filters on the lightbox until your room illuminance (radiometer sensor placed at your animal keeping area) reads the desire illuminance.</p></li>
+<li><p>If only a non-low light sensitive radiometer is available:</p>
+<ol class="simple">
+<li><p>The user would instead measure the room illuminance with no filter applied. Then repeat the measurement but now with the radiometer pointing directly at the LED light at a close fixed distance.</p></li>
+<li><p>The ratio between the room illuminance and direct illuminance should remain relatively constant as more filters are applied.</p></li>
+<li><p>Hence, user can estimate how many layers of filter is required to reduce the illuminance to reach the target.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="align-default" id="days">
+<img alt="_images/10days.png" src="_images/10days.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">LS-lightbox performance in recreating moonlight illuminance level after calibration. LunaSim prediction (black line) and measeured recreated illuminance (red line). Both lines mostly overlaps. Test performed in a lab setting, running a simulated LED schedule for 9 nights around a full moon.</span><a class="headerlink" href="#days" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="sunlight-and-twilight-recreation">
+<h2>Sunlight and twilight recreation<a class="headerlink" href="#sunlight-and-twilight-recreation" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>To achieve sunlight level illuminance, we do not need any dimming.</p></li>
+<li><p>The user must first decide what sunlight illuminance is required. Direct overhead sunlight can be &gt;100,000 lx, and is probably impractical and unnecessary to recreate such level of illuminance.</p></li>
+<li><p>You would probably want to recreate sunlight at least 200 lx though, because 200 lx is approximatly the illuminance when the sun is on the horizon. Meaning that if you can not recreate 200 lx, you are not even recreating the full range of twilight illuminance.</p></li>
+<li><p>The LED strip can be adhered on the ceiling to create illuminate the room like a normal light fixture, or fixed directly on your animal enclosure to provide a much stronger light intensity.</p></li>
+</ul>
+<section id="using-more-led-strips">
+<h3>Using more LED strips<a class="headerlink" href="#using-more-led-strips" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Two LED strips may not be enough in recreating the desired illuminance, but more LED strips can be daisy chained.</p>
+<ul>
+<li><p>Connect additional LED strips according to <a class="reference internal" href="lightlbox_hardware_setup.html#schematic"><span class="std std-numref">Fig. 2</span></a></p></li>
+<li><p>On the software side, edit the <code class="docutils literal notranslate"><span class="pre">main.c</span></code> as described here in step 11 of <a class="reference internal" href="lightbox_software_setup.html#content-lightbox-lednumber"><span class="std std-ref">Setting up a new Raspberry Pi</span></a></p></li>
+<li><p>And edit the <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code> as described here step 3 of <a class="reference internal" href="lightbox_software_setup.html#content-lightbox-lednumber2"><span class="std std-ref">Create Desktop folder “control”</span></a></p></li>
+<li><p>When generating the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> from LunaSim LED schedulers, put in the correct number of LED strips.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

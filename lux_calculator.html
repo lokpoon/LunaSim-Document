@@ -149,6 +149,16 @@ const thebe_selector_output = ".output, .cell_output"
    LS-lightbox: Launch procedure
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonlight_variation.html">
+   Description of moonlight variation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="light_measurment.html">
+   Note about light measurements
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -377,6 +387,16 @@ title="Print to PDF"
    Key features
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#packages-required">
+   Packages required
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workflow">
+   Workflow
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -401,6 +421,16 @@ title="Print to PDF"
    Key features
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#packages-required">
+   Packages required
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workflow">
+   Workflow
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -413,7 +443,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="lunasim-lux-calculator">
 <h1>LunaSim: Lux calculator<a class="headerlink" href="#lunasim-lux-calculator" title="Permalink to this headline">#</a></h1>
-<p>LunaSim-lux calculator is a standalone R program that predicts ground illuminance (lux) of moonlight. A basic prediction of twilight and sunlight illuminance is also provided as an option.</p>
+<p><strong>LunaSim-Lux calculator</strong> is a R program that predicts ground illuminance (lux) of moonlight. A basic prediction of twilight and sunlight illuminance is also provided as an option.</p>
 <p>It is intended for use for ecological studies where biologists requires moonlight illuminance as a model predictor.</p>
 <section id="key-features">
 <h2>Key features<a class="headerlink" href="#key-features" title="Permalink to this headline">#</a></h2>
@@ -423,12 +453,33 @@ title="Print to PDF"
 <li><p>Generates .csv table of illuminance over time</p></li>
 <li><p>Quickly plot illuminance over time</p></li>
 </ul>
-<figure class="align-default" id="markdown-fig">
-<a class="bg-primary mb-1 reference internal image-reference" href="_images/one_month.png"><img alt="one_month" class="bg-primary mb-1" src="_images/one_month.png" style="width: 1000px;" /></a>
+<figure class="align-default" id="one-month">
+<img alt="_images/one_month.png" src="_images/one_month.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Plot example of moonlight ground illuminance over a month in 2022 in Leticia, Colombia.</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Plot example of moonlight ground illuminance over a month in 2022 in Leticia, Colombia.</span><a class="headerlink" href="#one-month" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+</section>
+<section id="packages-required">
+<h2>Packages required<a class="headerlink" href="#packages-required" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">library(suncalc)</span></code> Calculate astronomical variables given a time and location, including moon phase, moon altitude, sun altitude, the Moon and Earth distance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(dplyr)</span></code> Data wrangling</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(lubridate)</span></code> Makes datetime format easier to work with</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(REdaS)</span></code> Convert between degree angle and radian</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(npreg)</span></code> Fit smoothing spline</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(ggplot2)</span></code> Create plots</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(beepr)</span></code> Makes a notification sound</p></li>
+</ul>
+</section>
+<section id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Set the time period and location.</p></li>
+<li><p>Set the simulation time interval (i.e., the temporal resolution).</p></li>
+<li><p>Save a lux_prediction.csv, containing the illuminance prediction over time.</p></li>
+<li><p>Save a plot of the illuminance prediction over time.</p></li>
+</ol>
 </section>
 </section>
 

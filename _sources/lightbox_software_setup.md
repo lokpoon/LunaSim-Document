@@ -14,7 +14,7 @@ kernelspec:
 ---
 
 # LS-lightbox: Software setup
-
+(content:lightbox:lednumber)=
 ## Setting up a new Raspberry Pi
 
 1. On a computer go to Raspberry Pi’s website https://www.raspberrypi.com/software/ to download and install the Raspberry Pi Imager.
@@ -133,11 +133,47 @@ kernelspec:
 
 12. Now the Pi should be ready to control the SK6812 LED strips using our `lightbox.py`
 
+## Setup RTC and time
+
+A real time clock module is option but highly recommended. We recommend you to run the Pi offline, and use the RTC to keep time. This is because having the Pi connected to the internet may not be possible, and when the Pi is online it will automatically update to the local time (including the troublesome DST).
+
+1. Install RTC module DS3231 as described in "LS-lightbox: Hardware setup"
+
+2. On Pi, go to Start menu (top right button) > Preferences > Raspberry Pi Configuration > Interfaces > I2C **Enable** > OK
+
+3. Install RTC configurations (Reference: [Real Time Clock Script for Raspberry Pi](https://www.youtube.com/watch?v=MxUbqotDBnM), [Adding a Real Rime Clock to your Raspberry Pi](https://thepihut.com/blogs/raspberry-pi-tutorials/17209332-adding-a-real-time-clock-to-your-raspberry-pi))
+    - In terminal:
+    `wget https://raw.githubusercontent.com/km4ack/pi-scripts/master/rtc && bash rtc'
+    - Is the time above correct?
+    - Do you see 68 in the info listed above? (It may also appear as UU instead of 68, either is fine)
+    ```{note}
+    This rtc installation works for both DS 1307 or DS 3231 variants RTC chips
+    ```
+4. Turn off DST by setting the time zone to UTC:
+    - In terminal:
+    `sudo raspi-config`
+    - Select option 5 **Internationalization Options**
+    - Select 12 **Change Time Zone**
+    - At the bottom select **None of the above**
+    - Select **UTC** and OK
+
+5. To change Pi clock to your current time (without DST if you are currently experiencing DST), in terminal:
+    - `sudo date -s 'YYYY-MM-DD 00:00:00'`
+    - Change the above to your Year-Month-Day hour:minute:second. Keep the digits format, meaning four digits for the year and two digits for the rest.
+
+6. Copy the time from the Raspberry Pi system to the Hardware RTC:
+    - `sudo hwclock -w`
+8. To check if RTC is working:
+    - `sudo hwclock -rv`
+    - You should read the hardware clock without error.
+(content:lightbox:lednumber2)=    
 ## Create Desktop folder "control"
 
 1. Create a folder in Desktop named _control_
 
 2. Download `lightbox.py` from our Github site(link), and paste it in _Desktop/control_
+
+3. asdf
 
 ## Setting up the `lightbox.py` as a systemd service
 

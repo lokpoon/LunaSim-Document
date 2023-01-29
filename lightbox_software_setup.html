@@ -149,6 +149,16 @@ const thebe_selector_output = ".output, .cell_output"
    LS-lightbox: Launch procedure
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonlight_variation.html">
+   Description of moonlight variation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="light_measurment.html">
+   Note about light measurements
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -378,6 +388,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-rtc-and-time">
+   Setup RTC and time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#create-desktop-folder-control">
    Create Desktop folder “control”
   </a>
@@ -418,6 +433,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-rtc-and-time">
+   Setup RTC and time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#create-desktop-folder-control">
    Create Desktop folder “control”
   </a>
@@ -446,7 +466,7 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="ls-lightbox-software-setup">
 <h1>LS-lightbox: Software setup<a class="headerlink" href="#ls-lightbox-software-setup" title="Permalink to this headline">#</a></h1>
 <section id="setting-up-a-new-raspberry-pi">
-<h2>Setting up a new Raspberry Pi<a class="headerlink" href="#setting-up-a-new-raspberry-pi" title="Permalink to this headline">#</a></h2>
+<span id="content-lightbox-lednumber"></span><h2>Setting up a new Raspberry Pi<a class="headerlink" href="#setting-up-a-new-raspberry-pi" title="Permalink to this headline">#</a></h2>
 <ol>
 <li><p>On a computer go to Raspberry Pi’s website <a class="reference external" href="https://www.raspberrypi.com/software/">https://www.raspberrypi.com/software/</a> to download and install the Raspberry Pi Imager.</p></li>
 <li><p>In Raspberry Pi Imager, install <strong>Raspberry Pi OS (Legacy)</strong> on the micro SD card.</p></li>
@@ -529,11 +549,59 @@ title="Print to PDF"
 <li><p>Now the Pi should be ready to control the SK6812 LED strips using our <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code></p></li>
 </ol>
 </section>
+<section id="setup-rtc-and-time">
+<h2>Setup RTC and time<a class="headerlink" href="#setup-rtc-and-time" title="Permalink to this headline">#</a></h2>
+<p>A real time clock module is option but highly recommended. We recommend you to run the Pi offline, and use the RTC to keep time. This is because having the Pi connected to the internet may not be possible, and when the Pi is online it will automatically update to the local time (including the troublesome DST).</p>
+<ol>
+<li><p>Install RTC module DS3231 as described in “LS-lightbox: Hardware setup”</p></li>
+<li><p>On Pi, go to Start menu (top right button) &gt; Preferences &gt; Raspberry Pi Configuration &gt; Interfaces &gt; I2C <strong>Enable</strong> &gt; OK</p></li>
+<li><p>Install RTC configurations (Reference: <a class="reference external" href="https://www.youtube.com/watch?v=MxUbqotDBnM">Real Time Clock Script for Raspberry Pi</a>, <a class="reference external" href="https://thepihut.com/blogs/raspberry-pi-tutorials/17209332-adding-a-real-time-clock-to-your-raspberry-pi">Adding a Real Rime Clock to your Raspberry Pi</a>)</p>
+<ul class="simple">
+<li><p>In terminal:
+`wget <a class="reference external" href="https://raw.githubusercontent.com/km4ack/pi-scripts/master/rtc">https://raw.githubusercontent.com/km4ack/pi-scripts/master/rtc</a> &amp;&amp; bash rtc’</p></li>
+<li><p>Is the time above correct?</p></li>
+<li><p>Do you see 68 in the info listed above? (It may also appear as UU instead of 68, either is fine)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This rtc installation works for both DS 1307 or DS 3231 variants RTC chips</p>
+</div>
+</li>
+<li><p>Turn off DST by setting the time zone to UTC:</p>
+<ul class="simple">
+<li><p>In terminal:
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">raspi-config</span></code></p></li>
+<li><p>Select option 5 <strong>Internationalization Options</strong></p></li>
+<li><p>Select 12 <strong>Change Time Zone</strong></p></li>
+<li><p>At the bottom select <strong>None of the above</strong></p></li>
+<li><p>Select <strong>UTC</strong> and OK</p></li>
+</ul>
+</li>
+<li><p>To change Pi clock to your current time (without DST if you are currently experiencing DST), in terminal:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">date</span> <span class="pre">-s</span> <span class="pre">'YYYY-MM-DD</span> <span class="pre">00:00:00'</span></code></p></li>
+<li><p>Change the above to your Year-Month-Day hour:minute:second. Keep the digits format, meaning four digits for the year and two digits for the rest.</p></li>
+</ul>
+</li>
+<li><p>Copy the time from the Raspberry Pi system to the Hardware RTC:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">hwclock</span> <span class="pre">-w</span></code></p></li>
+</ul>
+</li>
+<li><p>To check if RTC is working:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">hwclock</span> <span class="pre">-rv</span></code></p></li>
+<li><p>You should read the hardware clock without error.</p></li>
+</ul>
+</li>
+</ol>
+</section>
 <section id="create-desktop-folder-control">
-<h2>Create Desktop folder “control”<a class="headerlink" href="#create-desktop-folder-control" title="Permalink to this headline">#</a></h2>
+<span id="content-lightbox-lednumber2"></span><h2>Create Desktop folder “control”<a class="headerlink" href="#create-desktop-folder-control" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Create a folder in Desktop named <em>control</em></p></li>
 <li><p>Download <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code> from our Github site(link), and paste it in <em>Desktop/control</em></p></li>
+<li><p>asdf</p></li>
 </ol>
 </section>
 <section id="setting-up-the-lightbox-py-as-a-systemd-service">

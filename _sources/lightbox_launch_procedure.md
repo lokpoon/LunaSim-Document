@@ -24,7 +24,7 @@ Things to check before the launch:
 
 ### 1. Generate a working `LED_schedule.csv`
 
-- On a computer, generate a `LED_schedule.csv` with the LunaSim scheduler, with your desired parameters. Move the `LED_schedule.csv` into your Pi's *Desktop/control*
+- On a computer, generate a `LED_schedule.csv` with the LunaSim scheduler, with your desired parameters. Make sure that your time zone was set correctly, and is a time zone without DST. Move the `LED_schedule.csv` into your Pi's *Desktop/control*
 
 - For the `lightbox.py` to run, the `LED_schedule.csv` must contain a row matching the time at launch. Meaning you cannot have a `LED_schedule.csv` where the first row is a time in the future. So, when creating the `LED_schedule.csv`, set the beginning date time ahead of when you will run the script.
 
