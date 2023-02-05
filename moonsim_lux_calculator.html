@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Overview &#8212; LunaSim and LS-lightbox Documentation</title>
+    <title>MoonSim: Lux calculator &#8212; LunaSim and LS-lightbox Documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MoonSim: Lux calculator" href="moonsim_lux_calculator.html" />
+    <link rel="next" title="MoonSim: Moonlight scheduler" href="moonsim_moonlight_LED_scheduler.html" />
+    <link rel="prev" title="Overview" href="overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -106,15 +107,15 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="overview.html">
                     Overview
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="moonsim_lux_calculator.html">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
@@ -234,6 +235,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/lokpoon/LunaSim/master?urlpath=tree/docs/moonsim_lux_calculator.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -273,7 +303,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/lokpoon/LunaSim/issues/new?title=Issue%20on%20page%20%2Foverview.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/lokpoon/LunaSim/issues/new?title=Issue%20on%20page%20%2Fmoonsim_lux_calculator.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -301,7 +331,24 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/overview.md"
+        <a href="_sources/moonsim_lux_calculator.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/moonsim_lux_calculator.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -361,26 +408,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-font-variant-small-caps-moonsim-span">
-   <em>
-    <span style="font-variant:small-caps;">
-     MoonSim
-    </span>
-   </em>
+  <a class="reference internal nav-link" href="#key-features">
+   Key features
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-font-variant-small-caps-moonshine-span">
-   <em>
-    <span style="font-variant:small-caps;">
-     MoonShine
-    </span>
-   </em>
+  <a class="reference internal nav-link" href="#packages-required">
+   Packages required
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-of-contents">
-   Table of contents
+  <a class="reference internal nav-link" href="#workflow">
+   Workflow
   </a>
  </li>
 </ul>
@@ -392,7 +431,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Overview</h1>
+                <h1><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -403,26 +442,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-font-variant-small-caps-moonsim-span">
-   <em>
-    <span style="font-variant:small-caps;">
-     MoonSim
-    </span>
-   </em>
+  <a class="reference internal nav-link" href="#key-features">
+   Key features
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-font-variant-small-caps-moonshine-span">
-   <em>
-    <span style="font-variant:small-caps;">
-     MoonShine
-    </span>
-   </em>
+  <a class="reference internal nav-link" href="#packages-required">
+   Packages required
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-of-contents">
-   Table of contents
+  <a class="reference internal nav-link" href="#workflow">
+   Workflow
   </a>
  </li>
 </ul>
@@ -435,40 +466,102 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h1>
-<section id="span-style-font-variant-small-caps-moonsim-span">
-<h2><em><span style="font-variant:small-caps;">MoonSim</span></em><a class="headerlink" href="#span-style-font-variant-small-caps-moonsim-span" title="Permalink to this headline">#</a></h2>
-<p><em><span style="font-variant:small-caps;">MoonSim</span></em> is a suite of R program that predicts the ground illuminance of moonlight, twilight, and sunlight at a any geographic location and time period. The three <em><span style="font-variant:small-caps;">MoonSim</span></em> <em><span style="font-variant:small-caps;">R</span></em> programs generate different outputs:</p>
-<ol class="simple">
-<li><p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</strong></em> simply predicts moonlight and twilight illuminance.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="span-style-font-variant-small-caps-moonsim-span-lux-calculator">
+<span id="content-luxcalculator"></span><h1><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator<a class="headerlink" href="#span-style-font-variant-small-caps-moonsim-span-lux-calculator" title="Permalink to this headline">#</a></h1>
+<p><em><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</em> predicts ground illuminance of moonlight in lux (lx). A basic prediction of twilight and sunlight illuminance is also included.</p>
+<p>It is intended for use for ecological studies where biologists requires moonlight illuminance as a model predictor.</p>
+<p>Download <em><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</em> here.</p>
+<section id="key-features">
+<h2>Key features<a class="headerlink" href="#key-features" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>For example, an ecologist could test for the effect of natural nocturnal light on bat activity level, by using the illuminance prediction as a predictor variable in a statistical model.</p></li>
+<li><p>Accurate prediction of moonlight illuminance at any geographic location and over any time period.</p></li>
+<li><p>Basic prediction of twilight and sunlight illuminance as well.</p></li>
+<li><p>Generates .csv table of illuminance over time.</p></li>
+<li><p>Plot illuminance over time.</p></li>
 </ul>
-</li>
-<li><p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</strong></em> must be used with <em><span style="font-variant:small-caps;">MoonShine</span></em> (see below). It predicts only moonlight illuminance, and convert them into LED intensity values. Outputs a <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> table that serves as a schedule for <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p></li>
-<li><p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Sunlight &amp; twilight scheduler</strong></em> must be used with <em><span style="font-variant:small-caps;">MoonShine</span></em> (see below). It predicts sunlight and twilight illuminance, and convert them into LED intensity values. Outputs a <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code> table that serves as a schedule for <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p></li>
-</ol>
 </section>
-<section id="span-style-font-variant-small-caps-moonshine-span">
-<h2><em><span style="font-variant:small-caps;">MoonShine</span></em><a class="headerlink" href="#span-style-font-variant-small-caps-moonshine-span" title="Permalink to this headline">#</a></h2>
-<p><em><span style="font-variant:small-caps;">MoonShine</span></em> is an LED controlling system for recreating realistic illuminance of moonlight, twilight, and to an extent – sunlight in a laboratory. Moreover, the light schedule can be freely edited, making it ideal for experiments requiring a specific lighting scenario. <em><span style="font-variant:small-caps;">MoonShine</span></em> runs a python program on a Raspberry Pi to control an array of LED strips. Every minute, the python program reads the light schedule (generated by <em><span style="font-variant:small-caps;">MoonSim</span>: schedulers</em>) to refresh the LED intensities. User can run a moonlight schedule and a sunlight and twilight schedule simultaneously on the Pi. As such, the Pi individually control two arrays of LED strips, to fully recreate all three major sources of natural light around the clock.</p>
-</section>
-<section id="table-of-contents">
-<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="moonsim_lux_calculator.html"><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonsim_moonlight_LED_scheduler.html"><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonsim_sunlight_twilight_LED_scheduler.html"><span style="font-variant:small-caps;">MoonSim</span>: Sunlight &amp; twilight scheduler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="edit_LED_schedule_csv.html">Edit <span style="font-variant:small-caps;">MoonSim</span> schedule</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonshine_hardware_setup.html"><span style="font-variant:small-caps;">MoonShine</span>: Hardware setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonshine_software_setup.html"><span style="font-variant:small-caps;">MoonShine</span>: Software setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonshine_calibration.html"><span style="font-variant:small-caps;">MoonShine</span>: Calibration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonshine_launch_procedure.html"><span style="font-variant:small-caps;">MoonShine</span>: Launch procedure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonlight_variation.html">Description of moonlight variation</a></li>
+<section id="packages-required">
+<h2>Packages required<a class="headerlink" href="#packages-required" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">library(suncalc)</span></code> Calculate astronomical variables given a time and location, including moon phase, moon altitude, sun altitude, the Moon and Earth distance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(dplyr)</span></code> Data wrangling</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(lubridate)</span></code> Makes datetime format easier to work with</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(REdaS)</span></code> Convert between degree angle and radian</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(npreg)</span></code> Fit smoothing spline</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(ggplot2)</span></code> Create plots</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(beepr)</span></code> Makes a notification sound</p></li>
 </ul>
+</section>
+<section id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">#</a></h2>
+<p>This is a basic run down of the <em><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</em> R code, highlighting the important steps. There the code itself is also commented.</p>
+<ol>
+<li><p>Set the working directory. This is where the .csv and .png plot will save.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setwd</span><span class="p">(</span><span class="s2">&quot;/Users/lokpoon/Desktop&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
+</li>
+<li><p>Set the location.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">latitude</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="mf">4.21528</span> <span class="c1"># (!) Latitude in decimal degrees (e.g., -4.21528)</span>
+<span class="n">longitude</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="mf">69.94056</span> <span class="c1"># (!) Longitude in decimal degrees (e.g. -69.94056)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set the time zone.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time_zone</span> <span class="o">&lt;-</span> <span class="s2">&quot;EST&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set the starting date, starting time, and simulation duration in days.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date_start</span> <span class="o">&lt;-</span> <span class="s2">&quot;2023-01-29&quot;</span> <span class="c1"># (!) Starting date of the simulation (YYYY-MM-DD)</span>
+<span class="n">time_start</span> <span class="o">&lt;-</span> <span class="s2">&quot;18:00:00&quot;</span> <span class="c1"># (!) Starting date of the simulation (hh:mm:ss)</span>
+<span class="n">duration_day</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="c1"># (!) Duration of simulation in days</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set the simulation time interval (i.e., the temporal resolution).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time_interval_minutes</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="c1"># (!) The temporal resolution of the simulation in minutes. E.g., 1 = every minute. 10 = every ten minutes.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Decide whether to change the default darksky_value, a constant value that is added to moonlight illuminance for representing starlight and airglow.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">darksky_value</span> <span class="o">&lt;-</span> <span class="mf">0.002</span> <span class="c1"># (!) Range = 0.0007 to 0.003. Default = 0.002 lx</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the computation section.</p></li>
+<li><p>Save a lux_prediction.csv, containing the illuminance prediction over time.There are five columns of different illuminance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">moon_value_table</span><span class="p">,</span><span class="s2">&quot;lux_caculator_output.csv&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The lux_calculator_output.csv contains the following columns. We included the illuminance from the different combinations of moonlight, twilight, and sunlight, because each could be useful according to the user’s application.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">datetime</span> <span class="c1"># The datetime in a standard format that R and lightbox.py can read</span>
+ <span class="n">phase_angle</span> <span class="c1"># the phase angle of the moon</span>
+ <span class="n">z_moon</span> <span class="c1"># zenith distance of the moon in degree angle</span>
+ <span class="n">distance</span> <span class="c1"># the moon and Earth distance in km</span>
+ <span class="n">sun_altitude</span> <span class="c1"># The altitude of the sun. Positive/negative value means the sun is above/below the horizon, respectively.</span>
+ <span class="n">moon_final_lux</span> <span class="c1"># illuminance of moonlight (plus the darksky_value)</span>
+ <span class="n">moon_final_lux_nighttime</span> <span class="c1"># illuminance of moonlight only at night (reports NA at daytime, when sun altitude &gt; 0)</span>
+ <span class="n">twilight</span> <span class="c1"># illuminance of twilight (defined as the light when sun altitude &lt; 0)</span>
+ <span class="n">sunlight</span> <span class="c1"># illuminance of sunlight (defined as the light when sun altitude &gt; 0)</span>
+ <span class="n">total_illuminance_all</span> <span class="c1"># sum of moonlight, twilight, and sunlight</span>
+ <span class="n">sunlight_twilight</span> <span class="c1"># sum of sunlight and twilight</span>
+ <span class="n">moonlight_twilight_nighttime</span> <span class="c1"># illuminance of moonlight plus twilight only at night (reports NA at daytime, when sun altitude &gt; 0)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Save a plot of the illuminance prediction over time.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ggsave</span><span class="p">(</span><span class="s2">&quot;plot_output.png&quot;</span><span class="p">,</span> <span class="n">plot_output</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">4488</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;px&quot;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">450</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="one-month">
+<img alt="_images/one_month.png" src="_images/one_month.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Plot example of moonlight ground illuminance over a month in 2022 in Leticia, Colombia.</span><a class="headerlink" href="#one-month" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
 </section>
 </section>
 
@@ -499,10 +592,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="moonsim_lux_calculator.html" title="next page">
+    <a class='left-prev' id="prev-link" href="overview.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Overview</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="moonsim_moonlight_LED_scheduler.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</p>
+        <p class="prev-next-title"><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
