@@ -218,7 +218,7 @@ In _/control_moon/moonsim_moon.py_, the line LED_PIN = 18 specify the communicat
     - For step 1, use a different file name:
     
         ```
-       /etc/systemd/system/moonsim_sun.service`
+       /etc/systemd/system/moonsim_sun.service
         ```
         
     - For step 2, replace the line of ExecStart=...  with 
