@@ -485,6 +485,7 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">library(suncalc)</span></code> Calculate astronomical variables given a time and location, including moon phase, moon altitude, sun altitude, the Moon and Earth distance</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">library(dplyr)</span></code> Data wrangling</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(rpmodel)</span></code> Calculates atmospheric pressure at given elevation</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">library(lubridate)</span></code> Makes datetime format easier to work with</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">library(REdaS)</span></code> Convert between degree angle and radian</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">library(npreg)</span></code> Fit smoothing spline</p></li>
@@ -504,6 +505,11 @@ title="Print to PDF"
 <li><p>Set the location.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">latitude</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="mf">4.21528</span> <span class="c1"># (!) Latitude in decimal degrees (e.g., -4.21528)</span>
 <span class="n">longitude</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="mf">69.94056</span> <span class="c1"># (!) Longitude in decimal degrees (e.g. -69.94056)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set the site elevation in m above mean sea level.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">site_elev</span> <span class="o">&lt;-</span> <span class="mi">0</span> <span class="c1"># (!) site elevation in meter (e.g., 0 = sea level)</span>
 </pre></div>
 </div>
 </li>
@@ -529,7 +535,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p>Set what type of illumination to plot. i.e., One of the illuminance column name shown in step 10.</p>
+<li><p>Specify the type of illumination to plot. i.e., One of the illuminance column name shown in step 10.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">illuminance_type_plot</span> <span class="o">&lt;-</span> <span class="s2">&quot;moon_final_lux&quot;</span> <span class="c1"># (!)</span>
 </pre></div>
 </div>

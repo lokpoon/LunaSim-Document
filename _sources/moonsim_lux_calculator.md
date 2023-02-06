@@ -31,6 +31,7 @@ Download _<span style="font-variant:small-caps;">MoonSim</span>: Lux calculator_
 ##  Packages required
 - `library(suncalc)` Calculate astronomical variables given a time and location, including moon phase, moon altitude, sun altitude, the Moon and Earth distance
 - `library(dplyr)` Data wrangling
+- `library(rpmodel)` Calculates atmospheric pressure at given elevation
 - `library(lubridate)` Makes datetime format easier to work with
 - `library(REdaS)` Convert between degree angle and radian
 - `library(npreg)` Fit smoothing spline
@@ -52,7 +53,13 @@ This is a basic run down of the _<span style="font-variant:small-caps;">MoonSim<
     longitude <- -69.94056 # (!) Longitude in decimal degrees (e.g. -69.94056)
     ```
 
-3. Set the time zone.
+3. Set the site elevation in m above mean sea level.
+
+    ```
+    site_elev <- 0 # (!) site elevation in meter (e.g., 0 = sea level)
+    ```
+    
+4. Set the time zone.
 
     ```
     time_zone <- "EST"
@@ -78,7 +85,7 @@ This is a basic run down of the _<span style="font-variant:small-caps;">MoonSim<
     darksky_value <- 0.002 # (!) Range = 0.0007 to 0.003. Default = 0.002 lx
     ```
 
-8. Set what type of illumination to plot. i.e., One of the illuminance column name shown in step 10.
+8. Specify the type of illumination to plot. i.e., One of the illuminance column name shown in step 10.
     ```
     illuminance_type_plot <- "moon_final_lux" # (!)
     ```
