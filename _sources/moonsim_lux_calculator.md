@@ -61,15 +61,15 @@ This is a basic run down of the _<span style="font-variant:small-caps;">MoonSim<
 5. Set the starting date, starting time, and simulation duration in days.
 
     ```
-    date_start <- "2023-01-29" # (!) Starting date of the simulation (YYYY-MM-DD)
+    date_start <- "2022-07-26" # (!) Starting date of the simulation (YYYY-MM-DD)
     time_start <- "18:00:00" # (!) Starting date of the simulation (hh:mm:ss)
-    duration_day <- 1 # (!) Duration of simulation in days
+    duration_day <- 29.5 # (!) Duration of simulation in days
     ```
 
 6. Set the simulation time interval (i.e., the temporal resolution).
 
     ```
-    time_interval_minutes <- 1 # (!) The temporal resolution of the simulation in minutes. E.g., 1 = every minute. 10 = every ten minutes.
+    time_interval_minutes <- 1 # (!) The temporal resolution of in minutes.
     ```
 
 7. Decide whether to change the default darksky_value, a constant value that is added to moonlight illuminance for representing starlight and airglow.
@@ -78,8 +78,13 @@ This is a basic run down of the _<span style="font-variant:small-caps;">MoonSim<
     darksky_value <- 0.002 # (!) Range = 0.0007 to 0.003. Default = 0.002 lx
     ```
 
-8. Run the computation section.
-9. Save a lux_prediction.csv, containing the illuminance prediction over time.There are five columns of different illuminance:
+8. Set what type of illumination to plot. i.e., One of the illuminance column name shown in step 10.
+    ```
+    illuminance_type_plot <- "moon_final_lux" # (!)
+    ```
+    
+9. Run the computation section.
+10. Save a lux_prediction.csv, containing the illuminance prediction over time.There are five columns of different illuminance:
 
     ```
     write.csv(moon_value_table,"lux_caculator_output.csv", row.names = TRUE)
@@ -87,7 +92,7 @@ This is a basic run down of the _<span style="font-variant:small-caps;">MoonSim<
 
     The lux_calculator_output.csv contains the following columns. We included the illuminance from the different combinations of moonlight, twilight, and sunlight, because each could be useful according to the user's application.
 
-   ```
+       ```
     datetime # The datetime in a standard format that R and lightbox.py can read
     phase_angle # the phase angle of the moon
     z_moon # zenith distance of the moon in degree angle
@@ -100,7 +105,7 @@ This is a basic run down of the _<span style="font-variant:small-caps;">MoonSim<
     total_illuminance_all # sum of moonlight, twilight, and sunlight
     sunlight_twilight # sum of sunlight and twilight
     moonlight_twilight_nighttime # illuminance of moonlight plus twilight only at night (reports NA at daytime, when sun altitude > 0)
-   ```
+       ```
 
 10. Save a plot of the illuminance prediction over time.
 
