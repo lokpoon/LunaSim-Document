@@ -38,6 +38,9 @@ Download _<span style="font-variant:small-caps;">MoonSim</span>: Lux calculator_
 - `library(ggplot2)` Create plots
 - `library(beepr)` Makes a notification sound
 
+    ```{tip}
+    This website [R Coder](https://r-coder.com/r-tutorials/r-basics/) is a good resource for learning basic R functions. Start here if you are completely new to R and need instructions on how to install packages.
+    ```
 ##  Workflow
 This is a basic run down of the _<span style="font-variant:small-caps;">MoonSim</span>: Lux calculator_ R code, highlighting the important steps. There the code itself is also commented.
 1. Set the working directory. This is where the .csv and .png plot will save.

@@ -19,15 +19,19 @@ kernelspec:
 ## Moonlight recreation
 - To achieve moonlight level illuminance, the LED arrays must be physically dimmed. We use ND filter on the lightbox to reduce the light intensity without modifying the color spectrum ({numref}`box`).
 
-- The user must first decide whether to recreate unobstructed ground illumination (i.e., a simulation in which there is no additional dimming), or a lower intensity to resembles the attenuation level in the desired natural habitat. Of course, the unobstructed ground illumination target varies according to the user's intended location and time as describe in {ref}`content:luxcalculator`
+- The user must first decide whether to recreate unobstructed ground illumination (i.e., a simulation in which there is no additional dimming), or a lower intensity to resembles the attenuation level in the desired natural habitat.
 
+- Assuming that most user would be recreating full moon illuminance, we recommend 0.4 lx as the standard calibration illuminance. Even the brightest full moon in the tropic does not exceed 0.4 lx. Therefore by calibrating the lightbox to 0.4 lx, we ensure that _<span style="font-variant:small-caps;">MoonShine</span>_ can recreate the entire range of moonlight illuminance.
 
+## Create a calibration schedule
+1. Using _<span style="font-variant:small-caps;">MoonSim</span>: moonlight scheduler_, create a `LED_schedule_moon.csv` that can be shortly launched and last for over one hour.
+2. **IN PROGRESS**
 ### Which ND filter sheets?
 To make an informed decision on what combination of ND filter sheets is need for the user's specific room and setup.
 
 1. In _<span style="font-variant:small-caps;">MoonSim</span>: Lux caculator_, simulate what is the brightest moonlight illuminance expected. Note down all of the eight LED values (the crude and fine values of the RGBW channels) at that moment.
 2. Set the lightbox at their permanent locations. Ideally each lightbox on a shelf on both sides of the room, so that the light is directed to the ceiling and diffusely illuminate the entire room.
-3. To instruct the LED strips to light up at the intensity during that brightest moment: Generate a `LED_schedule.csv` with a duration of one day. In Excel, replace the eight LED value columns in `LED_schedule.csv` with that set of brightest values.
+3. To instruct the LED strips to light up at the intensity during that brightest moment: Generate a `LED_schedule_moon.csv` with a duration of one day. In Excel, replace the eight LED value columns in `LED_schedule_moon.csv` with that set of brightest values.
 4. Using a radiometer, measure the illuminance at the position of the animal enclosure. Let's say that it measures 100 lx. 
     - To target a full moon illuminance (e.g.,0.25 lx), based on the transmission of the ND filter:
     - Lee ND filter sheet lineup:

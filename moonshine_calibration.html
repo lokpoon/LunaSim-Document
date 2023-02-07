@@ -411,6 +411,11 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#moonlight-recreation">
    Moonlight recreation
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-calibration-schedule">
+   Create a calibration schedule
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#which-nd-filter-sheets">
@@ -463,6 +468,11 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#moonlight-recreation">
    Moonlight recreation
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-calibration-schedule">
+   Create a calibration schedule
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#which-nd-filter-sheets">
@@ -508,15 +518,23 @@ title="Print to PDF"
 <h2>Moonlight recreation<a class="headerlink" href="#moonlight-recreation" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>To achieve moonlight level illuminance, the LED arrays must be physically dimmed. We use ND filter on the lightbox to reduce the light intensity without modifying the color spectrum (<a class="reference internal" href="moonshine_hardware_setup.html#box"><span class="std std-numref">Fig. 6</span></a>).</p></li>
-<li><p>The user must first decide whether to recreate unobstructed ground illumination (i.e., a simulation in which there is no additional dimming), or a lower intensity to resembles the attenuation level in the desired natural habitat. Of course, the unobstructed ground illumination target varies according to the user’s intended location and time as describe in <a class="reference internal" href="moonsim_lux_calculator.html#content-luxcalculator"><span class="std std-ref">MoonSim: Lux calculator</span></a></p></li>
+<li><p>The user must first decide whether to recreate unobstructed ground illumination (i.e., a simulation in which there is no additional dimming), or a lower intensity to resembles the attenuation level in the desired natural habitat.</p></li>
+<li><p>Assuming that most user would be recreating full moon illuminance, we recommend 0.4 lx as the standard calibration illuminance. Even the brightest full moon in the tropic does not exceed 0.4 lx. Therefore by calibrating the lightbox to 0.4 lx, we ensure that <em><span style="font-variant:small-caps;">MoonShine</span></em> can recreate the entire range of moonlight illuminance.</p></li>
 </ul>
+</section>
+<section id="create-a-calibration-schedule">
+<h2>Create a calibration schedule<a class="headerlink" href="#create-a-calibration-schedule" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Using <em><span style="font-variant:small-caps;">MoonSim</span>: moonlight scheduler</em>, create a <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> that can be shortly launched and last for over one hour.</p></li>
+<li><p><strong>IN PROGRESS</strong></p></li>
+</ol>
 <section id="which-nd-filter-sheets">
 <h3>Which ND filter sheets?<a class="headerlink" href="#which-nd-filter-sheets" title="Permalink to this headline">#</a></h3>
 <p>To make an informed decision on what combination of ND filter sheets is need for the user’s specific room and setup.</p>
 <ol class="simple">
 <li><p>In <em><span style="font-variant:small-caps;">MoonSim</span>: Lux caculator</em>, simulate what is the brightest moonlight illuminance expected. Note down all of the eight LED values (the crude and fine values of the RGBW channels) at that moment.</p></li>
 <li><p>Set the lightbox at their permanent locations. Ideally each lightbox on a shelf on both sides of the room, so that the light is directed to the ceiling and diffusely illuminate the entire room.</p></li>
-<li><p>To instruct the LED strips to light up at the intensity during that brightest moment: Generate a <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> with a duration of one day. In Excel, replace the eight LED value columns in <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> with that set of brightest values.</p></li>
+<li><p>To instruct the LED strips to light up at the intensity during that brightest moment: Generate a <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> with a duration of one day. In Excel, replace the eight LED value columns in <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> with that set of brightest values.</p></li>
 <li><p>Using a radiometer, measure the illuminance at the position of the animal enclosure. Let’s say that it measures 100 lx.</p>
 <ul class="simple">
 <li><p>To target a full moon illuminance (e.g.,0.25 lx), based on the transmission of the ND filter:</p></li>
