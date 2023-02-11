@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MoonSim: Moonlight scheduler &#8212; MoonSim and MoonShine Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MoonSim: Sunlight &amp; twilight scheduler" href="moonsim_sunlight_twilight_LED_scheduler.html" />
+    <link rel="prev" title="MoonSim: Lux calculator" href="moonsim_lux_calculator.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MoonSim and MoonShine Documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="overview.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonsim_lux_calculator.html">
+   <span style="font-variant:small-caps;">
+    MoonSim
+   </span>
+   : Lux calculator
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   <span style="font-variant:small-caps;">
+    MoonSim
+   </span>
+   : Moonlight scheduler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonsim_sunlight_twilight_LED_scheduler.html">
+   <span style="font-variant:small-caps;">
+    MoonSim
+   </span>
+   : Sunlight &amp; twilight scheduler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="edit_LED_schedule_csv.html">
+   Edit
+   <span style="font-variant:small-caps;">
+    MoonSim
+   </span>
+   schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonshine_hardware_setup.html">
+   <span style="font-variant:small-caps;">
+    MoonShine
+   </span>
+   : Hardware setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonshine_software_setup.html">
+   <span style="font-variant:small-caps;">
+    MoonShine
+   </span>
+   : Software setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonshine_calibration.html">
+   <span style="font-variant:small-caps;">
+    MoonShine
+   </span>
+   : Calibration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonshine_launch_procedure.html">
+   <span style="font-variant:small-caps;">
+    MoonShine
+   </span>
+   : Launch procedure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonlight_variation.html">
+   Description of moonlight variation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/lokpoon/LunaSim/master?urlpath=tree/docs/moonsim_moonlight_LED_scheduler.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/lokpoon/LunaSim"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/lokpoon/LunaSim/issues/new?title=Issue%20on%20page%20%2Fmoonsim_moonlight_LED_scheduler.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/moonsim_moonlight_LED_scheduler.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/moonsim_moonlight_LED_scheduler.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-features">
+   Key features
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workflow">
+   Workflow
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rgbw-spectral-control">
+     RGBW spectral control
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#horizon-obstruction">
+     Horizon obstruction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cloud-cover-simulation">
+     Cloud cover simulation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cloud-period">
+       Cloud period
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cloud-change-frequency">
+       Cloud change frequency
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#transmission-mean">
+       Transmission mean
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#transmission-standard-deviation-sd">
+       Transmission standard deviation (SD)
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-features">
+   Key features
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workflow">
+   Workflow
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rgbw-spectral-control">
+     RGBW spectral control
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#horizon-obstruction">
+     Horizon obstruction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cloud-cover-simulation">
+     Cloud cover simulation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cloud-period">
+       Cloud period
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cloud-change-frequency">
+       Cloud change frequency
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#transmission-mean">
+       Transmission mean
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#transmission-standard-deviation-sd">
+       Transmission standard deviation (SD)
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="span-style-font-variant-small-caps-moonsim-span-moonlight-scheduler">
+<span id="content-moonsim-moon"></span><h1><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler<a class="headerlink" href="#span-style-font-variant-small-caps-moonsim-span-moonlight-scheduler" title="Permalink to this headline">#</a></h1>
+<p><em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em> is designed to be used in conjunction with <em><span style="font-variant:small-caps;">MoonShine</span></em> to recreate moonlight cycle in the lab.</p>
+<p><em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em> runs the same set of calculations as <em><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</em> to predict moonlight illuminance. What’s different is that the output table  <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> contains lists of LED intensity values over time.</p>
+<section id="key-features">
+<h2>Key features<a class="headerlink" href="#key-features" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Recreate a realistic moonlight cycle in the lab</p></li>
+<li><p>Option to simulate the obstruction of moonlight by surrounding obstructions (e.g., mountain ranges)</p></li>
+<li><p>Option to simulate light attenuation of cloud cover with the ability fine tune the cloud behavior.</p></li>
+<li><p>Option to adjust the LED light spectrum by controlling the relative intensity of each RGBW channels. Can be useful in approximating the color shift in certain habitats (e.g., blue shiftiness of ocean at depth or the red shiftiness of sodium vapor street lamp).</p></li>
+</ul>
+</section>
+<section id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">#</a></h2>
+<ol>
+<li><p>Refer to <a class="reference internal" href="moonsim_lux_calculator.html#content-luxcalculator2"><span class="std std-ref">Packages required</span></a> to repeat the process of packages loading and steps (1-7) to set the user definable settings (location, time period, etc.) The time_interval_minutes is fixed to 1 and should not be changed. The following instructions will cover the settings and function specific to <em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em>.</p></li>
+<li><p>Set the calibration illuminance point. See <a class="reference internal" href="moonshine_calibration.html#content-lightbox-calibration"><span class="std std-ref">MoonShine: Calibration</span></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">theoretical_max</span> <span class="o">&lt;-</span> <span class="mf">0.4</span> <span class="c1"># (!) Define a intensity upper limit (in lux)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Specify the number of LEDs per strip and the number of strips daisy-chained.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">diode_per_strip</span> <span class="o">&lt;-</span> <span class="mi">144</span> <span class="c1"># (!) Number of LEDs per strip</span>
+ <span class="n">strip_count</span> <span class="o">&lt;-</span> <span class="mi">2</span> <span class="c1"># (!) Number of daisy-chained LED strips</span>
+</pre></div>
+</div>
+</li>
+<li><p>Determine the LED color spectrum by specifying the intensity output (0-1) of each RGBW channels. Leave this setting at the default value if the user wish to approximate natural moonlight spectrum. Note that these default values are intended for the warm white SK6812 LED strips made by BTF lightning.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">white_fraction</span> <span class="o">&lt;-</span> <span class="mf">1.0</span> <span class="c1"># (!) White. Default = 1.0</span>
+ <span class="n">red_fraction</span> <span class="o">&lt;-</span> <span class="mf">0.08</span> <span class="c1"># (!) Red. Default = 0.08</span>
+ <span class="n">green_fraction</span> <span class="o">&lt;-</span> <span class="mf">0.36</span> <span class="c1"># (!) Green. Default = 0.36</span>
+ <span class="n">blue_fraction</span> <span class="o">&lt;-</span> <span class="mf">0.19</span> <span class="c1"># (!) Blue. Default = 0.19</span>
+</pre></div>
+</div>
+<figure class="align-default" id="moon-spectrum">
+<a class="reference internal image-reference" href="_images/moon_spectrum.jpg"><img alt="_images/moon_spectrum.jpg" src="_images/moon_spectrum.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">A comparison of the moonlight and LED lightbox spectral irradiance. RGBW intensity fraction set to the default values. R = 0.08, G = 0.36, B = 0.19, W = 1.0.</span><a class="headerlink" href="#moon-spectrum" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Got to <a class="reference internal" href="#content-rgbw"><span class="std std-ref">RGBW spectral control</span></a> for details on how to adjust the RGBW intensity output for approximating the spectral-shift characteristics of certain habitats.</p>
+</li>
+<li><p>Specify whether to recreate the effect of surround tall objects blocking moonlight. We refer to this phenomenon as the <strong>‘horizon obstruction’</strong>, for example when distant tree canopy or mountain range obscure a rising/setting moon near the horizon. Recreating this phenomenon might recreate a more realistic light scenario for the captive animal. See <a class="reference internal" href="#content-horizon"><span class="std std-ref">Horizon obstruction</span></a> for more details.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">horizon_option</span> <span class="o">&lt;-</span> <span class="n">FALSE</span> <span class="c1"># (!) TRUE to enable</span>
+</pre></div>
+</div>
+</li>
+<li><p>Specify whether to recreate the light attenuation by a changing cloud cover regime. See <a class="reference internal" href="#content-cloud"><span class="std std-ref">Cloud cover simulation</span></a> for more details.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloud_option</span> <span class="o">&lt;-</span> <span class="n">FALSE</span> <span class="c1"># (!) TRUE to enable cloud simulator</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<section id="rgbw-spectral-control">
+<span id="content-rgbw"></span><h3>RGBW spectral control<a class="headerlink" href="#rgbw-spectral-control" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em> does not recreate the rather insignificant spectral change according to the moon altitude. Meaning that moonlight is recreated with a consistent spectrum.</p></li>
+<li><p>Certain habitats are characterized by unique wavelength dependent attenuation, in which researchers might consider attempt  to recreate. <em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em> gives users the option to adjust the relative intensity of the RGBW channels.</p></li>
+<li><p>Adjusting the RGBW spectrum require the user to have profound understandings of the spectral quality of their habitat target, and their studied animal’s visual sensitivity. This is due to the limitations of the RGBW channels, which has very specific and limited peak and spectral range. And yet there are an endless range of light spectrum that occur in all kinds of habitat. Consequently, some habitat light spectrum approximations would be more realistic (e.g. when the spectral peak correspond to one of the RGBW peak), while other approximations would be unsatisfactory.</p></li>
+<li><p>Knowing the animal’s spectral sensitivity can provide insights for assessing the validity of the recreated LED spectrum. For example mammals do not see UV light, so it is not a problem to use our UV deficient LED on them. However, many invertebrates and some vertebrates do see UV light and therefore must be consider.</p></li>
+<li><p>If user have a spectrometer, one would specify the RGBW intensity fraction in <em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em> and measure the resulting overall LED spectral irradiance.</p></li>
+<li><p>If user do not have a spectrometer, one would use the provided excel spreadsheet <code class="docutils literal notranslate"><span class="pre">RGBW_LED_spectrum.xlsx</span></code> to predict the resulting overall LED spectral irradiance.</p></li>
+</ul>
+<figure class="align-default" id="excel-predict">
+<a class="reference internal image-reference" href="_images/excel_predict.jpg"><img alt="_images/excel_predict.jpg" src="_images/excel_predict.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Using the provided excel spreadsheet RGBW_LED_spectrum.xlsx to visualize how the overall LED light spectrum will be based on the specified intensity fraction.</span><a class="headerlink" href="#excel-predict" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="habitat">
+<img alt="_images/habitat.jpg" src="_images/habitat.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">The spectral irradiance of the RGBW channels at the same intensity level. Notice that at the same intensity level, the RGBW each produce a different absolute irradiance level (e.g. blue is the strongest at its peak wavelength). The dotted line indicates the spectral peaks of four distinctive habitats (clear ocean [Jerlov 1976], forest understory [Veilleus and Cummings 2012], relativly clear river, heavily tannined black/white water river [Costa et al. 2013]). The spectral peak of the clear ocean and blue channel are close, while the far red peak of the tannined river can neither be recreated by the red or white channels. This is a oversimplified representation of the habitats’ spectrum, the user should always refer to the complete spectral irradiance plot. Ideally, researchers should make their own spectral irradiance measurment at their study site since even spectral property of the same type of habitats (e.g. “clear river”) can vary greatly.</span><a class="headerlink" href="#habitat" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="horizon-obstruction">
+<span id="content-horizon"></span><h3>Horizon obstruction<a class="headerlink" href="#horizon-obstruction" title="Permalink to this headline">#</a></h3>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Horizon obstruction automatically applies to all nights, since it is a topographical feature that is constantly present at the location.</p>
+</div>
+<ul class="simple">
+<li><p>There are three settings that modify the behavior of horizon obstruction:</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>(*) The angular altitude refers to the angle above the horizon, from 0 degrees at the horizon to 90 degrees at the zenith.)</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">horizon_transition_end</span> <span class="o">&lt;-</span> <span class="mi">57</span> <span class="c1"># (!) angular altitude* ABOVE which there is a zone of unobstructed illumination.</span>
+<span class="c1"># We define this as Zone A.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">horizon_elev</span> <span class="o">&lt;-</span> <span class="mi">55</span> <span class="c1"># (!) angular altitude* BELOW which there is maximum light attenuation (e.g. due to a mountain or tree line).</span>
+<span class="c1"># We DEFINE THIS AS ZONE C.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">horiz_transmission</span> <span class="o">&lt;-</span> <span class="mf">0.15</span> <span class="c1"># (!) the proportional transmission of light in Zone A relative to Zone C.</span>
+</pre></div>
+</div>
+<figure class="align-default" id="horizon">
+<img alt="_images/horizon.jpg" src="_images/horizon.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">An example of the horizon obstruction effect on illuminance, if horizon_option is enabled with the above three settings. Illuminance when the moon is below 55 degree (zone C) will be 15% of the light level above 57 degree (zone A), when the moon rise above the obstruction. In the transition zone B between 55 amd 57 degree, A linear transition of illuminance is applied. This makes light level transitions less abrupt when the simulated moon rises above simulated obstacles. MoonSim will read the LED_schedule_moon.csv and recreate the same illuminance behavior as visualized by the plot.</span><a class="headerlink" href="#horizon" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="cloud-cover-simulation">
+<span id="content-cloud"></span><h3>Cloud cover simulation<a class="headerlink" href="#cloud-cover-simulation" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>There are six variables that need to be configured for cloud cover simulation. Cloud cover works by creating a random list of numbers (represent transmission) using a normal distribution, and fitting a spline function through them, creating a varying but smoothed modulation of the illuminance over time. The values of the six variables have some mutual effect on each other. The only way to assess the cloud cover effect is to visualize the spline function as a plot to get an idea of how will the simulated cloud modulate the existing moonlight.</p></li>
+</ul>
+<section id="cloud-period">
+<h4>Cloud period<a class="headerlink" href="#cloud-period" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>The first three defines the periods when cloud simulation is applied. Period outside of this period will not have cloud.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date_start_cloud</span> <span class="o">&lt;-</span> <span class="s2">&quot;2022-07-26&quot;</span> <span class="c1"># (!) starting date of cloud effect (YYYY-MM-DD)</span>
+<span class="n">time_start_cloud</span> <span class="o">&lt;-</span> <span class="s2">&quot;18:00:00&quot;</span> <span class="c1"># (!) starting time of cloud effect (hh:mm:ss)</span>
+<span class="n">duration_day_cloud</span> <span class="o">&lt;-</span> <span class="mf">29.5</span> <span class="c1"># (!) duration of the cloud effect</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the user wants to apply cloud cover to the entire simulation period, simply uses the same values as the simulation inputted earlier for variables date_start,  time_start, and duration_day</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the user wants to a more complicated cloud cover schedule that is not limited to a single period (e.g., only cloud in the second and eighth day of the simulation), generate multiple LED_schedule_moon.csv versions with the respective settings and merge them together in Excel. See <a class="reference internal" href="edit_LED_schedule_csv.html#content-edit"><span class="std std-ref">Edit MoonSim schedule</span></a></p>
+</div>
+</section>
+<section id="cloud-change-frequency">
+<h4>Cloud change frequency<a class="headerlink" href="#cloud-change-frequency" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Specify the frequency of the change in cloud density.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloud_change_freq</span> <span class="o">&lt;-</span> <span class="mi">5</span> <span class="c1"># (!) Sets how quickly the clouds are transitioning (in minutes). </span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Setting cloud_change_freq smaller than 5 may crash R session.</p>
+</div>
+<p><strong>Example of cloud_change_freq = 5</strong></p>
+<figure class="align-default" id="freq5smooth">
+<a class="reference internal image-reference" href="_images/freq5smooth.jpg"><img alt="_images/freq5smooth.jpg" src="_images/freq5smooth.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">The smoothing spline with cloud_change_freq = 5</span><a class="headerlink" href="#freq5smooth" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="freq5output">
+<a class="reference internal image-reference" href="_images/freq5output.jpg"><img alt="_images/freq5output.jpg" src="_images/freq5output.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">The final moonlight illuminance with the same smoothing spline of the previous plot applied. A value of 5 simulates rapid movement of clouds across the moon’s disk, due to high-speed winds at cloud altitude.</span><a class="headerlink" href="#freq5output" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Example of cloud_change_freq = 30</strong></p>
+<figure class="align-default" id="freq30smooth">
+<a class="reference internal image-reference" href="_images/freq30smooth.jpg"><img alt="_images/freq30smooth.jpg" src="_images/freq30smooth.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">The smoothing spline with cloud_change_freq = 30</span><a class="headerlink" href="#freq30smooth" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="freq30output">
+<a class="reference internal image-reference" href="_images/freq30output.jpg"><img alt="_images/freq30output.jpg" src="_images/freq30output.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">The final moonlight illuminance with the same smoothing spline of the previous plot applied. A value of 60 represents very slow cloud movement.</span><a class="headerlink" href="#freq30output" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="transmission-mean">
+<h4>Transmission mean<a class="headerlink" href="#transmission-mean" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Transmission here is defined as the fraction of light that passes through the cloud. Here specify the mean of transmission, with 1 being almost full transmission (little attenuation) and 0 being almost no transmission (near total attenuation). transmission_mean defines the mean of the normal distribution. A value of 1 means cloud simulator is using only the ‘left’ half of the normal distribution. This simulates an occasional cloud passing across the moon.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">transmission_mean</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="c1"># (!) Set the mean of the normal distribution.</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The user can set transmission_mean to exceed 1 or below 0. Setting it to exceed 1 “shifts” the normal distribution further to the “right”, and will reduce the frequency and extremity of cloud cover (we recommend not exceeding 2). Zero or a negative value will use the right side of the normal distribution – simulating denser cloud cover with occasional periods of no cloud cover (we recommend values no lower than -1). Avoid using a value between 0 and 1.</p>
+</div>
+<p><strong>Example of transmission_mean = 1.2</strong></p>
+<figure class="align-default" id="mean12smooth">
+<a class="reference internal image-reference" href="_images/mean12smooth.jpg"><img alt="_images/mean12smooth.jpg" src="_images/mean12smooth.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">The smoothing spline with transmission_mean = 1.2</span><a class="headerlink" href="#mean12smooth" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="mean12output">
+<a class="reference internal image-reference" href="_images/mean12output.jpg"><img alt="_images/mean12output.jpg" src="_images/mean12output.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">The final moonlight illuminance with the same smoothing spline of the previous plot applied. By increasing the transmission_mean slightly above 1, it decreases the overall “thickness” of the cloud. It simulate the occational passing of a thin cloud.</span><a class="headerlink" href="#mean12output" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Example of transmission_mean = -0.2</strong></p>
+<figure class="align-default" id="mean02smooth">
+<a class="reference internal image-reference" href="_images/mean02smooth.jpg"><img alt="_images/mean02smooth.jpg" src="_images/mean02smooth.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">The smoothing spline with transmission_mean = -0.2</span><a class="headerlink" href="#mean02smooth" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="mean02output">
+<a class="reference internal image-reference" href="_images/mean02output.jpg"><img alt="_images/mean02output.jpg" src="_images/mean02output.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">The final moonlight illuminance with the same smoothing spline of the previous plot applied. By reducing the transmission_mean slightly below 0, it increases the overall “thickness” of the cloud. The behaviour of transmission_mean at around 0 is the complete opposite of 1. Instead of using the “left” side of the normal distribution, it uses the “right” side. Meaning that instead of the occational passing of cloud, it simulate the occational windows of clear sky in a cloudy scenerio.</span><a class="headerlink" href="#mean02output" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="transmission-standard-deviation-sd">
+<h4>Transmission standard deviation (SD)<a class="headerlink" href="#transmission-standard-deviation-sd" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Specify the SD of transmission, with 0.5 being a good value to start with. All the above plots have transmission_sd = 0.5. Increasing the transmission_sd increases the range of transmission variation, making the cloud effect more unpredictable (i.e., patchy clouds. Reducing the transmission_sd limits the range of transmission variation, which suits for simulating a evenly overcast sky.</p></li>
+</ul>
+<p><strong>transmission_sd = 1</strong></p>
+<figure class="align-default" id="sd1smooth">
+<a class="reference internal image-reference" href="_images/sd1smooth.jpg"><img alt="_images/sd1smooth.jpg" src="_images/sd1smooth.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">The smoothing spline with transmission_sd = 1</span><a class="headerlink" href="#sd1smooth" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="sd1output">
+<a class="reference internal image-reference" href="_images/sd1output.jpg"><img alt="_images/sd1output.jpg" src="_images/sd1output.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">The final moonlight illuminance with the same smoothing spline of the previous plot applied. The illuminance switches drastically from one moment to the next with a higher transmission_sd = 1. This resembles thick but patchy clouds with many windows of opening.</span><a class="headerlink" href="#sd1output" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>transmission_sd = 0.1</strong></p>
+<figure class="align-default" id="sd01smooth">
+<a class="reference internal image-reference" href="_images/sd01smooth.jpg"><img alt="_images/sd01smooth.jpg" src="_images/sd01smooth.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">The smoothing spline with transmission_sd = 1 (and lower transmission_mean = 0.5 )</span><a class="headerlink" href="#sd01smooth" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="sd01output">
+<a class="reference internal image-reference" href="_images/sd01output.jpg"><img alt="_images/sd01output.jpg" src="_images/sd01output.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">The final moonlight illuminance with the same smoothing spline of the previous plot applied. This simulate a thin overcast sky with a overall reduction but small variation in illuminace.</span><a class="headerlink" href="#sd01output" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Selecting the best suited cloud settings should be based on the smoothing spline preview.  Users are encourage to try out different combinations of cloud settings. The user will see a preview of the smoothing spline by “END OF PARAMETER SETTINGS” line. If the paticular smoothing spline looks undesirable, runing the section of code again will generate another smoothing spline that looks different because it is a random number generator.</p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Beware that the cloud effect is generated randomly every time the script is run. The user can save the specific cloud_table with a line of code just before “END OF PARAMETER SETTINGS”</p>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="moonsim_lux_calculator.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="moonsim_sunlight_twilight_LED_scheduler.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span style="font-variant:small-caps;">MoonSim</span>: Sunlight &amp; twilight scheduler</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By C. Lok Poon<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
