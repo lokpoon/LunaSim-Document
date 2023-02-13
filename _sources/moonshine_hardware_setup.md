@@ -14,7 +14,7 @@ kernelspec:
 ---
 
 # <span style="font-variant:small-caps;">MoonShine</span>: Hardware setup
-
+(content:hardware:materials)=
 ## Materials
 
 | Item  | SKU/model number | Company  | Quantity required | Price | Link   | Note |
