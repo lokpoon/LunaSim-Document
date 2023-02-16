@@ -89,19 +89,19 @@ _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_ run
 :name: excel_predict
 :width: 500px
 
-Using the provided excel spreadsheet RGBW_LED_spectrum.xlsx to visualize how the overall LED light spectrum will be based on the specified intensity fraction. The user can modify the RGBW intensiy fractions shown in the upper box (currently with default values), and the lower two plots will reflect the changes. The middle plot is the predicted overall spectral irradiance of the LED light. The bottom plot shows the contribution of the individual RGBW channels, which were summed together to produce the middle plot.
+Using the provided excel spreadsheet RGBW_LED_spectrum.xlsx to visualize how the overall LED light spectrum will be based on the specified intensity fraction. The user can modify the RGBW intensiy fractions shown in the upper panel (currently with default values), and the lower two plots will reflect the changes. The middle plot is the predicted overall spectral irradiance of the LED light. The bottom plot shows the contribution of the individual RGBW channels, which were summed together to produce the middle plot.
 ```
 ```{figure} /images/habitat.jpg
 :name: habitat
 
-This plot compares the spectra of the LED RGBW channels to a few habitats with strong spectral shifts. The spectral irradiance of the RGBW channels is set to the same intensity in MoonSim. Notice that at the same intensity level, the RGBW channels each produce a different absolute irradiance level (e.g. blue is the strongest at its peak wavelength). The dotted line indicates the spectral peaks of four distinctive habitats (clear ocean {cite}`jerlovMarineOptics1976`, forest understory {cite}`veilleuxNocturnalLightEnvironments2012`, relatively clear Amazon river, tannin-stained black or white water Amazon river {cite}`costaSpatialTemporalVariability2013`). The spectral peak of the clear ocean and blue channel are close, while the far red peak of the tannined river can neither be recreated by the red or white channels. These peaks are, of course, an oversimplified representation of the habitats' spectra; the user should always refer to the complete spectral irradiance plot for a given habitat. Ideally, the user should make their own spectral irradiance measurements at their study site since the spectral properties of the same type of habitats (e.g. "clear river") can still vary greatly {cite}`johnsenOpticsLifeBiologist2012`.
+This plot compares the spectra of the LED RGBW channels to a few habitats with strong spectral shifts. Here, the RGBW channels are all set to the maximum intensity in MoonSim (i.e., R = 1.0, G = 1.0, B = 1.0, W = 1.0). Notice that at the same intensity level, the RGBW channels each produce a different absolute irradiance level (e.g. blue is the strongest at its peak wavelength). The dotted line indicates the spectral peaks of four distinctive habitats (clear ocean {cite}`jerlovMarineOptics1976`, forest understory {cite}`veilleuxNocturnalLightEnvironments2012`, relatively clear Amazon river, tannin-stained black or white water Amazon river {cite}`costaSpatialTemporalVariability2013`). The spectral peak of the clear ocean and blue channel are close, while the far red peak of the tannin-stained river cannot be recreated by the red or white channels. These peaks are, of course, an oversimplified representation of the habitats' spectra; the user should always refer to the complete spectral irradiance plot for a given habitat. Ideally, the user should make their own spectral irradiance measurements at their study site since the spectral properties of the same habitat type (e.g. clear river) can still vary greatly {cite}`johnsenOpticsLifeBiologist2012`.
 ```
 
 (content:horizon)=
 ### Horizon obstruction
 
 ```{attention}
-Horizon obstruction automatically applies to all nights, since it is a topographical feature that is constantly present at the location.
+Horizon obstruction automatically applies to all nights, since it is a topographical feature that is constantly present at the location. The obstruction is also assumed, for the sake of simplicity, to be present in all directions, and therefore will affect the moonrise and moonset.
 ```
 
 - There are three settings that modify the behavior of horizon obstruction:

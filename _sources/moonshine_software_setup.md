@@ -20,7 +20,7 @@ kernelspec:
 
 1. On a computer go to Raspberry Pi’s website https://www.raspberrypi.com/software/ to download and install the Raspberry Pi Imager.
 
-2. In Raspberry Pi Imager, install **Raspberry Pi OS (Legacy)** on the micro SD card.
+2. In the Raspberry Pi Imager, install **Raspberry Pi OS (Legacy)** on the micro SD card.
 
 3. Connect the monitor, keyboard, and mouse to the PI.
 
@@ -28,13 +28,14 @@ kernelspec:
 
 5. Connect power to the Pi to boot it up.
 
-6. Follow the setup pages instructions. Connect to the internet, and the perform prompted update on first launch. Note down the username and password being set.
+6. Follow the instructions in the setup pages. Connect to the internet, and perform the prompted update on first launch. Note down the username and password that are utilized.
 
-7. Install Python 3.9.9. 
+7. Install Python 3.9.9.
    
+   OTHER PYTHON IS NOT SUPPORTED
    Reference: [How to Update Python on Raspberry Pi](https://linuxhint.com/update-python-raspberry-pi/)
    
-   Enter the following sequence of commands in terminal:
+   Enter the following sequence of commands in the terminal:
    
    - `wget https://www.python.org/ftp/python/3.9.9/Python-3.9.9.tgz`
    
@@ -52,21 +53,24 @@ kernelspec:
    
    - `sudo ln -s /usr/local/bin/python3.9 python`
 
-8. Check Python version (3.9.9):
+8. Check Python is version (3.9.9):
    
    `python --version`
 
+   ```{attention}
+   It must be python 3.9.9
+   ```
 9. Modify Pi to run the *ws2811* library. 
    
    Reference: [Connect and Control WS2812 RGB LED Strips via Raspberry Pi](https://tutorials-raspberrypi.com/connect-control-raspberry-pi-ws2812-rgb-led-strips/)
    
-   In terminal:
+   In terminal, enter the following sequence of commands:
    
    - `sudo apt-get update`
    
    - `sudo apt-get install gcc make build-essential python-dev git scons swig` (confirm with Y)
    
-   - This command line will open a file editor. To deactivate audio output, we edit the `.conf` file by:
+   - This command line will open a file editor. To deactivate audio output, edit the `.conf` file by entering the following command:
      
      `sudo nano /etc/modprobe.d/snd-blacklist.conf`
      
@@ -80,23 +84,27 @@ kernelspec:
      
      And close the editor with CTRL + X.
    
-   - Edit another `.conf` file:
+   - We also need to edit another `.conf` file:
      
      `sudo nano /boot/config.txt`
      
-     Comment out the line
+     When the editor is opened, comment out the following line with a # at the beginning:
      
      ```
      dtparam=audio=on
      ```
      
-     by adding a # in front of it.
+     i.e.,
+     
+     ```
+     #dtparam=audio=on
+     ```
      
      Then save file with CTRL + O.
      
      And close the editor with CTRL + X.
    
-   - Reboot Pi:
+   - Reboot Pi by entering the following command:
      
      `sudo reboot`
 
@@ -106,47 +114,52 @@ kernelspec:
     
     - `git clone https://github.com/jgarff/rpi_ws281x`
 
-11. We need to modify some lines to specify using SK6812: 
+11. Next, modify some lines to specify using the SK6812 protocol: 
     
     - Using the file explorer, open the `main.c` file found in */home/pi/rpi_ws281x/*
     
-    - Line 63 is turned on by default for LED ws2811, so turn it off by adding // at the front.
+    - The line of "STRIP_TYPE  WS2811_STRIP_RGB" is turned on by default for LED ws2811 (should be Line 63), so turn it off by adding // at the front.
     
-    - Instead, turn on line 64 for SK6812 by deleting the // at the front.
+    - Instead, turn on the line of "STRIP_TYPE  WS6812_STRIP_RGBW" (should be line 64) for SK6812 by deleting the // at the front.
     
-    - On line 66, edit it to the number of total numbers of LEDs connected.
+
+    - On the line of "HEIGHT" (should be line 67) edit the number to 1.
+    - The value of the line of "WIDTH" is unimportant (should be line 66). Since it is expected that the user will use a different number of LED strips for the moonlight array (two LED strip should suffice) and sunlight/twilight array (likely need more than two LED strips). The different number of LEDs being used for the two arrays are specified in the python file `moonsim_moon.py` and `moonsim_sun.py`, detailed later.
     
-    - On line 67, edit number to 1.
     
     - Save file.
+
+
+    ```{figure} /images/mainc.png
+    :name: mainc
+
+    The configuration of the main.c file.
+    ```
     
-    - Then we compile the library for Python.
+12. Next, compile the library for Python.
       
-      In terminal:
+      In terminal, enter the following commands:
       
       `cd rpi_ws281x/`
     
     - `sudo scons`
-    
-    ```{note}
-    Everytime main.c is edited, for example changing the number LED connected, it requires a recompile.
-    ```
+   
 
-12. Now the Pi should be ready to control the SK6812 LED strips using our `lightbox.py`
+13. Now the Pi should be ready to control the SK6812 LED strips.
 
 ## Setup RTC and time
 
-A real time clock module is optional but recommended. We recommend the user to run the Pi offline, and instead use the RTC to keep time. This is because having the Pi connected to the internet may not be possible, and when the Pi is online it will automatically update to the local time (including the troublesome DST).
+A real time clock module is optional but recommended. We recommend that the user runs the Pi offline, and instead uses the RTC to keep time. This is because when the Pi is online it will automatically update to the local time. This may use daylight saving time, DST, which can be troublesome. The RTC is also essential if the Pi is used in a location with no internet connection.
 
 1. Install RTC module DS3231 as described in {ref}`content:hardware:assemble`
 
-2. On Pi, go to Start menu (top left button) > Preferences > Raspberry Pi Configuration > Interfaces > I2C **Enable** > OK
+2. On the Pi, go to the Start menu (top left button) and select > Preferences > Raspberry Pi Configuration > Interfaces > I2C **Enable** > OK
 
 3. Install RTC configurations (Reference: [Real Time Clock Script for Raspberry Pi](https://www.youtube.com/watch?v=MxUbqotDBnM), [Adding a Real Rime Clock to your Raspberry Pi](https://thepihut.com/blogs/raspberry-pi-tutorials/17209332-adding-a-real-time-clock-to-your-raspberry-pi))
-    - In terminal:
+    - In terminal enter:
     `wget https://raw.githubusercontent.com/km4ack/pi-scripts/master/rtc && bash rtc'
-    - Is the time above correct?
-    - Do you see 68 in the info listed above? (It may also appear as UU instead of 68, either is fine)
+    - When the terminal returns: "Is the time above correct?", respond accordingly (Y/N).
+    - When the terminal returns: "Do you see 68 in the info listed above?", respond accordingly (Y/N). (Note to user: you may see UU instead of 68)
     ```{note}
     This rtc installation works for both DS 1307 or DS 3231 variants RTC chips
     ```
@@ -157,37 +170,39 @@ A real time clock module is optional but recommended. We recommend the user to r
     - At the bottom select **None of the above**
     - Select **UTC** and OK
 
-5. To change Pi clock to the user's current time (without DST if the user is currently experiencing DST), in terminal:
+5. To change Pi clock to the user's current time (without DST, even if the user is currently experiencing DST), in terminal:
     - `sudo date -s 'YYYY-MM-DD hh:mm:ss'`
     - Change the above to the user's current time in Year-Month-Day hour:minute:second. Keep the digits format, meaning four digits for the year and two digits for the rest.
 
 6. Copy the time from the Raspberry Pi system to the Hardware RTC:
     - `sudo hwclock -w`
-8. To check if RTC is working:
+8. To check if RTC is working, enter:
     - `sudo hwclock -rv`
-    - It should report the RTC time.
+    - The RTC time will be reported.
 
 
 (content:lightbox:lednumber2)=    
 ## Desktop folders
 
-1. Download from our Github. the _control_moon_ and _control_sun_ folders.
+1. Download from our Github the _control_moon_ and _control_sun_ folders.
+    - _control_moon_ contains `moonsim_moon.py`
+    - _control_sun_ contains `moonsim_sunn.py`
 
-2. Move them to the Pi Desktop.
+2. Move the two folders to the Pi Desktop.
 
 ```{note}
-In _/control_moon/moonsim_moon.py_, the line LED_PIN = 18 specify the communication with the LED strip through the **GPIO 18**. _/controlmoonsim_moonhtbox.py_ controls controls through **GPIO 21** instead.
+In _/control_moon/moonsim_moon.py_, the line LED_PIN = 18 specify the communication with the moonlight LED strip through the **GPIO 18**. _/control_sun/moonsim_sun.py_ controls the sunlight/twilight LED strip through **GPIO 21** instead.
 ```
-
+(content:systemd)=   
 ## Setting up systemd service
 
 1. Create a new service file.
    
-   In terminal:
+   In terminal, enter:
    
    `sudo nano /etc/systemd/system/moonsim_moon.service`
 
-2. In the editor, paste in the following lines:
+2. The file editor will open up a blank file, paste in the following lines:
    
    ```
    [Unit]
@@ -204,16 +219,19 @@ In _/control_moon/moonsim_moon.py_, the line LED_PIN = 18 specify the communicat
    [Install]
    WantedBy=default.target
    ```
+```{note}
+The line "ExecStart=..." specify the action. Here it is launching the `moonsim_moon.py` with python3 with admin permission. `Restart=always` and `RestartSec=3` are configured to restart moonsim_moon.py within 3 seconds upon closing (i.e., the script crashing).
+```
 
 3. Then save file with CTRL + O. CTRL + X to close the editor.
    
-   When prompted the file name, confirm that it is `moonsim_moon.service` and enter Y to save.
+   When prompted for the file name, confirm that it is `moonsim_moon.service` and enter Y to save.
 
 4. Refresh the system service files. It may ask for the username and password.
    
    - `sudo systemctl daemon-reload`
 
-5. (Optional) If the user is recreating sunlight and twilight as well, repeat the above steps to make another service for _control_sun/moonsim_sun.py_
+5. (Optional) If the user is recreating sunlight and twilight as well, repeat the above steps, from 1 to4, to make another service for _control_sun/moonsim_sun.py_
     
     - For step 1, use a different file name:
     
@@ -221,7 +239,7 @@ In _/control_moon/moonsim_moon.py_, the line LED_PIN = 18 specify the communicat
        /etc/systemd/system/moonsim_sun.service
         ```
         
-    - For step 2, replace the line of ExecStart=...  with 
+    - For step 2, replace the line of `ExecStart=...`  with 
         ```
         ExecStart=sudo /usr/bin/python3 /home/pi/Desktop/control_sun/moonsim.py
         ```
@@ -229,5 +247,24 @@ In _/control_moon/moonsim_moon.py_, the line LED_PIN = 18 specify the communicat
     - For step 3, save the file with name `moonsim_sun.service`
     
    ```{note}
-   Everytime a .service file is edited, it requires a refresh.
+   Everytime a .service file is edited, it requires a refresh (see Step 4).
    ```
+(content:lightbox:lednumber3)=    
+## Setting LED numbers in `moonsim_moon.py` and `moonsim_sun.py`
+
+- Recall that in {ref}`content:moonsim_moon` and {ref}`content:moonsim_sun`, to generate the `LED_schedule .csv` the specification of the LED array (diode_per_strip and strip_count was specified.
+- The total number of LEDs is diode_per_strip multiplied by strip_count. E.g., 144 x 4 = 576
+
+    ```{figure} /images/led_count.png
+    :name: led_count
+
+    Specify the line of "LED_COUNT" in `moonsim_sun.py` to 576 when using four daisy-chained 144 LED strips.
+    ```
+- Edit the line of "LED_COUNT" in `moonsim_moon.py` and `moonsim_sun.py` with the respective total number of LEDs for each array.
+- Save the file.
+
+
+    
+    ```{note}
+    When changing the number of LEDs number in an array, simply change the corresponding settings in MoonSim schedulers and the moonsim python file. Of course, it will also require a recalibration of the illuminance.
+    ```

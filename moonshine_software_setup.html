@@ -422,6 +422,22 @@ title="Print to PDF"
    Setting up systemd service
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-led-numbers-in-moonsim-moon-py-and-moonsim-sun-py">
+   Setting LED numbers in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     moonsim_moon.py
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     moonsim_sun.py
+    </span>
+   </code>
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -461,6 +477,22 @@ title="Print to PDF"
    Setting up systemd service
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-led-numbers-in-moonsim-moon-py-and-moonsim-sun-py">
+   Setting LED numbers in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     moonsim_moon.py
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     moonsim_sun.py
+    </span>
+   </code>
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -477,14 +509,15 @@ title="Print to PDF"
 <span id="content-lightbox-lednumber"></span><h2>Setting up a new Raspberry Pi<a class="headerlink" href="#setting-up-a-new-raspberry-pi" title="Permalink to this headline">#</a></h2>
 <ol>
 <li><p>On a computer go to Raspberry Pi’s website <a class="reference external" href="https://www.raspberrypi.com/software/">https://www.raspberrypi.com/software/</a> to download and install the Raspberry Pi Imager.</p></li>
-<li><p>In Raspberry Pi Imager, install <strong>Raspberry Pi OS (Legacy)</strong> on the micro SD card.</p></li>
+<li><p>In the Raspberry Pi Imager, install <strong>Raspberry Pi OS (Legacy)</strong> on the micro SD card.</p></li>
 <li><p>Connect the monitor, keyboard, and mouse to the PI.</p></li>
 <li><p>Insert the micro SD card into the Pi.</p></li>
 <li><p>Connect power to the Pi to boot it up.</p></li>
-<li><p>Follow the setup pages instructions. Connect to the internet, and the perform prompted update on first launch. Note down the username and password being set.</p></li>
+<li><p>Follow the instructions in the setup pages. Connect to the internet, and perform the prompted update on first launch. Note down the username and password that are utilized.</p></li>
 <li><p>Install Python 3.9.9.</p>
-<p>Reference: <a class="reference external" href="https://linuxhint.com/update-python-raspberry-pi/">How to Update Python on Raspberry Pi</a></p>
-<p>Enter the following sequence of commands in terminal:</p>
+<p>OTHER PYTHON IS NOT SUPPORTED
+Reference: <a class="reference external" href="https://linuxhint.com/update-python-raspberry-pi/">How to Update Python on Raspberry Pi</a></p>
+<p>Enter the following sequence of commands in the terminal:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">https://www.python.org/ftp/python/3.9.9/Python-3.9.9.tgz</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-zxvf</span> <span class="pre">Python-3.9.9.tgz</span></code></p></li>
@@ -496,16 +529,20 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/usr/local/bin/python3.9</span> <span class="pre">python</span></code></p></li>
 </ul>
 </li>
-<li><p>Check Python version (3.9.9):</p>
+<li><p>Check Python is version (3.9.9):</p>
 <p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code></p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>It must be python 3.9.9</p>
+</div>
 </li>
 <li><p>Modify Pi to run the <em>ws2811</em> library.</p>
 <p>Reference: <a class="reference external" href="https://tutorials-raspberrypi.com/connect-control-raspberry-pi-ws2812-rgb-led-strips/">Connect and Control WS2812 RGB LED Strips via Raspberry Pi</a></p>
-<p>In terminal:</p>
+<p>In terminal, enter the following sequence of commands:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">gcc</span> <span class="pre">make</span> <span class="pre">build-essential</span> <span class="pre">python-dev</span> <span class="pre">git</span> <span class="pre">scons</span> <span class="pre">swig</span></code> (confirm with Y)</p></li>
-<li><p>This command line will open a file editor. To deactivate audio output, we edit the <code class="docutils literal notranslate"><span class="pre">.conf</span></code> file by:</p>
+<li><p>This command line will open a file editor. To deactivate audio output, edit the <code class="docutils literal notranslate"><span class="pre">.conf</span></code> file by entering the following command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/modprobe.d/snd-blacklist.conf</span></code></p>
 <p>And add this line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">blacklist</span> <span class="n">snd_bcm2835</span>
@@ -514,17 +551,20 @@ title="Print to PDF"
 <p>Then save file with CTRL + O.</p>
 <p>And close the editor with CTRL + X.</p>
 </li>
-<li><p>Edit another <code class="docutils literal notranslate"><span class="pre">.conf</span></code> file:</p>
+<li><p>We also need to edit another <code class="docutils literal notranslate"><span class="pre">.conf</span></code> file:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/boot/config.txt</span></code></p>
-<p>Comment out the line</p>
+<p>When the editor is opened, comment out the following line with a # at the beginning:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dtparam</span><span class="o">=</span><span class="n">audio</span><span class="o">=</span><span class="n">on</span>
 </pre></div>
 </div>
-<p>by adding a # in front of it.</p>
+<p>i.e.,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#dtparam=audio=on</span>
+</pre></div>
+</div>
 <p>Then save file with CTRL + O.</p>
 <p>And close the editor with CTRL + X.</p>
 </li>
-<li><p>Reboot Pi:</p>
+<li><p>Reboot Pi by entering the following command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">reboot</span></code></p>
 </li>
 </ul>
@@ -535,40 +575,44 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/jgarff/rpi_ws281x</span></code></p></li>
 </ul>
 </li>
-<li><p>We need to modify some lines to specify using SK6812:</p>
-<ul>
+<li><p>Next, modify some lines to specify using the SK6812 protocol:</p>
+<ul class="simple">
 <li><p>Using the file explorer, open the <code class="docutils literal notranslate"><span class="pre">main.c</span></code> file found in <em>/home/pi/rpi_ws281x/</em></p></li>
-<li><p>Line 63 is turned on by default for LED ws2811, so turn it off by adding // at the front.</p></li>
-<li><p>Instead, turn on line 64 for SK6812 by deleting the // at the front.</p></li>
-<li><p>On line 66, edit it to the number of total numbers of LEDs connected.</p></li>
-<li><p>On line 67, edit number to 1.</p></li>
+<li><p>The line of “STRIP_TYPE  WS2811_STRIP_RGB” is turned on by default for LED ws2811 (should be Line 63), so turn it off by adding // at the front.</p></li>
+<li><p>Instead, turn on the line of “STRIP_TYPE  WS6812_STRIP_RGBW” (should be line 64) for SK6812 by deleting the // at the front.</p></li>
+<li><p>On the line of “HEIGHT” (should be line 67) edit the number to 1.</p></li>
+<li><p>The value of the line of “WIDTH” is unimportant (should be line 66). Since it is expected that the user will use a different number of LED strips for the moonlight array (two LED strip should suffice) and sunlight/twilight array (likely need more than two LED strips). The different number of LEDs being used for the two arrays are specified in the python file <code class="docutils literal notranslate"><span class="pre">moonsim_moon.py</span></code> and <code class="docutils literal notranslate"><span class="pre">moonsim_sun.py</span></code>, detailed later.</p></li>
 <li><p>Save file.</p></li>
-<li><p>Then we compile the library for Python.</p>
-<p>In terminal:</p>
-<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">rpi_ws281x/</span></code></p>
+</ul>
+<figure class="align-default" id="mainc">
+<img alt="_images/mainc.png" src="_images/mainc.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">The configuration of the main.c file.</span><a class="headerlink" href="#mainc" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </li>
+<li><p>Next, compile the library for Python.</p>
+<p>In terminal, enter the following commands:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">rpi_ws281x/</span></code></p>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">scons</span></code></p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Everytime main.c is edited, for example changing the number LED connected, it requires a recompile.</p>
-</div>
 </li>
-<li><p>Now the Pi should be ready to control the SK6812 LED strips using our <code class="docutils literal notranslate"><span class="pre">lightbox.py</span></code></p></li>
+<li><p>Now the Pi should be ready to control the SK6812 LED strips.</p></li>
 </ol>
 </section>
 <section id="setup-rtc-and-time">
 <h2>Setup RTC and time<a class="headerlink" href="#setup-rtc-and-time" title="Permalink to this headline">#</a></h2>
-<p>A real time clock module is optional but recommended. We recommend the user to run the Pi offline, and instead use the RTC to keep time. This is because having the Pi connected to the internet may not be possible, and when the Pi is online it will automatically update to the local time (including the troublesome DST).</p>
+<p>A real time clock module is optional but recommended. We recommend that the user runs the Pi offline, and instead uses the RTC to keep time. This is because when the Pi is online it will automatically update to the local time. This may use daylight saving time, DST, which can be troublesome. The RTC is also essential if the Pi is used in a location with no internet connection.</p>
 <ol>
 <li><p>Install RTC module DS3231 as described in <a class="reference internal" href="moonshine_hardware_setup.html#content-hardware-assemble"><span class="std std-ref">Assemble Pi and LED strips</span></a></p></li>
-<li><p>On Pi, go to Start menu (top left button) &gt; Preferences &gt; Raspberry Pi Configuration &gt; Interfaces &gt; I2C <strong>Enable</strong> &gt; OK</p></li>
+<li><p>On the Pi, go to the Start menu (top left button) and select &gt; Preferences &gt; Raspberry Pi Configuration &gt; Interfaces &gt; I2C <strong>Enable</strong> &gt; OK</p></li>
 <li><p>Install RTC configurations (Reference: <a class="reference external" href="https://www.youtube.com/watch?v=MxUbqotDBnM">Real Time Clock Script for Raspberry Pi</a>, <a class="reference external" href="https://thepihut.com/blogs/raspberry-pi-tutorials/17209332-adding-a-real-time-clock-to-your-raspberry-pi">Adding a Real Rime Clock to your Raspberry Pi</a>)</p>
 <ul class="simple">
-<li><p>In terminal:
+<li><p>In terminal enter:
 `wget <a class="reference external" href="https://raw.githubusercontent.com/km4ack/pi-scripts/master/rtc">https://raw.githubusercontent.com/km4ack/pi-scripts/master/rtc</a> &amp;&amp; bash rtc’</p></li>
-<li><p>Is the time above correct?</p></li>
-<li><p>Do you see 68 in the info listed above? (It may also appear as UU instead of 68, either is fine)</p></li>
+<li><p>When the terminal returns: “Is the time above correct?”, respond accordingly (Y/N).</p></li>
+<li><p>When the terminal returns: “Do you see 68 in the info listed above?”, respond accordingly (Y/N). (Note to user: you may see UU instead of 68)</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -584,7 +628,7 @@ title="Print to PDF"
 <li><p>Select <strong>UTC</strong> and OK</p></li>
 </ul>
 </li>
-<li><p>To change Pi clock to the user’s current time (without DST if the user is currently experiencing DST), in terminal:</p>
+<li><p>To change Pi clock to the user’s current time (without DST, even if the user is currently experiencing DST), in terminal:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">date</span> <span class="pre">-s</span> <span class="pre">'YYYY-MM-DD</span> <span class="pre">hh:mm:ss'</span></code></p></li>
 <li><p>Change the above to the user’s current time in Year-Month-Day hour:minute:second. Keep the digits format, meaning four digits for the year and two digits for the rest.</p></li>
@@ -595,10 +639,10 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">hwclock</span> <span class="pre">-w</span></code></p></li>
 </ul>
 </li>
-<li><p>To check if RTC is working:</p>
+<li><p>To check if RTC is working, enter:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">hwclock</span> <span class="pre">-rv</span></code></p></li>
-<li><p>It should report the RTC time.</p></li>
+<li><p>The RTC time will be reported.</p></li>
 </ul>
 </li>
 </ol>
@@ -606,22 +650,27 @@ title="Print to PDF"
 <section id="desktop-folders">
 <span id="content-lightbox-lednumber2"></span><h2>Desktop folders<a class="headerlink" href="#desktop-folders" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
-<li><p>Download from our Github. the <em>control_moon</em> and <em>control_sun</em> folders.</p></li>
-<li><p>Move them to the Pi Desktop.</p></li>
+<li><p>Download from our Github the <em>control_moon</em> and <em>control_sun</em> folders.</p>
+<ul class="simple">
+<li><p><em>control_moon</em> contains <code class="docutils literal notranslate"><span class="pre">moonsim_moon.py</span></code></p></li>
+<li><p><em>control_sun</em> contains <code class="docutils literal notranslate"><span class="pre">moonsim_sunn.py</span></code></p></li>
+</ul>
+</li>
+<li><p>Move the two folders to the Pi Desktop.</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In <em>/control_moon/moonsim_moon.py</em>, the line LED_PIN = 18 specify the communication with the LED strip through the <strong>GPIO 18</strong>. <em>/controlmoonsim_moonhtbox.py</em> controls controls through <strong>GPIO 21</strong> instead.</p>
+<p>In <em>/control_moon/moonsim_moon.py</em>, the line LED_PIN = 18 specify the communication with the moonlight LED strip through the <strong>GPIO 18</strong>. <em>/control_sun/moonsim_sun.py</em> controls the sunlight/twilight LED strip through <strong>GPIO 21</strong> instead.</p>
 </div>
 </section>
 <section id="setting-up-systemd-service">
-<h2>Setting up systemd service<a class="headerlink" href="#setting-up-systemd-service" title="Permalink to this headline">#</a></h2>
+<span id="content-systemd"></span><h2>Setting up systemd service<a class="headerlink" href="#setting-up-systemd-service" title="Permalink to this headline">#</a></h2>
 <ol>
 <li><p>Create a new service file.</p>
-<p>In terminal:</p>
+<p>In terminal, enter:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/systemd/system/moonsim_moon.service</span></code></p>
 </li>
-<li><p>In the editor, paste in the following lines:</p>
+<li><p>The file editor will open up a blank file, paste in the following lines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
 <span class="n">Description</span><span class="o">=</span><span class="n">relaunch</span> <span class="n">moonsim_moon</span><span class="o">.</span><span class="n">py</span> <span class="n">when</span> <span class="n">crashed</span>
 
@@ -638,22 +687,28 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The line “ExecStart=…” specify the action. Here it is launching the <code class="docutils literal notranslate"><span class="pre">moonsim_moon.py</span></code> with python3 with admin permission. <code class="docutils literal notranslate"><span class="pre">Restart=always</span></code> and <code class="docutils literal notranslate"><span class="pre">RestartSec=3</span></code> are configured to restart moonsim_moon.py within 3 seconds upon closing (i.e., the script crashing).</p>
+</div>
+<ol>
 <li><p>Then save file with CTRL + O. CTRL + X to close the editor.</p>
-<p>When prompted the file name, confirm that it is <code class="docutils literal notranslate"><span class="pre">moonsim_moon.service</span></code> and enter Y to save.</p>
+<p>When prompted for the file name, confirm that it is <code class="docutils literal notranslate"><span class="pre">moonsim_moon.service</span></code> and enter Y to save.</p>
 </li>
 <li><p>Refresh the system service files. It may ask for the username and password.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></p></li>
 </ul>
 </li>
-<li><p>(Optional) If the user is recreating sunlight and twilight as well, repeat the above steps to make another service for <em>control_sun/moonsim_sun.py</em></p>
+<li><p>(Optional) If the user is recreating sunlight and twilight as well, repeat the above steps, from 1 to4, to make another service for <em>control_sun/moonsim_sun.py</em></p>
 <ul>
 <li><p>For step 1, use a different file name:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">moonsim_sun</span><span class="o">.</span><span class="n">service</span>
 </pre></div>
 </div>
 </li>
-<li><p>For step 2, replace the line of ExecStart=…  with</p>
+<li><p>For step 2, replace the line of <code class="docutils literal notranslate"><span class="pre">ExecStart=...</span></code>  with</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ExecStart</span><span class="o">=</span><span class="n">sudo</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">control_sun</span><span class="o">/</span><span class="n">moonsim</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
@@ -662,10 +717,31 @@ title="Print to PDF"
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Everytime a .service file is edited, it requires a refresh.</p>
+<p>Everytime a .service file is edited, it requires a refresh (see Step 4).</p>
 </div>
 </li>
 </ol>
+</section>
+<section id="setting-led-numbers-in-moonsim-moon-py-and-moonsim-sun-py">
+<span id="content-lightbox-lednumber3"></span><h2>Setting LED numbers in <code class="docutils literal notranslate"><span class="pre">moonsim_moon.py</span></code> and <code class="docutils literal notranslate"><span class="pre">moonsim_sun.py</span></code><a class="headerlink" href="#setting-led-numbers-in-moonsim-moon-py-and-moonsim-sun-py" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>Recall that in <a class="reference internal" href="moonsim_moonlight_LED_scheduler.html#content-moonsim-moon"><span class="std std-ref">MoonSim: Moonlight scheduler</span></a> and <a class="reference internal" href="moonsim_sunlight_twilight_LED_scheduler.html#content-moonsim-sun"><span class="std std-ref">MoonSim: Sunlight &amp; twilight scheduler</span></a>, to generate the <code class="docutils literal notranslate"><span class="pre">LED_schedule</span> <span class="pre">.csv</span></code> the specification of the LED array (diode_per_strip and strip_count was specified.</p></li>
+<li><p>The total number of LEDs is diode_per_strip multiplied by strip_count. E.g., 144 x 4 = 576</p>
+<figure class="align-default" id="led-count">
+<img alt="_images/led_count.png" src="_images/led_count.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Specify the line of “LED_COUNT” in <code class="docutils literal notranslate"><span class="pre">moonsim_sun.py</span></code> to 576 when using four daisy-chained 144 LED strips.</span><a class="headerlink" href="#led-count" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Edit the line of “LED_COUNT” in <code class="docutils literal notranslate"><span class="pre">moonsim_moon.py</span></code> and <code class="docutils literal notranslate"><span class="pre">moonsim_sun.py</span></code> with the respective total number of LEDs for each array.</p></li>
+<li><p>Save the file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When changing the number of LEDs number in an array, simply change the corresponding settings in MoonSim schedulers and the moonsim python file. Of course, it will also require a recalibration of the illuminance.</p>
+</div>
+</li>
+</ul>
 </section>
 </section>
 

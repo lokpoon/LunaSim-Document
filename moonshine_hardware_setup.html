@@ -502,7 +502,7 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Raspberry Pi 4 model B kit</p></td>
-<td><p>XXX</p></td>
+<td><p>B0B7DFF7TY</p></td>
 <td><p>GeeekPi</p></td>
 <td><p>1</p></td>
 <td><p>$200</p></td>
@@ -542,7 +542,7 @@ title="Print to PDF"
 <td><p><a class="footnote-reference brackets" href="#id8" id="id2">2</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2.54mm pitch crimp connector kit</p></td>
-<td><p>XXX</p></td>
+<td><p>US_CNN019</p></td>
 <td><p>OCR</p></td>
 <td><p>1</p></td>
 <td><p>$12</p></td>
@@ -581,7 +581,7 @@ title="Print to PDF"
 <td><p>-</p></td>
 <td><p><a class="footnote-reference brackets" href="#id10" id="id4">4</a></p></td>
 </tr>
-<tr class="row-even"><td><p>Generic black spray paint</p></td>
+<tr class="row-even"><td><p>Generic matte black spray paint</p></td>
 <td><p>-</p></td>
 <td><p>-</p></td>
 <td><p>1</p></td>
@@ -621,19 +621,11 @@ title="Print to PDF"
 <td><p></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p>$</p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Estimated total cost for one MoonShine system (excluding the illuminance measuring device) = $653 (Jan 2023)</p>
+<p>Estimated total cost for one MoonShine system (excluding the illuminance measuring device) = $653 (Feb 2023)</p>
 </div>
 <section id="tools">
 <h3>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">#</a></h3>
@@ -641,7 +633,7 @@ title="Print to PDF"
 <li><p>Wire stripper (for small gauge wire ~22-26 AWG)</p></li>
 <li><p>Needle pliers</p></li>
 <li><p>Wood hand saw</p></li>
-<li><p>Driver</p></li>
+<li><p>Electric screwdriver</p></li>
 </ul>
 </section>
 <section id="basic-supplies">
@@ -658,37 +650,43 @@ title="Print to PDF"
 <figure class="align-default" id="schematic">
 <img alt="_images/raspberry-pi.png" src="_images/raspberry-pi.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Connection diagram for the Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the PINs connected to the first array of LED strips for moonlight recreation. The open color circles are connected the second array of LED strips, for simultaneous recreation of sunlight and twilight. Wire color schematic according to SK6812 made by BTF-Lighting, Guangdong, China.</span><a class="headerlink" href="#schematic" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Connection diagram for the Raspberry Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the PINs connected to the first array of LED strips for moonlight recreation. The open color circles are connected the second array of LED strips, for simultaneous recreation of sunlight/twilight. The wire color schematic follows the SK6812, made by BTF-Lighting, Guangdong, China.</span><a class="headerlink" href="#schematic" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="cable">
 <img alt="_images/cable.png" src="_images/cable.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Photo of the actual connection for one array of LED strips. Click the figure to zoom in.</span><a class="headerlink" href="#cable" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Photo of the actual connection for one array of LED strips. Click the figure to zoom in.</span><a class="headerlink" href="#cable" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<ol class="simple">
+<ol>
 <li><p>Follow the Raspberry Pi kit assembly instruction.</p></li>
-<li><p>On one end of the 3-pin cable female connector (comes with the LED strip), put on a female crimp connector. See <a class="reference external" href="https://www.youtube.com/watch?v=JsoqBS1-k7M">this guide</a> for installing crimp pins with needle nose pliers.</p>
+<li><p>On the bare wire end of the 3-pin cable female connector that comes with the LED strip, put on a female crimp connector. See <a class="reference external" href="https://www.youtube.com/watch?v=JsoqBS1-k7M">this guide</a> for installing crimp pins with needle nose pliers. The user can decide whether to use three single-socket crimp connectors for each wire, or one 5-socket crimp connector for all three wires.</p>
 <ul class="simple">
-<li><p>Follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 21</span></a> (solid color circles) for the first array of LED strips. When Pi is oriented so that the GPIO are facing up and on the right side,the crimp connected is plugged into the upper right corner of the GPIO array.</p>
-<ul>
+<li><p>Follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 25</span></a> (solid color circles) for the PIN locations of the first array of LED strips.</p></li>
+</ul>
+</li>
+<li><p>Plug in the fully assembled female crimp connector (after Step 2 is complete) into the Pi GPIO PINs so that the wires are connected to the correct locations.</p>
+<ul class="simple">
 <li><p>Red wire goes into the 5V PIN.</p></li>
 <li><p>White wire goes into the ground PIN.</p></li>
 <li><p>Green wire goes into the GPIO 18 data PIN.</p></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><p>Plug female crimp connector into the Pi PINs so that the wires are connected to the correct locations.</p></li>
-<li><p>On the other end of the 3-pin cable with the female quick release socket, connect it to the male plug of the LED strip. (Add an extension cable if more length is required).</p></li>
-<li><p>Connect the female connector to the LED strip male connector. Notice the arrows on the LED strip, this indicated the direction of the data flow (from Pi to the array of LED strips).</p></li>
-<li><p>Screw in the LED voltage-adding wires (red-positive and white-negative) to the power female connector (comes with the DC power supply). Pay attention to the polarity.</p></li>
+<li><p>Connect the 3-pin cable female connector to the male plug of the LED strip. (Add an extension cable if more length is required). Notice the arrows on the LED strip, this indicated the direction of the data flow (from Pi to the array of LED strips).</p></li>
+<li><p>Screw in the LED voltage-adding wires (red-positive and white-negative) to the power female connector that comes with the DC power supply. Pay attention to the polarity.</p></li>
 <li><p>Plug in DC power supply.</p></li>
-<li><p>Connect additional LED strips to this array from the other end (away from the Pi) of the first LED strip. Add additional DC power supply on subsequent LED strips.</p></li>
-<li><p>Install the RTC module as shown in <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 21</span></a> &amp; <a class="reference internal" href="#cable"><span class="std std-numref">Fig. 22</span></a>, so that it is on the same end of the crimp connector and next to it.</p></li>
-<li><p>(Optional) To add a second array of LED strips for recreating sunlight and twilight, while running moonlight recreation, follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 21</span></a> (open color circles) for PIN connections.</p></li>
-<li><p>(Optional) To prevent power surge and outage event interrupting the light schedule, connect all power to a uninterrupted power supply (UPS).</p></li>
+<li><p>Connect additional LED strips to this array from the other end (away from the Pi) of the first LED strip. Add an additional DC power supply to each subsequent LED strips.</p>
+<figure class="align-default" id="rtc-pic">
+<img alt="_images/RTC_pic.png" src="_images/RTC_pic.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">The Pi with the RTC and both LED arrays (moonlight and sunlight/twilight) connected. This matches the schemetic of <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 25</span></a>.</span><a class="headerlink" href="#rtc-pic" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Install the RTC module as shown in <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 25</span></a>. Make sure that it goes into the correct location, taking up 5 GPIO PIN.</p></li>
+<li><p>(Optional) To add a second array of LED strips for re-creating sunlight/twilight, while also running moonlight re-creation, follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 25</span></a> (open color circles) for the PIN locations of the second LED array. Repeat Steps 2-8.</p></li>
+<li><p>(Optional) To prevent power surge and outage event interrupting the light schedule, connect all power to an uninterrupted power supply (UPS).</p></li>
 </ol>
 </section>
 <section id="construction-of-diffusion-box">
@@ -699,46 +697,46 @@ title="Print to PDF"
 <figure class="align-default" id="box">
 <img alt="_images/diffusion_box.png" src="_images/diffusion_box.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Construction of a diffusion box housing one LED strip.</span><a class="headerlink" href="#box" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Construction of a diffusion box housing one LED strip.</span><a class="headerlink" href="#box" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="simple">
-<li><p>Construct the wooden box as <a class="reference internal" href="#box"><span class="std std-numref">Fig. 23</span></a> with screws. With:</p>
+<li><p>Construct the wooden box as <a class="reference internal" href="#box"><span class="std std-numref">Fig. 28</span></a> with screws. With:</p>
 <ul class="simple">
 <li><p>5/4” x 6” x 4’ board as the base.</p></li>
 <li><p>A 1” x 4” x 4’ board on each long side.</p></li>
 <li><p>Cut down a 1” x 4” x 4’ to get two end caps.</p></li>
 </ul>
 </li>
-<li><p>Spray paint the interior in black.</p></li>
-<li><p>Install the LED strip on the center bottom of the lightbox. The bottom of the LED strip should comes with sticky tape.</p></li>
-<li><p>Drill a small hole on each end of the box for the cables. Plug it with small pieces of foam to prevent light leak.</p></li>
-<li><p>Cut ND filter sheets into the correct size, and secure them on the top opening with masking tape. Ensure no light leak. See <a class="reference internal" href="moonshine_calibration.html#content-lightbox-calibration"><span class="std std-ref">MoonShine: Calibration</span></a> regarding how many ND filter sheets to use.</p></li>
+<li><p>Spray paint the interior in matte black.</p></li>
+<li><p>Affix the LED strip along the center of the bottom of the lightbox; the bottom of the LED strip has built-in adhesive.</p></li>
+<li><p>Drill a small hole on each end of the box for the cables. Plug the hole with small pieces of foam to prevent light leakage.</p></li>
+<li><p>Cut the ND filter sheets into the correct size, and secure them on the top opening with masking tape or pins. Ensure there are no light leaks. See <a class="reference internal" href="moonshine_calibration.html#content-lightbox-calibration"><span class="std std-ref">MoonShine: Calibration</span></a> for instructions on how many stacked ND filter sheets to use.</p></li>
 </ol>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Any equivalent kit of the Raspberry Pi 4 model B from other companies would work. Beside the Pi itself, the kit should include all the accessories such as HDMI cable, power supply, case, SD card, etc. <em><span style="font-variant:small-caps;">MoonShine</span></em> only requires the 2GB RAM option, but there is the option for more RAM (4GB or 8GB).</p>
-<p>At the time of writing this document, price of Pi is much higher than the official price due to supply issues.</p>
+<dd><p>Any equivalent kit of the Raspberry Pi 4 model B from other companies would work. Beside the Pi itself, the kit should include all the accessories such as HDMI cable, power supply, case, SD card, etc. <em><span style="font-variant:small-caps;">MoonShine</span></em> only requires the 2GB RAM option, but there are options for more RAM (4GB or 8GB).</p>
+<p>Prices are for February 2023. At the time of writing this document, the price of a Pi is much higher than the official price due to supply issues.</p>
 </dd>
 <dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>We recommend the following options: <strong>1m, 144 LED, Warm White</strong>. There is also the option for a IP65 water resistant or IP30 normal version, choose whichever one is more suitable for the user’s application. Choose warm white because we do not want the big blue spike in the white channel spectrum. A different strip length and LED number can be selected, but we believe 1m 144 LED is the best suited for most situations.</p>
-<p>Two LED strips are required for moonlight recreation. More can be added in multiple of two to daisy chain many more strips, e.g., when trying to recreate a higher illuminance when recreating sunlight.</p>
+<dd><p>We recommend the following options: <strong>1m, 144 LED, Warm White</strong>. There is also the option for a IP65 water resistant or IP30 normal version. The user can choose one suitable for the required application. Choose warm white to avoid a substantial blue spike in the white channel spectrum. A different strip length and LED number can be selected, but the 1m 144 LED is the best suited for most situations, and the default options in the <em><span style="font-variant:small-caps;">MoonSim</span></em> suite will work for this model.</p>
+<p>Two LED strips are required for moonlight recreation. More can be added, in multiple of two, to daisy chain many more strips, e.g., to generate a higher illuminance when recreating sunlight.</p>
 </dd>
 <dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>Buy enough connector cable for daisy chaining LED strips around the user’s room.</p>
+<dd><p>Buy enough connector cable to daisy chain the LED strips on opposite sides of the room.</p>
 </dd>
 <dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p>The dimensions lumber boards for building one diffusion box:</p>
+<dd><p>The dimensions of the lumber boards for building one diffusion box:</p>
 <ul class="simple">
-<li><p>Base: One of 5/4” x 6” x 4’ <a class="reference external" href="https://www.homedepot.com/p/WeatherShield-5-4-in-x-6-in-x-4-ft-Premium-Ground-Contact-Pressure-Treated-Decking-Board-253944/300526781">home depot</a> ($6)</p></li>
-<li><p>Two Sides: Two of 1” x 4” x 4’ <a class="reference external" href="https://www.homedepot.com/p/WeatherShield-1-in-x-4-in-x-4-ft-Appearance-Grade-Pressure-Treated-Board-275086/300573653">home depot</a> ($7.4)</p></li>
-<li><p>End caps: Cut down a 1” x 4” x 4’ <a class="reference external" href="https://www.homedepot.com/p/WeatherShield-1-in-x-4-in-x-4-ft-Appearance-Grade-Pressure-Treated-Board-275086/300573653">home depot</a> ($3.7)</p></li>
+<li><p>Base: One of 5/4” x 6” x 4’ <a class="reference external" href="https://www.homedepot.com/p/WeatherShield-5-4-in-x-6-in-x-4-ft-Premium-Ground-Contact-Pressure-Treated-Decking-Board-253944/300526781">Home depot</a> ($6)</p></li>
+<li><p>Two Sides: Two of 1” x 4” x 4’ <a class="reference external" href="https://www.homedepot.com/p/WeatherShield-1-in-x-4-in-x-4-ft-Appearance-Grade-Pressure-Treated-Board-275086/300573653">Home depot</a> ($7.4)</p></li>
+<li><p>End caps: Cut down a 1” x 4” x 4’ <a class="reference external" href="https://www.homedepot.com/p/WeatherShield-1-in-x-4-in-x-4-ft-Appearance-Grade-Pressure-Treated-Board-275086/300573653">Home depot</a> ($3.7)</p></li>
 </ul>
 </dd>
 <dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
-<dd><p>The ND filter required depends on the user’s room and setup. It should take two or three filters per diffusion box to dim the lightbox. See <a class="reference internal" href="moonshine_calibration.html#content-lightbox-calibration"><span class="std std-ref">MoonShine: Calibration</span></a> to learn which ND intensity to try out.</p>
-<p>Lee ND filter sheet lineup:</p>
+<dd><p>The ND filter required depends on the user’s room and setup. It should take two or three filters per diffusion box to dim the lightbox. See <a class="reference internal" href="moonshine_calibration.html#content-lightbox-calibration"><span class="std std-ref">MoonShine: Calibration</span></a> to determine which ND sheet transmission % values to try out (the user may need to experiment with different combinations of ND sheets to achieve the desired illuminance).</p>
+<p>Lee ND filter sheet types:</p>
 <ul class="simple">
 <li><p>Lee 298 (ND 0.15, ½ Stop) = Transmission 69.3%</p></li>
 <li><p>Lee 209 (ND 0.3, 1 Stop) = Transmission 51.2%</p></li>
@@ -749,9 +747,9 @@ title="Print to PDF"
 <p>Rosco is another company that makes ND filter sheets.</p>
 </dd>
 <dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
-<dd><p>“Lux meter” is just a commercial term for radiometer, both measure illuminance in lx. We need to measure the illuminance to calibrate Moonshine. Spectrometer is like an upgraded radiometer. It measures spectral irradiance, which provides spectral information about the light. Meanwhile, spectral irradiance measurements can easily be converted into illuminance. However, spectrometers generally carries high cost.</p>
-<p>An accurate illuminance measuring device is critical for calibrating Moonshine, but ones that measures at low light are very expensive. We do not want the cost of the radiometer to discourage the use of Moonshine for moonlight related experiments. Still, it is critical to obtain a meter that has NIST-Traceable calibration, like this <a class="reference external" href="https://www.intl-lighttech.com/products/ilt10c-luxlight-meter-nist-traceable-calibration?gclid=Cj0KCQiAw8OeBhCeARIsAGxWtUzB0YaQDpYF5fXMYee-U9zSQgnbmph4LrlmD0inkbSdw4FtaJ-AjjsaApwYEALw_wcB">ILT10C</a>. Lower cost meters can not measure at moonlight level illuminance (i.e., &gt;0.3lux), still we can calibrate Moonshine through a comparative method. See further explanations and solutions in <span class="xref std std-ref">(content:lightbox:radiometer</span></p>
-<p>For us, we use the International Light Technology <a class="reference external" href="https://www.intl-lighttech.com/products/ilt5000-researchlab-radiometer">ILT-5000</a> radiometer, with a SUD100/U detector equipped with Y4 photopic filter (total ~$4000).</p>
+<dd><p>“Lux meter” is a commercial term for a radiometer; both measure illuminance in lux. A measure of illuminance is essential to calibrate Moonshine. A spectrometer is a radiometer that measures spectral irradiance – measures of light intensity values across (and just outside) the visible light spectrum. Spectral irradiance measurements can easily be converted into illuminance. Spectrometers are generally more expensive than radiometers, although low-light sensitive radiometers suitable for quantifying moonlight levels are also expensive.</p>
+<p>An accurate illuminance measuring device is critical for calibrating Moonshine, but ones that measures at low light are very expensive. We do not want the cost of the radiometer to discourage the use of Moonshine for moonlight related experiments. Still, it is critical to obtain a meter that has NIST-Traceable calibration, like the International Light Technology <a class="reference external" href="https://www.intl-lighttech.com/products/ilt10c-luxlight-meter-nist-traceable-calibration?gclid=Cj0KCQiAw8OeBhCeARIsAGxWtUzB0YaQDpYF5fXMYee-U9zSQgnbmph4LrlmD0inkbSdw4FtaJ-AjjsaApwYEALw_wcB">ILT10C</a> (lower limit of 10 lx, cost ~$350). Lower cost meters do not perform accurately at moonlight level illuminance (i.e., &lt;0.3 lx). Where only a non low-light sensitive radiometer is available,  Moonshine can be calibrated using a comparative method. See further explanations and solutions in <span class="xref std std-ref">(content:lightbox:radiometer</span></p>
+<p>We used the International Light Technology <a class="reference external" href="https://www.intl-lighttech.com/products/ilt5000-researchlab-radiometer">ILT-5000</a> radiometer, with a SED 100-10/U broadband silicon photosensor, WU wide angle quartz diffuser, and Y4 photopic filter. This device is sensitive to light as low as 0.0002 lx.</p>
 </dd>
 </dl>
 </section>
