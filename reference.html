@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Overview &#8212; MoonSim and MoonShine Documentation</title>
+    <title>References &#8212; MoonSim and MoonShine Documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MoonSim: Lux calculator" href="moonsim_lux_calculator.html" />
+    <link rel="prev" title="MoonShine: Launch procedure" href="moonshine_launch_procedure.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -106,13 +106,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="overview.html">
                     Overview
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="moonsim_lux_calculator.html">
    <span style="font-variant:small-caps;">
@@ -148,10 +148,18 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonshine_hardware_setup.html">
-   <span style="font-variant:small-caps;">
-    MoonShine
-   </span>
-   : Hardware setup
+   jupytext:
+cell_metadata_filter: -all
+formats: md:myst
+text_representation:
+extension: .md
+format_name: myst
+format_version: 0.13
+jupytext_version: 1.11.5
+kernelspec:
+display_name: Python 3
+language: python
+name: python3
   </a>
  </li>
  <li class="toctree-l1">
@@ -178,8 +186,8 @@ const thebe_selector_output = ".output, .cell_output"
    : Launch procedure
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="reference.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    References
   </a>
  </li>
@@ -234,6 +242,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/lokpoon/LunaSim/master?urlpath=tree/docs/reference.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -273,7 +310,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/lokpoon/LunaSim/issues/new?title=Issue%20on%20page%20%2Foverview.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/lokpoon/LunaSim/issues/new?title=Issue%20on%20page%20%2Freference.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -301,7 +338,24 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/overview.md"
+        <a href="_sources/reference.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/reference.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -338,96 +392,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-font-variant-small-caps-moonsim-span">
-   <em>
-    <span style="font-variant:small-caps;">
-     MoonSim
-    </span>
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-font-variant-small-caps-moonshine-span">
-   <em>
-    <span style="font-variant:small-caps;">
-     MoonShine
-    </span>
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-of-contents">
-   Table of contents
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Overview</h1>
+                <h1>References</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-font-variant-small-caps-moonsim-span">
-   <em>
-    <span style="font-variant:small-caps;">
-     MoonSim
-    </span>
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-font-variant-small-caps-moonshine-span">
-   <em>
-    <span style="font-variant:small-caps;">
-     MoonShine
-    </span>
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-of-contents">
-   Table of contents
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -435,46 +416,27 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h1>
-<section id="span-style-font-variant-small-caps-moonsim-span">
-<h2><em><span style="font-variant:small-caps;">MoonSim</span></em><a class="headerlink" href="#span-style-font-variant-small-caps-moonsim-span" title="Permalink to this headline">#</a></h2>
-<p><em><span style="font-variant:small-caps;">MoonSim</span></em> is a suite of three R programs that predicts the ground illuminance of moonlight, twilight, and sunlight at any geographic location and any time (or range of times). The three versions of <em><span style="font-variant:small-caps;">MoonSim</span></em> <em><span style="font-variant:small-caps;">R</span></em> programs have different purposes, and generate different outputs accordingly:</p>
-<ol class="simple">
-<li><p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</strong></em> simply predicts moonlight and twilight illuminance. It is intended for use in field studies where a biologist requires moonlight illuminance values as a model predictor variable.</p></li>
-</ol>
-<p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</strong></em> and <em><strong><span style="font-variant:small-caps;">MoonSim</span>: Sunlight &amp; twilight scheduler</strong></em> are designed for use in combination with <em><span style="font-variant:small-caps;">MoonShine</span></em>, a hardware-software system that converts a moonlight or sunlight and twilight simulation from <em><span style="font-variant:small-caps;">MoonSim</span></em> into an artificial light regime generated by arrays of LEDs (see below).</p>
-<ol class="simple">
-<li><p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</strong></em> predicts only moonlight illuminance values, and convert these into LED intensity values.  It outputs a <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> table that serves as the schedule for <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p></li>
-<li><p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Sunlight &amp; twilight scheduler</strong></em> predicts only sunlight and twilight illuminance values, and converts these into LED intensity values. It outputs a <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code> table that serves as a schedule for <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p></li>
-</ol>
-</section>
-<section id="span-style-font-variant-small-caps-moonshine-span">
-<h2><em><span style="font-variant:small-caps;">MoonShine</span></em><a class="headerlink" href="#span-style-font-variant-small-caps-moonshine-span" title="Permalink to this headline">#</a></h2>
-<p><em><span style="font-variant:small-caps;">MoonShine</span></em> is an LED control system for recreating realistic moonlight, twilight, and to an extent, sunlight regimes in a laboratory. A light regime can be freely edited, making it ideal for experiments requiring a specific lighting scenario. <em><span style="font-variant:small-caps;">MoonShine</span></em> runs a Python program on a Raspberry Pi to control an array of LED strips. Every minute, the python program reads the light schedule (generated by <em><span style="font-variant:small-caps;">MoonSim</span>: schedulers</em>) to refresh the LED intensities. Users can run a moonlight schedule as well as a sunlight and twilight schedule simultaneously on the Pi. In this way, the Pi can separately control two arrays of LED strips, so as to fully re-create all three major sources of natural light, around the clock (see concept in <a class="reference internal" href="#map"><span class="std std-numref">Fig. 1</span></a>).</p>
-<figure class="align-default" id="map">
-<a class="reference internal image-reference" href="_images/map.png"><img alt="_images/map.png" src="_images/map.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">A flowchart of how MoonShine works with the .csv schedule files created by MoonSim to re-create light. MoonShine can either create moonlight only (in a custom-made lightbox with neutral density filter sheets to calibrate light levels to natural moonlight levels), or sunlight and twilight (in a custom made lightbox without filter sheets), or both moonlight and sunlight + twilight together (in two lightboxes, a filtered one for moonlight, and an unfiltered one for sunlight + twilight.</span><a class="headerlink" href="#map" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="table-of-contents">
-<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="moonsim_lux_calculator.html"><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonsim_moonlight_LED_scheduler.html"><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonsim_sunlight_twilight_LED_scheduler.html"><span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="edit_LED_schedule_csv.html">Edit <span style="font-variant:small-caps;">MoonSim</span> schedule</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonshine_hardware_setup.html"><span style="font-variant:small-caps;">MoonShine</span>: Hardware setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonshine_software_setup.html"><span style="font-variant:small-caps;">MoonShine</span>: Software setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonshine_calibration.html"><span style="font-variant:small-caps;">MoonShine</span>: Calibration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="moonshine_launch_procedure.html"><span style="font-variant:small-caps;">MoonShine</span>: Launch procedure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">References</a></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h1>
+<div class="docutils container" id="id1">
+<dl class="citation">
+<dt class="label" id="id4"><span class="brackets">CNT13</span></dt>
+<dd><p>M. P. F. Costa, E. M. L. M. Novo, and K. H. Telmer. Spatial and temporal variability of light attenuation in large rivers of the Amazon. <em>Hydrobiologia</em>, 702(1):171–190, February 2013. <a class="reference external" href="https://doi.org/10.1007/s10750-012-1319-2">doi:10.1007/s10750-012-1319-2</a>.</p>
+</dd>
+<dt class="label" id="id3"><span class="brackets">Jer76</span></dt>
+<dd><p>N. G. Jerlov. <em>Marine Optics</em>. Elsevier Oceanography Series ; 14. Elsevier Scientific Pub. Co, Amsterdam ; New York, 1976. ISBN 978-0-444-41490-8.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets">Joh12</span></dt>
+<dd><p>Sönke Johnsen. <em>The Optics of Life: A Biologist's Guide to Light in Nature</em>. Princeton University Press, 2012. ISBN 978-0-691-13990-6.</p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">PJ15</span></dt>
+<dd><p>Glenn Palmer and Sönke Johnsen. Downwelling spectral irradiance during evening twilight as a function of the lunar phase. <em>Applied Optics</em>, 54(4):B85–B92, February 2015. <a class="reference external" href="https://doi.org/10.1364/AO.54.000B85">doi:10.1364/AO.54.000B85</a>.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">VC12</span></dt>
+<dd><p>Carrie C. Veilleux and Molly E. Cummings. Nocturnal light environments and species ecology: implications for nocturnal color vision in forests. <em>Journal of Experimental Biology</em>, 215(23):4085–4096, December 2012. <a class="reference external" href="https://doi.org/10.1242/jeb.071415">doi:10.1242/jeb.071415</a>.</p>
+</dd>
+</dl>
 </div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -504,12 +466,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="moonsim_lux_calculator.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+    <a class='left-prev' id="prev-link" href="moonshine_launch_procedure.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span style="font-variant:small-caps;">MoonShine</span>: Launch procedure</p>
+        </div>
     </a>
 </div>
             </footer>

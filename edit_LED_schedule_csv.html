@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MoonShine: Hardware setup" href="moonshine_hardware_setup.html" />
-    <link rel="prev" title="MoonSim: Sunlight &amp; twilight scheduler" href="moonsim_sunlight_twilight_LED_scheduler.html" />
+    <link rel="next" title="jupytext: cell_metadata_filter: -all formats: md:myst text_representation: extension: .md format_name: myst format_version: 0.13 jupytext_version: 1.11.5 kernelspec: display_name: Python 3 language: python name: python3" href="moonshine_hardware_setup.html" />
+    <link rel="prev" title="MoonSim: Sunlight/twilight scheduler" href="moonsim_sunlight_twilight_LED_scheduler.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -135,7 +135,7 @@ const thebe_selector_output = ".output, .cell_output"
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
-   : Sunlight &amp; twilight scheduler
+   : Sunlight/twilight scheduler
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -149,10 +149,18 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonshine_hardware_setup.html">
-   <span style="font-variant:small-caps;">
-    MoonShine
-   </span>
-   : Hardware setup
+   jupytext:
+cell_metadata_filter: -all
+formats: md:myst
+text_representation:
+extension: .md
+format_name: myst
+format_version: 0.13
+jupytext_version: 1.11.5
+kernelspec:
+display_name: Python 3
+language: python
+name: python3
   </a>
  </li>
  <li class="toctree-l1">
@@ -177,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
     MoonShine
    </span>
    : Launch procedure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="reference.html">
+   References
   </a>
  </li>
 </ul>
@@ -573,14 +586,14 @@ title="Print to PDF"
 <figure class="align-default" id="zero">
 <img alt="_images/zero.png" src="_images/zero.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">A dark period can be inserted simply by replacing the LED values by zero.</span><a class="headerlink" href="#zero" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">A dark period can be inserted simply by replacing the LED values by zero.</span><a class="headerlink" href="#zero" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Copy and pasting the LED intensity</strong></p>
 <figure class="align-default" id="copy">
 <img alt="_images/copy.jpg" src="_images/copy.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Copy and pasting the LED intensity from one row to other rows at differnt times. As an example, the user can copy an entire night of LED intensity progression during a full moon and paste it in another night.</span><a class="headerlink" href="#copy" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Copy and pasting the LED intensity from one row to other rows at differnt times. As an example, the user can copy an entire night of LED intensity progression during a full moon and paste it in another night.</span><a class="headerlink" href="#copy" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -596,7 +609,7 @@ title="Print to PDF"
 <figure class="align-default" id="original-datetime">
 <img alt="_images/original_datetime.png" src="_images/original_datetime.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">The correct datetime format when opened with a text editor.</span><a class="headerlink" href="#original-datetime" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">The correct datetime format when opened with a text editor.</span><a class="headerlink" href="#original-datetime" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -605,7 +618,7 @@ title="Print to PDF"
 <figure class="align-default" id="excel-datetime">
 <img alt="_images/excel_datetime.png" src="_images/excel_datetime.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">The wrong datetime format is displayed when <code class="docutils literal notranslate"><span class="pre">LED_schedule</span> <span class="pre">.csv</span></code> is opened in Excel. The order of year, month, and day is incorrect, the number of digits is incorrect, and the seconds are missing.</span><a class="headerlink" href="#excel-datetime" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">The wrong datetime format is displayed when <code class="docutils literal notranslate"><span class="pre">LED_schedule</span> <span class="pre">.csv</span></code> is opened in Excel. The order of year, month, and day is incorrect, the number of digits is incorrect, and the seconds are missing.</span><a class="headerlink" href="#excel-datetime" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul>
@@ -632,14 +645,14 @@ title="Print to PDF"
 <section id="option-2-create-led-schedule-manually-using-manual-scheduler-xlsx">
 <span id="content-excel-scheduler"></span><h3>Option 2: Create LED schedule manually using <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code><a class="headerlink" href="#option-2-create-led-schedule-manually-using-manual-scheduler-xlsx" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>This method is suited for the requirement of a fully customized LED schedule. The <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code> functions as template to convert a list of desired illuminance into LED intensity values. The user can recreate any novel illuminance schedule as desired.</p></li>
+<li><p>This method is suited for the requirement of a fully customized LED schedule. The <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code> functions as template to convert a list of desired illuminance into LED intensity values. The user can re-create any novel illuminance schedule as desired.</p></li>
 </ul>
 <section id="id1">
 <h4>Steps<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
 <figure class="align-default" id="manualexcel">
 <img alt="_images/manualexcel.jpg" src="_images/manualexcel.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">The layout of <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code>. Datetime (red box), desired illuminance (orange box), RGBW LED intensity values (green), LED settings (blue), and preview plot (purple). Currently the desired illuminance list is a linear function, increasing 0.5 lx every minute until it reaches 200 lx in 6 hours and 40 minutes.</span><a class="headerlink" href="#manualexcel" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">The layout of <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code>. Datetime (red box), desired illuminance (orange box), RGBW LED intensity values (green), LED settings (blue), and preview plot (purple). Currently the desired illuminance list is a linear function, increasing 0.5 lx every minute until it reaches 200 lx in 6 hours and 40 minutes.</span><a class="headerlink" href="#manualexcel" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="simple">
@@ -658,7 +671,7 @@ title="Print to PDF"
 <figure class="align-default" id="manualexp">
 <img alt="_images/manualexp.jpg" src="_images/manualexp.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">A second example of a manual schedule. The desired illuminance list consists of a natural exponent function at the start and end of the sequence, and a plateau of illuminance in the center. The LED intensity values calculate automatically based on the desired illuminance list, which MoonShine would convert into accurate illumination in the room.</span><a class="headerlink" href="#manualexp" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">A second example of a manual schedule. The desired illuminance list consists of a natural exponent function at the start and end of the sequence, and a plateau of illuminance in the center. The LED intensity values calculate automatically based on the desired illuminance list, which MoonShine would convert into accurate illumination in the room.</span><a class="headerlink" href="#manualexp" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -697,13 +710,24 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span style="font-variant:small-caps;">MoonSim</span>: Sunlight &amp; twilight scheduler</p>
+            <p class="prev-next-title"><span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="moonshine_hardware_setup.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span style="font-variant:small-caps;">MoonShine</span>: Hardware setup</p>
+        <p class="prev-next-title">jupytext:
+cell_metadata_filter: -all
+formats: md:myst
+text_representation:
+extension: .md
+format_name: myst
+format_version: 0.13
+jupytext_version: 1.11.5
+kernelspec:
+display_name: Python 3
+language: python
+name: python3</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

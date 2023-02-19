@@ -13,5 +13,6 @@ kernelspec:
   name: python3
 ---
 
-# Description of moonlight variation
-
+# References
+```{bibliography}
+```

@@ -78,7 +78,7 @@ The wrong datetime format is displayed when `LED_schedule .csv` is opened in Exc
         <p>&nbsp;</p>
     
     2. Click **Custom**, and paste `YYYY-MM-DD hh:mm:ss` in **Type:**. Then click **OK**.
-        ![format_cells.jpg](./images/format_cells.jpg)
+        ![format_cells.jpg](./images/format_cells.jpg "format_cells.jpg")
         <p>&nbsp;</p>
     
     3. Now the datetime is correct, and the `LED_schedule .csv` is ready for saving
@@ -90,7 +90,7 @@ The wrong datetime format is displayed when `LED_schedule .csv` is opened in Exc
 (content:excel_scheduler)=
 ### Option 2: Create LED schedule manually using `manual_scheduler.xlsx` 
 
-- This method is suited for the requirement of a fully customized LED schedule. The `manual_scheduler.xlsx` functions as template to convert a list of desired illuminance into LED intensity values. The user can recreate any novel illuminance schedule as desired.
+- This method is suited for the requirement of a fully customized LED schedule. The `manual_scheduler.xlsx` functions as template to convert a list of desired illuminance into LED intensity values. The user can re-create any novel illuminance schedule as desired.
 
 #### Steps
 ```{figure} /images/manualexcel.jpg

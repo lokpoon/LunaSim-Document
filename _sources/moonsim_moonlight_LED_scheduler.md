@@ -15,29 +15,41 @@ kernelspec:
 (content:moonsim_moon)=
 # <span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler
 
-_<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_ is designed to be used in conjunction with _<span style="font-variant:small-caps;">MoonShine</span>_ to recreate moonlight cycles in the lab.
+_<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_ is designed to be used in conjunction with _<span style="font-variant:small-caps;">MoonShine</span>_ to re-create moonlight cycles in the lab.
 
 _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_ runs the same set of calculations as _<span style="font-variant:small-caps;">MoonSim</span>: Lux calculator_ to predict moonlight illuminance. However, unlike in Lux calculator, the output table  `LED_schedule_moon.csv` contains lists of LED intensity values over time. The interval between successive LED intensity values is constrained to one minute (i.e., the LED intensities are refreshed every minute).
 
 
 ## Key features
 
-- Recreate a realistic moonlight cycle in a laboratory or other indoor environment.
+- re-create a realistic moonlight cycle in a laboratory or other indoor environment.
+- By specifying a specific location and time period, the re-created moonlight reflects real nightly, monthly, and seasonal changes.
 - Option to simulate the obstruction of moonlight by surrounding objects (e.g., mountains, trees)
 - Option to simulate light attenuation of cloud cover with the ability to fine tune the cloud behavior.
 - Option to adjust the LED light spectrum by controlling the relative intensity of each RGBW channels. Can be useful in approximating the color shift in certain habitats (e.g., blue shift in deep clear ocean or lake water or red shift of sodium vapor street lamp).
 
 ##  Workflow
 
-1. Refer to {ref}`content:luxcalculator2` to load packages and then perform steps (1-7) to set the user definable settings (location, time period, etc.) The time_interval_minutes is constrained to 1 and should not be changed. The following instructions will cover the settings and function specific to _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_.
+1. Refer to {ref}`content:luxcalculator2` to load packages and then perform steps (1-7) to set the user definable settings (location, time period, etc.) The time_interval_minutes is constrained to 1 and cannot be changed. The following instructions will cover the settings and function specific to _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_.
 
-2. Set the calibration illuminance point. See {ref}`content:lightbox:calibration`.
+2. Decide whether to change the default darksky_value, a constant value that is added to moonlight illuminance for representing starlight and airglow. Leaving it at the default of 0.0008 lx means that even when the moon is below the horizon, the LED array will still light up to re-create 0.0008 lx. Otherwise, darksky_value should be set at zero if the user wish the room to be completely dark when the moon is below the horizon.
+
+    ```
+    darksky_value <- 0.0008 # (!) Range = 0.0006 to 0.0009. Default = 0.0008
+    ```
+```{figure} /images/starlight.png
+:name: startlight
+
+When the LED arrays re-create low illuminance, here the 0.0008 lx of combined starlight and airglow, the arrays appear to have "color banding". This is because at the illuminance, the LED is still applying the RGBW channel fractions (step 5). While this looks odd, it is normal. After the light has been diffused by the lightbox, it should result in ambient lighting with uniform color.
+```
+
+3. Set the calibration illuminance point. See {ref}`content:lightbox:calibration`.
    
    ```
    theoretical_max <- 0.4 # (!) Define an intensity upper limit (in lux)
    ```
    
-3. Specify the number of LEDs per SK6812 LED strip and the number of daisy-chained strips.
+4. Specify the number of LEDs per SK6812 LED strip and the number of daisy-chained strips.
 
    ```
     diode_per_strip <- 144 # (!) Number of LEDs per strip
@@ -45,7 +57,7 @@ _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_ run
    ```
 
 
-4. Determine the LED color spectrum by specifying the intensity output (0-1) of each RGBW channels. To approximate a natural moonlight spectrum, leave this setting at its default value. Note that these default values are intended for the warm white SK6812 LED strips made by BTF lightning. (see {ref}`content:hardware:materials`).
+5. Determine the LED color spectrum by specifying the intensity output (0-1) of each RGBW channels, a feature termed spectral control. To approximate a natural moonlight spectrum, leave this setting at its default value. Note that these default values are intended for the warm white SK6812 LED strips made by BTF lightning. (see {ref}`content:hardware:materials`).
 
    ```
     white_fraction <- 1.0 # (!) White. Default = 1.0
@@ -59,30 +71,30 @@ _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_ run
 
     A comparison of the moonlight and LED lightbox spectral irradiance. RGBW intensity fraction are set here to the default values. R = 0.08, G = 0.36, B = 0.19, W = 1.0.
     ```
-   Got to {ref}`content:rgbw` for details on how to adjust the RGBW intensity output for approximating the spectral-shift characteristics of certain habitats.
+   Go to {ref}`content:rgbw` for details on how to adjust the RGBW intensity output for approximating the spectral-shift characteristics of certain habitats.
    
-5. Specify whether to recreate the effect of surround tall objects blocking moonlight. We refer to this phenomenon as the **'horizon obstruction'**, for example when distant tree canopy or mountain range obscure a rising/setting moon near the horizon. Recreating this phenomenon might recreate a more realistic light scenario for the captive animal. See {ref}`content:horizon` for more details.
+6. Specify whether to re-create the effect of surround tall objects blocking moonlight. We refer to this phenomenon as the **'horizon obstruction'**, for example when distant tree canopy or mountain range obscure a rising/setting moon near the horizon. Recreating this phenomenon might re-create a more realistic light scenario for the captive animal. See {ref}`content:horizon` for more details.
    
    ```
    horizon_option <- FALSE # (!) TRUE to enable
    ```
    
-6. Specify whether to recreate the light attenuation by a changing cloud cover regime. See {ref}`content:cloud` for more details.
+7. Specify whether to re-create the light attenuation by a changing cloud cover regime. See {ref}`content:cloud` for more details.
 
    ```
    cloud_option <- FALSE # (!) TRUE to enable cloud simulator
    ```
-7. Run the calculation sections.
-8. Generate a moon schedule file `LED_schedule_moon.csv` and plot.
+8. Run the computation sections.
+9. Generate a moon schedule file `LED_schedule_moon.csv` and plot.
 
 
 (content:rgbw)=
 ### RGBW spectral control
 
-- _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_ does not recreate spectral changes associated with variation in the moon altitude; these are negligible. In other words, moonlight is recreated with a constant spectrum, regardless of moon altitude.
+- _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_ does not re-create spectral changes associated with variation in the moon altitude; these are negligible. In other words, moonlight is re-created with a constant spectrum, regardless of moon altitude.
 - Certain habitats are characterized by unique wavelength-dependent attenuation, which researchers may consider emulating. MOONSIM: Moonlight scheduler gives users the option to adjust the relative intensity of the RGBW channels.
 - Adjusting the RGBW spectrum require the user to have a profound understanding of the spectral characteristics of their habitat target, and their studied animal’s visual sensitivity. This is, in part, because the RGBW channels have very specific and limited peak and spectral range when compared to the complex spectral properties of natural habitats. Consequently, some habitat light spectrum approximations would be more realistic (e.g., when the spectral peak correspond to one of the RGBW peak), while other approximations might be unsatisfactory.
-- Knowing the animal’s spectral sensitivity can help to assess the validity of a recreated LED spectrum. For example mammals do not see UV light, so the lack of UV in warm white SK6812 LED strips does not constitute a limitation. However, this might not be the case for animals with UV sensitive vision (including many invertebrates and some vertebrates).
+- Knowing the animal’s spectral sensitivity can help to assess the validity of a re-created LED spectrum. For example mammals do not see UV light, so the lack of UV in warm white SK6812 LED strips does not constitute a limitation. However, this might not be the case for animals with UV sensitive vision (including many invertebrates and some vertebrates).
 - If the user has a spectrometer, they should specify the RGBW intensity fraction in _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_ and measure the resulting overall LED spectral irradiance.
 - If the user does not have a spectrometer, they should use the provided excel spreadsheet `RGBW_LED_spectrum.xlsx` to predict the resulting overall LED spectral irradiance.
 ```{figure} /images/excel_predict.jpg
@@ -94,7 +106,7 @@ Using the provided excel spreadsheet RGBW_LED_spectrum.xlsx to visualize how the
 ```{figure} /images/habitat.jpg
 :name: habitat
 
-This plot compares the spectra of the LED RGBW channels to a few habitats with strong spectral shifts. Here, the RGBW channels are all set to the maximum intensity in MoonSim (i.e., R = 1.0, G = 1.0, B = 1.0, W = 1.0). Notice that at the same intensity level, the RGBW channels each produce a different absolute irradiance level (e.g. blue is the strongest at its peak wavelength). The dotted line indicates the spectral peaks of four distinctive habitats (clear ocean {cite}`jerlovMarineOptics1976`, forest understory {cite}`veilleuxNocturnalLightEnvironments2012`, relatively clear Amazon river, tannin-stained black or white water Amazon river {cite}`costaSpatialTemporalVariability2013`). The spectral peak of the clear ocean and blue channel are close, while the far red peak of the tannin-stained river cannot be recreated by the red or white channels. These peaks are, of course, an oversimplified representation of the habitats' spectra; the user should always refer to the complete spectral irradiance plot for a given habitat. Ideally, the user should make their own spectral irradiance measurements at their study site since the spectral properties of the same habitat type (e.g. clear river) can still vary greatly {cite}`johnsenOpticsLifeBiologist2012`.
+This plot compares the spectra of the LED RGBW channels to a few habitats with strong spectral shifts. Here, the RGBW channels are all set to the maximum intensity in MoonSim (i.e., R = 1.0, G = 1.0, B = 1.0, W = 1.0). Notice that at the same intensity level, the RGBW channels each produce a different absolute irradiance level (e.g. blue is the strongest at its peak wavelength). The dotted line indicates the spectral peaks of four distinctive habitats (clear ocean {cite}`jerlovMarineOptics1976`, forest understory {cite}`veilleuxNocturnalLightEnvironments2012`, relatively clear Amazon river, tannin-stained black or white water Amazon river {cite}`costaSpatialTemporalVariability2013`). The spectral peak of the clear ocean and blue channel are close, while the far red peak of the tannin-stained river cannot be re-created by the red or white channels. These peaks are, of course, an oversimplified representation of the habitats' spectra; the user should always refer to the complete spectral irradiance plot for a given habitat. Ideally, the user should make their own spectral irradiance measurements at their study site since the spectral properties of the same habitat type (e.g. clear river) can still vary greatly {cite}`johnsenOpticsLifeBiologist2012`.
 ```
 
 (content:horizon)=
@@ -127,7 +139,7 @@ horiz_transmission <- 0.15 # (!) the proportional transmission of light in Zone 
 ```{figure} /images/horizon.jpg
 :name: horizon
 
-An example of the horizon obstruction effect on illuminance, with the horizon_option enabled, and with the above three settings. Illuminance when the moon is below 55 degree (zone C) will be 15% of the light level above 57 degree (zone A, where the moon rise above the obstruction). In the transition zone B between 55 amd 57 degree, a linear transition of illuminance is applied. This makes light level transitions less abrupt when the simulated moon rises above simulated obstacles. MoonSim will read the LED_schedule_moon.csv and recreate the same illuminance behavior as visualized by the plot. Dark gray = night, light gray = twilight.
+An example of the horizon obstruction effect on illuminance, with the horizon_option enabled, and with the above three settings. Illuminance when the moon is below 55 degree (zone C) will be 15% of the light level above 57 degree (zone A, where the moon rise above the obstruction). In the transition zone B between 55 amd 57 degree, a linear transition of illuminance is applied. This makes light level transitions less abrupt when the simulated moon rises above simulated obstacles. MoonSim will read the LED_schedule_moon.csv and re-create the same illuminance behavior as visualized by the plot. Dark gray = night, light gray = twilight.
 ```
 
 (content:cloud)=
@@ -250,7 +262,4 @@ Selecting the best-suited cloud settings should be based on the smoothing spline
 
 ```{attention}
 Beware that the cloud effect is generated randomly every time the script is run. The user can save the specific cloud_table with the line of code just above the "END OF PARAMETER SETTINGS" line.
-```
-### References
-```{bibliography}
 ```

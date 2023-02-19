@@ -13,9 +13,64 @@ kernelspec:
   name: python3
 ---
 (content:moonsim_sun)=
-# <span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler
+# <span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler
 
 - Read {ref}`content:moonsim_moon` first. Most operation is the same for _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler_.
-- This section only address things that _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler_ are different from  _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_.
+- This section only addresses operations in _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler_ that differ from those in _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_.
 
-- **IN PROGRESS**
+## Key features
+
+- re-create a realistic twilight, and to an extent sunlight, in a laboratory or other indoor environment.
+- By specifying a specific location and time period, the re-created twilight and sunlight reflects real daily and seasonal changes.
+- Option to adjust the LED light spectrum by controlling the relative intensity of each RGBW channels. Can be useful in approximating the color shift in certain habitats (e.g., blue shift in deep clear ocean or lake water or red shift of sodium vapor street lamp).
+- Option to re-create spectral change according to the sun altitude. The LED will be more red-shifted near sunrise/set, and progressively more blue-shifted during twilight. This spectral change as a function of sun altitude can be modified by the user.
+
+##  Workflow
+
+1. Refer to {ref}`content:luxcalculator2` to load packages and then perform steps (1-7) to set the user definable settings (location, time period, etc.) The time_interval_minutes is constrained to 1 and cannot be changed. The following instructions will cover the settings and function specific to _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler_.
+
+    ```{attention}
+    MoonSim: Sunlight/twilight scheduler misses some features found in the moonlight scheduler, including elevation effect, horizontal obstruction, and cloud simulation. For sunlight, we believe that applying these features to sunlight is not useful since we cannot foresee the user recreating full sunlight intensity, so applying these features would only make the re-created lighting more artificial. For twilight, while these features might be applicable to an extent, they are not implemented because twilight is a diffuse light source unlike direct moonlight and hence behave very differently.
+    ```
+    
+2. Set the calibration illuminance point. See {ref}`content:lightbox:sun_calibration`.
+   
+   ```
+   theoretical_max <- 600 # (!) Define an intensity upper limit (in lux)
+   ```
+   
+3. Specify the number of LEDs per SK6812 LED strip and the number of daisy-chained strips.
+
+   ```
+    diode_per_strip <- 144 # (!) Number of LEDs per strip
+    strip_count <- 4 # (!) Number of daisy-chained LED strips
+   ```
+
+
+4. Determine the LED color spectrum by specifying the intensity output (0-1) of each RGBW channels, a feature termed spectral control. To approximate a natural sunlight spectrum (same setting as moonlight spectrum because the sunlight and moonlight spectra are very similar), leave this setting at its default value. Note that these default values are intended for the warm white SK6812 LED strips made by BTF lightning. (see {ref}`content:hardware:materials`).
+
+   ```
+    white_fraction <- 1.0 # (!) White. Default = 1.0
+    red_fraction <- 0.08 # (!) Red. Default = 0.08
+    green_fraction <- 0.36 # (!) Green. Default = 0.36
+    blue_fraction <- 0.19 # (!) Blue. Default = 0.19
+   ```
+
+   Go to {ref}`content:rgbw` for details on how to adjust the RGBW intensity output for approximating the spectral-shift characteristics of certain habitats.
+   
+5. Specify whether to re-create the spectral change based on the sun altitude, a feature termed realistic sunlight. By enabling this feature, as the sun is low in altitude (around sunrise and sunset), the light will be more red-shifted. Shortly after sunset (or before sunrise), the light spectra will quickly become blue shifted and continue this trend progressively as the sun altitude decreases.
+   
+   ```
+   realistic_sunlight <- TRUE # (!)
+   ```
+
+    ```{attention}
+    This realistic sunlight effect is applied in conjunction with the RGBW spectral control of the previous step (4). To re-create a realistic sunlight spectrum with spectral change according to the sun altitude, leave the RGBW spectral control at the default fractions and enable realistic sunlight.
+    ```
+    
+    ```{note}
+    By turning realistic sunlight on, a fraction for each RGBW channel intensity is applied based on the sun altitude at the time. We formulated a function of sun altitude ~ LED intensity for each RGBW channel. These functions are formulated based on our own measured ground spectral irradiance of several sunsets, and {cite}`palmerDownwellingSpectralIrradiance2015`'s twilight spectra. The code that plot these four function for visualization purpose is commented out by default. If the user would like to learn how the RGBW channels are adjusted based on the sun altitude, run those codes that are near the beginning of the section "GENERATE twilight_sun_output.csv".
+    ```
+    
+6. Run the computation sections.
+7. Generate a sunlight/twilight schedule file `LED_schedule_sun.csv` and plot.

@@ -135,7 +135,7 @@ const thebe_selector_output = ".output, .cell_output"
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
-   : Sunlight &amp; twilight scheduler
+   : Sunlight/twilight scheduler
   </a>
  </li>
  <li class="toctree-l1">
@@ -177,6 +177,11 @@ const thebe_selector_output = ".output, .cell_output"
     MoonShine
    </span>
    : Launch procedure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="reference.html">
+   References
   </a>
  </li>
 </ul>
@@ -650,20 +655,20 @@ title="Print to PDF"
 <figure class="align-default" id="schematic">
 <img alt="_images/raspberry-pi.png" src="_images/raspberry-pi.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Connection diagram for the Raspberry Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the PINs connected to the first array of LED strips for moonlight recreation. The open color circles are connected the second array of LED strips, for simultaneous recreation of sunlight/twilight. The wire color schematic follows the SK6812, made by BTF-Lighting, Guangdong, China.</span><a class="headerlink" href="#schematic" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Connection diagram for the Raspberry Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the PINs connected to the first array of LED strips for moonlight recreation. The open color circles are connected the second array of LED strips, for simultaneous recreation of sunlight/twilight. The wire color schematic follows the SK6812, made by BTF-Lighting, Guangdong, China.</span><a class="headerlink" href="#schematic" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="cable">
 <img alt="_images/cable.png" src="_images/cable.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Photo of the actual connection for one array of LED strips. Click the figure to zoom in.</span><a class="headerlink" href="#cable" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Photo of the actual connection for one array of LED strips. Click the figure to zoom in.</span><a class="headerlink" href="#cable" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ol>
 <li><p>Follow the Raspberry Pi kit assembly instruction.</p></li>
 <li><p>On the bare wire end of the 3-pin cable female connector that comes with the LED strip, put on a female crimp connector. See <a class="reference external" href="https://www.youtube.com/watch?v=JsoqBS1-k7M">this guide</a> for installing crimp pins with needle nose pliers. The user can decide whether to use three single-socket crimp connectors for each wire, or one 5-socket crimp connector for all three wires.</p>
 <ul class="simple">
-<li><p>Follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 25</span></a> (solid color circles) for the PIN locations of the first array of LED strips.</p></li>
+<li><p>Follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 26</span></a> (solid color circles) for the PIN locations of the first array of LED strips.</p></li>
 </ul>
 </li>
 <li><p>Plug in the fully assembled female crimp connector (after Step 2 is complete) into the Pi GPIO PINs so that the wires are connected to the correct locations.</p>
@@ -680,12 +685,12 @@ title="Print to PDF"
 <figure class="align-default" id="rtc-pic">
 <img alt="_images/RTC_pic.png" src="_images/RTC_pic.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 27 </span><span class="caption-text">The Pi with the RTC and both LED arrays (moonlight and sunlight/twilight) connected. This matches the schemetic of <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 25</span></a>.</span><a class="headerlink" href="#rtc-pic" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">The Pi with the RTC and both LED arrays (moonlight and sunlight/twilight) connected. This matches the schemetic of <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 26</span></a>.</span><a class="headerlink" href="#rtc-pic" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </li>
-<li><p>Install the RTC module as shown in <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 25</span></a>. Make sure that it goes into the correct location, taking up 5 GPIO PIN.</p></li>
-<li><p>(Optional) To add a second array of LED strips for re-creating sunlight/twilight, while also running moonlight re-creation, follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 25</span></a> (open color circles) for the PIN locations of the second LED array. Repeat Steps 2-8.</p></li>
+<li><p>Install the RTC module as shown in <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 26</span></a>. Make sure that it goes into the correct location, taking up 5 GPIO PIN.</p></li>
+<li><p>(Optional) To add a second array of LED strips for re-creating sunlight/twilight, while also running moonlight re-creation, follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 26</span></a> (open color circles) for the PIN locations of the second LED array. Repeat Steps 2-8.</p></li>
 <li><p>(Optional) To prevent power surge and outage event interrupting the light schedule, connect all power to an uninterrupted power supply (UPS).</p></li>
 </ol>
 </section>
@@ -697,11 +702,11 @@ title="Print to PDF"
 <figure class="align-default" id="box">
 <img alt="_images/diffusion_box.png" src="_images/diffusion_box.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Construction of a diffusion box housing one LED strip.</span><a class="headerlink" href="#box" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Construction of a diffusion box housing one LED strip.</span><a class="headerlink" href="#box" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="simple">
-<li><p>Construct the wooden box as <a class="reference internal" href="#box"><span class="std std-numref">Fig. 28</span></a> with screws. With:</p>
+<li><p>Construct the wooden box as <a class="reference internal" href="#box"><span class="std std-numref">Fig. 29</span></a> with screws. With:</p>
 <ul class="simple">
 <li><p>5/4” x 6” x 4’ board as the base.</p></li>
 <li><p>A 1” x 4” x 4’ board on each long side.</p></li>
@@ -721,7 +726,7 @@ title="Print to PDF"
 </dd>
 <dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>We recommend the following options: <strong>1m, 144 LED, Warm White</strong>. There is also the option for a IP65 water resistant or IP30 normal version. The user can choose one suitable for the required application. Choose warm white to avoid a substantial blue spike in the white channel spectrum. A different strip length and LED number can be selected, but the 1m 144 LED is the best suited for most situations, and the default options in the <em><span style="font-variant:small-caps;">MoonSim</span></em> suite will work for this model.</p>
-<p>Two LED strips are required for moonlight recreation. More can be added, in multiple of two, to daisy chain many more strips, e.g., to generate a higher illuminance when recreating sunlight.</p>
+<p>Two LED strips are required for moonlight recreation. More can be added, <strong>in multiple of two</strong>, to daisy chain many more strips, e.g., to generate a higher illuminance when recreating sunlight.</p>
 </dd>
 <dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
 <dd><p>Buy enough connector cable to daisy chain the LED strips on opposite sides of the room.</p>

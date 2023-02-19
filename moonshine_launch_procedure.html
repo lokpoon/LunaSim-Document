@@ -52,6 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="References" href="reference.html" />
     <link rel="prev" title="MoonShine: Calibration" href="moonshine_calibration.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -134,7 +135,7 @@ const thebe_selector_output = ".output, .cell_output"
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
-   : Sunlight &amp; twilight scheduler
+   : Sunlight/twilight scheduler
   </a>
  </li>
  <li class="toctree-l1">
@@ -148,10 +149,18 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonshine_hardware_setup.html">
-   <span style="font-variant:small-caps;">
-    MoonShine
-   </span>
-   : Hardware setup
+   jupytext:
+cell_metadata_filter: -all
+formats: md:myst
+text_representation:
+extension: .md
+format_name: myst
+format_version: 0.13
+jupytext_version: 1.11.5
+kernelspec:
+display_name: Python 3
+language: python
+name: python3
   </a>
  </li>
  <li class="toctree-l1">
@@ -176,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
     MoonShine
    </span>
    : Launch procedure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="reference.html">
+   References
   </a>
  </li>
 </ul>
@@ -515,7 +529,7 @@ title="Print to PDF"
 <section id="generate-a-working-led-schedule-moon-csv">
 <h3>1. Generate a working <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code><a class="headerlink" href="#generate-a-working-led-schedule-moon-csv" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>On a computer, generate a <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> using the <span style="font-variant:small-caps;">MoonSim</span> scheduler, with the  desired parameters. Refers to <a class="reference internal" href="moonsim_moonlight_LED_scheduler.html#content-moonsim-moon"><span class="std std-ref">MoonSim: Moonlight scheduler</span></a> and <a class="reference internal" href="moonsim_sunlight_twilight_LED_scheduler.html#content-moonsim-sun"><span class="std std-ref">MoonSim: Sunlight &amp; twilight scheduler</span></a>. Make sure that the time zone was set correctly, and is a time zone without without daylight saving time (DST). Move the <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> into the Raspberry Pi’s <em>Desktop/control_moon/</em></p></li>
+<li><p>On a computer, generate a <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> using the <span style="font-variant:small-caps;">MoonSim</span> scheduler, with the  desired parameters. Refers to <a class="reference internal" href="moonsim_moonlight_LED_scheduler.html#content-moonsim-moon"><span class="std std-ref">MoonSim: Moonlight scheduler</span></a> and <a class="reference internal" href="moonsim_sunlight_twilight_LED_scheduler.html#content-moonsim-sun"><span class="std std-ref">MoonSim: Sunlight/twilight scheduler</span></a>. Make sure that the time zone was set correctly, and is a time zone without without daylight saving time (DST). Move the <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> into the Raspberry Pi’s <em>Desktop/control_moon/</em></p></li>
 <li><p>For the <code class="docutils literal notranslate"><span class="pre">moonsim_moon.py</span></code> to run, the <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> must contain a row matching the time at launch. Meaning that there cannot be a <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> where the first row is a time in the future. So, when creating the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code>, <em>do not</em> set the beginning date time ahead of launching <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p></li>
 <li><p>For example, lets say that I am launching <span style="font-variant:small-caps;">MoonShine</span> now at noon but do not want the LED arrays to start the light simulation until midnight. I would still generate a <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> by specifying noon as the start time in <span style="font-variant:small-caps;">MoonSim: Moonlight led scheduler</span>. Then open the <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> in Excel and edit the rows of LED crude and fine value before midnight to zero. Now I can launch this edited <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> and expect it to light up starting at midnight. Between noon, the launch time, and midnight, the simulation will run, but because the LEDs rows have been edited to zero, there will be no illumination.</p></li>
 <li><p>For the same reason, the user should never delete entire rows with excel in the middle of the  <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code>. This will cause errors. If dark periods are required, the user must instead replace the LED illumination value with zeros.</p></li>
@@ -558,7 +572,7 @@ title="Print to PDF"
 <figure class="align-default" id="active-service">
 <img alt="_images/active_service.png" src="_images/active_service.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 32 </span><span class="caption-text">A list of active systemd service.</span><a class="headerlink" href="#active-service" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">A list of active systemd service.</span><a class="headerlink" href="#active-service" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ol>
@@ -573,7 +587,7 @@ title="Print to PDF"
 <figure class="align-default" id="htop">
 <img alt="_images/htop.png" src="_images/htop.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Two CPUs at 100% usage just before the start of every minute, as the <code class="docutils literal notranslate"><span class="pre">moonshine_moon.py</span></code> and <code class="docutils literal notranslate"><span class="pre">moonshine_sun.py</span></code> are searching for a matching datetime to the current time.</span><a class="headerlink" href="#htop" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Two CPUs at 100% usage just before the start of every minute, as the <code class="docutils literal notranslate"><span class="pre">moonshine_moon.py</span></code> and <code class="docutils literal notranslate"><span class="pre">moonshine_sun.py</span></code> are searching for a matching datetime to the current time.</span><a class="headerlink" href="#htop" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ol>
@@ -634,6 +648,13 @@ title="Print to PDF"
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title"><span style="font-variant:small-caps;">MoonShine</span>: Calibration</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="reference.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">References</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

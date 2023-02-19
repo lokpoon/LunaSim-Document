@@ -64,6 +64,7 @@ To make an informed decision on what combination of ND filter sheets is need for
 
 _<span style="font-variant:small-caps;">MoonShine</span>_ performance in re-creating moonlight illuminance level after calibration. MoonSim prediction (black line) and measeured re-created illuminance (red line). Both lines mostly overlaps. Test performed in a lab setting, running a simulated LED schedule for 9 nights around a full moon.
 ```
+(content:lightbox:sun_calibration)=
 ## Sunlight and twilight re-creation
 
 - To achieve sunlight level illuminance, we do not need any dimming.
@@ -74,4 +75,5 @@ _<span style="font-variant:small-caps;">MoonShine</span>_ performance in re-crea
 ### Using more LED strips
 - Two LED strips may not be enough in re-creating the desired illuminance, but more LED strips can be daisy chained together by:
     - Connect additional LED strips by following {numref}`schematic`
+    - Add LED strips **in multiple of two**.
     - See {ref}`content:lightbox:lednumber3` for how to update the LEDs number in the software.

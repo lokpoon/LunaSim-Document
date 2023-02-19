@@ -135,7 +135,7 @@ const thebe_selector_output = ".output, .cell_output"
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
-   : Sunlight &amp; twilight scheduler
+   : Sunlight/twilight scheduler
   </a>
  </li>
  <li class="toctree-l1">
@@ -149,10 +149,18 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonshine_hardware_setup.html">
-   <span style="font-variant:small-caps;">
-    MoonShine
-   </span>
-   : Hardware setup
+   jupytext:
+cell_metadata_filter: -all
+formats: md:myst
+text_representation:
+extension: .md
+format_name: myst
+format_version: 0.13
+jupytext_version: 1.11.5
+kernelspec:
+display_name: Python 3
+language: python
+name: python3
   </a>
  </li>
  <li class="toctree-l1">
@@ -177,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
     MoonShine
    </span>
    : Launch procedure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="reference.html">
+   References
   </a>
  </li>
 </ul>
@@ -512,7 +525,7 @@ title="Print to PDF"
 <section id="moonlight-re-creation">
 <h2>Moonlight re-creation<a class="headerlink" href="#moonlight-re-creation" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>To achieve realistic moonlight level illuminance, the LED arrays must be physically dimmed. We use neutral density (ND) filter on the lightbox to reduce the light intensity without modifying the color spectrum (<a class="reference internal" href="moonshine_hardware_setup.html#box"><span class="std std-numref">Fig. 28</span></a>).</p></li>
+<li><p>To achieve realistic moonlight level illuminance, the LED arrays must be physically dimmed. We use neutral density (ND) filter on the lightbox to reduce the light intensity without modifying the color spectrum (<a class="reference internal" href="moonshine_hardware_setup.html#box"><span class="std std-numref">Fig. 29</span></a>).</p></li>
 <li><p>The user must first decide whether to re-create unobstructed ground illumination (i.e., a simulation in which there is no additional dimming), or a lower intensity to resembles the attenuation level in the desired natural habitat.</p></li>
 <li><p>For the re-creation of full moon illuminance with no additional dimming, we recommend 0.4 lx as the standard calibration illuminance. Even the brightest full moon in the tropics does not exceed 0.4 lx. Therefore by calibrating the lightbox to 0.4 lx, we ensure that <em><span style="font-variant:small-caps;">MoonShine</span></em> can re-create the entire range of moonlight illuminance.</p></li>
 </ul>
@@ -577,13 +590,13 @@ title="Print to PDF"
 <figure class="align-default" id="days">
 <img alt="_images/10days.png" src="_images/10days.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 31 </span><span class="caption-text"><em><span style="font-variant:small-caps;">MoonShine</span></em> performance in re-creating moonlight illuminance level after calibration. MoonSim prediction (black line) and measeured re-created illuminance (red line). Both lines mostly overlaps. Test performed in a lab setting, running a simulated LED schedule for 9 nights around a full moon.</span><a class="headerlink" href="#days" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text"><em><span style="font-variant:small-caps;">MoonShine</span></em> performance in re-creating moonlight illuminance level after calibration. MoonSim prediction (black line) and measeured re-created illuminance (red line). Both lines mostly overlaps. Test performed in a lab setting, running a simulated LED schedule for 9 nights around a full moon.</span><a class="headerlink" href="#days" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="sunlight-and-twilight-re-creation">
-<h2>Sunlight and twilight re-creation<a class="headerlink" href="#sunlight-and-twilight-re-creation" title="Permalink to this headline">#</a></h2>
+<span id="content-lightbox-sun-calibration"></span><h2>Sunlight and twilight re-creation<a class="headerlink" href="#sunlight-and-twilight-re-creation" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>To achieve sunlight level illuminance, we do not need any dimming.</p></li>
 <li><p>The user must first decide what level of sunlight illuminance is required. Direct overhead sunlight can be over 100,000 lx. It is probably impractical and unnecessary to re-create such high levels of illuminance.</p></li>
@@ -595,7 +608,8 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>Two LED strips may not be enough in re-creating the desired illuminance, but more LED strips can be daisy chained together by:</p>
 <ul>
-<li><p>Connect additional LED strips by following <a class="reference internal" href="moonshine_hardware_setup.html#schematic"><span class="std std-numref">Fig. 25</span></a></p></li>
+<li><p>Connect additional LED strips by following <a class="reference internal" href="moonshine_hardware_setup.html#schematic"><span class="std std-numref">Fig. 26</span></a></p></li>
+<li><p>Add LED strips <strong>in multiple of two</strong>.</p></li>
 <li><p>See <a class="reference internal" href="moonshine_software_setup.html#content-lightbox-lednumber3"><span class="std std-ref">Setting LED numbers in moonsim_moon.py and moonsim_sun.py</span></a> for how to update the LEDs number in the software.</p></li>
 </ul>
 </li>

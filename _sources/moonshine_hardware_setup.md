@@ -55,7 +55,7 @@ Estimated total cost for one MoonShine system (excluding the illuminance measuri
 
 [^2]: We recommend the following options: **1m, 144 LED, Warm White**. There is also the option for a IP65 water resistant or IP30 normal version. The user can choose one suitable for the required application. Choose warm white to avoid a substantial blue spike in the white channel spectrum. A different strip length and LED number can be selected, but the 1m 144 LED is the best suited for most situations, and the default options in the _<span style="font-variant:small-caps;">MoonSim</span>_ suite will work for this model.
 
-    Two LED strips are required for moonlight recreation. More can be added, in multiple of two, to daisy chain many more strips, e.g., to generate a higher illuminance when recreating sunlight.
+    Two LED strips are required for moonlight recreation. More can be added, **in multiple of two**, to daisy chain many more strips, e.g., to generate a higher illuminance when recreating sunlight.
 
 [^3]: Buy enough connector cable to daisy chain the LED strips on opposite sides of the room.
 

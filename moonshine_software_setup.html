@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="MoonShine: Calibration" href="moonshine_calibration.html" />
-    <link rel="prev" title="MoonShine: Hardware setup" href="moonshine_hardware_setup.html" />
+    <link rel="prev" title="jupytext: cell_metadata_filter: -all formats: md:myst text_representation: extension: .md format_name: myst format_version: 0.13 jupytext_version: 1.11.5 kernelspec: display_name: Python 3 language: python name: python3" href="moonshine_hardware_setup.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -135,7 +135,7 @@ const thebe_selector_output = ".output, .cell_output"
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
-   : Sunlight &amp; twilight scheduler
+   : Sunlight/twilight scheduler
   </a>
  </li>
  <li class="toctree-l1">
@@ -149,10 +149,18 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonshine_hardware_setup.html">
-   <span style="font-variant:small-caps;">
-    MoonShine
-   </span>
-   : Hardware setup
+   jupytext:
+cell_metadata_filter: -all
+formats: md:myst
+text_representation:
+extension: .md
+format_name: myst
+format_version: 0.13
+jupytext_version: 1.11.5
+kernelspec:
+display_name: Python 3
+language: python
+name: python3
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -177,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
     MoonShine
    </span>
    : Launch procedure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="reference.html">
+   References
   </a>
  </li>
 </ul>
@@ -587,7 +600,7 @@ Reference: <a class="reference external" href="https://linuxhint.com/update-pyth
 <figure class="align-default" id="mainc">
 <img alt="_images/mainc.png" src="_images/mainc.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 29 </span><span class="caption-text">The configuration of the main.c file.</span><a class="headerlink" href="#mainc" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">The configuration of the main.c file.</span><a class="headerlink" href="#mainc" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </li>
@@ -725,12 +738,12 @@ Reference: <a class="reference external" href="https://linuxhint.com/update-pyth
 <section id="setting-led-numbers-in-moonsim-moon-py-and-moonsim-sun-py">
 <span id="content-lightbox-lednumber3"></span><h2>Setting LED numbers in <code class="docutils literal notranslate"><span class="pre">moonsim_moon.py</span></code> and <code class="docutils literal notranslate"><span class="pre">moonsim_sun.py</span></code><a class="headerlink" href="#setting-led-numbers-in-moonsim-moon-py-and-moonsim-sun-py" title="Permalink to this headline">#</a></h2>
 <ul>
-<li><p>Recall that in <a class="reference internal" href="moonsim_moonlight_LED_scheduler.html#content-moonsim-moon"><span class="std std-ref">MoonSim: Moonlight scheduler</span></a> and <a class="reference internal" href="moonsim_sunlight_twilight_LED_scheduler.html#content-moonsim-sun"><span class="std std-ref">MoonSim: Sunlight &amp; twilight scheduler</span></a>, to generate the <code class="docutils literal notranslate"><span class="pre">LED_schedule</span> <span class="pre">.csv</span></code> the specification of the LED array (diode_per_strip and strip_count was specified.</p></li>
+<li><p>Recall that in <a class="reference internal" href="moonsim_moonlight_LED_scheduler.html#content-moonsim-moon"><span class="std std-ref">MoonSim: Moonlight scheduler</span></a> and <a class="reference internal" href="moonsim_sunlight_twilight_LED_scheduler.html#content-moonsim-sun"><span class="std std-ref">MoonSim: Sunlight/twilight scheduler</span></a>, to generate the <code class="docutils literal notranslate"><span class="pre">LED_schedule</span> <span class="pre">.csv</span></code> the specification of the LED array (diode_per_strip and strip_count was specified.</p></li>
 <li><p>The total number of LEDs is diode_per_strip multiplied by strip_count. E.g., 144 x 4 = 576</p>
 <figure class="align-default" id="led-count">
 <img alt="_images/led_count.png" src="_images/led_count.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Specify the line of “LED_COUNT” in <code class="docutils literal notranslate"><span class="pre">moonsim_sun.py</span></code> to 576 when using four daisy-chained 144 LED strips.</span><a class="headerlink" href="#led-count" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Specify the line of “LED_COUNT” in <code class="docutils literal notranslate"><span class="pre">moonsim_sun.py</span></code> to 576 when using four daisy-chained 144 LED strips.</span><a class="headerlink" href="#led-count" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </li>
@@ -776,7 +789,18 @@ Reference: <a class="reference external" href="https://linuxhint.com/update-pyth
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span style="font-variant:small-caps;">MoonShine</span>: Hardware setup</p>
+            <p class="prev-next-title">jupytext:
+cell_metadata_filter: -all
+formats: md:myst
+text_representation:
+extension: .md
+format_name: myst
+format_version: 0.13
+jupytext_version: 1.11.5
+kernelspec:
+display_name: Python 3
+language: python
+name: python3</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="moonshine_calibration.html" title="next page">
