@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>MoonShine: Calibration &#8212; MoonSim and MoonShine Documentation</title>
+    <title>7. MoonShine: Calibration &#8212; MoonShine &amp; MoonSim Instruction Manual</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MoonShine: Launch procedure" href="moonshine_launch_procedure.html" />
-    <link rel="prev" title="MoonShine: Software setup" href="moonshine_software_setup.html" />
+    <link rel="next" title="8. MoonShine: Launch procedure" href="moonshine_launch_procedure.html" />
+    <link rel="prev" title="6. MoonShine: Software setup" href="moonshine_software_setup.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -97,7 +97,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">MoonSim and MoonShine Documentation</h1>
+      <h1 class="site-logo" id="site-title">MoonShine & MoonSim Instruction Manual</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -116,6 +116,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="moonsim_lux_calculator.html">
+   1.
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
@@ -124,6 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonsim_moonlight_LED_scheduler.html">
+   2.
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
@@ -132,6 +134,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonsim_sunlight_twilight_LED_scheduler.html">
+   3.
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
@@ -140,15 +143,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="edit_LED_schedule_csv.html">
-   Edit
-   <span style="font-variant:small-caps;">
-    MoonSim
-   </span>
-   schedule
+   4. Edit LED schedule .csv
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonshine_hardware_setup.html">
+   5.
    <span style="font-variant:small-caps;">
     MoonShine
    </span>
@@ -157,6 +157,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonshine_software_setup.html">
+   6.
    <span style="font-variant:small-caps;">
     MoonShine
    </span>
@@ -165,6 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
+   7.
    <span style="font-variant:small-caps;">
     MoonShine
    </span>
@@ -173,6 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonshine_launch_procedure.html">
+   8.
    <span style="font-variant:small-caps;">
     MoonShine
    </span>
@@ -454,7 +457,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><span style="font-variant:small-caps;">MoonShine</span>: Calibration</h1>
+                <h1>7. <span style="font-variant:small-caps;">MoonShine</span>: Calibration</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -513,31 +516,31 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="span-style-font-variant-small-caps-moonshine-span-calibration">
-<span id="content-lightbox-calibration"></span><h1><span style="font-variant:small-caps;">MoonShine</span>: Calibration<a class="headerlink" href="#span-style-font-variant-small-caps-moonshine-span-calibration" title="Permalink to this headline">#</a></h1>
+<span id="content-lightbox-calibration"></span><h1>7. <span style="font-variant:small-caps;">MoonShine</span>: Calibration<a class="headerlink" href="#span-style-font-variant-small-caps-moonshine-span-calibration" title="Permalink to this headline">#</a></h1>
 <section id="moonlight-re-creation">
 <h2>Moonlight re-creation<a class="headerlink" href="#moonlight-re-creation" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>To achieve realistic moonlight level illuminance, the LED arrays must be physically dimmed. We use neutral density (ND) filter on the lightbox to reduce the light intensity without modifying the color spectrum (<a class="reference internal" href="moonshine_hardware_setup.html#box"><span class="std std-numref">Fig. 29</span></a>).</p></li>
-<li><p>The user must first decide whether to re-create unobstructed ground illumination (i.e., a simulation in which there is no additional dimming), or a lower intensity to resembles the attenuation level in the desired natural habitat.</p></li>
-<li><p>For the re-creation of full moon illuminance with no additional dimming, we recommend 0.4 lx as the standard calibration illuminance. Even the brightest full moon in the tropics does not exceed 0.4 lx. Therefore by calibrating the lightbox to 0.4 lx, we ensure that <em><span style="font-variant:small-caps;">MoonShine</span></em> can re-create the entire range of moonlight illuminance.</p></li>
+<li><p>The user must first decide whether to re-create unobstructed ground illumination (i.e., a simulation in which there is no additional dimming), or to recreate light with a desired attenuation level so as to mimic the lighting conditions of a natural habitat.</p></li>
+<li><p>For the re-creation of full moon illuminance with no additional dimming, we recommend 0.4 lx as the standard calibration illuminance. Even the brightest possible full moon in the tropics does not exceed 0.4 lx. Therefore by calibrating the lightbox to 0.4 lx, we ensure that <em><span style="font-variant:small-caps;">MoonShine</span></em> can re-create the entire range of moonlight illuminance.</p></li>
 </ul>
 </section>
 <section id="create-a-calibration-schedule">
 <h2>Create a calibration schedule<a class="headerlink" href="#create-a-calibration-schedule" title="Permalink to this headline">#</a></h2>
-<p>Use the provided <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code> (see <a class="reference internal" href="edit_LED_schedule_csv.html#content-excel-scheduler"><span class="std std-ref">Option 2: Create LED schedule manually using manual_scheduler.xlsx</span></a>) to create a <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> that turn on the LED at full intensity (with spectral control applied).</p>
+<p>Use the provided <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code> (see <a class="reference internal" href="edit_LED_schedule_csv.html#content-excel-scheduler"><span class="std std-ref">Option 2: Create LED schedule manually using manual_scheduler.xlsx</span></a>) to create a <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> that turns on the LEDs at full intensity (with spectral control applied).</p>
 <ol class="simple">
 <li><p>In <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code>, set theoretical_max to 0.4</p></li>
 <li><p>Fill the entire column of “desired illuminance” with 0.4</p></li>
 <li><p>Set the spectral control as desired (leave it as default for natural moonlight spectrum)</p></li>
-<li><p>Make the schedule to lasts for 2 hours (or a period sufficient to perform the calibration period) and starts in the near future, at the time the calibration will be performed.</p></li>
+<li><p>Make the schedule to lasts for 2 hours (or a period sufficient to perform the calibration period) for a time period in the near future, at the time the calibration will be performed.</p></li>
 <li><p>Follow the rest of the instructions in <a class="reference internal" href="edit_LED_schedule_csv.html#content-excel-scheduler"><span class="std std-ref">Option 2: Create LED schedule manually using manual_scheduler.xlsx</span></a> to save the <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code></p></li>
-<li><p>This schedule file will instruct <em><span style="font-variant:small-caps;">MoonShine</span></em> to generate full light intensity for the purpose of calibration.</p></li>
+<li><p>This schedule file will instruct <em><span style="font-variant:small-caps;">MoonShine</span></em> to generate full intensity light for the purpose of calibration.</p></li>
 </ol>
 <section id="which-nd-filter-sheets">
 <h3>Which ND filter sheets?<a class="headerlink" href="#which-nd-filter-sheets" title="Permalink to this headline">#</a></h3>
-<p>To make an informed decision on what combination of ND filter sheets is need for the user’s specific room and setup.</p>
+<p>To make an informed decision on what combination of ND filter sheets is need for the user’s specific room and setup, perform the following steps:</p>
 <ol class="simple">
-<li><p>Set the lightbox at their permanent locations. Ideally each lightbox should be positioned on a shelf on both sides of the room, so that the light is directed to the ceiling and diffusely illuminate the entire room. The room should preferably have a white or light-shaded ceiling for optimal reflectance of the LED light into the room.</p></li>
+<li><p>Position the lightboxes at their permanent locations. Ideally the lightboxes should be put on shelves at opposite sides of the room, so that the light is directed to the ceiling and diffusely illuminates the entire room. The room should preferably have a white or light-shaded ceiling so as to minimize the change in the light spectrum.</p></li>
 <li><p>Using a radiometer, measure the illuminance at the position of the animal enclosure. Let us say that it measures 100 lx.</p>
 <ul class="simple">
 <li><p>To target a full moon illuminance (0.4 lx), based on the transmission of the ND filter:</p></li>
@@ -560,20 +563,20 @@ title="Print to PDF"
 <section id="calibrating-span-style-font-variant-small-caps-moonshine-span-with-a-radiometer">
 <span id="content-lightbox-radiometer"></span><h3>Calibrating <span style="font-variant:small-caps;">MoonShine</span> with a radiometer<a class="headerlink" href="#calibrating-span-style-font-variant-small-caps-moonshine-span-with-a-radiometer" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>Using the previously created calibration <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code>, launch <em><span style="font-variant:small-caps;">MoonShine</span></em> (see <a class="reference internal" href="moonshine_launch_procedure.html#content-launch"><span class="std std-ref">MoonShine: Launch procedure</span></a>).</p></li>
+<li><p>Using the previously created calibration <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code>, launch <em><span style="font-variant:small-caps;">MoonShine</span></em> (see <a class="reference internal" href="moonshine_launch_procedure.html#content-launch"><span class="std std-ref">8. MoonShine: Launch procedure</span></a>).</p></li>
 <li><p>Next, the calibration method depends on whether a low light sensitive radiometer (able to accurately measure 0.01 lx) is available.</p>
 <ul>
 <li><p>If available,</p>
 <ol class="simple">
-<li><p>layer filters on the lightbox until the illuminance (radiometer sensor placed on the ground of animal housing) reads the desire illuminance.</p></li>
-<li><p>If the measured illuminance is slightly higher than the target, and adding an additional filter dims it too much, we would simply change the <strong>theoretical_max</strong> value to the measured illuminance in <em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight led scheduler</em>. Continuing the above example, the user would input 0.44 lx as the theoretical_max and use it as the calibration point.The <em><span style="font-variant:small-caps;">MoonShine</span></em>  system is now calibrated.</p></li>
+<li><p>layer filters on the lightbox until radiometer sensor placed on the ground of animal housing reads the desire illuminance.</p></li>
+<li><p>If the measured illuminance is slightly higher than the target, and adding an additional filter dims it too much, we would simply change the <strong>theoretical_max</strong> value to the measured illuminance in <em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight led scheduler</em>. Continuing with the example above, the user would input 0.44 lx as the theoretical_max and use it as the calibration point. The <em><span style="font-variant:small-caps;">MoonShine</span></em> system is now calibrated.</p></li>
 </ol>
 </li>
 <li><p>If only a non-low light sensitive radiometer is available:</p>
 <ol class="simple">
-<li><p>The user would instead measure the room illuminance with no filter applied. Then repeat the measurement but now with the radiometer pointing directly at the LED light at a close fixed distance.</p></li>
+<li><p>The user would instead measure the room illuminance with no filter applied. Then repeat the measurement but now with the radiometer pointing directly at the LED light at a close distance.</p></li>
 <li><p>The ratio between the room illuminance and direct illuminance should remain relatively constant as more filters are applied.</p></li>
-<li><p>Hence, user can estimate how many layers of filter is required to reduce the illuminance to reach the target.</p></li>
+<li><p>In this manner the user can estimate how many layers of filter are required to reduce the illuminance to reach the target.</p></li>
 </ol>
 </li>
 </ul>
@@ -582,7 +585,7 @@ title="Print to PDF"
 <figure class="align-default" id="days">
 <img alt="_images/10days.png" src="_images/10days.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 32 </span><span class="caption-text"><em><span style="font-variant:small-caps;">MoonShine</span></em> performance in re-creating moonlight illuminance level after calibration. MoonSim prediction (black line) and measeured re-created illuminance (red line). Both lines mostly overlaps. Test performed in a lab setting, running a simulated LED schedule for 9 nights around a full moon.</span><a class="headerlink" href="#days" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text"><em><span style="font-variant:small-caps;">MoonShine</span></em>’s performance in re-creating moonlight illuminance level after calibration. MoonSim prediction = black line. Measeured re-created illuminance = red line. Note that the lines are very close. This tesst was performed in a lab setting, running a simulated LED schedule for 9 nights around a full moon.</span><a class="headerlink" href="#days" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -590,19 +593,19 @@ title="Print to PDF"
 <section id="sunlight-and-twilight-re-creation">
 <span id="content-lightbox-sun-calibration"></span><h2>Sunlight and twilight re-creation<a class="headerlink" href="#sunlight-and-twilight-re-creation" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>To achieve sunlight level illuminance, we do not need any dimming.</p></li>
+<li><p>To achieve sunlight level illuminance, dimming is not required.</p></li>
 <li><p>The user must first decide what level of sunlight illuminance is required. Direct overhead sunlight can be over 100,000 lx. It is probably impractical and unnecessary to re-create such high levels of illuminance.</p></li>
-<li><p>We recommend the re-creation of sunlight at well over 200 lx, since 200 lx is approximately the illuminance when the sun is at the horizon. This means that if the light can not achieve 200 lx, <em><span style="font-variant:small-caps;">MoonShine</span></em> is not even re-creating the full range of twilight illuminance.</p></li>
-<li><p>The LED strip can be adhered on the ceiling, with the LEDS pointing downward, to illuminate the room like a florescent light fixture, or it could be adhered directly above the animal enclosure to provide a much stronger light intensity. As a reference, illuminance measurement at 50cm from an LED strip is around 1000 lx.</p></li>
+<li><p>Nonetheless, we recommend the re-creation of sunlight at well over 200 lx, since 200 lx is approximately the illuminance when the sun is at the horizon. This means that if the light can not achieve 200 lx, <em><span style="font-variant:small-caps;">MoonShine</span></em> is not even re-creating the full range of twilight illuminance.</p></li>
+<li><p>The LED strip can be adhered to the ceiling, with the LEDs pointing downward, to illuminate the room like a florescent light fixture, or it could be adhered directly above the animal enclosure to provide a much stronger light intensity. As a reference, illuminance measurement at 50cm from a warm white 144-LED SK6812 LED strip is around 1000 lx.</p></li>
 </ul>
 <section id="using-more-led-strips">
 <h3>Using more LED strips<a class="headerlink" href="#using-more-led-strips" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>Two LED strips may not be enough in re-creating the desired illuminance, but more LED strips can be daisy chained together by:</p>
+<li><p>Two LED strips may not be enough to re-create the desired illuminance, but more LED strips can be daisy chained together, as follows:</p>
 <ul>
 <li><p>Connect additional LED strips by following <a class="reference internal" href="moonshine_hardware_setup.html#schematic"><span class="std std-numref">Fig. 26</span></a></p></li>
 <li><p>Add LED strips <strong>in multiple of two</strong>.</p></li>
-<li><p>See <a class="reference internal" href="moonshine_software_setup.html#content-lightbox-lednumber3"><span class="std std-ref">Setting LED numbers in moonsim_moon.py and moonsim_sun.py</span></a> for how to update the LEDs number in the software.</p></li>
+<li><p>See <a class="reference internal" href="moonshine_software_setup.html#content-lightbox-lednumber3"><span class="std std-ref">Setting LED numbers in moonshine_moon.py and moonshine_sun.py</span></a> for how to update the number of LEDs in the software.</p></li>
 </ul>
 </li>
 </ul>
@@ -641,13 +644,13 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span style="font-variant:small-caps;">MoonShine</span>: Software setup</p>
+            <p class="prev-next-title">6. <span style="font-variant:small-caps;">MoonShine</span>: Software setup</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="moonshine_launch_procedure.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span style="font-variant:small-caps;">MoonShine</span>: Launch procedure</p>
+        <p class="prev-next-title">8. <span style="font-variant:small-caps;">MoonShine</span>: Launch procedure</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -658,7 +661,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By C. Lok Poon<br/>
+    By C. Lok Poon, Ian T. Jenks & W.G.R., Crampton. University of Central Florida.<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

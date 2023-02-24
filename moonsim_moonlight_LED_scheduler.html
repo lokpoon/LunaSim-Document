@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>MoonSim: Moonlight scheduler &#8212; MoonSim and MoonShine Documentation</title>
+    <title>2. MoonSim: Moonlight scheduler &#8212; MoonShine &amp; MoonSim Instruction Manual</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MoonSim: Sunlight/twilight scheduler" href="moonsim_sunlight_twilight_LED_scheduler.html" />
-    <link rel="prev" title="MoonSim: Lux calculator" href="moonsim_lux_calculator.html" />
+    <link rel="next" title="3. MoonSim: Sunlight/twilight scheduler" href="moonsim_sunlight_twilight_LED_scheduler.html" />
+    <link rel="prev" title="1. MoonSim: Lux calculator" href="moonsim_lux_calculator.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -97,7 +97,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">MoonSim and MoonShine Documentation</h1>
+      <h1 class="site-logo" id="site-title">MoonShine & MoonSim Instruction Manual</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -116,6 +116,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="moonsim_lux_calculator.html">
+   1.
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
@@ -124,6 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
+   2.
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
@@ -132,6 +134,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonsim_sunlight_twilight_LED_scheduler.html">
+   3.
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
@@ -140,15 +143,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="edit_LED_schedule_csv.html">
-   Edit
-   <span style="font-variant:small-caps;">
-    MoonSim
-   </span>
-   schedule
+   4. Edit LED schedule .csv
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonshine_hardware_setup.html">
+   5.
    <span style="font-variant:small-caps;">
     MoonShine
    </span>
@@ -157,6 +157,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonshine_software_setup.html">
+   6.
    <span style="font-variant:small-caps;">
     MoonShine
    </span>
@@ -165,6 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonshine_calibration.html">
+   7.
    <span style="font-variant:small-caps;">
     MoonShine
    </span>
@@ -173,6 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="moonshine_launch_procedure.html">
+   8.
    <span style="font-variant:small-caps;">
     MoonShine
    </span>
@@ -465,7 +468,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</h1>
+                <h1>2. <span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -535,37 +538,37 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="span-style-font-variant-small-caps-moonsim-span-moonlight-scheduler">
-<span id="content-moonsim-moon"></span><h1><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler<a class="headerlink" href="#span-style-font-variant-small-caps-moonsim-span-moonlight-scheduler" title="Permalink to this headline">#</a></h1>
-<p><em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em> is designed to be used in conjunction with <em><span style="font-variant:small-caps;">MoonShine</span></em> to re-create moonlight cycles in the lab.</p>
-<p><em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em> runs the same set of calculations as <em><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</em> to predict moonlight illuminance. However, unlike in Lux calculator, the output table  <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> contains lists of LED intensity values over time. The interval between successive LED intensity values is constrained to one minute (i.e., the LED intensities are refreshed every minute).</p>
+<span id="content-moonsim-moon"></span><h1>2. <span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler<a class="headerlink" href="#span-style-font-variant-small-caps-moonsim-span-moonlight-scheduler" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em> is designed to be used in conjunction with <em><span style="font-variant:small-caps;">MoonShine</span></em> to re-create moonlight cycles in the lab.</p></li>
+<li><p><em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em> runs the same set of calculations as <em><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</em> to predict moonlight illuminance. However, unlike in Lux calculator, the output table  <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> contains lists of LED intensity values over time. The interval between successive LED intensity values is constrained to one minute (i.e., the LED intensities are refreshed every minute).</p></li>
+</ul>
 <section id="key-features">
 <h2>Key features<a class="headerlink" href="#key-features" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>re-create a realistic moonlight cycle in a laboratory or other indoor environment.</p></li>
-<li><p>By specifying a specific location and time period, the re-created moonlight reflects real nightly, monthly, and seasonal changes.</p></li>
-<li><p>Option to simulate the obstruction of moonlight by surrounding objects (e.g., mountains, trees)</p></li>
-<li><p>Option to simulate light attenuation of cloud cover with the ability to fine tune the cloud behavior.</p></li>
-<li><p>Option to adjust the LED light spectrum by controlling the relative intensity of each RGBW channels. Can be useful in approximating the color shift in certain habitats (e.g., blue shift in deep clear ocean or lake water or red shift of sodium vapor street lamp).</p></li>
+<li><p>Re-create a realistic moonlight cycle in a laboratory or other indoor environment.</p></li>
+<li><p>Allows users to specify a geographical location and time period so that re-created moonlight reflects real nightly, monthly, and seasonal changes.</p></li>
+<li><p>Provides option to simulate the obstruction of moonlight by surrounding objects (e.g., mountains, trees)</p></li>
+<li><p>Provides option to simulate light attenuation of caused by clouds with the ability to fine tune the cloud behavior in a stochastic model.</p></li>
+<li><p>Provides option to adjust the LED light spectrum by controlling the relative intensity of each RGBW channels. This can be useful in approximating the color shift of certain habitats (e.g., the blue shift in deep clear ocean or lake water, or the red shift of sodium vapor street lighting).</p></li>
 </ul>
 </section>
 <section id="workflow">
 <h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">#</a></h2>
 <ol>
-<li><p>Refer to <a class="reference internal" href="moonsim_lux_calculator.html#content-luxcalculator2"><span class="std std-ref">Packages required</span></a> to load packages and then perform steps (1-7) to set the user definable settings (location, time period, etc.) The time_interval_minutes is constrained to 1 and cannot be changed. The following instructions will cover the settings and function specific to <em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em>.</p></li>
-<li><p>Decide whether to change the default darksky_value, a constant value that is added to moonlight illuminance for representing starlight and airglow. Leaving it at the default of 0.0008 lx means that even when the moon is below the horizon, the LED array will still light up to re-create 0.0008 lx. Otherwise, darksky_value should be set at zero if the user wish the room to be completely dark when the moon is below the horizon.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">darksky_value</span> <span class="o">&lt;-</span> <span class="mf">0.0008</span> <span class="c1"># (!) Range = 0.0006 to 0.0009. Default = 0.0008</span>
+<li><p>Refer to <a class="reference internal" href="moonsim_lux_calculator.html#content-luxcalculator2"><span class="std std-ref">Packages required</span></a> to load packages and then perform steps 1-7 in <a class="reference internal" href="moonsim_lux_calculator.html#content-luxcalculator"><span class="std std-ref">1. MoonSim: Lux calculator</span></a> to set the user definable settings (location, time period, etc.) The time_interval_minutes is constrained to 1 and cannot be changed. The following instructions will cover the settings and function specific to <em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em>.</p></li>
+<li><p>Decide whether to change the default darksky_value, a constant value that is added to moonlight illuminance for representing starlight and airglow (Hänel et al. 2018); Hänel et al. (2018) report starlight and airglow to vary between 0.0006 an 0.0009. Leaving it at the default of 0.0008 lx means that even when the moon is below the horizon, the LED array will still light up to re-create 0.0008 lx. Otherwise, the darksky_value should be set at zero if the user wishes the room to be completely dark when the moon is below the horizon.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">darksky_value</span> <span class="o">&lt;-</span> <span class="mf">0.0008</span> <span class="c1"># (!) Choose from between 0.0006 to 0.0009. Default = 0.0008</span>
 </pre></div>
 </div>
-</li>
-</ol>
 <figure class="align-default" id="startlight">
 <img alt="_images/starlight.png" src="_images/starlight.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">When the LED arrays re-create low illuminance, here the 0.0008 lx of combined starlight and airglow, the arrays appear to have “color banding”. This is because at the illuminance, the LED is still applying the RGBW channel fractions (step 5). While this looks odd, it is normal. After the light has been diffused by the lightbox, it should result in ambient lighting with uniform color.</span><a class="headerlink" href="#startlight" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Photograph of a SK6812 RGBW LED strip at low illuminance. When the LED arrays re-create illuminance near the lower limit, for example at the 0.0008 lx of combined starlight and airglow, the arrays appear to have “color banding”. This is because at this illuminance, the LED is still applying the RGBW channel fractions (step 5). This is normal. After the light has been diffused by the lightbox, it will result in ambient lighting with uniform color.</span><a class="headerlink" href="#startlight" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<ol>
-<li><p>Set the calibration illuminance point. See <a class="reference internal" href="moonshine_calibration.html#content-lightbox-calibration"><span class="std std-ref">MoonShine: Calibration</span></a>.</p>
+</li>
+<li><p>Set the calibration illuminance point. See <a class="reference internal" href="moonshine_calibration.html#content-lightbox-calibration"><span class="std std-ref">7. MoonShine: Calibration</span></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">theoretical_max</span> <span class="o">&lt;-</span> <span class="mf">0.4</span> <span class="c1"># (!) Define an intensity upper limit (in lux)</span>
 </pre></div>
 </div>
@@ -576,7 +579,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p>Determine the LED color spectrum by specifying the intensity output (0-1) of each RGBW channels, a feature termed spectral control. To approximate a natural moonlight spectrum, leave this setting at its default value. Note that these default values are intended for the warm white SK6812 LED strips made by BTF lightning. (see <a class="reference internal" href="moonshine_hardware_setup.html#content-hardware-materials"><span class="std std-ref">Materials</span></a>).</p>
+<li><p>Determine the LED color spectrum by specifying the intensity output (0-1) of each RGBW channels, a feature termed spectral control. To approximate a natural moonlight spectrum, leave this setting at the default values shown below. Note that these default values are intended for the warm white SK6812 LED strips made by BTF lightning. (see <a class="reference internal" href="moonshine_hardware_setup.html#content-hardware-materials"><span class="std std-ref">Materials</span></a>).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">white_fraction</span> <span class="o">&lt;-</span> <span class="mf">1.0</span> <span class="c1"># (!) White. Default = 1.0</span>
  <span class="n">red_fraction</span> <span class="o">&lt;-</span> <span class="mf">0.08</span> <span class="c1"># (!) Red. Default = 0.08</span>
  <span class="n">green_fraction</span> <span class="o">&lt;-</span> <span class="mf">0.36</span> <span class="c1"># (!) Green. Default = 0.36</span>
@@ -591,7 +594,7 @@ title="Print to PDF"
 </figure>
 <p>Go to <a class="reference internal" href="#content-rgbw"><span class="std std-ref">RGBW spectral control</span></a> for details on how to adjust the RGBW intensity output for approximating the spectral-shift characteristics of certain habitats.</p>
 </li>
-<li><p>Specify whether to re-create the effect of surround tall objects blocking moonlight. We refer to this phenomenon as the <strong>‘horizon obstruction’</strong>, for example when distant tree canopy or mountain range obscure a rising/setting moon near the horizon. Recreating this phenomenon might re-create a more realistic light scenario for the captive animal. See <a class="reference internal" href="#content-horizon"><span class="std std-ref">Horizon obstruction</span></a> for more details.</p>
+<li><p>Specify whether to re-create the effect of surround tall objects blocking moonlight. We refer to this phenomenon as the “horizon obstruction”, for example when distant tree canopy or mountain range obscure a rising/setting moon near the horizon. Recreating this phenomenon might re-create a more realistic light scenario for the captive animal. See <a class="reference internal" href="#content-horizon"><span class="std std-ref">Horizon obstruction</span></a> for more details.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">horizon_option</span> <span class="o">&lt;-</span> <span class="n">FALSE</span> <span class="c1"># (!) TRUE to enable</span>
 </pre></div>
 </div>
@@ -601,29 +604,29 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p>Run the computation sections.</p></li>
-<li><p>Generate a moon schedule file <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> and plot.</p></li>
+<li><p>Run the code in the section “START OF ILLUMINATION COMPUTATION” through to “END OF ILLUMINATION COMPUTATION”.</p></li>
+<li><p>Generate a moon schedule file <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> by running the codes in the section of “GENERATE LED_schedule_moon.csv”. And plot (See Steps 10-12 in <a class="reference internal" href="moonsim_lux_calculator.html#content-luxcalculator"><span class="std std-ref">1. MoonSim: Lux calculator</span></a>)</p></li>
 </ol>
 <section id="rgbw-spectral-control">
 <span id="content-rgbw"></span><h3>RGBW spectral control<a class="headerlink" href="#rgbw-spectral-control" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em> does not re-create spectral changes associated with variation in the moon altitude; these are negligible. In other words, moonlight is re-created with a constant spectrum, regardless of moon altitude.</p></li>
-<li><p>Certain habitats are characterized by unique wavelength-dependent attenuation, which researchers may consider emulating. MOONSIM: Moonlight scheduler gives users the option to adjust the relative intensity of the RGBW channels.</p></li>
-<li><p>Adjusting the RGBW spectrum require the user to have a profound understanding of the spectral characteristics of their habitat target, and their studied animal’s visual sensitivity. This is, in part, because the RGBW channels have very specific and limited peak and spectral range when compared to the complex spectral properties of natural habitats. Consequently, some habitat light spectrum approximations would be more realistic (e.g., when the spectral peak correspond to one of the RGBW peak), while other approximations might be unsatisfactory.</p></li>
+<li><p>Certain habitats are characterized by unique wavelength-dependent attenuation, which researchers may consider emulating. <em><span style="font-variant:small-caps;">MoonSim</span> Moonlight scheduler</em> provides the option to adjust the relative intensity of the RGBW channels.</p></li>
+<li><p>Adjusting the RGBW spectrum requires the user to have a profound understanding of the spectral characteristics of their habitat target, and the visual sensitivity of the subject animal(s). This is, in part, because the RGBW channels have very specific and limited peak and spectral range when compared to the complex spectral properties of natural habitats. Consequently, some habitat light spectrum approximations would be more realistic (e.g., when the habitat’s spectral peak correspond to one of the RGBW peaks), while other approximations might be unsatisfactory.</p></li>
 <li><p>Knowing the animal’s spectral sensitivity can help to assess the validity of a re-created LED spectrum. For example mammals do not see UV light, so the lack of UV in warm white SK6812 LED strips does not constitute a limitation. However, this might not be the case for animals with UV sensitive vision (including many invertebrates and some vertebrates).</p></li>
 <li><p>If the user has a spectrometer, they should specify the RGBW intensity fraction in <em><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</em> and measure the resulting overall LED spectral irradiance.</p></li>
-<li><p>If the user does not have a spectrometer, they should use the provided excel spreadsheet <code class="docutils literal notranslate"><span class="pre">RGBW_LED_spectrum.xlsx</span></code> to predict the resulting overall LED spectral irradiance.</p></li>
+<li><p>If the user does not have a spectrometer, they should use the provided Microsoft Excel spreadsheet <code class="docutils literal notranslate"><span class="pre">RGBW_LED_spectrum.xlsx</span></code> to predict the resulting overall LED spectral irradiance.</p></li>
 </ul>
 <figure class="align-default" id="excel-predict">
 <a class="reference internal image-reference" href="_images/excel_predict.jpg"><img alt="_images/excel_predict.jpg" src="_images/excel_predict.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Using the provided excel spreadsheet RGBW_LED_spectrum.xlsx to visualize how the overall LED light spectrum will be based on the specified intensity fraction. The user can modify the RGBW intensiy fractions shown in the upper panel (currently with default values), and the lower two plots will reflect the changes. The middle plot is the predicted overall spectral irradiance of the LED light. The bottom plot shows the contribution of the individual RGBW channels, which were summed together to produce the middle plot.</span><a class="headerlink" href="#excel-predict" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Using the provided Excel spreadsheet RGBW_LED_spectrum.xlsx to visualize how the overall LED light spectrum will be based on the specified intensity fraction. The user can modify the RGBW intensiy fractions shown in the upper panel (currently with default values), and the lower two plots will reflect the changes. The middle plot is the predicted overall spectral irradiance of the LED light. The bottom plot shows the contribution of the individual RGBW channels, which were summed together to produce the middle plot.</span><a class="headerlink" href="#excel-predict" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="habitat">
 <img alt="_images/habitat.jpg" src="_images/habitat.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">This plot compares the spectra of the LED RGBW channels to a few habitats with strong spectral shifts. Here, the RGBW channels are all set to the maximum intensity in MoonSim (i.e., R = 1.0, G = 1.0, B = 1.0, W = 1.0). Notice that at the same intensity level, the RGBW channels each produce a different absolute irradiance level (e.g. blue is the strongest at its peak wavelength). The dotted line indicates the spectral peaks of four distinctive habitats (clear ocean <span id="id1">[<a class="reference internal" href="reference.html#id3" title="N. G. Jerlov. Marine Optics. Elsevier Oceanography Series ; 14. Elsevier Scientific Pub. Co, Amsterdam ; New York, 1976. ISBN 978-0-444-41490-8.">Jer76</a>]</span>, forest understory <span id="id2">[<a class="reference internal" href="reference.html#id5" title="Carrie C. Veilleux and Molly E. Cummings. Nocturnal light environments and species ecology: implications for nocturnal color vision in forests. Journal of Experimental Biology, 215(23):4085–4096, December 2012. doi:10.1242/jeb.071415.">VC12</a>]</span>, relatively clear Amazon river, tannin-stained black or white water Amazon river <span id="id3">[<a class="reference internal" href="reference.html#id4" title="M. P. F. Costa, E. M. L. M. Novo, and K. H. Telmer. Spatial and temporal variability of light attenuation in large rivers of the Amazon. Hydrobiologia, 702(1):171–190, February 2013. doi:10.1007/s10750-012-1319-2.">CNT13</a>]</span>). The spectral peak of the clear ocean and blue channel are close, while the far red peak of the tannin-stained river cannot be re-created by the red or white channels. These peaks are, of course, an oversimplified representation of the habitats’ spectra; the user should always refer to the complete spectral irradiance plot for a given habitat. Ideally, the user should make their own spectral irradiance measurements at their study site since the spectral properties of the same habitat type (e.g. clear river) can still vary greatly <span id="id4">[<a class="reference internal" href="reference.html#id6" title="Sönke Johnsen. The Optics of Life: A Biologist's Guide to Light in Nature. Princeton University Press, 2012. ISBN 978-0-691-13990-6.">Joh12</a>]</span>.</span><a class="headerlink" href="#habitat" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">A comparison of the spectra of the unadjusted RGBW channels of the SK68212 LED array to the peak spectral wavelengths of four strongly color-shifted habitats. This plot compares the spectra of the LED RGBW channels to a few habitats with strong spectral shifts. Here, the RGBW channels are all set to the maximum intensity in MoonSim (i.e., R = 1.0, G = 1.0, B = 1.0, W = 1.0). Note that at the same intensity level, the RGBW channels each have a peak at a different absolute irradiance level (e.g., blue is stronger than green). The dotted line indicates the spectral peaks of four distinctive habitats (clear ocean [Jerlov, 1976], forest understory [Veilleux &amp; Cummings et al, 2012], relatively clear Amazon river, tannin-stained black or white water Amazon river [Costa et al., 2013]). The spectral peak of the clear ocean and blue channel are close, while the far red peak of the tannin-stained river cannot be re-created accurately by the red or white channels. These peaks are, of course, an oversimplified representation of the habitats’ spectra; the user should always refer to the complete spectral irradiance plot for a given habitat. Ideally, the user should make their own spectral irradiance measurements at their study site since the spectral properties of the same habitat type (e.g. clear river) can still vary greatly (Johnsen, 2012).</span><a class="headerlink" href="#habitat" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -631,11 +634,9 @@ title="Print to PDF"
 <span id="content-horizon"></span><h3>Horizon obstruction<a class="headerlink" href="#horizon-obstruction" title="Permalink to this headline">#</a></h3>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Horizon obstruction automatically applies to all nights, since it is a topographical feature that is constantly present at the location. The obstruction is also assumed, for the sake of simplicity, to be present in all directions, and therefore will affect the moonrise and moonset.</p>
+<p>Horizon obstruction automatically applies to all nights, since it is a topographical feature that is constantly present at the location. The obstruction is also assumed, for the sake of simplicity, to be present in all directions, and therefore will affect both the moonrise and moonset.</p>
 </div>
-<ul class="simple">
-<li><p>There are three settings that modify the behavior of horizon obstruction:</p></li>
-</ul>
+<p>There are three settings that modify the behavior of horizon obstruction:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>(*) The angular altitude refers to the angle above the horizon, from 0 degrees at the horizon to 90 degrees at the zenith.)</p>
@@ -654,19 +655,17 @@ title="Print to PDF"
 <figure class="align-default" id="horizon">
 <img alt="_images/horizon.jpg" src="_images/horizon.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">An example of the horizon obstruction effect on illuminance, with the horizon_option enabled, and with the above three settings. Illuminance when the moon is below 55 degree (zone C) will be 15% of the light level above 57 degree (zone A, where the moon rise above the obstruction). In the transition zone B between 55 amd 57 degree, a linear transition of illuminance is applied. This makes light level transitions less abrupt when the simulated moon rises above simulated obstacles. MoonSim will read the LED_schedule_moon.csv and re-create the same illuminance behavior as visualized by the plot. Dark gray = night, light gray = twilight.</span><a class="headerlink" href="#horizon" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">An example of the horizon obstruction effect on illuminance, with the horizon_option enabled, and with the above three settings. Illuminance when the moon is below 55 degree (zone C) will be 15% of the light level above 57 degrees (zone A, where the moon rise above the obstruction). In the transition zone (zone B) between 55 and 57 degrees, a linear transition of illuminance is applied. This makes light level transitions less abrupt when the simulated moon rises above simulated obstacles. MoonShine will read the LED_schedule_moon.csv and re-create the same illuminance behavior as described in these plots. Dark gray areas denote night, light gray areas denote twilight, white areas denote day.</span><a class="headerlink" href="#horizon" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="cloud-cover-simulation">
 <span id="content-cloud"></span><h3>Cloud cover simulation<a class="headerlink" href="#cloud-cover-simulation" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>There are six variables that need to be configured for cloud cover simulation. Cloud cover works by creating a random list of numbers (representing? transmission) using a normal distribution, and fitting a spline function through them, and finally creating a varying but smoothed modulation of the illuminance over time. The values of the six variables have some mutual effect on each other. The only way to assess the cloud cover effect is to visualize the spline function as a plot to get an idea of how the simulated cloud will modulate the existing moonlight.</p></li>
-</ul>
+<p>The cloud simulation works by creating a random list of numbers (representing transmission), which are taken from a normal distribution with a user-defined mean and standard deviation. A spline function is then fitted through these numbers to yield a varying but smoothed modulation of illuminance over time. There are six variables that need to be configured for cloud cover simulation, which are listed below. The values of the six variables have some mutual effects on each other. The only way to visualize how the simulated cloud will modulate a moonlight regime is to visualize the spline function in a plot generated by <em><span style="font-variant:small-caps;">MoonSim</span></em>’s plotting functions.</p>
 <section id="cloud-period">
 <h4>Cloud period<a class="headerlink" href="#cloud-period" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
-<li><p>The first three variables define the periods when cloud simulation is applied. Period outside of this period will not have cloud.</p></li>
+<li><p>The first three variables define the time periods during which cloud simulation is applied. Period outside of this period will not have cloud.</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date_start_cloud</span> <span class="o">&lt;-</span> <span class="s2">&quot;2022-07-26&quot;</span> <span class="c1"># (!) starting date of cloud effect (YYYY-MM-DD)</span>
 <span class="n">time_start_cloud</span> <span class="o">&lt;-</span> <span class="s2">&quot;18:00:00&quot;</span> <span class="c1"># (!) starting time of cloud effect (hh:mm:ss)</span>
@@ -675,11 +674,11 @@ title="Print to PDF"
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the user wants to apply cloud cover to the entire simulation period, simply uses the same values as the simulation inputted earlier for variables date_start,  time_start, and duration_day</p>
+<p>If the user wants to apply cloud cover to the entire simulation period, the user should use the same date and time values used to start the entire simulation (see Step 5 in <a class="reference internal" href="moonsim_lux_calculator.html#content-luxcalculator"><span class="std std-ref">1. MoonSim: Lux calculator</span></a> and enter the entire simulation duration as the duration_day_cloud value.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the user wants to a more complicated cloud cover schedule that is not limited to a single period (e.g., only cloud in the second and eighth day of the simulation), generate multiple LED_schedule_moon.csv versions with the respective settings and merge them together in Excel. See <a class="reference internal" href="edit_LED_schedule_csv.html#content-edit"><span class="std std-ref">Edit MoonSim schedule</span></a></p>
+<p>If the user wants to generate a more complex cloud schedule that is not limited to a single period (e.g., only cloud in the second and eighth day of the simulation),the user can generate multiple LED_schedule_moon.csv versions with the respective settings and merge these together in Excel to produce a single .csv file. See <a class="reference internal" href="edit_LED_schedule_csv.html#content-edit"><span class="std std-ref">4. Edit LED schedule .csv</span></a></p>
 </div>
 </section>
 <section id="cloud-change-frequency">
@@ -704,7 +703,7 @@ title="Print to PDF"
 <figure class="align-default" id="freq5output">
 <a class="reference internal image-reference" href="_images/freq5output.jpg"><img alt="_images/freq5output.jpg" src="_images/freq5output.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">The final moonlight illuminance with the smoothing spline of the previous plot applied. A value of 5 simulates rapid movement of clouds across the moon’s disk, due to high-speed winds at cloud altitude.</span><a class="headerlink" href="#freq5output" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">The final moonlight illuminance with the smoothing spline of <a class="reference internal" href="#freq5smooth"><span class="std std-numref">Fig. 8</span></a> applied. A value of 5 simulates rapid movement of clouds across the moon’s disk, replicating the effect of high-speed winds at cloud altitude.</span><a class="headerlink" href="#freq5output" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Example of cloud_change_freq = 30</strong></p>
@@ -717,21 +716,21 @@ title="Print to PDF"
 <figure class="align-default" id="freq30output">
 <a class="reference internal image-reference" href="_images/freq30output.jpg"><img alt="_images/freq30output.jpg" src="_images/freq30output.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">The final moonlight illuminance with the smoothing spline of the previous plot applied. A value of 60 represents very slow cloud movement.</span><a class="headerlink" href="#freq30output" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">The final moonlight illuminance with the smoothing spline of <a class="reference internal" href="#freq30smooth"><span class="std std-numref">Fig. 10</span></a> applied. A value of 60 represents very slow cloud movement.</span><a class="headerlink" href="#freq30output" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="transmission-mean">
 <h4>Transmission mean<a class="headerlink" href="#transmission-mean" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
-<li><p>Transmission here is defined as the fraction of light that passes through the cloud. Here specify the mean of transmission, with 1 being almost full transmission (little attenuation) and 0 being almost no transmission (near total attenuation). transmission_mean defines the mean of the normal distribution. A value of 1 means cloud simulator is using only the ‘left’ half of the normal distribution. This simulates an occasional cloud passing across the moon.</p></li>
+<li><p>Transmission is defined here as the fraction of light that passes through the cloud. The user specifies the mean of the transmission (transmission_mean), with 1 being almost full transmission (little attenuation) and 0 being almost no transmission (near total attenuation).</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">transmission_mean</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="c1"># (!) Set the mean of the normal distribution.</span>
 </pre></div>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The user can set transmission_mean to exceed 1 or below 0. Setting it to exceed 1 “shifts” the normal distribution further to the “right”, and will reduce the frequency and extremity of cloud cover (we recommend not exceeding 2). Zero or a negative value will use the right side of the normal distribution – simulating denser cloud cover with occasional periods of no cloud cover (we recommend values no lower than -1). Avoid using a value between 0 and 1.</p>
+<p>The user should set transmission_mean between 1 and 2 or between -1 and 0. Setting it to 1 or above will instruct MoonSim to use the left side of the normal distribution, which will reduce the frequency and extremity of simulated cloud cover (however, we recommend not exceeding 2). Zero or a negative value will use the right side of the normal distribution, thereby simulating denser cloud cover with occasional periods of no cloud cover (however, we recommend values no lower than -1). We recommend not using a value between 0 and 1.</p>
 </div>
 <p><strong>Example of transmission_mean = 1.2</strong></p>
 <figure class="align-default" id="mean12smooth">
@@ -743,7 +742,7 @@ title="Print to PDF"
 <figure class="align-default" id="mean12output">
 <a class="reference internal image-reference" href="_images/mean12output.jpg"><img alt="_images/mean12output.jpg" src="_images/mean12output.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">The final moonlight illuminance with the same smoothing spline of the previous plot applied. By increasing the transmission_mean slightly above 1, it decreases the overall “thickness” of the cloud. It simulates the occasional passing of a thin cloud.</span><a class="headerlink" href="#mean12output" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">The final moonlight illuminance with the smoothing spline of <a class="reference internal" href="#mean12smooth"><span class="std std-numref">Fig. 12</span></a> applied. By increasing the transmission_mean slightly above 1, it decreases the overall “thickness” of the cloud, thereby simulating the occasional passing of thin cloud.</span><a class="headerlink" href="#mean12output" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Example of transmission_mean = -0.2</strong></p>
@@ -756,14 +755,14 @@ title="Print to PDF"
 <figure class="align-default" id="mean02output">
 <a class="reference internal image-reference" href="_images/mean02output.jpg"><img alt="_images/mean02output.jpg" src="_images/mean02output.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">The final moonlight illuminance with the smoothing spline of the previous plot applied. By reducing the transmission_mean slightly below 0, it increases the overall “thickness” of the cloud. The behaviour of transmission_mean at around 0 is the complete opposite of 1. Instead of using the “left” side of the normal distribution, it uses the “right” side. Meaning that instead of the occasional passing of cloud, it simulate the occasional windows of clear sky in a cloudy scenerio.</span><a class="headerlink" href="#mean02output" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">The final moonlight illuminance with the smoothing spline of <a class="reference internal" href="#mean02smooth"><span class="std std-numref">Fig. 14</span></a> applied. Reducing the transmission_mean slightly below 0 increases the overall “thickness” of the cloud. The behaviour of transmission_mean at around 0 is the complete opposite of 1. Instead of using the “left” side of the normal distribution, it uses the “right” side. Meaning that instead of the occasional passing of cloud, it simulates occasional windows of clear sky in a cloudy scenerio.</span><a class="headerlink" href="#mean02output" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="transmission-standard-deviation-sd">
 <h4>Transmission standard deviation (SD)<a class="headerlink" href="#transmission-standard-deviation-sd" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
-<li><p>We recommend setting the standard deviation of transmission(transmission_sd) to a starting value of 0.5. All the above plots have transmission_sd = 0.5. Increasing the transmission_sd increases the range of transmission variation, making the cloud effect more unpredictable (i.e., patchy clouds). Reducing the transmission_sd limits the range of transmission variation, allowing for simulation of an evenly overcast sky.</p></li>
+<li><p>We recommend setting the standard deviation of transmission (transmission_sd) to a starting value of 0.5. All the previous plots in this Cloud Simulation section (Figures 8 through 15) have transmission_sd = 0.5. Increasing the transmission_sd increases the range of transmission variation, making the cloud effect more unpredictable (i.e., simulating patchy clouds). Reducing the transmission_sd limits the range of transmission variation, allowing for simulation of an evenly overcast sky.</p></li>
 </ul>
 <p><strong>transmission_sd = 1</strong></p>
 <figure class="align-default" id="sd1smooth">
@@ -775,7 +774,7 @@ title="Print to PDF"
 <figure class="align-default" id="sd1output">
 <a class="reference internal image-reference" href="_images/sd1output.jpg"><img alt="_images/sd1output.jpg" src="_images/sd1output.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 17 </span><span class="caption-text">The final moonlight illuminance with the same smoothing spline of the previous plot applied. The illuminance switches drastically from one moment to the next with a higher transmission_sd = 1. This resembles thick but patchy clouds with many windows of opening.</span><a class="headerlink" href="#sd1output" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">The final moonlight illuminance with the smoothing spline <a class="reference internal" href="#sd1smooth"><span class="std std-numref">Fig. 16</span></a> applied. The illuminance switches drastically from one moment to the next with a higher transmission_sd = 1. This simulates the effect of patchy clouds with many windows of opening.</span><a class="headerlink" href="#sd1output" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>transmission_sd = 0.1</strong></p>
@@ -788,16 +787,16 @@ title="Print to PDF"
 <figure class="align-default" id="sd01output">
 <a class="reference internal image-reference" href="_images/sd01output.jpg"><img alt="_images/sd01output.jpg" src="_images/sd01output.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">The final moonlight illuminance with the smoothing spline of the previous plot applied. This simulates a thin overcast sky with an overall reduction but small variation in illuminance.</span><a class="headerlink" href="#sd01output" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">The final moonlight illuminance with the smoothing spline of <a class="reference internal" href="#sd01smooth"><span class="std std-numref">Fig. 18</span></a> applied. This simulates an overcast sky with relatively little variation in illuminance.</span><a class="headerlink" href="#sd01output" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Selecting the best-suited cloud settings should be based on the smoothing spline preview.  Users are encourage to try out different combinations of cloud settings. The user will see a preview of the smoothing spline using the? “END OF PARAMETER SETTINGS” line. If the paticular smoothing spline looks undesirable, runing the section of code again will generate another smoothing spline that looks different because it uses a random number generator.</p>
+<p>Selecting the best-suited cloud settings should be based on the smoothing spline preview.  Users are encourage to try out different combinations of cloud settings. The user can see a preview of the smoothing spline by running the “END OF PARAMETER SETTINGS” line. If the paticular smoothing spline looks undesirable, running the section of code again will generate another smoothing spline that looks different because it uses a random number generator.</p>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Beware that the cloud effect is generated randomly every time the script is run. The user can save the specific cloud_table with the line of code just above the “END OF PARAMETER SETTINGS” line.</p>
+<p>By default, the cloud effect is generated randomly every time the script is run. If the user would like to generate the same cloud pattern when rerunning the same set, un-comment the line of  <em>‘# set.seed(1)</em> in the section of “START OF CLOUD EFFECT GENERATOR”. Changing the number within  <em>‘# set.seed(1)</em> will change the paticular set of random number that will be generated for creating the cloud effect.</p>
 </div>
 </section>
 </section>
@@ -835,13 +834,13 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</p>
+            <p class="prev-next-title">1. <span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="moonsim_sunlight_twilight_LED_scheduler.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler</p>
+        <p class="prev-next-title">3. <span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -852,7 +851,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By C. Lok Poon<br/>
+    By C. Lok Poon, Ian T. Jenks & W.G.R., Crampton. University of Central Florida.<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
