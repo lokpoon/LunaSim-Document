@@ -66,6 +66,11 @@ To make an informed decision on what combination of ND filter sheets is need for
 
 _<span style="font-variant:small-caps;">MoonShine</span>_'s performance in re-creating moonlight illuminance level after calibration. MoonSim prediction = black line. Measeured re-created illuminance = red line. Note that the lines are very close. This tesst was performed in a lab setting, running a simulated LED schedule for 9 nights around a full moon.
 ```
+
+```{note}
+If the user intends to heavily modify the color spectrum of the LED arrays, for example to recreate a color-shifted habitat, radiometer measured illuminance (in lx) is not an appropriate unit. This is because photopic illuminance measurements assume a "natural light spectrum" (i.e. light similar to natural sunlight). In these cases the user should instead measure light level and calibrate MoonShine in spectral irradiance (unit photons OR Watts per m2 s nm) using a spectrometer.
+```
+
 (content:lightbox:sun_calibration)=
 ## Sunlight and twilight re-creation
 
