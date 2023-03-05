@@ -143,7 +143,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. Edit LED schedule .csv
+   4. Edit LED schedule
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .csv
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -432,6 +437,23 @@ title="Print to PDF"
       <a class="reference internal nav-link" href="#steps">
        Steps
       </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#turning-off-light-for-certain-period">
+         Turning off light for certain period:
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#copy-and-paste-the-led-intensity">
+         Copy and paste the LED intensity:
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#to-re-create-a-moonlight-cycle-in-the-past-or-future">
+         To re-create a moonlight cycle in the past or future:
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#problem-with-excel-datetime">
@@ -500,6 +522,23 @@ title="Print to PDF"
       <a class="reference internal nav-link" href="#steps">
        Steps
       </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#turning-off-light-for-certain-period">
+         Turning off light for certain period:
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#copy-and-paste-the-led-intensity">
+         Copy and paste the LED intensity:
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#to-re-create-a-moonlight-cycle-in-the-past-or-future">
+         To re-create a moonlight cycle in the past or future:
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#problem-with-excel-datetime">
@@ -538,29 +577,29 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="edit-led-schedule-csv">
-<span id="content-edit"></span><h1>4. Edit LED schedule .csv<a class="headerlink" href="#edit-led-schedule-csv" title="Permalink to this headline">#</a></h1>
+<span id="content-edit"></span><h1>4. Edit LED schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code><a class="headerlink" href="#edit-led-schedule-csv" title="Permalink to this headline">#</a></h1>
 <ul>
-<li><p>One of the most powerful feature of <em><span style="font-variant:small-caps;">MoonShine</span></em> is that the user can create any light scenario by editing the <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> or <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code>.</p></li>
-<li><p>While <em><span style="font-variant:small-caps;">MoonSim</span></em> is optimized for recreating realistic illuminance (by running the <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> or <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code> directly from <em><span style="font-variant:small-caps;">MoonSim</span>: Schedulers</em>), we expect many experiments to require a manipulated light regime (e.g., remove a full moon night from the lunar cycle) or a purposefully standardized regime (e.g. same sunrise/set times everyday).</p>
+<li><p>One of the most powerful features of <em><span style="font-variant:small-caps;">MoonShine</span></em> is that the user can create any light scenario by editing the <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> or <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code>.</p></li>
+<li><p>While <em><span style="font-variant:small-caps;">MoonSim</span></em> is optimized for recreating realistic illuminance (by running the <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> or <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code> directly from <em><span style="font-variant:small-caps;">MoonSim</span>: Schedulers</em>), we expect that many experiments utilizing <em><span style="font-variant:small-caps;">MoonShine</span></em> will require a manipulated light regime (e.g., remove a full moon night from the lunar cycle) or a purposefully standardized regime (e.g., same sunrise/set times every day).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><em><span style="font-variant:small-caps;">MoonShine</span></em> works by finding a matching datetime in the schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> to the current Raspberry Pi system time. This makes re-creating the moonlight schedule at the current moment straightforward, the user would simply put in the current time in <em><span style="font-variant:small-caps;">MoonSim</span>: Schedulers</em> to generate such a schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code>. However, this means that if the user wish to re-create a moonlight cycle in the past or future, the schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> is required to have LED intensity values from a different time, but a datetime that matches the system current time. Instructions for doing so is detailed later.</p>
+<p><em><span style="font-variant:small-caps;">MoonShine</span></em> works by finding a matching date/time in the schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> to the current Raspberry Pi system time. This makes re-creating the moonlight schedule at the current moment straightforward; the user simply needs to enter the current time in <em><span style="font-variant:small-caps;">MoonSim</span>: Schedulers</em> to generate such a schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code>. However, this means that if the user wishes to re-create a moonlight cycle in the past or future, the schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> is required to have LED intensity values predicted for the desired time in the past of future, but a datetime that matches the current system time. Instructions for doing so are probided below, in creating a simulation for a past or future date.</p>
 </div>
 </li>
 </ul>
 <section id="creating-customized-schedules">
 <h2>Creating customized schedules<a class="headerlink" href="#creating-customized-schedules" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>To create a customized schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, the user can either modify an existing <em><span style="font-variant:small-caps;">MoonSim</span></em> generated schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> using Excel. Alternatively, the user can create the customized schedule manually, using the provided <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code> Excel spreadsheet template (download here). The user can also combine both approaches to a create a customized <code class="docutils literal notranslate"><span class="pre">LED_schedule</span> <span class="pre">.csv</span></code>, because the methods are better suited for different scenarios.</p></li>
-<li><p>MoonShine can run any schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> when the following conditions are met:</p>
+<li><p>To create a customized schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, the user can either modify an existing <em><span style="font-variant:small-caps;">MoonSim</span></em> generated schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> using Excel. Alternatively, the user can create the customized schedule manually, using the provided Excel spreadsheet template (<code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code>). The user can also combine both approaches to a create a customized <code class="docutils literal notranslate"><span class="pre">LED_schedule</span> <span class="pre">.csv</span></code>, because the methods are better suited for different scenarios.</p></li>
+<li><p><em><span style="font-variant:small-caps;">MoonShine</span></em> can run any schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> when the following conditions are met:</p>
 <ul>
-<li><p>The .csv file contains the nine required columns (extra columns with other headers can be present, but will be ignored):</p>
+<li><p>The .csv file contains the nine required columns, as described below (extra columns with other headers can be present, but will be ignored):</p>
 <ul>
-<li><p>datetime in is YYYY-MM-DD hh:mm:ss format (and the user must also make sure that the schedule starts before the intended launch time, see <a class="reference internal" href="moonshine_launch_procedure.html#content-launch"><span class="std std-ref">8. MoonShine: Launch procedure</span></a>).</p></li>
-<li><p>For the eight RGBW LED values (crudewhite, wfine, crudered, rfine, crudegreen, gfine, crudeblue, bfine), the user must ensure that:</p>
+<li><p>The first column is ‘<em>datetime</em>’ in YYYY-MM-DD hh:mm:ss format (see <a class="reference internal" href="#original-datetime"><span class="std std-numref">Fig. 25</span></a>)(and the user must also make sure that the schedule starts before the intended launch time, see <a class="reference internal" href="moonshine_launch_procedure.html#content-launch"><span class="std std-ref">8. MoonShine: Launch procedure</span></a>).</p></li>
+<li><p>The next eight columns are the For the eight RGBW LED values, i.e., ‘crude’ and ‘fine’ settings for each of white, read green, and blue. These are labeled ‘<em>crudewhite</em>’, ‘<em>wfine</em>’, ‘<em>crudered</em>’, ‘<em>rfine</em>’, ‘<em>crudegreen</em>’, ‘<em>gfine</em>’, ‘<em>crudeblue</em>’, ‘<em>bfine</em>’ (see <a class="reference internal" href="moonsim_moonlight_LED_scheduler.html#moon-table"><span class="std std-numref">Fig. 7</span></a>). The user must ensure that:</p>
 <ul>
-<li><p>Crude intensity ranges from 0-255 (LED intensity level).</p></li>
-<li><p>Fine intensity ranges from 0 to the total number of LEDs in the array.</p></li>
+<li><p>Crude intensity values ranges from 0-255 (LED intensity level).</p></li>
+<li><p>Fine intensity values ranges from 0 to the total number of LEDs in the array.</p></li>
 </ul>
 </li>
 <li><p>The schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> is named either <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> or <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code></p></li>
@@ -572,46 +611,55 @@ title="Print to PDF"
 <section id="option-1-modify-an-existing-led-schedule-csv">
 <h3>Option 1: Modify an existing <code class="docutils literal notranslate"><span class="pre">LED_schedule</span> <span class="pre">.csv</span></code><a class="headerlink" href="#option-1-modify-an-existing-led-schedule-csv" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>This method is suited for simple modifications such as setting a period of darkness, or repeating certain part of the existing schedule.</p></li>
+<li><p>This method is suited for simple modifications such as setting a period of darkness,repeating certain part of the existing schedule, or re-creating a moonlight cycle in the past or future.</p></li>
 <li><p>To create a novel light regime, see Option 2.</p></li>
 </ul>
 <section id="steps">
 <h4>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">#</a></h4>
 <ol class="simple">
 <li><p>First, generate a “blueprint” schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> for a chosen location and time period, with 1 minute intervals.</p></li>
-<li><p>Then use Excel to edit the LED values (crude and fine) in the schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code>.</p></li>
+<li><p>Then use Excel to edit the ‘<em>datetime</em>’ and/or the LED intensity values (crude and fine) in the schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code>.</p></li>
 </ol>
-<p>Here are some examples of how the schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> can be edited:</p>
-<ul>
-<li><p>Turning off light for certain period</p>
+<p>Below are examples of how the schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> can be edited:</p>
+<section id="turning-off-light-for-certain-period">
+<h5>Turning off light for certain period:<a class="headerlink" href="#turning-off-light-for-certain-period" title="Permalink to this headline">#</a></h5>
 <figure class="align-default" id="zero">
 <img alt="_images/zero.png" src="_images/zero.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">A dark period can be inserted simply by replacing the LED values with zero.</span><a class="headerlink" href="#zero" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">A dark period can be simply inserted simply by replacing the LED values with zero.</span><a class="headerlink" href="#zero" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-</li>
-<li><p>Copy and pasting the LED intensity</p>
+</section>
+<section id="copy-and-paste-the-led-intensity">
+<h5>Copy and paste the LED intensity:<a class="headerlink" href="#copy-and-paste-the-led-intensity" title="Permalink to this headline">#</a></h5>
 <figure class="align-default" id="copy">
 <img alt="_images/copy.jpg" src="_images/copy.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Copy and pasting the LED intensity from one row to other rows at differnt times. For example, the user can copy an entire night of LED intensity progression during a full moon and paste it into another night.</span><a class="headerlink" href="#copy" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Copy and paste the LED intensity from one row to other rows at different times. For example, the user can copy an entire night of LED intensity progression during a full moon and paste it into another night.</span><a class="headerlink" href="#copy" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-</li>
-<li><p>To re-create a moonlight cycle in the past or future:</p>
+</section>
+<section id="to-re-create-a-moonlight-cycle-in-the-past-or-future">
+<h5>To re-create a moonlight cycle in the past or future:<a class="headerlink" href="#to-re-create-a-moonlight-cycle-in-the-past-or-future" title="Permalink to this headline">#</a></h5>
 <ol class="simple">
-<li><p>Generate a schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> in <em><span style="font-variant:small-caps;">MoonSim</span>: Schedulers</em> with the desired settings with a start time in the past or future.</p></li>
-<li><p>The generated schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> will have the correct LED intensity values but a datetime that can not be launched.</p></li>
-<li><p>Therefore, modify the datetime column in Excel so that it starts at the time the user would be launching <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p></li>
-</ol>
-</li>
+<li><p>Generate a schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> in <em><span style="font-variant:small-caps;">MoonSim</span>: Schedulers</em> with the desired settings and with a start time in the past or future.</p></li>
+<li><p>The generated schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> will have the correct LED intensity values but a date/time that can not be launched immediately as the date is not current.</p></li>
+<li><p>Therefore, the user would replace the starting date/time of the re-created illumination schedule (from a past or future date) with the current date/time for the moonlight re-creation. To do so:</p>
+<ul class="simple">
+<li><p>Delete all the original entries in the ‘<em>datetime</em>’ column except for the first two rows.</p></li>
+<li><p>Edit the entries in the first two rows with the new date/time, so that the first row is the desired start time and the second row is the first row’s time + 1 minute.</p></li>
+<li><p>Select the first two date/time, and use the Excel ‘fill handle’ to copy a new sequence of date/time values, at 1 min intervals, through until the last row of the simulation.</p></li>
+<li><p>Make sure DST is not applied to any date-time values in the edited column.</p></li>
+<li><p>See the next section to save the date/time in the correct format.</p></li>
 </ul>
+</li>
+</ol>
+</section>
 </section>
 <section id="problem-with-excel-datetime">
 <span id="content-datetime"></span><h4>Problem with Excel datetime<a class="headerlink" href="#problem-with-excel-datetime" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
-<li><p>When opening a newly created schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> in R, or with a text editor (e.g. Microsoft Notepad/Notepad++ in Microsoft Windows or TextEdit in Mac), the datetime column is presented in the following correct format:</p>
+<li><p>When opening a newly created schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> in R, or with a text editor (e.g. Microsoft Notepad/Notepad++ in Microsoft Windows or TextEdit in Mac), the ‘<em>datetime</em>’ column is presented in the following correct format:</p>
 <ul>
 <li><p>YYYY-MM-DD hh:mm:ss</p></li>
 </ul>
@@ -620,22 +668,22 @@ title="Print to PDF"
 <figure class="align-default" id="original-datetime">
 <img alt="_images/original_datetime.png" src="_images/original_datetime.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">The correct datetime format when opened with a text editor.</span><a class="headerlink" href="#original-datetime" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">The correct date/time format when opened with a text editor.</span><a class="headerlink" href="#original-datetime" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p>However, when the same schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> is opened in Excel, the datetime will automatically reformat to the Excel’s default format (this default format may depends on the user’s computer’s country setting). If the user then saves the schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code>  in Excel, the datetime will be saved in an erroneous format that <em><span style="font-variant:small-caps;">MoonShine</span></em> will not recognize.</p></li>
+<li><p>However, when the same schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> is opened in Excel, the date/time will automatically reformat to the Excel’s default format (this default format may depends on the user’s computer’s country setting). If the user then saves the schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code>  in Excel, the date/time will be saved in an erroneous format that <em><span style="font-variant:small-caps;">MoonShine</span></em> will not recognize.</p></li>
 </ul>
 <figure class="align-default" id="excel-datetime">
 <img alt="_images/excel_datetime.png" src="_images/excel_datetime.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">The wrong datetime format is displayed when schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> is opened in Excel. The order of year, month, and day is incorrect, the number of digits is incorrect, and the seconds are missing.</span><a class="headerlink" href="#excel-datetime" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">The wrong date/time format is displayed when schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> is opened in Excel. The order of year, month, and day is incorrect, the number of digits is incorrect, and the seconds are missing.</span><a class="headerlink" href="#excel-datetime" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul>
-<li><p>To remedy this problem, the datetime format needs to be specified every time the user opens and then saves schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> in Excel. To do so, the user must follow the following steps.</p>
+<li><p>To remedy this problem, the date/time format needs to be specified every time the user opens and then saves schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> in Excel. To do so, the user must follow the following steps.</p>
 <ol>
-<li><p>Right click at the datetime column header, and click <strong>Format Cells…</strong>:
+<li><p>Right click at the ‘<em>datetime</em>’ column header, and click <strong>Format Cells…</strong>:
 <img alt="format_column.jpg" src="_images/format_column.jpg" /></p>
  <p>&nbsp;</p>
 </li>
@@ -643,11 +691,11 @@ title="Print to PDF"
 <img alt="format_cells.jpg" src="_images/format_cells.jpg" /></p>
  <p>&nbsp;</p>
 </li>
-<li><p>Now the datetime is correct, and the schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> is ready for saving
+<li><p>Now the date/time is correct, and the schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> is ready for saving.
 <img alt="fixed_time.jpg" src="_images/fixed_time.jpg" /></p>
  <p>&nbsp;</p>
 </li>
-<li><p>This problem will reappear if the corrected schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file is then reopened in Excel. If the intention is to edit and re-save the LED_schedule.csv file in Excel, this datetime correction procedure must be repeated every time it is opened in Excel.</p></li>
+<li><p>This problem will reappear if the corrected schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file is then reopened in Excel. If the intention is to edit and re-save the <code class="docutils literal notranslate"><span class="pre">LED_schedule.csv</span></code> file in Excel, this date/time correction procedure must be repeated every time it is opened in Excel.</p></li>
 </ol>
 </li>
 </ul>
@@ -656,35 +704,35 @@ title="Print to PDF"
 <section id="option-2-create-led-schedule-manually-using-manual-scheduler-xlsx">
 <span id="content-excel-scheduler"></span><h3>Option 2: Create LED schedule manually using <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code><a class="headerlink" href="#option-2-create-led-schedule-manually-using-manual-scheduler-xlsx" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>This method allows the assembly of a fully customized LED schedule. The <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code> file (download here) functions as a template to convert a list of desired illuminance into LED intensity values. Using this template, the user can re-create any novel illuminance schedule as desired.</p></li>
+<li><p>This method allows the assembly of a fully customized LED schedule. The <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code> file (download here) functions as a template to convert a list of desired illuminances into LED intensity values. Using this template, the user can re-create any novel illuminance schedule as desired.</p></li>
 </ul>
 <section id="id1">
 <h4>Steps<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
 <figure class="align-default" id="manualexcel">
 <img alt="_images/manualexcel.jpg" src="_images/manualexcel.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">The layout of <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code>. Datetime (red box), desired illuminance (orange box), RGBW LED intensity values (green), LED settings (blue), and preview plot (purple). In this example, the desired illuminance list is a linear function, increasing 0.5 lx every minute until it reaches 200 lx in 6 hours and 40 minutes.</span><a class="headerlink" href="#manualexcel" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">The layout of <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code>. ‘<em>datetime</em>’ (red box), ‘<em>desired illuminance</em>’ (orange box), RGBW LED intensity values (green), LED settings (blue), and preview plot (purple). In this example, the desired illuminance list is a linear function, increasing 0.5 lx every minute until it reaches 200 lx in 6 hours and 40 minutes.</span><a class="headerlink" href="#manualexcel" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<ol class="simple">
-<li><p>Set the LED settings in the upper panel. The theoretical_max is the calibration illuminance, see <a class="reference internal" href="moonshine_calibration.html#content-lightbox-calibration"><span class="std std-ref">7. MoonShine: Calibration</span></a>. This value depends on whether the user is re-creating moonlight or sunlight/twilight.</p></li>
-<li><p>Create a list of datetime. This must be at 1 minute intervals.</p></li>
-<li><p>Create the list of desired illuminances in lux.</p></li>
-<li><p>The LED intensity values (crude and fine) will be updated automatically.</p></li>
-<li><p>Save this <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code> file first. Since this will preserve the formatting (graph and equations).</p></li>
-<li><p>Then save this file as a <code class="docutils literal notranslate"><span class="pre">.csv</span></code></p></li>
-<li><p>Rename this <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file to <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> or <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code> depending on what the user is re-creating in <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p></li>
-<li><p>Open the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file in Excel and correct the datetime into the correct format for <em><span style="font-variant:small-caps;">MoonShine</span></em>, as described above.</p></li>
-<li><p>Remove the  unnecessary columns (i.e., column L and beyond).</p></li>
-<li><p>Save the file as a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file.</p></li>
-<li><p>The user can run this .csv with <em><span style="font-variant:small-caps;">MoonShine</span></em>, or append it to an existing schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> by matching the corresponding columns.</p></li>
-</ol>
 <figure class="align-default" id="manualexp">
 <img alt="_images/manualexp.jpg" src="_images/manualexp.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">A second example of a manual schedule. The desired illuminance list consists of a natural exponent function at the start and end of the sequence, and a plateau of illuminance in the center. The LED intensity values are calculated automatically based on the desired illuminance list. <em><span style="font-variant:small-caps;">MoonShine</span></em> will convert these values into accurate illumination in the room.</span><a class="headerlink" href="#manualexp" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">A second example of a manual schedule showing only the preview plot. The desired illuminance list consists of a natural exponent function at the start and end of the sequence, and a plateau of illuminance in the center. The LED intensity values are calculated automatically based on the desired illuminance list. <em><span style="font-variant:small-caps;">MoonShine</span></em> will convert these values into accurate illumination in the room.</span><a class="headerlink" href="#manualexp" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<ol class="simple">
+<li><p>Set the LED settings in the upper right panel (<a class="reference internal" href="#manualexcel"><span class="std std-numref">Fig. 27</span></a>). The theoretical_max is the calibration illuminance, see <a class="reference internal" href="moonshine_calibration.html#content-lightbox-calibration"><span class="std std-ref">7. MoonShine: Calibration</span></a>.</p></li>
+<li><p>Fill in the ‘<em>datetime</em>’ column. This must be at 1 minute intervals.</p></li>
+<li><p>Create the list of desired illuminances in lux. See (<a class="reference internal" href="#manualexcel"><span class="std std-numref">Fig. 27</span></a>) for an example.</p></li>
+<li><p>The LED intensity values (crude and fine) will be updated automatically.</p></li>
+<li><p>Save this <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code> file first because this will preserve the formatting (graph and equations).</p></li>
+<li><p>Then save this file as a separate <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file, using “save as”.</p></li>
+<li><p>Rename this newly created <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file to <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> or <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code> depending on what the user is re-creating in <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p></li>
+<li><p>Open this <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file in Excel to correct the ‘<em>datetime</em>’ into the correct format for <em><span style="font-variant:small-caps;">MoonShine</span></em>, as described above.</p></li>
+<li><p>Remove the unnecessary columns (i.e., column L and beyond).</p></li>
+<li><p>Save changes.</p></li>
+<li><p>The user can run this finalized <code class="docutils literal notranslate"><span class="pre">.csv</span></code> with <em><span style="font-variant:small-caps;">MoonShine</span></em>, or append it to an existing schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code> by matching the corresponding columns.</p></li>
+</ol>
 </section>
 </section>
 </section>

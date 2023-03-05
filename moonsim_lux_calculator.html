@@ -143,7 +143,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="edit_LED_schedule_csv.html">
-   4. Edit LED schedule .csv
+   4. Edit LED schedule
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .csv
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -475,28 +480,30 @@ title="Print to PDF"
 <p>Download <em><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</em> here.</p>
 <section id="key-features">
 <h2>Key features<a class="headerlink" href="#key-features" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Provides accurate prediction of moonlight illuminance at any geographic location and over any time period, at user-defined intervals.</p></li>
-<li><p>Provides prediction of twilight and sunlight illuminance as well.</p></li>
-<li><p>Generates .csv table of predicted illuminance over time.</p></li>
-<li><p>Provides a high-resolution plot of illuminance over time.</p></li>
-</ul>
+<ul>
+<li><p>Provides an accurate prediction of moonlight illuminance at any geographic location and over any time period, at user-defined intervals.</p></li>
+<li><p>Provides a prediction of twilight and sunlight illuminance as well.</p></li>
+<li><p>Generates a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> table of predicted illuminance over time.</p></li>
+<li><p>Provides a high-resolution plot of illuminance over time.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The sunlight and twilight illuminance are predicted simply by the sun’s altitude, and are not meant to be highly accurate predictions of the absolute illuminance.</p>
+<p>The sunlight and twilight illuminance are predicted by the sun’s altitude only, and are not intended to be highly accurate predictions of the absolute illuminance.</p>
 </div>
+</li>
+</ul>
 </section>
 <section id="packages-required">
 <span id="content-luxcalculator2"></span><h2>Packages required<a class="headerlink" href="#packages-required" title="Permalink to this headline">#</a></h2>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">library(suncalc)</span></code> Calculates astronomical variables given a time and location, including moon phase, moon altitude, sun altitude, and the moon to Earth distance</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">library(dplyr)</span></code> Facilitates data wrangling</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">library(rpmodel)</span></code> Calculates atmospheric pressure at a given site elevation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">library(lubridate)</span></code> Makes datetime format easier to work with</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">library(REdaS)</span></code> Converts between degree angle and radian</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">library(npreg)</span></code> Fits smoothing splines</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">library(ggplot2)</span></code> Create plots</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">library(beepr)</span></code> Makes a notification sound</p>
+<li><p>library(suncalc) Calculates astronomical variables given a time and location, including moon phase, moon altitude, sun altitude, and the moon to Earth distance.</p></li>
+<li><p>library(dplyr) Facilitates data wrangling.</p></li>
+<li><p>library(rpmodel) Calculates atmospheric pressure at a given site elevation.</p></li>
+<li><p>library(lubridate) Makes datetime format easier to work with.</p></li>
+<li><p>library(REdaS) Converts between degree angle and radian.</p></li>
+<li><p>library(npreg) Fits smoothing splines.</p></li>
+<li><p>library(ggplot2) Create plots.</p></li>
+<li><p>library(beepr) Makes a notification sound.</p></li>
+<li><p>library(progress) Display a progress bar of the computation progress.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>This website <a class="reference external" href="https://r-coder.com/r-tutorials/r-basics/">R Coder</a> is a good resource for learning basic R functions. Start here if you are completely new to R and need instructions on how to load R, set the working directory, install packages and run code.</p>
@@ -508,8 +515,8 @@ title="Print to PDF"
 <h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">#</a></h2>
 <p>Below is a summary of the main steps required to run <em><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</em>. The code itself is also commented. The “(!)” symbol denotes a line where the user must enter information.</p>
 <ol>
-<li><p>Set the working directory. This is where the .csv (schedule file) and .png (illuminance ~ time) plot are saved.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setwd</span><span class="p">(</span><span class="s2">&quot;/Users/lokpoon/Desktop&quot;</span><span class="p">)</span>
+<li><p>Set the working directory. This is where the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> (schedule file) and .png (illuminance ~ time) plot are saved.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setwd</span><span class="p">(</span><span class="s2">&quot;/Users/lokpoon/Desktop&quot;</span><span class="p">)</span> <span class="c1"># (!) </span>
 </pre></div>
 </div>
 </li>
@@ -551,7 +558,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p>Specify the type of illumination for the y-axis in the plot of illuminance ~ time generated by <em><span style="font-variant:small-caps;">MoonSim</span></em>. i.e., one of the illuminance column names shown below in step 10.</p>
+<li><p>Specify the type of illumination for the y-axis in the plot of illuminance ~ time generated by <em><span style="font-variant:small-caps;">MoonSim</span></em>. I.e., one of the illuminance column names shown below in step 10.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">illuminance_type_plot</span> <span class="o">&lt;-</span> <span class="s2">&quot;moon_final_lux&quot;</span> <span class="c1"># (!) One of the illuminance column.</span>
 </pre></div>
 </div>
@@ -561,12 +568,13 @@ title="Print to PDF"
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">moon_value_table</span><span class="p">,</span><span class="s2">&quot;lux_calculator_output.csv&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The lux_calculator_output.csv contains the following columns. We included the illuminance from the different combinations of moonlight, twilight, and sunlight, because each could be useful according to the user’s application.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">lux_calculator_output.csv</span></code> contains the following columns (<a class="reference internal" href="#moon-lux-table"><span class="std std-numref">Fig. 2</span></a>). We included the illuminance from the different combinations of moonlight, twilight, and sunlight, because each could be useful according to the user’s application.</p>
 <ul class="simple">
 <li><p>General outputs:</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span> <span class="c1"># The datetime in a standard format that R and lightbox.py can read</span>
 <span class="n">phase_angle</span> <span class="c1"># the phase angle of the moon</span>
+<span class="n">fraction</span> <span class="c1"># the illuminated fraction of the moon</span>
 <span class="n">z_moon</span> <span class="c1"># zenith distance of the moon in degree angle</span>
 <span class="n">distance</span> <span class="c1"># the moon and Earth distance in km</span>
 <span class="n">sun_altitude</span> <span class="c1"># The altitude of the sun. Positive/negative value means the sun is above/below the horizon, respectively.</span>
@@ -584,6 +592,12 @@ title="Print to PDF"
 <span class="n">moonlight_twilight_nighttime</span> <span class="c1"># illuminance of moonlight plus twilight only at night (reports NA at daytime, when sun altitude &gt; 0)</span>
 </pre></div>
 </div>
+<figure class="align-default" id="moon-lux-table">
+<img alt="_images/moon_lux_table.jpg" src="_images/moon_lux_table.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Dataframe of <code class="docutils literal notranslate"><span class="pre">lux_calculator_output.csv</span></code> in R. This tabulated information is exported to a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file, which can be opened, viewed and edited in Excel, if required. Right click and select ‘Open image in new tab’ to enlarge figure.</span><a class="headerlink" href="#moon-lux-table" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </li>
 <li><p>Display a plot of the illuminance prediction over time, as specified in step 8, by running the code that starts with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_output</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">theme_rectangular_clean</span> <span class="o">+</span> <span class="o">......</span>
@@ -594,25 +608,20 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p>Save this plot to working directory, by running the following line of code:</p>
+<li><p>Save this plot to working directory (<a class="reference internal" href="#one-month"><span class="std std-numref">Fig. 3</span></a>), by running the following line of code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ggsave</span><span class="p">(</span><span class="s2">&quot;plot_output.png&quot;</span><span class="p">,</span> <span class="n">plot_output</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">4488</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;px&quot;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">450</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Dark gray area depicts dark periods (true night after astronomical twilight ended).</p></li>
-<li><p>Light gray area indicate the periods of astronomical twilight.</p></li>
-</ul>
 <figure class="align-default" id="one-month">
 <img alt="_images/one_month.png" src="_images/one_month.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Plot example of moonlight ground illuminance over a month in 2022 in Leticia, Colombia using the above shown settings. Y-axis scaled with limits of 0-0.3 lx wtih breaks of 0.1 lx, to show the full range of moonlight but not sunlight.</span><a class="headerlink" href="#one-month" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Plot example of moonlight ground illuminance over a month in 2022 in Leticia, Colombia using the above shown settings. Y-axis scaled with limits of 0-0.3 lx wtih breaks of 0.05 lx, to show the full range of moonlight but not sunlight. Dark gray area depicts dark periods (true night after astronomical twilight ended). Light gray area indicate the periods of astronomical twilight.</span><a class="headerlink" href="#one-month" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </li>
-<li><p>A final section of code checks if you have any lunar eclipse events within your simulation. If there is an eclipse, the time of the eclipse will be listed. The predicted illuminance does not simulate the transient reduction in moonlight intensity of a lunar eclipse.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Lunar eclipse warning
-
-if (any(abs(moon_value_table$phase_angle) &lt; 1.5 &amp; moon_value_table$sun_altitude &lt; 0)) { # eclipse defined as a moon with phase angle &lt; 1.5 during nighttime
+<li><p>Finally, the section of code depicted below checks if you have any lunar eclipse events within your simulation.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if (any(abs(moon_value_table$phase_angle) &lt; 1.5 &amp; moon_value_table$sun_altitude &lt; 0)) { # eclipse defined as a moon with phase angle &lt; 1.5 during nighttime
   print(&quot;ECLIPSE IN SIMULATION!!!&quot;)
   eclipse_list &lt;- (abs(moon_value_table$phase_angle) &lt; 1.5 &amp; moon_value_table$sun_altitude &lt; 0)
   moon_value_table[which(eclipse_list == TRUE),]
@@ -621,8 +630,17 @@ if (any(abs(moon_value_table$phase_angle) &lt; 1.5 &amp; moon_value_table$sun_al
 }
 </pre></div>
 </div>
+<ul>
+<li><p>If there is no eclipse, a “no eclipse in simulation” message will appear in the R console after the simulation is complete.</p></li>
+<li><p>If there is an eclipse, “ECLIPSE IN SIMULATION!!!” will appear in the console. <em><span style="font-variant:small-caps;">MoonSim</span></em> will also report a list of all time intervals affected by both the penumbral and umbral stages of the eclipse (<a class="reference internal" href="#eclipse"><span class="std std-numref">Fig. 4</span></a>). Note that <em><span style="font-variant:small-caps;">MoonSim</span></em> does not simulate the transient reduction in illuminated fraction or moonlight illuminance during a lunar eclipse (these variables will therefore be incorrectly reported reported by <em><span style="font-variant:small-caps;">MoonSim</span></em> during the event).</p>
+<figure class="align-default" id="eclipse">
+<img alt="_images/eclipse.jpg" src="_images/eclipse.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Running a <em><span style="font-variant:small-caps;">MoonSim</span></em> simulation during an eclipse will return a warning message and a list of the minutes of the eclipse event.</span><a class="headerlink" href="#eclipse" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </li>
-</ol>
+</ul>
 </section>
 </section>
 

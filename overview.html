@@ -142,7 +142,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="edit_LED_schedule_csv.html">
-   4. Edit LED schedule .csv
+   4. Edit LED schedule
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .csv
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -364,24 +369,15 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview-of-span-style-font-variant-small-caps-moonshine-span-and-it-s-companion-program-span-style-font-variant-small-caps-moonsim-span">
+  <a class="reference internal nav-link" href="#overview-of-span-style-font-variant-small-caps-moonshine-span-and-its-companion-program-span-style-font-variant-small-caps-moonsim-span">
    Overview of
    <span style="font-variant:small-caps;">
     MoonShine
    </span>
-   and it’s companion program
+   and its companion program
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-font-variant-small-caps-moonsim-span">
-   <em>
-    <span style="font-variant:small-caps;">
-     MoonSim
-    </span>
-   </em>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -423,24 +419,15 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview-of-span-style-font-variant-small-caps-moonshine-span-and-it-s-companion-program-span-style-font-variant-small-caps-moonsim-span">
+  <a class="reference internal nav-link" href="#overview-of-span-style-font-variant-small-caps-moonshine-span-and-its-companion-program-span-style-font-variant-small-caps-moonsim-span">
    Overview of
    <span style="font-variant:small-caps;">
     MoonShine
    </span>
-   and it’s companion program
+   and its companion program
    <span style="font-variant:small-caps;">
     MoonSim
    </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#span-style-font-variant-small-caps-moonsim-span">
-   <em>
-    <span style="font-variant:small-caps;">
-     MoonSim
-    </span>
-   </em>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -474,29 +461,26 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h1>
-<section id="overview-of-span-style-font-variant-small-caps-moonshine-span-and-it-s-companion-program-span-style-font-variant-small-caps-moonsim-span">
-<h2>Overview of <span style="font-variant:small-caps;">MoonShine</span> and it’s companion program <span style="font-variant:small-caps;">MoonSim</span><a class="headerlink" href="#overview-of-span-style-font-variant-small-caps-moonshine-span-and-it-s-companion-program-span-style-font-variant-small-caps-moonsim-span" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="span-style-font-variant-small-caps-moonsim-span">
-<h2><em><span style="font-variant:small-caps;">MoonSim</span></em><a class="headerlink" href="#span-style-font-variant-small-caps-moonsim-span" title="Permalink to this headline">#</a></h2>
-<p><em><span style="font-variant:small-caps;">MoonShine</span></em> is an open-source software-hardware system for re-creating moonlight cycles (as well as sunlight and twilight cycles) in a laboratory setting, using artificial LED light. <em><span style="font-variant:small-caps;">MoonShine</span></em> comprises a Python program running on a Raspberry Pi computer that controls the intensity of an array of individually addressable LEDs positioned in diffusion boxes. <em><span style="font-variant:small-caps;">MoonShine</span></em> uses a companion R program, <em><span style="font-variant:small-caps;">MoonSim</span></em>, to predict moonlight and/or solar ground illuminance values (in lux) through a defined time range, at any geographical location. The predicted illuminance are converted into LED intensity values and saved to a .csv schedule file. <em><span style="font-variant:small-caps;">MoonShine</span></em> uses this file to control the LED array. <em><span style="font-variant:small-caps;">MoonSim</span></em> can also be used to predict moonlight ground illuminance for use as a model predictor variable. This document is a tutorial and operating manual for <em><span style="font-variant:small-caps;">MoonShine</span></em> and <em><span style="font-variant:small-caps;">MoonSim</span></em>.</p>
-<p><em><span style="font-variant:small-caps;">MoonSim</span></em> is a suite of three R programs that predict the ground illuminance of moonlight, twilight, and sunlight at any geographic location and any time (or range of times). The three versions of <em><span style="font-variant:small-caps;">MoonSim</span></em> <em><span style="font-variant:small-caps;">R</span></em> programs have different purposes, and generate different outputs accordingly:</p>
+<section id="overview-of-span-style-font-variant-small-caps-moonshine-span-and-its-companion-program-span-style-font-variant-small-caps-moonsim-span">
+<h2>Overview of <span style="font-variant:small-caps;">MoonShine</span> and its companion program <span style="font-variant:small-caps;">MoonSim</span><a class="headerlink" href="#overview-of-span-style-font-variant-small-caps-moonshine-span-and-its-companion-program-span-style-font-variant-small-caps-moonsim-span" title="Permalink to this headline">#</a></h2>
+<p><em><span style="font-variant:small-caps;">MoonShine</span></em> is an open-source software-hardware system for re-creating moonlight cycles (as well as sunlight and twilight cycles) in a laboratory setting, using LED light. <em><span style="font-variant:small-caps;">MoonShine</span></em> comprises a Python program running on a Raspberry Pi computer that controls the intensity of an array of individually addressable LEDs positioned in diffusion boxes. <em><span style="font-variant:small-caps;">MoonShine</span></em> uses a companion R program, <em><span style="font-variant:small-caps;">MoonSim</span></em>, to predict moonlight and/or solar ground illuminance values (in lux) through a defined time range, at any geographical location. The predicted illuminance values are converted into LED intensity values and saved to a .csv schedule file. <em><span style="font-variant:small-caps;">MoonShine</span></em> uses this file to control the LED array. <em><span style="font-variant:small-caps;">MoonSim</span></em> can also be used to predict moonlight ground illuminance for use as a model predictor variable. This document is a tutorial and operating manual for <em><span style="font-variant:small-caps;">MoonShine</span></em> and <em><span style="font-variant:small-caps;">MoonSim</span></em>.</p>
+<p><em><span style="font-variant:small-caps;">MoonSim</span></em> is a suite of three R programs designed to predict the ground illuminance of moonlight, twilight, and sunlight at any geographic location and any time or range of times. Each of the three versions of <em><span style="font-variant:small-caps;">MoonSim</span></em> <em><span style="font-variant:small-caps;">R</span></em> programs serves a different purposes, and generates outputs tailored to that purpose.</p>
 <ol class="simple">
 <li><p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</strong></em> simply predicts moonlight and twilight illuminance. It is intended for use in field studies where a biologist requires moonlight illuminance values as a model predictor variable.</p></li>
 </ol>
-<p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</strong></em> and <em><strong><span style="font-variant:small-caps;">MoonSim</span>: Sunlight &amp; twilight scheduler</strong></em> are designed for use in combination with <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p>
+<p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</strong></em> and <em><strong><span style="font-variant:small-caps;">MoonSim</span>: Sunlight &amp; twilight scheduler</strong></em> are designed for use in combination with <em><span style="font-variant:small-caps;">MoonShine</span></em> (<a class="reference internal" href="#map"><span class="std std-numref">Fig. 1</span></a>).</p>
 <ol class="simple">
-<li><p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</strong></em> predicts only moonlight illuminance values, and convert these into LED intensity values.  It outputs a <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> table that serves as the schedule for <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p></li>
-<li><p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Sunlight &amp; twilight scheduler</strong></em> predicts only sunlight and twilight illuminance values and converts these into LED intensity values. It outputs a <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code> table that serves as a schedule for <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p></li>
+<li><p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</strong></em> predicts only moonlight illuminance values and convert these into LED intensity values.  It generates an <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> table that serves as the schedule for <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p></li>
+<li><p><em><strong><span style="font-variant:small-caps;">MoonSim</span>: Sunlight &amp; twilight scheduler</strong></em> predicts only sunlight and twilight illuminance values and converts these into LED intensity values. It generates an <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code> table that serves as a schedule for <em><span style="font-variant:small-caps;">MoonShine</span></em>.</p></li>
 </ol>
 </section>
 <section id="span-style-font-variant-small-caps-moonshine-span">
 <h2><em><span style="font-variant:small-caps;">MoonShine</span></em><a class="headerlink" href="#span-style-font-variant-small-caps-moonshine-span" title="Permalink to this headline">#</a></h2>
-<p><em><span style="font-variant:small-caps;">MoonShine</span></em> is an LED control system for recreating realistic moonlight, twilight, and sunlight regimes in a laboratory. A light regime can be freely edited, making it ideal for experiments requiring a specific lighting scenario. <em><span style="font-variant:small-caps;">MoonShine</span></em> runs a Python program on the Linux operating system of a Raspberry Pi computer to control an array of LEDs. Every minute, the python program reads the light schedule (generated by <em><span style="font-variant:small-caps;">MoonSim</span>: schedulers</em>) to refresh the LED intensities. Users can run a moonlight schedule as well as a sunlight and twilight schedule simultaneously on the Pi. In this way, the Pi can separately control two arrays of LED strips, so as to fully re-create all three major sources of natural light, around the clock (see concept in <a class="reference internal" href="#map"><span class="std std-numref">Fig. 1</span></a>).</p>
+<p><em><span style="font-variant:small-caps;">MoonShine</span></em> is an LED control system for recreating realistic moonlight, twilight, and sunlight regimes in a laboratory setting. A light regime can be freely edited, making it ideal for experiments requiring a specific lighting scenario. <em><span style="font-variant:small-caps;">MoonShine</span></em> runs a Python program on the Linux operating system of a Raspberry Pi computer to control an array of LEDs. Every minute, the Python program reads the light schedule (generated by <em><span style="font-variant:small-caps;">MoonSim</span>: schedulers</em>) to refresh the LED intensities. Users can run a moonlight schedule as well as a sunlight and twilight schedule simultaneously on the Raspberry Pi. In this way, the Raspberry Pi can separately control two arrays of LED strips, so as to fully re-create all three major sources of natural light, around the clock (see concept in <a class="reference internal" href="#map"><span class="std std-numref">Fig. 1</span></a>).</p>
 <figure class="align-default" id="map">
 <a class="reference internal image-reference" href="_images/map.png"><img alt="_images/map.png" src="_images/map.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">A flowchart of how MoonShine works with the .csv schedule files created by MoonSim to re-create light. MoonShine can either create moonlight only (in a custom-made lightbox with neutral density filter sheets to calibrate light levels to natural moonlight levels), or sunlight and twilight (in a custom made lightbox without filter sheets), or both moonlight and sunlight + twilight together (in two lightboxes, a filtered one for moonlight, and an unfiltered one for sunlight + twilight).</span><a class="headerlink" href="#map" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">A flowchart of how <span style="font-variant:small-caps;">MoonShine</span> works with the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> schedule files created by <span style="font-variant:small-caps;">MoonSim</span> to re-create light. <span style="font-variant:small-caps;">MoonShine</span> can either create moonlight only (in a custom-made lightbox with neutral density filter sheets to calibrate light levels to natural moonlight levels), or sunlight and twilight (with the LEDs affixed to the ceiling, and no filtering utilized), or both moonlight and sunlight + twilight together.</span><a class="headerlink" href="#map" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -507,7 +491,7 @@ title="Print to PDF"
 <li class="toctree-l1"><a class="reference internal" href="moonsim_lux_calculator.html">1. <span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="moonsim_moonlight_LED_scheduler.html">2. <span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="moonsim_sunlight_twilight_LED_scheduler.html">3. <span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="edit_LED_schedule_csv.html">4. Edit LED schedule .csv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="edit_LED_schedule_csv.html">4. Edit LED schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="moonshine_hardware_setup.html">5. <span style="font-variant:small-caps;">MoonShine</span>: Hardware setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="moonshine_software_setup.html">6. <span style="font-variant:small-caps;">MoonShine</span>: Software setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="moonshine_calibration.html">7. <span style="font-variant:small-caps;">MoonShine</span>: Calibration</a></li>
@@ -519,15 +503,15 @@ title="Print to PDF"
 <section id="key-to-manual">
 <h2>Key to manual<a class="headerlink" href="#key-to-manual" title="Permalink to this headline">#</a></h2>
 <ul>
-<li><p>File names are indicated in pink text, e.g. <code class="docutils literal notranslate"><span class="pre">xxx.csv</span></code></p></li>
-<li><p>File pathways names are denoted in italics, e.g., <em>Pi/Desktop/control_moon</em></p></li>
-<li><p>R code, Python code, or terminal commands are shown in boxes. E.g.,</p>
+<li><p>File names are indicated in pink text, for example <code class="docutils literal notranslate"><span class="pre">xxx.csv</span></code>.</p></li>
+<li><p>File pathways names are indicated in italics, for example, <em>Pi/Desktop/control_moon</em></p></li>
+<li><p>Column names are also indicated in italics with single quote mark, for example, ‘<em>datetime</em>’.</p></li>
+<li><p>R code, Python code, or terminal commands are shown in boxes. For example,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">line</span> <span class="n">of</span> <span class="n">code</span>
 </pre></div>
 </div>
 </li>
-<li><p>Codes are also denoted in italics and single quotation marks, e.g., ‘<em>this is a line of code</em>’</p></li>
-<li><p>Internal hyperlinks within this documents &amp; links to external websites are denoted with blue text.</p></li>
+<li><p>Internal hyperlinks within this documents &amp; links to external websites are indicated in blue text.</p></li>
 </ul>
 </section>
 </section>

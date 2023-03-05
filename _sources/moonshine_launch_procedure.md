@@ -15,30 +15,31 @@ kernelspec:
 (content:launch)=
 # 8. <span style="font-variant:small-caps;">MoonShine</span>: Launch procedure
 
-This chapter goes over how to launch _<span style="font-variant:small-caps;">MoonShine</span>_, using the example of re-creating moonlight only (i.e., using the moon version of the files, the filenames ending with "moon"). The moon version files include: `moonshine_moon.py` and `LED_schedule_moon.csv` located within *Desktop/control_moon* (on the Raspberry Pi Linux Desktop). And the systemd service `moonshine_moon.service`. The user should apply the same procedures for launching the sunlight/twilight system, using the sun version of the files, namely `moonshine_sun.py` and `LED_schedule_sun.csv` located within *Desktop/control_sun*. And the systemd service `moonshine_sun.service`.
+This chapter describe how to launch _<span style="font-variant:small-caps;">MoonShine</span>_, using the example of re-creating moonlight only (i.e., using the moon version of the files, which have filenames labeled "moon" before the file suffix). The moon version files include: `moonshine_moon.py` and `LED_schedule_moon.csv` located within *Desktop/control_moon* (on the Raspberry Pi Linux Desktop). And the systemd service `moonshine_moon.service`. The user should apply the same procedures for launching the sunlight/twilight system, using the sun version of the files, namely `moonshine_sun.py` and `LED_schedule_sun.csv` located within *Desktop/control_sun*. And the systemd service `moonshine_sun.service`.
   
-The user should follow all other chapters before performing a launch, and ensure that calibration has been performed. Here we continue from the software setup section {ref}`content:systemd`, in which a `moonshine_moon.service` that link to the `moonshine_moon.py` located in *Desktop/control_moon* was created.
+The user should follow the two setup chapters before performing a launch. Here we continue from the software setup section {ref}`content:systemd`, in which we described how to link a `moonshine_moon.service` to the `moonshine_moon.py` located in _Desktop/control_moon_
 
 
 ## Requirements
 
-Things to check before the launch:
+Things to check before a launch. Some of the information here are reminders of important points already mentioned in the other chapters. If _<span style="font-variant:small-caps;">MoonShine</span>_ does not launch properly, check the followings for potential mistakes. 
 
 ### 1. Generate a working `LED_schedule_moon.csv`
 
-- On a computer, generate an `LED_schedule_moon.csv` using the <span style="font-variant:small-caps;">MoonSim</span> scheduler, with the  desired parameters. Make sure that the time zone was set correctly, and is a time zone without without daylight saving time (DST). Move the `LED_schedule_moon.csv` into the Raspberry Pi's *Desktop/control_moon*
+- Generate an `LED_schedule_moon.csv` using the methods detailed in {ref}`content:moonsim_moon` and {ref}`content:edit`, with the  desired parameters. Make sure that the time zone was set correctly, and is a time zone without daylight saving time (DST).
+- Move the `LED_schedule_moon.csv` into the Raspberry Pi's *Desktop/control_moon*
 
-- For the `moonshine_moon.py` to run, the `LED_schedule_moon.csv` must contain a row matching the time at launch. In other words, there cannot be a `LED_schedule.csv` where the first row is a time in the future. So, when creating the `LED_schedule.csv`, _do not_ set the beginning date time ahead of launching _<span style="font-variant:small-caps;">MoonShine</span>_.
+- For the `moonshine_moon.py` to run, the `LED_schedule_moon.csv` must contain a row matching the time at launch. In other words, there cannot be a `LED_schedule_moon.csv` where the first row is a time in the future.
 
-- For example, lets say that the user is launching <span style="font-variant:small-caps;">MoonShine</span> at noon but does not want the LED arrays to start a light re-creation until midnight. In this case, the user should generate a `LED_schedule_moon.csv` by specifying noon as the start time in <span style="font-variant:small-caps;">MoonSim: Moonlight led scheduler</span>. Then open the `LED_schedule_moon.csv` in Excel and edit the rows of LED crude and fine value before midnight to zero. Having launched this edited `LED_schedule_moon.csv` at noon, the user can expect it to light up starting at midnight. Between noon (the launch time), the launch time, and midnight, the simulation will run, but because the LEDs rows have been edited to zero, there will be no illumination.
+- For example, let's say that the user launches <span style="font-variant:small-caps;">MoonShine</span> at noon but does not want the LED arrays to start a light re-creation until midnight. In this case, the user should generate a `LED_schedule_moon.csv` by specifying noon as the start time in <span style="font-variant:small-caps;">MoonSim: Moonlight led scheduler</span>. Then open the `LED_schedule_moon.csv` in Excel and edit the rows of LED crude and fine value before midnight to zero. Having launched this edited `LED_schedule_moon.csv` at noon, the LEDs will start illuminating at midnight. Between noon (the launch time), the launch time, and midnight, the simulation will run, but because the LEDs rows have been edited to zero, there will be no illumination.
 
 - For the same reason, the user should never delete entire rows with excel in the middle of the `LED_schedule_moon.csv`. This will cause errors. If dark periods are required, the user must instead replace the LED illumination value with zeros.
 
-- Check that datetime is in the correct format. See {ref}`content:datetime`
+- Check that '_datetime_' is in the correct format. See {ref}`content:datetime`
 
 ### 2. Check the location of files
 
-- Within *Desktop/control_moon*, check that the following files are present (if not add them)
+- Within *Desktop/control_moon*, check that the following files are present (if not add them).
   
   - `moonshine_moon.py`
   
@@ -54,7 +55,7 @@ Things to check before the launch:
 
 In the terminal,
 
-1. Enable the service file:
+1. Enable the service file by entering:
    
     ```
     sudo systemctl enable moonshine_moon.service
@@ -62,15 +63,15 @@ In the terminal,
    
    - _<span style="font-variant:small-caps;">MoonShine</span>_ should be up and running once the system clock hits 00 second.
    
-      ```{note}
-      The Raspberry Pi does not have a sleep mode or other energy saving modes, so there is no need to worry about these settings.
-      ```
+
 2. To see if the service is active, enter:
 
     ```
     systemctl list-units --type=service --state=active
     ```
     
+- On entering this text, the user will see a new window containing a list of active system services ({numref}`active_service`).If systemd is running correctly the lines within the yellow box in {numref}`active_service` will appear.
+
     ```{figure} /images/active_service.png
     :name: active_service
 
@@ -82,9 +83,11 @@ In the terminal,
    ```
    htop
    ```
-   
+
+- On entering this text, the user will see a new window containing a summary of CPU usage. The user should now check that every minute there is CPU activity associated with <span style="font-variant:small-caps;">MoonShine</span> operation (corresponding to when MoonShine changes illumination values in the LEDs).
+
     ```{note}
-       Starting 8 sec before the start of every minute, one (two if running two service, both moon and sunlight recreation) of the CPU cores will increase usage to 100%. Moonshine_moon.service will be listed as the top task in the list. This is normal.The LED will be be updated at the start of the minute, and CPU usage will return to normal.
+       Starting 8 sec before the start of every minute, one of the CUP cores (two if running two services, both moon and sunlight recreation) of the CPU cores will increase usage to 100% ({numref}`htop`). `moonshine_moon.service` will be listed as the top task in the list. The LEDs will be be updated at the start of the minute, and CPU usage will return to normal.
     ```
     ```{figure} /images/htop.png
     :name: htop
@@ -92,24 +95,29 @@ In the terminal,
     Two CPUs at 100% usage just before the start of every minute, as the `moonshine_moon.py` and `moonshine_sun.py` are searching for a matching datetime to the current time. 
     ```
 
-3. A `log.txt` file will be created in *Desktop/control_moon*. This logs allows the user to check the LED intensity values of the first 3 LEDs in the array. This file be erased upon restarting `moonshine_moon.service`.
+    ```{note}
+    The Raspberry Pi does not have a sleep mode or other energy saving modes.
+    ```
+      
+3. A `log.txt` file will be created in *Desktop/control_moon*. This log allows the user to check the LED intensity values of the first 3 LEDs in the array. This file will be replaced with a new one upon restarting `moonshine_moon.service`.
 
-4. Stopping the service file will stop Moonshine’s Python code from continuing to refresh the LEDs (the LEDs will remain at the last intensity). This is the only way to stop _<span style="font-variant:small-caps;">MoonShine</span>_.
+## To end `moonshine_moon.service`
+1. Stopping the service file will stop _<span style="font-variant:small-caps;">MoonShine</span>_’s Python code from continuing to refresh the LEDs (the LEDs will remain at the last intensity). This is the only way to stop _<span style="font-variant:small-caps;">MoonShine</span>_.
    
-   - To stop the service file enter the following into the terminal:
+   - To stop the service file, enter the following into the terminal:
    ```
    sudo systemctl stop moonshine_moon.service
    ```
    
-5. To completely turn off the LED strips (which remain at their last intensity after Step 4 is completed), the user should run the following two Python scripts, `clear_moon.py` (download here) and `clear_sun.py` (download here).
+2. To completely turn off the LED strips (which remain at their last intensity after Step 1 is completed), the user should run the following two Python scripts, `clear_moon.py` (download here) and `clear_sun.py` (download here).
 
     - Place both these files on the Raspberry Pi desktop.
-    - Then, to turn off the LEDS in a moonlight simulation, in terminal enter:
+    - Then, to turn off the LEDs in a moonlight simulation, enter:
 
     ```
     sudo python3 Desktop/clear_moon.py
     ```
-    - To turn off the LEDS in a sunlight simulation, enter.
+    - To turn off the LEDs in a sunlight simulation, enter.
 
     ```
     sudo python3 Desktop/clear_sun.py

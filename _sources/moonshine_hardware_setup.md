@@ -26,16 +26,15 @@ kernelspec:
 | SK6812 RGBW LED strip | SK68121M144-RGBWWW65 | BTF-Lighting | At least 2 | $35 | [Amazon](https://www.amazon.com/BTF-LIGHTING-Individually-Addressable-Flexible-Waterproof/dp/B01N2PCIB9/ref=sr_1_6?crid=3OWYKHJC7QV57&keywords=sk6812%2Bwarm&qid=1674596692&sprefix=sk6812%2Bwarm%2Caps%2C104&sr=8-6&th=1) | [^2] |
 | 2.54mm pitch crimp connector kit | US_CNN019 | OCR | 1 | $12 |[ Amazon ](https://www.amazon.com/OCR-Connector-Housing-Assortment-640Pcs-Set/dp/B071JLCFT6/ref=sr_1_15?crid=1RCAOTD9CWZTD&keywords=gpio+connector+kit&qid=1674669821&sprefix=gpio+connector+kit%2Caps%2C91&sr=8-15)| - |
 | 3-pin extension cable (pack of 2m x 4) | HL-LED79 | Hualand | At least 1 | $12 |[ Amazon ](https://www.amazon.com/Connector-WS2812B-Symphony-connectors%EF%BC%8CSM3P-controller/dp/B07G6PRDBQ/ref=sr_1_11?keywords=jst+3+pin+connector&qid=1674670291&sprefix=JST+3+pin+conn%2Caps%2C105&sr=8-11)| [^3] |
-| 3 conductor wire 100ft | AT-3P-100FT | AOTOINK | 1 | $16 | [Amazon](https://www.amazon.com/AOTOINK-Extension-Electrical-Stranded-Lighting/dp/B08JTZKN4M/?crid=2MQUPBVHO898U&sprefix=3+core+wir,aps,104) | - |
 | 5V10A DC power adapter | P5V10A | BTF-Lighting | One per LED strip | $22 |[ Amazon ](https://www.amazon.com/BTF-LIGHTING-Plastic-Adapter-Transformer-WS2812B/dp/B01D8FM71S?ref_=ast_sto_dp&th=1)| [^4] |
 | Lumber boards | - | Home Depot | One set per LED strip | $17 | - | [^5] |
 | Generic matte black spray paint | - | - | 1 | $6 | - | - |
 | Neutral Density (ND) filter sheets | - | Lee Filters | Depends | ~$20 per diffusion box | [BarnDoor](https://www.filmandvideolighting.com/lee-neutral-denisty-nd-gel-filter-sheet-film-video-photo-lighting.html) | [^6] |
 | Lux meter/radiometer/spectrometer | - | - | 1 | $200 to >5000 | - | [^7] |
 | UPS backup battery power | BE425M | APC | 1 | $60 | [Amazon](https://www.amazon.com/APC-Battery-Protector-Back-UPS-BE425M/dp/B01HDC236Q/ref=sr_1_7?keywords=uninterruptible%2Bpower%2Bsupply&qid=1674685859&sprefix=uninter%2Caps%2C105&sr=8-7&ufe=app_do%3Aamzn1.fos.006c50ae-5d4c-4777-9bc0-4513d670b6bc&th=1) | - |
-|  |  |  |  | $ |  |  |
+|  |  |  |  |  |  |  |
 ```{note}
-Estimated total cost for one MoonShine system (excluding the illuminance measuring device) = $~560 (Feb 2023)
+Estimated total cost for one <span style="font-variant:small-caps;">MoonShine</span> system (excluding the illuminance measuring device) = $~560 (Feb 2023)
 ```
 
 ### Tools
@@ -49,19 +48,19 @@ Estimated total cost for one MoonShine system (excluding the illuminance measuri
 - Masking tape
 - Foam pieces
 
-[^1]: Any equivalent kit of the Raspberry Pi 4 model B from other companies would work. Beside the Pi itself, the kit should include all the accessories such as HDMI cable, power supply, case, SD card, etc. _<span style="font-variant:small-caps;">MoonShine</span>_ only requires the 2GB RAM option, but there are options for more RAM (4GB or 8GB).
+[^1]: Any equivalent kit of the Raspberry Pi 4 model B from other companies would work. Beside the Raspberry Pi itself, the kit should include all the accessories such as HDMI cable, power supply, case, SD card, etc. _<span style="font-variant:small-caps;">MoonShine</span>_ only requires the 2GB RAM option, but there are options for more RAM (4GB or 8GB).
     
     Prices are for February 2023. At the time of writing this document, the price of a Raspberry Pi is much higher than the official price due to supply issues.
 
-[^2]: We recommend the following options: **1m, 144 LED, Warm White**. There are IP65 water resistant and IP30 normal versions available for this model. The user can choose one suitable for the required application. Choose warm white to avoid a substantial blue spike in the white channel spectrum. A different strip length and LED number can be selected, but the 1m 144 LED is the best suited for most situations, and the default options in the _<span style="font-variant:small-caps;">MoonSim</span>_ suite will work for this model.
+[^2]: We strongly recommend the following options: 1m, 144 LED, Warm White. There are IP65 water resistant and IP30 normal versions available for this model. The user can choose one suitable for the required application. We picked warm white to avoid a substantial blue spike in the white channel spectrum. A different strip length and LED number can be selected, but the 1m 144 LED is the best suited for most situations, and the default options in the _<span style="font-variant:small-caps;">MoonSim</span>_ suite will work for this model.
 
-    Two LED strips are required for moonlight recreation. More can be added, **in multiples of two**, to daisy chain many more strips, e.g., to generate a higher illuminance when recreating sunlight.
+    Two LED strips are required for moonlight recreation. More can be added, in multiples of two, to daisy chain many more strips, e.g., to generate a higher illuminance when recreating sunlight.
     
     The PWM flicker rate of an SK6812 LED strip is ~1.1 kHz. This flicker frequency is much higher than the critical flicker fusion rates of animals (~400 Hz) (Inger et al., 2014), and is therefore unlikely to be detectable to animal subjects.
 
 [^3]: Buy enough connector cable to daisy chain the LED strips on opposite sides of the room.
 
-[^4]: To achieve maximum intensity, each LED strip requires a 5V-DC 10A power supply.
+[^4]: To achieve maximum intensity, each LED strip requires its own 5V-DC 10A power supply.
 
 [^5]: The dimensions of the lumber boards for building one diffusion box:
     - Base: One of 5/4" x 6" x 4' [Home depot](https://www.homedepot.com/p/WeatherShield-5-4-in-x-6-in-x-4-ft-Premium-Ground-Contact-Pressure-Treated-Decking-Board-253944/300526781) ($6)
@@ -79,23 +78,23 @@ Estimated total cost for one MoonShine system (excluding the illuminance measuri
     
     Rosco is another company that makes ND filter sheets.
 
-[^7]: “Lux meter” is a commercial term for a radiometer; these devices measure illuminance in lux. A measure of illuminance is essential to calibrate Moonshine. A spectrometer is a radiometer that measures spectral irradiance – measures of light intensity values across (and just outside) the visible light spectrum. Spectral irradiance measurements can easily be converted into illuminance. Spectrometers are generally more expensive than radiometers, although precision low-light sensitive radiometers suitable for quantifying moonlight levels are also expensive.
+[^7]: “Lux meter” is a commercial term for a radiometer; these devices measure illuminance in lux. A measure of illuminance is essential to calibrate <span style="font-variant:small-caps;">MoonShine</span>. A spectrometer is a radiometer that measures spectral irradiance – measures of light intensity values across (and just outside) the visible light spectrum. Spectral irradiance measurements can easily be converted into illuminance. Spectrometers are generally more expensive than radiometers, although precision low-light sensitive radiometers suitable for quantifying moonlight levels are also expensive.
     
-    An accurate illuminance measuring device is critical for calibrating Moonshine, but ones that measures at low light are very expensive. We do not want the cost of the radiometer to discourage the use of Moonshine for moonlight related experiments. Still, it is critical to obtain a meter that has NIST-Traceable calibration, like the International Light Technology [ILT10C](https://www.intl-lighttech.com/products/ilt10c-luxlight-meter-nist-traceable-calibration?gclid=Cj0KCQiAw8OeBhCeARIsAGxWtUzB0YaQDpYF5fXMYee-U9zSQgnbmph4LrlmD0inkbSdw4FtaJ-AjjsaApwYEALw_wcB) (lower limit of 10 lx, cost ~$350). Lower cost meters do not perform accurately at moonlight level illuminance (i.e., <0.3 lx). Where only a non low-light sensitive radiometer is available, like the ILT10C,  Moonshine can be calibrated using a comparative method. See further explanations and solutions in {ref}`(content:lightbox:radiometer`
+    An accurate illuminance measuring device is critical for calibrating Moonshine, but ones that measures at low light are very expensive. We do not want the cost of the radiometer to discourage the use of <span style="font-variant:small-caps;">MoonShine</span> for moonlight related experiments. Still, it is critical to obtain a meter that has NIST-Traceable calibration, like the International Light Technology [ILT10C](https://www.intl-lighttech.com/products/ilt10c-luxlight-meter-nist-traceable-calibration?gclid=Cj0KCQiAw8OeBhCeARIsAGxWtUzB0YaQDpYF5fXMYee-U9zSQgnbmph4LrlmD0inkbSdw4FtaJ-AjjsaApwYEALw_wcB) (lower limit of 10 lx, cost ~$350). Lower cost meters do not perform accurately at moonlight level illuminance (i.e., <0.3 lx). Where only a non low-light sensitive radiometer is available (able to read below 1E-2 lx with a resolution +/- 1E-2 lx or better), like the ILT10C,  <span style="font-variant:small-caps;">MoonShine</span> can be calibrated using a comparative method. See further explanations and solutions in {ref}`content:lightbox:radiometer`.
     
     We used the International Light Technology [ILT-5000](https://www.intl-lighttech.com/products/ilt5000-researchlab-radiometer) radiometer, with a SED 100-10/U broadband silicon photosensor, WU wide angle quartz diffuser, and Y4 photopic filter. This device is sensitive to light as low as 0.0002 lx.
 
 (content:hardware:assemble)=
-## Assemble Pi and LED strips
+## Assemble Raspberry Pi and LED strips
 ```{figure} /images/raspberry-pi2.png
 :name: schematic
 
-Connection diagram for the Raspberry Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the pins connected to the first array of LED strips for moonlight recreation. The open color circles are connected to the second array of LED strips, for simultaneous recreation of sunlight/twilight. The wire color schematic is for the SK6812, made by BTF-Lighting, Guangdong, China.
+Connection diagram for the Raspberry Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the pins connected to the first array of LED strips for moonlight recreation. The open color circles are connected to the second array of LED strips, for the recreation of sunlight/twilight (while simutaneously re-creating moonlight). The wire color schematic is for the SK6812, made by BTF-Lighting, Guangdong, China. Right click and select ‘Open image in new tab’ to enlarge figure.
 ```
 ```{figure} /images/cable.png
 :name: cable
 
-Photo of the actual connection for one array of LED strips. Click the figure to zoom in.
+Photo of the actual connection for one array of LED strips. Right click and select ‘Open image in new tab’ to enlarge figure.
 ```
 
 1. Follow the Raspberry Pi kit assembly instruction.
@@ -108,16 +107,17 @@ Photo of the actual connection for one array of LED strips. Click the figure to 
 4. Connect the 3-pin cable female connector to the male plug of the LED strip. (Add an extension cable if more length is required). Notice the arrows on the LED strip, this indicated the direction of the data flow (from Raspberry Pi to the array of LED strips).
 5. Screw in the LED voltage-adding wires (red-positive and white-negative) to the power female connector that comes with the DC power supply. Pay attention to the polarity.
 6. Plug in DC power supply.
-7. Connect additional LED strips to this array from the other end (away from the Raspberry Pi) of the first LED strip. Add an additional DC power supply to each subsequent LED strips.
-   
+7. Connect additional LED strips to this array from the other end (away from the Raspberry Pi) of the first LED strip. Add an additional DC power supply to each subsequent LED strips. Use 3-pin extension cable when needed to extend the distance between connections.
+
+8. Install the real time clock (RTC) module as shown in {numref}`schematic`. Make sure that it goes into the correct location, occupying five of the GPIO pins.
+9. (Optional) To add a second array of LED strips for re-creating sunlight/twilight, while also running moonlight re-creation, follow {numref}`schematic` (open color circles) for the pin locations of the second LED array. Repeat Steps 2-8.
+
     ```{figure} /images/RTC_pic.png
     :name: RTC_pic
     :width: 500px
     The Raspberry Pi with the RTC and both LED arrays (moonlight and sunlight/twilight) connected. This matches the schemetic of {numref}`schematic`.
     ```
 
-8. Install the RTC module as shown in {numref}`schematic`. Make sure that it goes into the correct location, occupying five of the GPIO pins.
-9. (Optional) To add a second array of LED strips for re-creating sunlight/twilight, while also running moonlight re-creation, follow {numref}`schematic` (open color circles) for the pin locations of the second LED array. Repeat Steps 2-8.
 10. (Optional) To prevent power surge and outage event interrupting the light schedule, connect all power to an uninterrupted power supply (UPS).
 
 ## Construction of diffusion box
