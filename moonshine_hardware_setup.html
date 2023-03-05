@@ -1,0 +1,833 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>5. MoonShine: Hardware setup &#8212; MoonShine &amp; MoonSim Instruction Manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. MoonShine: Software setup" href="moonshine_software_setup.html" />
+    <link rel="prev" title="4. Edit LED schedule .csv" href="edit_LED_schedule_csv.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MoonShine & MoonSim Instruction Manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="overview.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonsim_lux_calculator.html">
+   1.
+   <span style="font-variant:small-caps;">
+    MoonSim
+   </span>
+   : Lux calculator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonsim_moonlight_LED_scheduler.html">
+   2.
+   <span style="font-variant:small-caps;">
+    MoonSim
+   </span>
+   : Moonlight scheduler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonsim_sunlight_twilight_LED_scheduler.html">
+   3.
+   <span style="font-variant:small-caps;">
+    MoonSim
+   </span>
+   : Sunlight/twilight scheduler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="edit_LED_schedule_csv.html">
+   4. Edit LED schedule
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .csv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5.
+   <span style="font-variant:small-caps;">
+    MoonShine
+   </span>
+   : Hardware setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonshine_software_setup.html">
+   6.
+   <span style="font-variant:small-caps;">
+    MoonShine
+   </span>
+   : Software setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonshine_calibration.html">
+   7.
+   <span style="font-variant:small-caps;">
+    MoonShine
+   </span>
+   : Calibration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="moonshine_launch_procedure.html">
+   8.
+   <span style="font-variant:small-caps;">
+    MoonShine
+   </span>
+   : Launch procedure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="reference.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/lokpoon/LunaSim/master?urlpath=tree/docs/moonshine_hardware_setup.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/lokpoon/LunaSim"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/lokpoon/LunaSim/issues/new?title=Issue%20on%20page%20%2Fmoonshine_hardware_setup.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/moonshine_hardware_setup.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/moonshine_hardware_setup.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#materials">
+   Materials
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tools">
+     Tools
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-supplies">
+     Basic supplies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assemble-raspberry-pi-and-led-strips">
+   Assemble Raspberry Pi and LED strips
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#construction-of-diffusion-box">
+   Construction of diffusion box
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>5. <span style="font-variant:small-caps;">MoonShine</span>: Hardware setup</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#materials">
+   Materials
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tools">
+     Tools
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-supplies">
+     Basic supplies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assemble-raspberry-pi-and-led-strips">
+   Assemble Raspberry Pi and LED strips
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#construction-of-diffusion-box">
+   Construction of diffusion box
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="span-style-font-variant-small-caps-moonshine-span-hardware-setup">
+<h1>5. <span style="font-variant:small-caps;">MoonShine</span>: Hardware setup<a class="headerlink" href="#span-style-font-variant-small-caps-moonshine-span-hardware-setup" title="Permalink to this headline">#</a></h1>
+<section id="materials">
+<span id="content-hardware-materials"></span><h2>Materials<a class="headerlink" href="#materials" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>SKU/model number</p></th>
+<th class="head"><p>Company</p></th>
+<th class="head"><p>Quantity required</p></th>
+<th class="head"><p>Price</p></th>
+<th class="head"><p>Link</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Raspberry Pi 4 model B kit</p></td>
+<td><p>B0B7DFF7TY</p></td>
+<td><p>GeeekPi</p></td>
+<td><p>1</p></td>
+<td><p>$200</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/GeeekPi-Raspberry-2GB-Starter-Kit/dp/B0B7DFF7TY/ref=sr_1_5?crid=1BQNGTSE4SSDJ&amp;keywords=raspberry+pi+4+kit&amp;qid=1674623289&amp;sprefix=raspberry+pi+4+kit%2Caps%2C121&amp;sr=8-5&amp;ufe=app_do%3Aamzn1.fos.f5122f16-c3e8-4386-bf32-63e904010ad0">Amazon</a></p></td>
+<td><p><a class="footnote-reference brackets" href="#id8" id="id1">1</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>RTC module (DS3231)</p></td>
+<td><p>3-01-1198</p></td>
+<td><p>HiLetgo</p></td>
+<td><p>1</p></td>
+<td><p>$19</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/HiLetgo-DS3231-Precision-Arduino-Raspberry/dp/B01N1LZSK3/ref=sr_1_2?crid=33U6N5U6HSRWK&amp;keywords=rtc+ds+3231&amp;qid=1674685955&amp;sprefix=rtc+ds+3231%2Caps%2C72&amp;sr=8-2">Amazon</a></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Generic mouse and keyboard</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>1</p></td>
+<td><p>~40</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Generic HDMI monitor</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>1</p></td>
+<td><p>~$100</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>SK6812 RGBW LED strip</p></td>
+<td><p>SK68121M144-RGBWWW65</p></td>
+<td><p>BTF-Lighting</p></td>
+<td><p>At least 2</p></td>
+<td><p>$35</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/BTF-LIGHTING-Individually-Addressable-Flexible-Waterproof/dp/B01N2PCIB9/ref=sr_1_6?crid=3OWYKHJC7QV57&amp;keywords=sk6812%2Bwarm&amp;qid=1674596692&amp;sprefix=sk6812%2Bwarm%2Caps%2C104&amp;sr=8-6&amp;th=1">Amazon</a></p></td>
+<td><p><a class="footnote-reference brackets" href="#id9" id="id2">2</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>2.54mm pitch crimp connector kit</p></td>
+<td><p>US_CNN019</p></td>
+<td><p>OCR</p></td>
+<td><p>1</p></td>
+<td><p>$12</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/OCR-Connector-Housing-Assortment-640Pcs-Set/dp/B071JLCFT6/ref=sr_1_15?crid=1RCAOTD9CWZTD&amp;keywords=gpio+connector+kit&amp;qid=1674669821&amp;sprefix=gpio+connector+kit%2Caps%2C91&amp;sr=8-15"> Amazon </a></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>3-pin extension cable (pack of 2m x 4)</p></td>
+<td><p>HL-LED79</p></td>
+<td><p>Hualand</p></td>
+<td><p>At least 1</p></td>
+<td><p>$12</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/Connector-WS2812B-Symphony-connectors%EF%BC%8CSM3P-controller/dp/B07G6PRDBQ/ref=sr_1_11?keywords=jst+3+pin+connector&amp;qid=1674670291&amp;sprefix=JST+3+pin+conn%2Caps%2C105&amp;sr=8-11"> Amazon </a></p></td>
+<td><p><a class="footnote-reference brackets" href="#id10" id="id3">3</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>5V10A DC power adapter</p></td>
+<td><p>P5V10A</p></td>
+<td><p>BTF-Lighting</p></td>
+<td><p>One per LED strip</p></td>
+<td><p>$22</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/BTF-LIGHTING-Plastic-Adapter-Transformer-WS2812B/dp/B01D8FM71S?ref_=ast_sto_dp&amp;th=1"> Amazon </a></p></td>
+<td><p><a class="footnote-reference brackets" href="#id11" id="id4">4</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Lumber boards</p></td>
+<td><p>-</p></td>
+<td><p>Home Depot</p></td>
+<td><p>One set per LED strip</p></td>
+<td><p>$17</p></td>
+<td><p>-</p></td>
+<td><p><a class="footnote-reference brackets" href="#id12" id="id5">5</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Generic matte black spray paint</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>1</p></td>
+<td><p>$6</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Neutral Density (ND) filter sheets</p></td>
+<td><p>-</p></td>
+<td><p>Lee Filters</p></td>
+<td><p>Depends</p></td>
+<td><p>~$20 per diffusion box</p></td>
+<td><p><a class="reference external" href="https://www.filmandvideolighting.com/lee-neutral-denisty-nd-gel-filter-sheet-film-video-photo-lighting.html">BarnDoor</a></p></td>
+<td><p><a class="footnote-reference brackets" href="#id13" id="id6">6</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Lux meter/radiometer/spectrometer</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>1</p></td>
+<td><p>$200 to &gt;5000</p></td>
+<td><p>-</p></td>
+<td><p><a class="footnote-reference brackets" href="#id14" id="id7">7</a></p></td>
+</tr>
+<tr class="row-even"><td><p>UPS backup battery power</p></td>
+<td><p>BE425M</p></td>
+<td><p>APC</p></td>
+<td><p>1</p></td>
+<td><p>$60</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/APC-Battery-Protector-Back-UPS-BE425M/dp/B01HDC236Q/ref=sr_1_7?keywords=uninterruptible%2Bpower%2Bsupply&amp;qid=1674685859&amp;sprefix=uninter%2Caps%2C105&amp;sr=8-7&amp;ufe=app_do%3Aamzn1.fos.006c50ae-5d4c-4777-9bc0-4513d670b6bc&amp;th=1">Amazon</a></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estimated total cost for one <span style="font-variant:small-caps;">MoonShine</span> system (excluding the illuminance measuring device) = $~560 (Feb 2023)</p>
+</div>
+<section id="tools">
+<h3>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Wire stripper (for small gauge wire ~22-26 AWG)</p></li>
+<li><p>Needle pliers</p></li>
+<li><p>Wood hand saw</p></li>
+<li><p>Electric screwdriver</p></li>
+</ul>
+</section>
+<section id="basic-supplies">
+<h3>Basic supplies<a class="headerlink" href="#basic-supplies" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Wood screws</p></li>
+<li><p>Masking tape</p></li>
+<li><p>Foam pieces</p></li>
+</ul>
+</section>
+</section>
+<section id="assemble-raspberry-pi-and-led-strips">
+<span id="content-hardware-assemble"></span><h2>Assemble Raspberry Pi and LED strips<a class="headerlink" href="#assemble-raspberry-pi-and-led-strips" title="Permalink to this headline">#</a></h2>
+<figure class="align-default" id="schematic">
+<img alt="_images/raspberry-pi2.png" src="_images/raspberry-pi2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Connection diagram for the Raspberry Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the pins connected to the first array of LED strips for moonlight recreation. The open color circles are connected to the second array of LED strips, for the recreation of sunlight/twilight (while simutaneously re-creating moonlight). The wire color schematic is for the SK6812, made by BTF-Lighting, Guangdong, China. Right click and select ‘Open image in new tab’ to enlarge figure.</span><a class="headerlink" href="#schematic" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="cable">
+<img alt="_images/cable.png" src="_images/cable.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Photo of the actual connection for one array of LED strips. Right click and select ‘Open image in new tab’ to enlarge figure.</span><a class="headerlink" href="#cable" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ol>
+<li><p>Follow the Raspberry Pi kit assembly instruction.</p></li>
+<li><p>On the bare wire end of the 3-pin cable female connector that comes with the LED strip, put on the female crimp connector. See <a class="reference external" href="https://www.youtube.com/watch?v=JsoqBS1-k7M">this guide</a> for installing crimp pins with needle nose pliers. The user can decide whether to use three single-socket crimp connectors for each wire, or one 5-socket crimp connector for all three wires.</p>
+<ul class="simple">
+<li><p>Follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 29</span></a> (solid color circles) for the pin locations of the first array of LED strips.</p></li>
+</ul>
+</li>
+<li><p>Plug in the fully assembled female crimp connector (after Step 2 is complete) into the Raspberry Pi GPIO pin so that the wires are connected to the correct locations.</p>
+<ul class="simple">
+<li><p>Red wire goes into the 5V pin.</p></li>
+<li><p>White wire goes into the ground pin.</p></li>
+<li><p>Green wire goes into the GPIO 18 data pin.</p></li>
+</ul>
+</li>
+<li><p>Connect the 3-pin cable female connector to the male plug of the LED strip. (Add an extension cable if more length is required). Notice the arrows on the LED strip, this indicated the direction of the data flow (from Raspberry Pi to the array of LED strips).</p></li>
+<li><p>Screw in the LED voltage-adding wires (red-positive and white-negative) to the power female connector that comes with the DC power supply. Pay attention to the polarity.</p></li>
+<li><p>Plug in DC power supply.</p></li>
+<li><p>Connect additional LED strips to this array from the other end (away from the Raspberry Pi) of the first LED strip. Add an additional DC power supply to each subsequent LED strips. Use 3-pin extension cable when needed to extend the distance between connections.</p></li>
+<li><p>Install the real time clock (RTC) module as shown in <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 29</span></a>. Make sure that it goes into the correct location, occupying five of the GPIO pins.</p></li>
+<li><p>(Optional) To add a second array of LED strips for re-creating sunlight/twilight, while also running moonlight re-creation, follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 29</span></a> (open color circles) for the pin locations of the second LED array. Repeat Steps 2-8.</p>
+<figure class="align-default" id="rtc-pic">
+<a class="reference internal image-reference" href="_images/RTC_pic.png"><img alt="_images/RTC_pic.png" src="_images/RTC_pic.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">The Raspberry Pi with the RTC and both LED arrays (moonlight and sunlight/twilight) connected. This matches the schemetic of <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 29</span></a>.</span><a class="headerlink" href="#rtc-pic" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>(Optional) To prevent power surge and outage event interrupting the light schedule, connect all power to an uninterrupted power supply (UPS).</p></li>
+</ol>
+</section>
+<section id="construction-of-diffusion-box">
+<h2>Construction of diffusion box<a class="headerlink" href="#construction-of-diffusion-box" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Make a diffusion box for each of the two LED strips used for moonlight recreation.</p></li>
+</ul>
+<figure class="align-default" id="box">
+<img alt="_images/diffusion_box.png" src="_images/diffusion_box.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Construction of a diffusion box housing one LED strip.</span><a class="headerlink" href="#box" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="simple">
+<li><p>Construct the wooden box as <a class="reference internal" href="#box"><span class="std std-numref">Fig. 32</span></a> with screws. With:</p>
+<ul class="simple">
+<li><p>5/4” x 6” x 4’ board as the base.</p></li>
+<li><p>A 1” x 4” x 4’ board on each long side.</p></li>
+<li><p>Cut down a 1” x 4” x 4’ to get two end caps.</p></li>
+</ul>
+</li>
+<li><p>Spray paint the interior in matte black.</p></li>
+<li><p>Affix the LED strip along the center of the bottom of the lightbox; the bottom of the LED strip has built-in adhesive.</p></li>
+<li><p>Drill a small hole on each end of the box for the cables. Plug the hole with small pieces of foam to prevent light leakage.</p></li>
+<li><p>Cut the ND filter sheets into the correct size, and secure them on the top opening with masking tape or pins. Ensure there are no light leaks. See <a class="reference internal" href="moonshine_calibration.html#content-lightbox-calibration"><span class="std std-ref">7. MoonShine: Calibration</span></a> for instructions on how many stacked ND filter sheets to use.</p></li>
+</ol>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Any equivalent kit of the Raspberry Pi 4 model B from other companies would work. Beside the Raspberry Pi itself, the kit should include all the accessories such as HDMI cable, power supply, case, SD card, etc. <em><span style="font-variant:small-caps;">MoonShine</span></em> only requires the 2GB RAM option, but there are options for more RAM (4GB or 8GB).</p>
+<p>Prices are for February 2023. At the time of writing this document, the price of a Raspberry Pi is much higher than the official price due to supply issues.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>We strongly recommend the following options: 1m, 144 LED, Warm White. There are IP65 water resistant and IP30 normal versions available for this model. The user can choose one suitable for the required application. We picked warm white to avoid a substantial blue spike in the white channel spectrum. A different strip length and LED number can be selected, but the 1m 144 LED is the best suited for most situations, and the default options in the <em><span style="font-variant:small-caps;">MoonSim</span></em> suite will work for this model.</p>
+<p>Two LED strips are required for moonlight recreation. More can be added, in multiples of two, to daisy chain many more strips, e.g., to generate a higher illuminance when recreating sunlight.</p>
+<p>The PWM flicker rate of an SK6812 LED strip is ~1.1 kHz. This flicker frequency is much higher than the critical flicker fusion rates of animals (~400 Hz) (Inger et al., 2014), and is therefore unlikely to be detectable to animal subjects.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Buy enough connector cable to daisy chain the LED strips on opposite sides of the room.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>To achieve maximum intensity, each LED strip requires its own 5V-DC 10A power supply.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p>The dimensions of the lumber boards for building one diffusion box:</p>
+<ul class="simple">
+<li><p>Base: One of 5/4” x 6” x 4’ <a class="reference external" href="https://www.homedepot.com/p/WeatherShield-5-4-in-x-6-in-x-4-ft-Premium-Ground-Contact-Pressure-Treated-Decking-Board-253944/300526781">Home depot</a> ($6)</p></li>
+<li><p>Two Sides: Two of 1” x 4” x 4’ <a class="reference external" href="https://www.homedepot.com/p/WeatherShield-1-in-x-4-in-x-4-ft-Appearance-Grade-Pressure-Treated-Board-275086/300573653">Home depot</a> ($7.4)</p></li>
+<li><p>End caps: Cut down a 1” x 4” x 4’ <a class="reference external" href="https://www.homedepot.com/p/WeatherShield-1-in-x-4-in-x-4-ft-Appearance-Grade-Pressure-Treated-Board-275086/300573653">Home depot</a> ($3.7)</p></li>
+</ul>
+</dd>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p>The ND filter required depends on the user’s room and setup. It should take two or three filters per diffusion box to dim the lightbox. See <a class="reference internal" href="moonshine_calibration.html#content-lightbox-calibration"><span class="std std-ref">7. MoonShine: Calibration</span></a> to determine which ND sheet transmission % values to try out (the user may need to experiment with different combinations of ND sheets to achieve the desired illuminance).</p>
+<p>Lee ND filter sheet types:</p>
+<ul class="simple">
+<li><p>Lee 298 (ND 0.15, ½ Stop) = Transmission 69.3%</p></li>
+<li><p>Lee 209 (ND 0.3, 1 Stop) = Transmission 51.2%</p></li>
+<li><p>Lee 210 (ND 0.6, 2 Stop) = Transmission 23.5%</p></li>
+<li><p>Lee 211 (ND 0.9, 3 Stop) = Transmission 13.7%</p></li>
+<li><p>Lee 299 (ND 1.2, 4 Stop) = Transmission 6.6%</p></li>
+</ul>
+<p>Rosco is another company that makes ND filter sheets.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p>“Lux meter” is a commercial term for a radiometer; these devices measure illuminance in lux. A measure of illuminance is essential to calibrate <span style="font-variant:small-caps;">MoonShine</span>. A spectrometer is a radiometer that measures spectral irradiance – measures of light intensity values across (and just outside) the visible light spectrum. Spectral irradiance measurements can easily be converted into illuminance. Spectrometers are generally more expensive than radiometers, although precision low-light sensitive radiometers suitable for quantifying moonlight levels are also expensive.</p>
+<p>An accurate illuminance measuring device is critical for calibrating Moonshine, but ones that measures at low light are very expensive. We do not want the cost of the radiometer to discourage the use of <span style="font-variant:small-caps;">MoonShine</span> for moonlight related experiments. Still, it is critical to obtain a meter that has NIST-Traceable calibration, like the International Light Technology <a class="reference external" href="https://www.intl-lighttech.com/products/ilt10c-luxlight-meter-nist-traceable-calibration?gclid=Cj0KCQiAw8OeBhCeARIsAGxWtUzB0YaQDpYF5fXMYee-U9zSQgnbmph4LrlmD0inkbSdw4FtaJ-AjjsaApwYEALw_wcB">ILT10C</a> (lower limit of 10 lx, cost ~$350). Lower cost meters do not perform accurately at moonlight level illuminance (i.e., &lt;0.3 lx). Where only a non low-light sensitive radiometer is available (able to read below 1E-2 lx with a resolution +/- 1E-2 lx or better), like the ILT10C,  <span style="font-variant:small-caps;">MoonShine</span> can be calibrated using a comparative method. See further explanations and solutions in <a class="reference internal" href="moonshine_calibration.html#content-lightbox-radiometer"><span class="std std-ref">Calibrating MoonShine with a radiometer</span></a>.</p>
+<p>We used the International Light Technology <a class="reference external" href="https://www.intl-lighttech.com/products/ilt5000-researchlab-radiometer">ILT-5000</a> radiometer, with a SED 100-10/U broadband silicon photosensor, WU wide angle quartz diffuser, and Y4 photopic filter. This device is sensitive to light as low as 0.0002 lx.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="edit_LED_schedule_csv.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">4. Edit LED schedule <code class="docutils literal notranslate"><span class="pre">.csv</span></code></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="moonshine_software_setup.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">6. <span style="font-variant:small-caps;">MoonShine</span>: Software setup</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By C. Lok Poon, Ian T. Jenks & W.G.R., Crampton. University of Central Florida.<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
