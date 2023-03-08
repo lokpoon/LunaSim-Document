@@ -109,7 +109,7 @@ In the terminal,
    sudo systemctl stop moonshine_moon.service
    ```
    
-2. To completely turn off the LED strips (which remain at their last intensity after Step 1 is completed), the user should run the following two Python scripts, `clear_moon.py` (download here) and `clear_sun.py` (download here).
+2. To completely turn off the LED strips (which remain at their last intensity after Step 1 is completed), the user should run the following two Python scripts, `clear_moon.py` and `clear_sun.py` (download in {ref}`content:lightbox:download`).
 
     - Place both these files on the Raspberry Pi desktop.
     - Then, to turn off the LEDs in a moonlight simulation, enter:

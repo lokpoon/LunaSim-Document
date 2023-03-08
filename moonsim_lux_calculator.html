@@ -188,6 +188,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="download.html">
+   Download files
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="reference.html">
    References
   </a>
@@ -477,7 +482,7 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="span-style-font-variant-small-caps-moonsim-span-lux-calculator">
 <span id="content-luxcalculator"></span><h1>1. <span style="font-variant:small-caps;">MoonSim</span>: Lux calculator<a class="headerlink" href="#span-style-font-variant-small-caps-moonsim-span-lux-calculator" title="Permalink to this headline">#</a></h1>
 <p><em><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</em> predicts ground illuminance of moonlight in lux (lx). A prediction of twilight and sunlight illuminance is also included.</p>
-<p>Download <em><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</em> here.</p>
+<p>Download <em><span style="font-variant:small-caps;">MoonSim</span>: Lux calculator</em> in <a class="reference internal" href="download.html#content-lightbox-download"><span class="std std-ref">Download files</span></a>.</p>
 <section id="key-features">
 <h2>Key features<a class="headerlink" href="#key-features" title="Permalink to this headline">#</a></h2>
 <ul>
@@ -619,8 +624,7 @@ title="Print to PDF"
 </figcaption>
 </figure>
 </li>
-<li><p>Finally, the section of code depicted below checks if you have any lunar eclipse events within your simulation.</p></li>
-</ol>
+<li><p>Finally, the section of code depicted below checks if you have any lunar eclipse events within your simulation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if (any(abs(moon_value_table$phase_angle) &lt; 1.5 &amp; moon_value_table$sun_altitude &lt; 0)) { # eclipse defined as a moon with phase angle &lt; 1.5 during nighttime
   print(&quot;ECLIPSE IN SIMULATION!!!&quot;)
   eclipse_list &lt;- (abs(moon_value_table$phase_angle) &lt; 1.5 &amp; moon_value_table$sun_altitude &lt; 0)
@@ -630,6 +634,8 @@ title="Print to PDF"
 }
 </pre></div>
 </div>
+</li>
+</ol>
 <ul>
 <li><p>If there is no eclipse, a “no eclipse in simulation” message will appear in the R console after the simulation is complete.</p></li>
 <li><p>If there is an eclipse, “ECLIPSE IN SIMULATION!!!” will appear in the console. <em><span style="font-variant:small-caps;">MoonSim</span></em> will also report a list of all time intervals affected by both the penumbral and umbral stages of the eclipse (<a class="reference internal" href="#eclipse"><span class="std std-numref">Fig. 4</span></a>). Note that <em><span style="font-variant:small-caps;">MoonSim</span></em> does not simulate the transient reduction in illuminated fraction or moonlight illuminance during a lunar eclipse (these variables will therefore be incorrectly reported reported by <em><span style="font-variant:small-caps;">MoonSim</span></em> during the event).</p>

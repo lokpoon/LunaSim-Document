@@ -32,7 +32,7 @@ A flowchart of how <span style="font-variant:small-caps;">MoonShine</span> works
 
 - File names are indicated in pink text, for example `xxx.csv`.
 - File pathways names are indicated in italics, for example, _Pi/Desktop/control_moon_
-- Column names are also indicated in italics with single quote mark, for example, '_datetime_'.
+- Column names are also indicated in italics with single quote marks, for example, '_datetime_'.
 - R code, Python code, or terminal commands are shown in boxes. For example,
     ```
     this is a line of code

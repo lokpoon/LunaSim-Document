@@ -17,7 +17,7 @@ kernelspec:
 
 _<span style="font-variant:small-caps;">MoonSim</span>: Lux calculator_ predicts ground illuminance of moonlight in lux (lx). A prediction of twilight and sunlight illuminance is also included.
 
-Download _<span style="font-variant:small-caps;">MoonSim</span>: Lux calculator_ here.
+Download _<span style="font-variant:small-caps;">MoonSim</span>: Lux calculator_ in {ref}`content:lightbox:download`.
 
 ## Key features
 
@@ -163,15 +163,15 @@ Below is a summary of the main steps required to run _<span style="font-variant:
     
 13. Finally, the section of code depicted below checks if you have any lunar eclipse events within your simulation.
 
-```
-if (any(abs(moon_value_table$phase_angle) < 1.5 & moon_value_table$sun_altitude < 0)) { # eclipse defined as a moon with phase angle < 1.5 during nighttime
-  print("ECLIPSE IN SIMULATION!!!")
-  eclipse_list <- (abs(moon_value_table$phase_angle) < 1.5 & moon_value_table$sun_altitude < 0)
-  moon_value_table[which(eclipse_list == TRUE),]
-} else {
-  print("no eclipse in simulation")
-}
-```
+    ```
+    if (any(abs(moon_value_table$phase_angle) < 1.5 & moon_value_table$sun_altitude < 0)) { # eclipse defined as a moon with phase angle < 1.5 during nighttime
+      print("ECLIPSE IN SIMULATION!!!")
+      eclipse_list <- (abs(moon_value_table$phase_angle) < 1.5 & moon_value_table$sun_altitude < 0)
+      moon_value_table[which(eclipse_list == TRUE),]
+    } else {
+      print("no eclipse in simulation")
+    }
+    ```
 
 - If there is no eclipse, a "no eclipse in simulation" message will appear in the R console after the simulation is complete.
 

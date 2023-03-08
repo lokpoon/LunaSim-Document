@@ -110,7 +110,7 @@ The wrong date/time format is displayed when schedule `.csv` is opened in Excel.
 (content:excel_scheduler)=
 ### Option 2: Create LED schedule manually using `manual_scheduler.xlsx` 
 
-- This method allows the assembly of a fully customized LED schedule. The `manual_scheduler.xlsx` file (download here) functions as a template to convert a list of desired illuminances into LED intensity values. Using this template, the user can re-create any novel illuminance schedule as desired.
+- This method allows the assembly of a fully customized LED schedule. The `manual_scheduler.xlsx` file (download in {ref}`content:lightbox:download`) functions as a template to convert a list of desired illuminances into LED intensity values. Using this template, the user can re-create any novel illuminance schedule as desired.
 
 #### Steps
 ```{figure} /images/manualexcel.jpg

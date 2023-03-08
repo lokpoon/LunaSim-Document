@@ -238,7 +238,7 @@ A real time clock module is optional but recommended. We recommend that the user
 (content:lightbox:lednumber2)=    
 ## Desktop folders
 
-1. Download from our Github the _control_moon_ and _control_sun_ folders.
+1. Download the _control_moon_ and _control_sun_ folders (download in {ref}`content:lightbox:download`).
     - _control_moon_ contains `moonshine_moon.py`
     - _control_sun_ contains `moonshine_sun.py`
 

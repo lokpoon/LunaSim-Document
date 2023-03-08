@@ -89,7 +89,7 @@ Estimated total cost for one <span style="font-variant:small-caps;">MoonShine</s
 ```{figure} /images/raspberry-pi2.png
 :name: schematic
 
-Connection diagram for the Raspberry Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the pins connected to the first array of LED strips for moonlight recreation. The open color circles are connected to the second array of LED strips, for the recreation of sunlight/twilight (while simutaneously re-creating moonlight). The wire color schematic is for the SK6812, made by BTF-Lighting, Guangdong, China. Right click and select ‘Open image in new tab’ to enlarge figure.
+Connection diagram for the Raspberry Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the pins connected to the moonlight array of LED strips for moonlight recreation. The open color circles are connected to the sunlight/twilight array of LED strips, for the recreation of sunlight/twilight (while simutaneously re-creating moonlight). The wire color schematic is for the SK6812, made by BTF-Lighting, Guangdong, China. Right click and select ‘Open image in new tab’ to enlarge figure.
 ```
 ```{figure} /images/cable.png
 :name: cable

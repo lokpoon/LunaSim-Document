@@ -19,7 +19,7 @@ kernelspec:
 - _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler_ runs the same set of calculations as _<span style="font-variant:small-caps;">MoonSim</span>: Lux calculator_ to predict sunlight and twilight illuminance. However, unlike in Lux calculator, the output table `LED_schedule_sun.csv` contains lists of LED intensity values over time.
 - Read {ref}`content:moonsim_moon` first. Most operations are the same for _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler_.
 - This section only addresses operations in _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler_ that differ from those in _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_.
-
+- Download _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler_ in {ref}`content:lightbox:download`.
 ## Key features
 
 - Recreates full daylight and twilight regimes in a laboratory or other indoor environment.
