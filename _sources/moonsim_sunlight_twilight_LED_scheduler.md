@@ -12,11 +12,11 @@ kernelspec:
   language: python
   name: python3
 ---
-(content:moonsim_sun)=
-# 3. <span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler
+(content:MoonShineR_sun)=
+# 3. <span style="font-variant:small-caps;">MoonShineR</span>: Sunlight/twilight scheduler
 
-- _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler_ is designed to be used in conjunction with _<span style="font-variant:small-caps;">MoonShine</span>_ to re-create sunlight and twilight cycles in the lab.
-- _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler_ runs the same set of calculations as _<span style="font-variant:small-caps;">MoonSim</span>: Lux calculator_ to predict sunlight and twilight illuminance. However, unlike in Lux calculator, the output table `LED_schedule_sun.csv` contains lists of LED intensity values over time.
+- _<span style="font-variant:small-caps;">MoonShineR</span>: Sunlight/twilight scheduler_ is designed to be used in conjunction with _<span style="font-variant:small-caps;">MoonShineP</span>_ to re-create sunlight and twilight cycles in the lab.
+- _<span style="font-variant:small-caps;">MoonShineR</span>: Sunlight/twilight scheduler_ runs the same set of calculations as _<span style="font-variant:small-caps;">MoonShineR</span>: Lux calculator_ to predict sunlight and twilight illuminance. However, unlike in Lux calculator, the output table `LED_schedule_sun.csv` contains lists of LED intensity values over time.
 - Read {ref}`content:moonsim_moon` first. Most operations are the same for _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler_.
 - This section only addresses operations in _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler_ that differ from those in _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_.
 - Download _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler_ in {ref}`content:lightbox:download`.
@@ -31,7 +31,7 @@ kernelspec:
 ##  Workflow
 
 ```{attention}
-MoonSim: Sunlight/twilight scheduler misses some features found in the moonlight scheduler, including elevation effect, horizontal obstruction, and cloud simulation. For sunlight, we believe that applying these features to sunlight is not useful since we cannot foresee the user recreating full sunlight intensity. Therefore, applying these features would not make the re-created lighting more realistic. For twilight, while these features might be applicable to an extent, they are not implemented because twilight is a diffuse light source, unlike direct moonlight, and hence behaves very differently (Seidelmann 1992).
+MoonShineR: Sunlight/twilight scheduler misses some features found in the moonlight scheduler, including elevation effect, horizontal obstruction, and cloud simulation. For sunlight, we believe that applying these features to sunlight is not useful since we cannot foresee the user recreating full sunlight intensity. Therefore, applying these features would not make the re-created lighting more realistic. For twilight, while these features might be applicable to an extent, they are not implemented because twilight is a diffuse light source, unlike direct moonlight, and hence behaves very differently (Seidelmann 1992).
 ```
     
 1. Refer to {ref}`content:luxcalculator2` to load packages and then perform steps (1-7) as described in {ref}`content:luxcalculator` to set the user-definable settings (location, time period, etc.) The time_interval_minutes is constrained to a value of one and cannot be changed. The following instructions will cover the settings and functions specific to _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler_.
@@ -66,7 +66,7 @@ MoonSim: Sunlight/twilight scheduler misses some features found in the moonlight
     ```{note}
     By turning realistic sunlight on, a fraction value (0-1) for each RGBW channel intensity is applied based on the sun altitude at the time. We formulated a function of sun altitude ~ LED intensity for each RGBW channel. These functions are formulated based on our own measured ground spectral irradiance of several sunsets, and Palmer & Johnsen's (2015) twilight spectra. The code that plots these four functions, for visualization purposes, is commented out by default. If the user would like to visualize how the RGBW channels are adjusted based on the sun altitude, run those codes that are near the beginning of the section "GENERATE twilight_sun_output.csv"; remove the commenting prompts (# symbols) at the beginning of the line to activate the commented-out lines of code.
     ```
-5. If realistic sunlight is disabled, determine the LED color spectrum by specifying the intensity output (0-1) of each RGBW channel, a feature termed 'spectral control' (i.e., same feature found in _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_). To approximate a natural sunlight spectrum (same setting as moonlight spectrum because the sunlight and moonlight spectra are very similar [Johnsen 2012]), leave this setting at its default value. Note that these default values are intended for the warm white SK6812 LED strips made by BTF lightning. (see {ref}`content:hardware:materials`).
+5. If realistic sunlight is disabled, determine the LED color spectrum by specifying the intensity output (0-1) of each RGBW channel, a feature termed 'spectral control' (i.e., same feature found in _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler_). To approximate a natural sunlight spectrum (same setting as moonlight spectrum because the sunlight and moonlight spectra are very similar [Johnsen 2012]), leave this setting at its default value. Note that these default values are intended for the warm white SK6812 LED strips made by BTF lightning. (see {ref}`content:hardware:materials`).
 
    ```
     white_fraction <- 1.0 # (!) White. Default = 1.0

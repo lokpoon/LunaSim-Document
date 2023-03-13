@@ -14,7 +14,7 @@ kernelspec:
 ---
 
 (content:lightbox:software)=
-# 6. <span style="font-variant:small-caps;">MoonShine</span>: Software setup
+# 6. <span style="font-variant:small-caps;">MoonShineP</span>: Software setup
 (content:lightbox:lednumber)=
 ## Setting up a new Raspberry Pi
 
@@ -33,7 +33,7 @@ kernelspec:
 7. Install Python 3.9.9.
 
     ```{attention}
-    MOONSHINE DOES NOT SUPPORT OTHER VERSIONS OF PYTHON
+    MoonShineP DOES NOT SUPPORT OTHER VERSIONS OF PYTHON
     ```
    
    Reference: [How to Update Python on Raspberry Pi](https://linuxhint.com/update-python-raspberry-pi/)
@@ -249,7 +249,7 @@ A real time clock module is optional but recommended. We recommend that the user
     ```
 (content:systemd)=   
 ## Setting up systemd service
-Running _<span style="font-variant:small-caps;">MoonShine</span>_ using the Linux systemd service manager allows it to recover and resume light re-creation automatically, in the unlikely event of a crash.
+Running _<span style="font-variant:small-caps;">MoonShineP</span>_ using the Linux systemd service manager allows it to recover and resume light re-creation automatically, in the unlikely event of a crash.
 
 1. Create a new service file.
    
@@ -278,7 +278,7 @@ Running _<span style="font-variant:small-caps;">MoonShine</span>_ using the Linu
    WantedBy=default.target
    ```
     ```{note}
-    The line of "ExecStart=..." instructs system service to locate the <span style="font-variant:small-caps;">MoonShine</span> python script in the correct directory. Restart=always and RestartSec=3 are configured to restart `moonshine_moon.py` within 3 seconds upon closing (i.e., the script crashing).
+    The line of "ExecStart=..." instructs system service to locate the <span style="font-variant:small-caps;">MoonShineP</span> python script in the correct directory. Restart=always and RestartSec=3 are configured to restart `moonshine_moon.py` within 3 seconds upon closing (i.e., the script crashing).
     ```
 
 3. Then save file with CTRL + O. CTRL + X to close the editor.
@@ -312,7 +312,7 @@ Running _<span style="font-variant:small-caps;">MoonShine</span>_ using the Linu
 (content:lightbox:lednumber3)=    
 ## Setting LED numbers in `moonshine_moon.py` and `moonshine_sun.py`
 
-- Recall that in {ref}`content:moonsim_moon` and {ref}`content:moonsim_sun`, the user was required to enter the specifications of the LED array (diode_per_strip and strip_count) into the R program. This was essential for generating the schedule `.csv`. It is important that LED_COUNT (below) in _<span style="font-variant:small-caps;">MoonShine</span>_ python script represents the product of diode_per_strip (from _<span style="font-variant:small-caps;">MoonSim</span>_) and strip_count (from _<span style="font-variant:small-caps;">MoonSim</span>_).
+- Recall that in {ref}`content:moonsim_moon` and {ref}`content:moonsim_sun`, the user was required to enter the specifications of the LED array (diode_per_strip and strip_count) into the R program. This was essential for generating the schedule `.csv`. It is important that LED_COUNT (below) in _<span style="font-variant:small-caps;">MoonShineP</span>_ python script represents the product of diode_per_strip (from _<span style="font-variant:small-caps;">MoonSim</span>_) and strip_count (from _<span style="font-variant:small-caps;">MoonSim</span>_).
 
 1. To calculate the total number of LEDs, diode_per_strip should be multiplied by strip_count. E.g., 144 x 4 = 576.
 2. Edit the line of "LED_COUNT" in `moonshine_moon.py` and `moonshine_sun.py` with the respective total number of LEDs for each array (see {numref}`led_count`).
@@ -328,5 +328,5 @@ Running _<span style="font-variant:small-caps;">MoonShine</span>_ using the Linu
 
     
     ```{note}
-    When changing the number of LEDs number in an array, change the corresponding settings in <span style="font-variant:small-caps;">MoonSim</span> schedulers and the <span style="font-variant:small-caps;">MoonShine</span> python file. This will, of course, also require a recalibration of the illuminance.
+    When changing the number of LEDs number in an array, change the corresponding settings in <span style="font-variant:small-caps;">MoonShineR</span> schedulers and the <span style="font-variant:small-caps;">MoonShineP</span> python file. This will, of course, also require a recalibration of the illuminance.
     ```

@@ -18,7 +18,9 @@ kernelspec:
 All the required files are hosted on this GitHub site:
 [https://github.com/Crampton-Lab/MoonShine](https://github.com/Crampton-Lab/MoonShine)
 
-Files of folder or script are zipped for easier download.
-1. To download a file, click the file name.
-2. Click the download button.
-3. Unzip the download file if the file is in `.zip`
+## Files of folder or script are zipped for easier download.
+    1. To download a file, click the file name.
+    2. Click the download button.
+    3. Unzip the download file if the file is in `.zip`
+
+Throughout this guide we have linked a few external tutorial websites. If any of the links are not working, pdf snapshots of the sites are available in the GitHub repository.

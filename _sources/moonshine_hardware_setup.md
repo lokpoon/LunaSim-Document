@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 5. <span style="font-variant:small-caps;">MoonShine</span>: Hardware setup
+# 5. <span style="font-variant:small-caps;">MoonShineP</span>: Hardware setup
 (content:hardware:materials)=
 ## Materials
 
@@ -34,7 +34,7 @@ kernelspec:
 | UPS backup battery power | BE425M | APC | 1 | $60 | [Amazon](https://www.amazon.com/APC-Battery-Protector-Back-UPS-BE425M/dp/B01HDC236Q/ref=sr_1_7?keywords=uninterruptible%2Bpower%2Bsupply&qid=1674685859&sprefix=uninter%2Caps%2C105&sr=8-7&ufe=app_do%3Aamzn1.fos.006c50ae-5d4c-4777-9bc0-4513d670b6bc&th=1) | - |
 |  |  |  |  |  |  |  |
 ```{note}
-Estimated total cost for one <span style="font-variant:small-caps;">MoonShine</span> system (excluding the illuminance measuring device) = $~560 (Feb 2023)
+Estimated total cost for one <span style="font-variant:small-caps;">MoonShineP</span> system (excluding the illuminance measuring device) = $~560 (Feb 2023)
 ```
 
 ### Tools
@@ -48,11 +48,11 @@ Estimated total cost for one <span style="font-variant:small-caps;">MoonShine</s
 - Masking tape
 - Foam pieces
 
-[^1]: Any equivalent kit of the Raspberry Pi 4 model B from other companies would work. Beside the Raspberry Pi itself, the kit should include all the accessories such as HDMI cable, power supply, case, SD card, etc. _<span style="font-variant:small-caps;">MoonShine</span>_ only requires the 2GB RAM option, but there are options for more RAM (4GB or 8GB).
+[^1]: Any equivalent kit of the Raspberry Pi 4 model B from other companies would work. Beside the Raspberry Pi itself, the kit should include all the accessories such as HDMI cable, power supply, case, SD card, etc. _<span style="font-variant:small-caps;">MoonShineP</span>_ only requires the 2GB RAM option, but there are options for more RAM (4GB or 8GB).
     
     Prices are for February 2023. At the time of writing this document, the price of a Raspberry Pi is much higher than the official price due to supply issues.
 
-[^2]: We strongly recommend the following options: 1m, 144 LED, Warm White. There are IP65 water resistant and IP30 normal versions available for this model. The user can choose one suitable for the required application. We picked warm white to avoid a substantial blue spike in the white channel spectrum. A different strip length and LED number can be selected, but the 1m 144 LED is the best suited for most situations, and the default options in the _<span style="font-variant:small-caps;">MoonSim</span>_ suite will work for this model.
+[^2]: We strongly recommend the following options: 1m, 144 LED, Warm White. There are IP65 water resistant and IP30 normal versions available for this model. The user can choose one suitable for the required application. We picked warm white to avoid a substantial blue spike in the white channel spectrum. A different strip length and LED number can be selected, but the 1m 144 LED is the best suited for most situations, and the default options in the _<span style="font-variant:small-caps;">MoonShineR</span>_ suite will work for this model.
 
     Two LED strips are required for moonlight recreation. More can be added, in multiples of two, to daisy chain many more strips, e.g., to generate a higher illuminance when recreating sunlight.
     
@@ -78,9 +78,9 @@ Estimated total cost for one <span style="font-variant:small-caps;">MoonShine</s
     
     Rosco is another company that makes ND filter sheets.
 
-[^7]: “Lux meter” is a commercial term for a radiometer; these devices measure illuminance in lux. A measure of illuminance is essential to calibrate <span style="font-variant:small-caps;">MoonShine</span>. A spectrometer is a radiometer that measures spectral irradiance – measures of light intensity values across (and just outside) the visible light spectrum. Spectral irradiance measurements can easily be converted into illuminance. Spectrometers are generally more expensive than radiometers, although precision low-light sensitive radiometers suitable for quantifying moonlight levels are also expensive.
+[^7]: “Lux meter” is a commercial term for a radiometer; these devices measure illuminance in lux. A measure of illuminance is essential to calibrate <span style="font-variant:small-caps;">MoonShineP</span>. A spectrometer is a radiometer that measures spectral irradiance – measures of light intensity values across (and just outside) the visible light spectrum. Spectral irradiance measurements can easily be converted into illuminance. Spectrometers are generally more expensive than radiometers, although precision low-light sensitive radiometers suitable for quantifying moonlight levels are also expensive.
     
-    An accurate illuminance measuring device is critical for calibrating Moonshine, but ones that measures at low light are very expensive. We do not want the cost of the radiometer to discourage the use of <span style="font-variant:small-caps;">MoonShine</span> for moonlight related experiments. Still, it is critical to obtain a meter that has NIST-Traceable calibration, like the International Light Technology [ILT10C](https://www.intl-lighttech.com/products/ilt10c-luxlight-meter-nist-traceable-calibration?gclid=Cj0KCQiAw8OeBhCeARIsAGxWtUzB0YaQDpYF5fXMYee-U9zSQgnbmph4LrlmD0inkbSdw4FtaJ-AjjsaApwYEALw_wcB) (lower limit of 10 lx, cost ~$350). Lower cost meters do not perform accurately at moonlight level illuminance (i.e., <0.3 lx). Where only a non low-light sensitive radiometer is available (able to read below 1E-2 lx with a resolution +/- 1E-2 lx or better), like the ILT10C,  <span style="font-variant:small-caps;">MoonShine</span> can be calibrated using a comparative method. See further explanations and solutions in {ref}`content:lightbox:radiometer`.
+    An accurate illuminance measuring device is critical for calibrating MoonShineP, but ones that measures at low light are very expensive. We do not want the cost of the radiometer to discourage the use of <span style="font-variant:small-caps;">MoonShineP</span> for moonlight related experiments. Still, it is critical to obtain a meter that has NIST-Traceable calibration, like the International Light Technology [ILT10C](https://www.intl-lighttech.com/products/ilt10c-luxlight-meter-nist-traceable-calibration?gclid=Cj0KCQiAw8OeBhCeARIsAGxWtUzB0YaQDpYF5fXMYee-U9zSQgnbmph4LrlmD0inkbSdw4FtaJ-AjjsaApwYEALw_wcB) (lower limit of 10 lx, cost ~$350). Lower cost meters do not perform accurately at moonlight level illuminance (i.e., <0.3 lx). Where only a non low-light sensitive radiometer is available (able to read below 1E-2 lx with a resolution +/- 1E-2 lx or better), like the ILT10C,  <span style="font-variant:small-caps;">MoonShineP</span> can be calibrated using a comparative method. See further explanations and solutions in {ref}`content:lightbox:radiometer`.
     
     We used the International Light Technology [ILT-5000](https://www.intl-lighttech.com/products/ilt5000-researchlab-radiometer) radiometer, with a SED 100-10/U broadband silicon photosensor, WU wide angle quartz diffuser, and Y4 photopic filter. This device is sensitive to light as low as 0.0002 lx.
 
@@ -89,7 +89,7 @@ Estimated total cost for one <span style="font-variant:small-caps;">MoonShine</s
 ```{figure} /images/raspberry-pi2.png
 :name: schematic
 
-Connection diagram for the Raspberry Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the pins connected to the moonlight array of LED strips for moonlight recreation. The open color circles are connected to the sunlight/twilight array of LED strips, for the recreation of sunlight/twilight (while simutaneously re-creating moonlight). The wire color schematic is for the SK6812, made by BTF-Lighting, Guangdong, China. Right click and select ‘Open image in new tab’ to enlarge figure.
+Connection diagram for the Raspberry Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the pins connected to the moonlight array of LED strips for moonlight recreation. The open color circles are connected to the sunlight/twilight array of LED strips, for the recreation of sunlight/twilight (while simutaneously re-creating moonlight). The wire color schematic is for the SK6812, made by BTF-Lighting, Guangdong, China. The RTC module connections are indicated in magenta circles. Right click and select ‘Open image in new tab’ to enlarge figure.
 ```
 ```{figure} /images/cable.png
 :name: cable
