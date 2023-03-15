@@ -193,8 +193,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="codes.html">
-   Codes
+  <a class="reference internal" href="code.html">
+   Code
   </a>
  </li>
  <li class="toctree-l1">
@@ -553,18 +553,18 @@ title="Print to PDF"
 </li>
 <li><p>Set the starting date, starting time, and simulation duration in days.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date_start</span> <span class="o">&lt;-</span> <span class="s2">&quot;2022-07-26&quot;</span> <span class="c1"># (!) Starting date of the simulation (YYYY-MM-DD)</span>
-<span class="n">time_start</span> <span class="o">&lt;-</span> <span class="s2">&quot;18:00:00&quot;</span> <span class="c1"># (!) Starting date of the simulation (hh:mm:ss)</span>
+<span class="n">time_start</span> <span class="o">&lt;-</span> <span class="s2">&quot;18:00:00&quot;</span> <span class="c1"># (!) Starting time of the simulation (hh:mm:ss)</span>
 <span class="n">duration_day</span> <span class="o">&lt;-</span> <span class="mf">29.5</span> <span class="c1"># (!) Duration of simulation in days</span>
 </pre></div>
 </div>
 </li>
 <li><p>Set the simulation time interval (i.e., the temporal resolution).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time_interval_minutes</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="c1"># (!) The temporal resolution in minutes.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time_interval_minutes</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="c1"># (!) The temporal resolution in minutes</span>
 </pre></div>
 </div>
 </li>
 <li><p>Decide whether to change the default darksky_value, a constant that is added to moonlight illuminance for representing starlight and airglow. A moonless clear sky night illuminated only by starlight and airglow ranges 0.0006 to 0.0009 lx (Hänel et al., 2018).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">darksky_value</span> <span class="o">&lt;-</span> <span class="mf">0.0008</span> <span class="c1"># (!) Choose from between 0.0006 to 0.0009. Default = 0.0008</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">darksky_value</span> <span class="o">&lt;-</span> <span class="mf">0.0008</span> <span class="c1"># (!) Default = 0.0008</span>
 </pre></div>
 </div>
 </li>
