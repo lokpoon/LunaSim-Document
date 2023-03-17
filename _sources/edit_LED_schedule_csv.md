@@ -27,7 +27,7 @@ kernelspec:
 
 ## Creating customized schedules
 
-- To create a customized schedule `.csv`, the user can either modify an existing _<span style="font-variant:small-caps;">MoonShineR</span>_ generated schedule `.csv` using Excel. Alternatively, the user can create the customized schedule manually, using the provided Excel spreadsheet template (`manual_scheduler.xlsx`). The user can also combine both approaches to a create a customized `LED_schedule .csv`, because the methods are better suited for different scenarios.
+- To create a customized schedule `.csv`, the user can either modify an existing _<span style="font-variant:small-caps;">MoonShineR</span>_ generated schedule `.csv` using Excel (See Option 1, below). Alternatively, the user can create the customized schedule manually, using the provided Excel spreadsheet template (`manual_scheduler.xlsx`) (See Option 2, below). The user can also combine both approaches to a create a customized `LED_schedule .csv`, because the methods are better suited for different scenarios.
 
 - _<span style="font-variant:small-caps;">MoonShineP</span>_ can run any schedule `.csv` when the following conditions are met:
     - The .csv file contains the nine required columns, as described below (extra columns with other headers can be present, but will be ignored):
