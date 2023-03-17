@@ -5,6 +5,9 @@ _<span style="font-variant:small-caps;">MoonShineP</span>_ is an open-source sof
 
 _<span style="font-variant:small-caps;">MoonShineR</span>_ is a suite of three R programs designed to predict the ground illuminance of moonlight, twilight, and sunlight at any geographic location and any time or range of times. Each of the three versions of _<span style="font-variant:small-caps;">MoonShineR</span>_ programs serves a different purposes, and generates outputs tailored to that purpose.
 
+All the required files are hosted on this GitHub site:
+[https://github.com/Crampton-Lab/MoonShine](https://github.com/Crampton-Lab/MoonShine)
+
 1. _**<span style="font-variant:small-caps;">MoonShineR</span>: Lux calculator**_ simply predicts moonlight and twilight illuminance. It is intended for use in field studies where a biologist requires moonlight illuminance values as a model predictor variable.
 
 _**<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler**_ and _**<span style="font-variant:small-caps;">MoonShineR</span>: Sunlight & twilight scheduler**_ are designed for use in combination with _<span style="font-variant:small-caps;">MoonShineP</span>_ ({numref}`map`).

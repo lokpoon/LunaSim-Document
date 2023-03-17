@@ -101,7 +101,7 @@ kernelspec:
 - Adjusting the RGBW spectrum requires the user to have a profound understanding of the spectral characteristics of their habitat target, and the visual sensitivity of the subject animal(s). This is, in part, because the RGBW channels have a very specific and limited peak and spectral range when compared to the complex spectral properties of natural habitats. Consequently, some habitat light spectrum approximations would be more realistic (e.g., when the habitat"s spectral peak corresponds to one of the RGBW peaks), while other approximations might be unsatisfactory.
 - Knowing the animal’s spectral sensitivity can help to assess the validity of a re-created LED spectrum. For example mammals do not see UV light, so the lack of UV in warm white SK6812 LED strips does not constitute a limitation. However, this might not be the case for animals with UV sensitive vision (including many invertebrates and some vertebrates).
 - If the user has a spectrometer, they should specify the RGBW intensity fraction in _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler_ and measure the resulting overall LED spectral irradiance.
-- If the user does not have a spectrometer, they should use the provided Microsoft Excel spreadsheet `RGBW_LED_spectrum.xlsx` to predict the resulting overall LED spectral irradiance ({numref}`excel_predict`).
+- If the user does not have a spectrometer, they should use the provided Microsoft Excel spreadsheet `RGBW_LED_spectrum.xlsx` (download in {ref}`content:lightbox:download`) to predict the resulting overall LED spectral irradiance ({numref}`excel_predict`).
 ```{figure} /images/excel_predict.jpg
 :name: excel_predict
 
