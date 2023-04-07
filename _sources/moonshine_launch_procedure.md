@@ -26,7 +26,7 @@ Things to check before a launch. Some of the information here are reminders of i
 
 ### 1. Generate a working `LED_schedule_moon.csv`
 
-- Generate an `LED_schedule_moon.csv` using the methods detailed in {ref}`content:moonsim_moon` and {ref}`content:edit`, with the  desired parameters. Make sure that the time zone was set correctly, and is a time zone without daylight saving time (DST).
+- Generate an `LED_schedule_moon.csv` using the methods detailed in {ref}`content:MoonShineR_moon` and {ref}`content:edit`, with the  desired parameters. Make sure that the time zone was set correctly, and is a time zone without daylight saving time (DST).
 - Move the `LED_schedule_moon.csv` into the Raspberry Pi's *Desktop/control_moon*
 
 - For the `moonshine_moon.py` to run, the `LED_schedule_moon.csv` must contain a row matching the time at launch. In other words, there cannot be a `LED_schedule_moon.csv` where the first row is a time in the future.
