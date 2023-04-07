@@ -17,9 +17,9 @@ kernelspec:
 
 - _<span style="font-variant:small-caps;">MoonShineR</span>: Sunlight/twilight scheduler_ is designed to be used in conjunction with _<span style="font-variant:small-caps;">MoonShineP</span>_ to re-create sunlight and twilight cycles in the lab.
 - _<span style="font-variant:small-caps;">MoonShineR</span>: Sunlight/twilight scheduler_ runs the same set of calculations as _<span style="font-variant:small-caps;">MoonShineR</span>: Lux calculator_ to predict sunlight and twilight illuminance. However, unlike in Lux calculator, the output table `LED_schedule_sun.csv` contains lists of LED intensity values over time.
-- Read {ref}`content:moonsim_moon` first. Most operations are the same for _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler_.
-- This section only addresses operations in _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler_ that differ from those in _<span style="font-variant:small-caps;">MoonSim</span>: Moonlight scheduler_.
-- Download _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight/twilight scheduler_ in {ref}`content:lightbox:download`.
+- Read {ref}`content:MoonShineR_moon` first. Most operations are the same for _<span style="font-variant:small-caps;">MoonShineR</span>: Sunlight & twilight scheduler_.
+- This section only addresses operations in _<span style="font-variant:small-caps;">MoonShineR</span>: Sunlight & twilight scheduler_ that differ from those in _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler_.
+- Download _<span style="font-variant:small-caps;">MoonShineR</span>: Sunlight/twilight scheduler_ in {ref}`content:lightbox:download`.
 ## Key features
 
 - Recreates full daylight and twilight regimes in a laboratory or other indoor environment.
@@ -34,7 +34,7 @@ kernelspec:
 MoonShineR: Sunlight/twilight scheduler misses some features found in the moonlight scheduler, including elevation effect, horizontal obstruction, and cloud simulation. For sunlight, we believe that applying these features to sunlight is not useful since we cannot foresee the user recreating full sunlight intensity. Therefore, applying these features would not make the re-created lighting more realistic. For twilight, while these features might be applicable to an extent, they are not implemented because twilight is a diffuse light source, unlike direct moonlight, and hence behaves very differently (Seidelmann 1992).
 ```
     
-1. Refer to {ref}`content:luxcalculator2` to load packages and then perform steps (1-7) as described in {ref}`content:luxcalculator` to set the user-definable settings (location, time period, etc.) The time_interval_minutes is constrained to a value of one and cannot be changed. The following instructions will cover the settings and functions specific to _<span style="font-variant:small-caps;">MoonSim</span>: Sunlight & twilight scheduler_.
+1. Refer to {ref}`content:luxcalculator2` to load packages and then perform steps (1-7) as described in {ref}`content:luxcalculator` to set the user-definable settings (location, time period, etc.) The time_interval_minutes is constrained to a value of one and cannot be changed. The following instructions will cover the settings and functions specific to _<span style="font-variant:small-caps;">MoonShineR</span>: Sunlight & twilight scheduler_.
 
     
 2. Set the calibration illuminance point. See {ref}`content:lightbox:sun_calibration`.

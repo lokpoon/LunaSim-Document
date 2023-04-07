@@ -312,7 +312,7 @@ Running _<span style="font-variant:small-caps;">MoonShineP</span>_ using the Lin
 (content:lightbox:lednumber3)=    
 ## Setting LED numbers in `moonshine_moon.py` and `moonshine_sun.py`
 
-- Recall that in {ref}`content:moonsim_moon` and {ref}`content:moonsim_sun`, the user was required to enter the specifications of the LED array (diode_per_strip and strip_count) into the R program. This was essential for generating the schedule `.csv`. It is important that LED_COUNT (below) in _<span style="font-variant:small-caps;">MoonShineP</span>_ python script represents the product of diode_per_strip (from _<span style="font-variant:small-caps;">MoonSim</span>_) and strip_count (from _<span style="font-variant:small-caps;">MoonSim</span>_).
+- Recall that in {ref}`content:MoonShineR_moon` and {ref}`content:MoonShineR_sun`, the user was required to enter the specifications of the LED array (diode_per_strip and strip_count) into the R program. This was essential for generating the schedule `.csv`. It is important that LED_COUNT (below) in _<span style="font-variant:small-caps;">MoonShineP</span>_ python script represents the product of diode_per_strip (from _<span style="font-variant:small-caps;">MoonShineR</span>_) and strip_count (from _<span style="font-variant:small-caps;">MoonShineR</span>_).
 
 1. To calculate the total number of LEDs, diode_per_strip should be multiplied by strip_count. E.g., 144 x 4 = 576.
 2. Edit the line of "LED_COUNT" in `moonshine_moon.py` and `moonshine_sun.py` with the respective total number of LEDs for each array (see {numref}`led_count`).
