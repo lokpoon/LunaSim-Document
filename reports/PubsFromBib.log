@@ -1,0 +1,170 @@
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/homebrew/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/homebrew/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/homebrew/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/homebrew/Cellar/python@3.10/3.10.12/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/opt/homebrew/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/opt/homebrew/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/homebrew/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+for pubsource in publist:
+    parser = bibtex.Parser()
+    bibdata = parser.parse_file(publist[pubsource]["file"])
+
+    #loop through the individual references in a given bibtex file
+    for bib_id in bibdata.entries:
+        #reset default date
+        pub_year = "1900"
+        pub_month = "01"
+        pub_day = "01"
+        
+        b = bibdata.entries[bib_id].fields
+        
+        try:
+            pub_year = f'{b["year"]}'
+
+            #todo: this hack for month and day needs some cleanup
+            if "month" in b.keys(): 
+                if(len(b["month"])<3):
+                    pub_month = "0"+b["month"]
+                    pub_month = pub_month[-2:]
+                elif(b["month"] not in range(12)):
+                    tmnth = strptime(b["month"][:3],'%b').tm_mon   
+                    pub_month = "{:02d}".format(tmnth) 
+                else:
+                    pub_month = str(b["month"])
+            if "day" in b.keys(): 
+                pub_day = str(b["day"])
+
+                
+            pub_date = pub_year+"-"+pub_month+"-"+pub_day
+            
+            #strip out {} as needed (some bibtex entries that maintain formatting)
+            clean_title = b["title"].replace("{", "").replace("}","").replace("\\","").replace(" ","-")    
+
+            url_slug = re.sub("\\[.*\\]|[^a-zA-Z0-9_-]", "", clean_title)
+            url_slug = url_slug.replace("--","-")
+
+            md_filename = (str(pub_date) + "-" + url_slug + ".md").replace("--","-")
+            html_filename = (str(pub_date) + "-" + url_slug).replace("--","-")
+
+            #Build Citation from text
+            citation = ""
+
+            #citation authors - todo - add highlighting for primary author?
+            for author in bibdata.entries[bib_id].persons["author"]:
+                citation = citation+" "+author.first_names[0]+" "+author.last_names[0]+", "
+
+            #citation title
+            citation = citation + "\"" + html_escape(b["title"].replace("{", "").replace("}","").replace("\\","")) + ".\""
+
+            #add venue logic depending on citation type
+            venue = publist[pubsource]["venue-pretext"]+b[publist[pubsource]["venuekey"]].replace("{", "").replace("}","").replace("\\","")
+
+            citation = citation + " " + html_escape(venue)
+            citation = citation + ", " + pub_year + "."
+
+            
+            ## YAML variables
+            md = "---\ntitle: \""   + html_escape(b["title"].replace("{", "").replace("}","").replace("\\","")) + '"\n'
+            
+            md += """collection: """ +  publist[pubsource]["collection"]["name"]
+
+            md += """\npermalink: """ + publist[pubsource]["collection"]["permalink"]  + html_filename
+            
+            note = False
+            if "note" in b.keys():
+                if len(str(b["note"])) > 5:
+                    md += "\nexcerpt: '" + html_escape(b["note"]) + "'"
+                    note = True
+
+            md += "\ndate: " + str(pub_date) 
+
+            md += "\nvenue: '" + html_escape(venue) + "'"
+            
+            url = False
+            if "url" in b.keys():
+                if len(str(b["url"])) > 5:
+                    md += "\npaperurl: '" + b["url"] + "'"
+                    url = True
+
+            md += "\ncitation: '" + html_escape(citation) + "'"
+
+            md += "\n---"
+
+            
+            ## Markdown description for individual page
+            if note:
+                md += "\n" + html_escape(b["note"]) + "\n"
+
+            if url:
+                md += "\n[Access paper here](" + b["url"] + "){:target=\"_blank\"}\n" 
+            else:
+                md += "\nUse [Google Scholar](https://scholar.google.com/scholar?q="+html.escape(clean_title.replace("-","+"))+"){:target=\"_blank\"} for full citation"
+
+            md_filename = os.path.basename(md_filename)
+
+            with open("../_publications/" + md_filename, 'w') as f:
+                f.write(md)
+            print(f'SUCESSFULLY PARSED {bib_id}: \"', b["title"][:60],"..."*(len(b['title'])>60),"\"")
+        # field may not exist for a reference
+        except KeyError as e:
+            print(f'WARNING Missing Expected Field {e} from entry {bib_id}: \"', b["title"][:30],"..."*(len(b['title'])>30),"\"")
+            continue
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+File [0;32m/opt/homebrew/lib/python3.10/site-packages/pybtex/io.py:83[0m, in [0;36m_open[0;34m(opener, filename_or_file, mode, **kwargs)[0m
+[1;32m     82[0m     [38;5;28;01melse[39;00m:
+[0;32m---> 83[0m         [38;5;28;01mreturn[39;00m [43m_open_existing[49m[43m([49m[43mopener[49m[43m,[49m[43m [49m[43mfilename[49m[43m,[49m[43m [49m[43mmode[49m[43m,[49m[43m [49m[43mlocate[49m[38;5;241;43m=[39;49m[43mkpsewhich[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m     84[0m [38;5;28;01mexcept[39;00m [38;5;167;01mEnvironmentError[39;00m [38;5;28;01mas[39;00m error:
+
+File [0;32m/opt/homebrew/lib/python3.10/site-packages/pybtex/io.py:57[0m, in [0;36m_open_existing[0;34m(opener, filename, mode, locate, **kwargs)[0m
+[1;32m     56[0m         filename [38;5;241m=[39m found
+[0;32m---> 57[0m [38;5;28;01mreturn[39;00m [43mopener[49m[43m([49m[43mfilename[49m[43m,[49m[43m [49m[43mmode[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'proceedings.bib'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mPybtexError[0m                               Traceback (most recent call last)
+Cell [0;32mIn[4], line 3[0m
+[1;32m      1[0m [38;5;28;01mfor[39;00m pubsource [38;5;129;01min[39;00m publist:
+[1;32m      2[0m     parser [38;5;241m=[39m bibtex[38;5;241m.[39mParser()
+[0;32m----> 3[0m     bibdata [38;5;241m=[39m [43mparser[49m[38;5;241;43m.[39;49m[43mparse_file[49m[43m([49m[43mpublist[49m[43m[[49m[43mpubsource[49m[43m][49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mfile[39;49m[38;5;124;43m"[39;49m[43m][49m[43m)[49m
+[1;32m      5[0m     [38;5;66;03m#loop through the individual references in a given bibtex file[39;00m
+[1;32m      6[0m     [38;5;28;01mfor[39;00m bib_id [38;5;129;01min[39;00m bibdata[38;5;241m.[39mentries:
+[1;32m      7[0m         [38;5;66;03m#reset default date[39;00m
+
+File [0;32m/opt/homebrew/lib/python3.10/site-packages/pybtex/database/input/__init__.py:52[0m, in [0;36mBaseParser.parse_file[0;34m(self, filename, file_suffix)[0m
+[1;32m     50[0m [38;5;28mself[39m[38;5;241m.[39mfilename [38;5;241m=[39m filename
+[1;32m     51[0m open_file [38;5;241m=[39m pybtex[38;5;241m.[39mio[38;5;241m.[39mopen_unicode [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39municode_io [38;5;28;01melse[39;00m pybtex[38;5;241m.[39mio[38;5;241m.[39mopen_raw
+[0;32m---> 52[0m [38;5;28;01mwith[39;00m [43mopen_file[49m[43m([49m[43mfilename[49m[43m,[49m[43m [49m[43mencoding[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mencoding[49m[43m)[49m [38;5;28;01mas[39;00m f:
+[1;32m     53[0m     [38;5;28;01mtry[39;00m:
+[1;32m     54[0m         [38;5;28mself[39m[38;5;241m.[39mparse_stream(f)
+
+File [0;32m/opt/homebrew/lib/python3.10/site-packages/pybtex/io.py:95[0m, in [0;36mopen_unicode[0;34m(filename, mode, encoding)[0m
+[1;32m     93[0m [38;5;28;01mif[39;00m encoding [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m     94[0m     encoding [38;5;241m=[39m get_default_encoding()
+[0;32m---> 95[0m [38;5;28;01mreturn[39;00m [43m_open[49m[43m([49m[43mio[49m[38;5;241;43m.[39;49m[43mopen[49m[43m,[49m[43m [49m[43mfilename[49m[43m,[49m[43m [49m[43mmode[49m[43m,[49m[43m [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m)[49m
+
+File [0;32m/opt/homebrew/lib/python3.10/site-packages/pybtex/io.py:85[0m, in [0;36m_open[0;34m(opener, filename_or_file, mode, **kwargs)[0m
+[1;32m     83[0m         [38;5;28;01mreturn[39;00m _open_existing(opener, filename, mode, locate[38;5;241m=[39mkpsewhich, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[1;32m     84[0m [38;5;28;01mexcept[39;00m [38;5;167;01mEnvironmentError[39;00m [38;5;28;01mas[39;00m error:
+[0;32m---> 85[0m     [38;5;28;01mraise[39;00m PybtexError([38;5;124m"[39m[38;5;124munable to open [39m[38;5;132;01m%s[39;00m[38;5;124m. [39m[38;5;132;01m%s[39;00m[38;5;124m"[39m [38;5;241m%[39m (filename, error[38;5;241m.[39mstrerror))
+
+[0;31mPybtexError[0m: unable to open proceedings.bib. No such file or directory
+PybtexError: unable to open proceedings.bib. No such file or directory
+
