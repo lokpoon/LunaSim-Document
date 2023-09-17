@@ -21,17 +21,19 @@ kernelspec:
 
 - The user must first decide whether to re-create unobstructed ground illumination (i.e., a simulation in which there is no additional dimming), or to recreate light with a desired attenuation level so as to mimic the illumination levels of a natural habitat.
 
-- For the re-creation of full moon illuminance with no additional dimming, we recommend 0.4 lx as the standard calibration illuminance. The brightest possible full moon does not exceed 0.4 lx. Therefore by calibrating the lightbox to 0.4 lx, we ensure that _<span style="font-variant:small-caps;">MoonShineP</span>_ can re-create the entire range of moonlight illuminance.
+- For the re-creation of full moon illuminance with no additional dimming, we recommend a value between 0.4-0.5 lx as the calibration illuminance point. {ref}`content:lightbox:radiometer` explains why this calibration point can be any value between 0.4-0.5 lx.
+- The brightest possible full moon never exceeds 0.4 lx, and a full moon is typically much dimmer than 0.3 lx. Calibrting to ~0.4 lx does not mean that the full moon re-created will be 0.4 lx, it is just a calibration point so that any illuminance within 0.4 lx will be re-created accuratly. By calibrating the lightbox to ~0.4 lx, we ensure that _<span style="font-variant:small-caps;">MoonShineP</span>_ can re-create the entire range of moonlight illuminance. Meaning that once calibrated to ~0.4 lx, it can recreate any moonlight scenerios.
 
 (content:calibration_schedule)=
 ## Create a calibration schedule
 Use the provided `manual_scheduler.xlsx` (see {ref}`content:excel_scheduler`) to create a `LED_schedule_moon.csv` that turns on the LEDs at full intensity (with spectral control applied).
-1. In `manual_scheduler.xlsx`, set theoretical_max to 0.4
-2. Fill the entire column of "desired illuminance" with 0.4
-3. Set the spectral control as desired (leave it as default for natural moonlight spectrum)
+1. In `manual_scheduler.xlsx`, set theoretical_max to 0.4.
+2. Fill the entire column of "desired illuminance" with 0.4. This tells the LEDs to produce 100% intensity (i.e., 0.4/0.4 = 100%).
+3. Set the spectral control as desired (leave it as default for natural moonlight spectrum).
 4. Make the schedule to last for 2 hours (or a period sufficient to perform the calibration period) for a time period in the near future, at the time the calibration will be performed.
 5. Follow the rest of the instructions in {ref}`content:excel_scheduler` to save the `LED_schedule_moon.csv`
 6. This schedule file will instruct _<span style="font-variant:small-caps;">MoonShineP</span>_ to generate full intensity light for the purpose of calibration.
+
 
 
 ### Which ND filter sheets?
@@ -56,7 +58,7 @@ To make an informed decision on what combination of ND filter sheets is needed f
 - Using the previously created calibration `LED_schedule_moon.csv`, launch _<span style="font-variant:small-caps;">MoonShineP</span>_ (see {ref}`content:launch`).
 - Next, the calibration method depends on whether a low light sensitive radiometer (able to accurately measure 0.01 lx) is available.
     - If available,
-        1. Layer filters on the lightbox until the radiometer sensor placed on the ground of the animal housing reads a target illuminance between 0.4 lx to 0.5 lx.
+        1. Layer filters on the lightbox until the radiometer sensor placed on the ground of the animal housing reads a target illuminance between 0.4 lx to 0.5 lx. This target illuminance can be any value between 0.4 lx to 0.5 lx because every additional ND filters layers attenuates illuminance in a certian fraction, meaning it is very diffcult to attenuate the illumiance to a exact pre-determined value.
         2. Record this illuminance measurement because this is the calibration point.
         3. Put in this calibration point as the theoretical_max value in _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight led scheduler_ when generating a `LED_schedule_moon.csv`. The _<span style="font-variant:small-caps;">MoonShineP</span>_ system is now calibrated.
     - If only a non-low light sensitive radiometer is available:

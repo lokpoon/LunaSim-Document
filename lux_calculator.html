@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. MoonShineR: Lux calculator &#8212; MoonShine Instruction Manual</title>
+    <title>1. MoonShineR: R package &#8212; MoonShine Instruction Manual</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -120,7 +120,7 @@ const thebe_selector_output = ".output, .cell_output"
    <span style="font-variant:small-caps;">
     MoonShineR
    </span>
-   : Lux calculator
+   : R package
   </a>
  </li>
  <li class="toctree-l1">
@@ -431,13 +431,21 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#packages-required">
-   Packages required
+  <a class="reference internal nav-link" href="#predict-lux">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     predict_lux()
+    </span>
+   </code>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#workflow">
-   Workflow
+  <a class="reference internal nav-link" href="#plot-lux">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plot_lux()
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -449,7 +457,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>1. <span style="font-variant:small-caps;">MoonShineR</span>: Lux calculator</h1>
+                <h1>1. <span style="font-variant:small-caps;">MoonShineR</span>: R package</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -465,13 +473,21 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#packages-required">
-   Packages required
+  <a class="reference internal nav-link" href="#predict-lux">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     predict_lux()
+    </span>
+   </code>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#workflow">
-   Workflow
+  <a class="reference internal nav-link" href="#plot-lux">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plot_lux()
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -484,36 +500,21 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="span-style-font-variant-small-caps-moonshiner-span-lux-calculator">
-<span id="content-luxcalculator"></span><h1>1. <span style="font-variant:small-caps;">MoonShineR</span>: Lux calculator<a class="headerlink" href="#span-style-font-variant-small-caps-moonshiner-span-lux-calculator" title="Permalink to this headline">#</a></h1>
-<p><em><span style="font-variant:small-caps;">MoonShineR</span>: Lux calculator</em> predicts ground illuminance of moonlight in lux (lx). A prediction of twilight and sunlight illuminance is also included.</p>
-<p>Download <em><span style="font-variant:small-caps;">MoonShineR</span>: Lux calculator</em> in <a class="reference internal" href="download.html#content-lightbox-download"><span class="std std-ref">Download files</span></a>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="span-style-font-variant-small-caps-moonshiner-span-r-package">
+<span id="content-luxcalculator"></span><h1>1. <span style="font-variant:small-caps;">MoonShineR</span>: R package<a class="headerlink" href="#span-style-font-variant-small-caps-moonshiner-span-r-package" title="Permalink to this headline">#</a></h1>
+<p><em><span style="font-variant:small-caps;">MoonShineR</span>: R package</em> predicts ground illuminance of moonlight in lux (lx). A prediction of twilight and sunlight illuminance is also included.</p>
+<p>Install and load <em><span style="font-variant:sRmall-caps;">MoonShineR</span>: R package</em> by following instructions on <a class="reference external" href="https://github.com/Crampton-Lab/MoonShine">https://github.com/Crampton-Lab/MoonShine</a>.</p>
 <section id="key-features">
-<h2>Key features<a class="headerlink" href="#key-features" title="Permalink to this headline">#</a></h2>
+<span id="content-luxcalculator2"></span><h2>Key features<a class="headerlink" href="#key-features" title="Permalink to this headline">#</a></h2>
 <ul>
 <li><p>Provides an accurate prediction of moonlight illuminance at any geographic location and over any time period, at user-defined intervals.</p></li>
 <li><p>Provides a prediction of twilight and sunlight illuminance as well.</p></li>
 <li><p>Generates a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> table of predicted illuminance over time.</p></li>
-<li><p>Provides a high-resolution plot of illuminance over time.</p>
+<li><p>Provides a high-resolution plot of illuminance over time with simple customization.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The sunlight and twilight illuminance are predicted by the sun’s altitude only, and are not intended to be highly accurate predictions of the absolute illuminance.</p>
 </div>
-</li>
-</ul>
-</section>
-<section id="packages-required">
-<span id="content-luxcalculator2"></span><h2>Packages required<a class="headerlink" href="#packages-required" title="Permalink to this headline">#</a></h2>
-<ul>
-<li><p>library(suncalc) Calculates astronomical variables given a time and location, including moon phase, moon altitude, sun altitude, and the moon to Earth distance.</p></li>
-<li><p>library(dplyr) Facilitates data wrangling.</p></li>
-<li><p>library(rpmodel) Calculates atmospheric pressure at a given site elevation.</p></li>
-<li><p>library(lubridate) Makes datetime format easier to work with.</p></li>
-<li><p>library(REdaS) Converts between degree angle and radian.</p></li>
-<li><p>library(npreg) Fits smoothing splines.</p></li>
-<li><p>library(ggplot2) Create plots.</p></li>
-<li><p>library(beepr) Makes a notification sound.</p></li>
-<li><p>library(progress) Display a progress bar of the computation progress.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>This website <a class="reference external" href="https://r-coder.com/r-tutorials/r-basics/">R Coder</a> is a good resource for learning basic R functions. Start here if you are completely new to R and need instructions on how to load R, set the working directory, install packages and run code.</p>
@@ -521,136 +522,49 @@ title="Print to PDF"
 </li>
 </ul>
 </section>
-<section id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">#</a></h2>
-<p>Below is a summary of the main steps required to run <em><span style="font-variant:small-caps;">MoonShineR</span>: Lux calculator</em>. The code itself is also commented. The “(!)” symbol denotes a line where the user must enter information.</p>
-<ol>
-<li><p>Set the working directory. This is where the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> (schedule file) and .png (illuminance ~ time) plot are saved.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setwd</span><span class="p">(</span><span class="s2">&quot;/Users/lokpoon/Desktop&quot;</span><span class="p">)</span> <span class="c1"># (!) </span>
-</pre></div>
-</div>
-</li>
-<li><p>Set the geographical location for the simulation.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">latitude</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="mf">4.21528</span> <span class="c1"># (!) Latitude in decimal degrees (e.g., -4.21528)</span>
-<span class="n">longitude</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="mf">69.94056</span> <span class="c1"># (!) Longitude in decimal degrees (e.g., -69.94056)</span>
-</pre></div>
-</div>
-</li>
-<li><p>Set the site elevation in m above mean sea level.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">site_elev</span> <span class="o">&lt;-</span> <span class="mi">0</span> <span class="c1"># (!) site elevation in meters (e.g., 0 = sea level)</span>
-</pre></div>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>This website <a class="reference external" href="https://www.dcode.fr/earth-elevation">dcode.fr</a> can be used to determine elevation for a specific geographical coordinate, by accessing NASA Shuttle Radar Topography Mission databases.</p>
-</div>
-</li>
-<li><p>Set the time zone.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time_zone</span> <span class="o">&lt;-</span> <span class="s2">&quot;EST&quot;</span> <span class="c1"># (!)</span>
-<span class="c1"># For a list of time zone names, enter OlsonNames(tzdir = NULL) in R console</span>
-</pre></div>
-</div>
-</li>
-<li><p>Set the starting date, starting time, and simulation duration in days.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date_start</span> <span class="o">&lt;-</span> <span class="s2">&quot;2022-07-26&quot;</span> <span class="c1"># (!) Starting date of the simulation (YYYY-MM-DD)</span>
-<span class="n">time_start</span> <span class="o">&lt;-</span> <span class="s2">&quot;18:00:00&quot;</span> <span class="c1"># (!) Starting time of the simulation (hh:mm:ss)</span>
-<span class="n">duration_day</span> <span class="o">&lt;-</span> <span class="mf">29.5</span> <span class="c1"># (!) Duration of simulation in days</span>
-</pre></div>
-</div>
-</li>
-<li><p>Set the simulation time interval (i.e., the temporal resolution).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time_interval_minutes</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="c1"># (!) The temporal resolution in minutes</span>
-</pre></div>
-</div>
-</li>
-<li><p>Decide whether to change the default darksky_value, a constant that is added to moonlight illuminance for representing starlight and airglow. A moonless clear sky night illuminated only by starlight and airglow ranges 0.0006 to 0.0009 lx (Hänel et al., 2018).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">darksky_value</span> <span class="o">&lt;-</span> <span class="mf">0.0008</span> <span class="c1"># (!) Default = 0.0008</span>
-</pre></div>
-</div>
-</li>
-<li><p>Specify the type of illumination for the y-axis in the plot of illuminance ~ time generated by <em><span style="font-variant:small-caps;">MoonShineR</span></em>. I.e., one of the illuminance column names shown below in step 10.</p>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">illuminance_type_plot</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;moon_final_lux_nighttime&quot;</span><span class="w"> </span><span class="c1"># (!)</span>
-<span class="c1"># Select one of the illuminance columns.</span>
-<span class="c1"># Default is &quot;moon_final_lux_nighttime&quot;. Moonlight illuminance at nighttime only.</span>
-<span class="c1"># &quot;moon_final_lux&quot; is moonlight illuminance around the clock.</span>
-</pre></div>
-</div>
-</li>
-<li><p>Run the code in the section “START OF ILLUMINATION COMPUTATION” through to “END OF ILLUMINATION COMPUTATION”.</p></li>
-<li><p>Save a <code class="docutils literal notranslate"><span class="pre">lux_calculator_output.csv</span></code>, containing the illuminance prediction over time.There are five columns of different illuminance:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">moon_value_table</span><span class="p">,</span><span class="s2">&quot;lux_calculator_output.csv&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">lux_calculator_output.csv</span></code> contains the following columns (<a class="reference internal" href="#moon-lux-table"><span class="std std-numref">Fig. 2</span></a>). We included the illuminance from the different combinations of moonlight, twilight, and sunlight, because each could be useful according to the user’s application.</p>
-<ul class="simple">
-<li><p>General outputs:</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span> <span class="c1"># The datetime in a standard format that R and lightbox.py can read</span>
-<span class="n">phase_angle</span> <span class="c1"># the phase angle of the moon</span>
-<span class="n">fraction</span> <span class="c1"># the illuminated fraction of the moon</span>
-<span class="n">z_moon</span> <span class="c1"># zenith distance of the moon in degree angle</span>
-<span class="n">distance</span> <span class="c1"># the moon and Earth distance in km</span>
-<span class="n">sun_altitude</span> <span class="c1"># The altitude of the sun. Positive/negative value means the sun is above/below the horizon, respectively.</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Illuminance values:</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moon_final_lux</span> <span class="c1"># illuminance of moonlight (plus the darksky_value)</span>
-<span class="n">moon_final_lux_nighttime</span> <span class="c1"># illuminance of moonlight only at night (reports NA at daytime, when sun altitude &gt; 0)</span>
-<span class="n">twilight</span> <span class="c1"># illuminance of twilight (defined as the light when sun altitude &lt; 0)</span>
-<span class="n">sunlight</span> <span class="c1"># illuminance of sunlight (defined as the light when sun altitude &gt; 0)</span>
-<span class="n">total_illuminance_all</span> <span class="c1"># sum of moonlight, twilight, and sunlight</span>
-<span class="n">sunlight_twilight</span> <span class="c1"># sum of sunlight and twilight</span>
-<span class="n">moonlight_twilight_nighttime</span> <span class="c1"># illuminance of moonlight plus twilight only at night (reports NA at daytime, when sun altitude &gt; 0)</span>
-</pre></div>
-</div>
-<figure class="align-default" id="moon-lux-table">
-<img alt="_images/moon_lux_table.jpg" src="_images/moon_lux_table.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Dataframe of <code class="docutils literal notranslate"><span class="pre">lux_calculator_output.csv</span></code> in R. This tabulated information is exported to a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file, which can be opened, viewed and edited in Excel, if required. Right click and select ‘Open image in new tab’ to enlarge figure.</span><a class="headerlink" href="#moon-lux-table" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</li>
-<li><p>Display a plot of the illuminance prediction over time, as specified in step 8, by running the code that starts with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_output</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">theme_rectangular_clean</span> <span class="o">+</span> <span class="o">......</span>
-</pre></div>
-</div>
-<p>And ends with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_output</span>
-</pre></div>
-</div>
-</li>
-<li><p>Save this plot to working directory (<a class="reference internal" href="#one-month"><span class="std std-numref">Fig. 3</span></a>), by running the following line of code:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ggsave</span><span class="p">(</span><span class="s2">&quot;plot_output.png&quot;</span><span class="p">,</span> <span class="n">plot_output</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">4488</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;px&quot;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">450</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default" id="one-month">
-<img alt="_images/one_month.png" src="_images/one_month.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Plot example of moonlight ground illuminance over a month in 2022 in Leticia, Colombia using the above shown settings. Y-axis scaled with limits of 0-0.3 lx wtih breaks of 0.05 lx, to show the full range of moonlight but not sunlight. Dark gray area depicts dark periods (true night after astronomical twilight ended). Light gray area indicate the periods of astronomical twilight.</span><a class="headerlink" href="#one-month" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</li>
-<li><p>Finally, the section of code depicted below checks if you have any lunar eclipse events within your simulation.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if (any(abs(moon_value_table$phase_angle) &lt; 1.5 &amp; moon_value_table$sun_altitude &lt; 0)) { # eclipse defined as a moon with phase angle &lt; 1.5 during nighttime
-  print(&quot;ECLIPSE IN SIMULATION!!!&quot;)
-  eclipse_list &lt;- (abs(moon_value_table$phase_angle) &lt; 1.5 &amp; moon_value_table$sun_altitude &lt; 0)
-  moon_value_table[which(eclipse_list == TRUE),]
-} else {
-  print(&quot;no eclipse in simulation&quot;)
-}
-</pre></div>
-</div>
-</li>
-</ol>
+<section id="predict-lux">
+<h2><code class="docutils literal notranslate"><span class="pre">predict_lux()</span></code><a class="headerlink" href="#predict-lux" title="Permalink to this headline">#</a></h2>
 <ul>
+<li><p>The first function in <em><span style="font-variant:sRmall-caps;">MoonShineR</span>: R package</em> is <code class="docutils literal notranslate"><span class="pre">predict_lux()</span></code>, which predicts natural ground illuminance over any defined geographical location and time period in a data.frame object.</p></li>
+<li><p>More information can be seen by entering <code class="docutils literal notranslate"><span class="pre">?MoonShineR::predict_lux</span></code> in R consle. Simply start with the example provided at the bottom of the R help page, shown here:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moonlight_output</span> <span class="o">&lt;-</span> <span class="n">predict_lux</span><span class="p">(</span><span class="n">latitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.21528</span><span class="p">,</span> <span class="n">longitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">69.94056</span><span class="p">,</span> <span class="n">site_elev</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                    <span class="n">time_zone</span> <span class="o">=</span> <span class="s2">&quot;EST&quot;</span><span class="p">,</span> <span class="n">date_start</span> <span class="o">=</span> <span class="s2">&quot;2023-02-27&quot;</span><span class="p">,</span> <span class="n">time_start</span> <span class="o">=</span> <span class="s2">&quot;18:00:00&quot;</span><span class="p">,</span>
+                    <span class="n">duration_day</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">time_interval_minutes</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">darksky_value</span> <span class="o">=</span> <span class="mf">0.0008</span><span class="p">,</span>
+                    <span class="n">output_directory</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">export_table</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>This example creates a data.frame object named “moonlight_output”, which is a prediction of the nighttime moonlight illuminance in Leticia, Colombia, for 14 days starting on 2023-02-27 at 6pm.</p></li>
+<li><p>The console also print a message to inform the user if there are lunar eclipse events within the simulation.</p></li>
 <li><p>If there is no eclipse, a “no eclipse in simulation” message will appear in the R console after the simulation is complete.</p></li>
-<li><p>If there is an eclipse, “ECLIPSE IN SIMULATION!!!” will appear in the console. <em><span style="font-variant:small-caps;">MoonShineR</span></em> will also report a list of all time intervals affected by both the penumbral and umbral stages of the eclipse (<a class="reference internal" href="#eclipse"><span class="std std-numref">Fig. 4</span></a>). Note that <em><span style="font-variant:small-caps;">MoonShineR</span></em> does not simulate the transient reduction in illuminated fraction or moonlight illuminance during a lunar eclipse (these variables will therefore be incorrectly reported reported by <em><span style="font-variant:small-caps;">MoonShineR</span></em> during the event).</p>
+<li><p>If there is an eclipse, “ECLIPSE IN SIMULATION!!!” will appear in the console. <em><span style="font-variant:small-caps;">MoonShineR</span></em> will also report a list of all time intervals affected by both the penumbral and umbral stages of the eclipse (<a class="reference internal" href="#eclipse"><span class="std std-numref">Fig. 2</span></a>). Note that <em><span style="font-variant:small-caps;">MoonShineR</span></em> does not simulate the transient reduction in illuminated fraction or moonlight illuminance during a lunar eclipse (these variables will therefore be incorrectly reported reported by <em><span style="font-variant:small-caps;">MoonShineR</span></em> during the event).</p>
 <figure class="align-default" id="eclipse">
 <img alt="_images/eclipse.jpg" src="_images/eclipse.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Running a <em><span style="font-variant:small-caps;">MoonShineR</span></em> simulation during an eclipse will return a warning message and a list of the minutes of the eclipse event.</span><a class="headerlink" href="#eclipse" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Running a <em><span style="font-variant:small-caps;">MoonShineR</span></em> simulation during an eclipse will return a warning message and a list of the minutes of the eclipse event.</span><a class="headerlink" href="#eclipse" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>If the above example works, you can now change the arguments to your desire. See Arguments section in the R help page for detailed descriptions.</p></li>
+</ul>
+</section>
+<section id="plot-lux">
+<h2><code class="docutils literal notranslate"><span class="pre">plot_lux()</span></code><a class="headerlink" href="#plot-lux" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>The second function in <em><span style="font-variant:sRmall-caps;">MoonShineR</span>: R package</em> is <code class="docutils literal notranslate"><span class="pre">plot_lux()</span></code>, which takes the data.frame object created by <code class="docutils literal notranslate"><span class="pre">predict_lux()</span></code> to produce a clean looking plot.</p></li>
+<li><p>More information can be seen by entering <code class="docutils literal notranslate"><span class="pre">?MoonShineR::plot_lux</span></code> in R consle. Simply start with the example provided at the bottom of the R help page, shown here:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_lux</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">moonlight_output</span><span class="p">,</span> <span class="n">illuminance_type_plot</span> <span class="o">=</span> <span class="s2">&quot;total_illuminance_all&quot;</span><span class="p">,</span>
+         <span class="n">plot_y_max</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>  <span class="n">plot_dayttime_gray_mask</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">plot_twilight</span> <span class="o">=</span> <span class="s2">&quot;astro&quot;</span><span class="p">,</span>
+         <span class="n">vertical_time_label</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">time_label_interval_hr</span> <span class="o">=</span> <span class="mi">24</span><span class="p">,</span> <span class="n">time_labe_shift_hr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>This example took the data.frame object named “moonlight_output” we created from the previous section and creates a plot (<a class="reference internal" href="#id1"><span class="std std-numref">Fig. 3</span></a>).</p></li>
+<li><p>If the above example works, you can now change the arguments to your desire. See Arguments section in the R help page for detailed descriptions.</p>
+<figure class="align-default" id="id1">
+<img alt="_images/plot_lux.jpeg" src="_images/plot_lux.jpeg" />
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Plot created in the example.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </li>

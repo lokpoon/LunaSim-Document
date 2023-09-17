@@ -120,7 +120,7 @@ const thebe_selector_output = ".output, .cell_output"
    <span style="font-variant:small-caps;">
     MoonShineR
    </span>
-   : Lux calculator
+   : R package
   </a>
  </li>
  <li class="toctree-l1">
@@ -535,18 +535,19 @@ title="Print to PDF"
 <section id="moonlight-re-creation">
 <h2>Moonlight re-creation<a class="headerlink" href="#moonlight-re-creation" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>To achieve realistic moonlight level illuminance, the LED arrays must be physically dimmed. We use neutral density (ND) filter on the lightbox to reduce the light intensity without modifying the color spectrum (<a class="reference internal" href="moonshine_hardware_setup.html#box"><span class="std std-numref">Fig. 32</span></a>).</p></li>
+<li><p>To achieve realistic moonlight level illuminance, the LED arrays must be physically dimmed. We use neutral density (ND) filter on the lightbox to reduce the light intensity without modifying the color spectrum (<a class="reference internal" href="moonshine_hardware_setup.html#box"><span class="std std-numref">Fig. 31</span></a>).</p></li>
 <li><p>The user must first decide whether to re-create unobstructed ground illumination (i.e., a simulation in which there is no additional dimming), or to recreate light with a desired attenuation level so as to mimic the illumination levels of a natural habitat.</p></li>
-<li><p>For the re-creation of full moon illuminance with no additional dimming, we recommend 0.4 lx as the standard calibration illuminance. The brightest possible full moon does not exceed 0.4 lx. Therefore by calibrating the lightbox to 0.4 lx, we ensure that <em><span style="font-variant:small-caps;">MoonShineP</span></em> can re-create the entire range of moonlight illuminance.</p></li>
+<li><p>For the re-creation of full moon illuminance with no additional dimming, we recommend a value between 0.4-0.5 lx as the calibration illuminance point. <a class="reference internal" href="#content-lightbox-radiometer"><span class="std std-ref">Calibrating MoonShineP with a radiometer</span></a> explains why this calibration point can be any value between 0.4-0.5 lx.</p></li>
+<li><p>The brightest possible full moon never exceeds 0.4 lx, and a full moon is typically much dimmer than 0.3 lx. Calibrting to ~0.4 lx does not mean that the full moon re-created will be 0.4 lx, it is just a calibration point so that any illuminance within 0.4 lx will be re-created accuratly. By calibrating the lightbox to ~0.4 lx, we ensure that <em><span style="font-variant:small-caps;">MoonShineP</span></em> can re-create the entire range of moonlight illuminance. Meaning that once calibrated to ~0.4 lx, it can recreate any moonlight scenerios.</p></li>
 </ul>
 </section>
 <section id="create-a-calibration-schedule">
 <span id="content-calibration-schedule"></span><h2>Create a calibration schedule<a class="headerlink" href="#create-a-calibration-schedule" title="Permalink to this headline">#</a></h2>
 <p>Use the provided <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code> (see <a class="reference internal" href="edit_LED_schedule_csv.html#content-excel-scheduler"><span class="std std-ref">Option 2: Create LED schedule manually using manual_scheduler.xlsx</span></a>) to create a <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code> that turns on the LEDs at full intensity (with spectral control applied).</p>
 <ol class="simple">
-<li><p>In <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code>, set theoretical_max to 0.4</p></li>
-<li><p>Fill the entire column of “desired illuminance” with 0.4</p></li>
-<li><p>Set the spectral control as desired (leave it as default for natural moonlight spectrum)</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">manual_scheduler.xlsx</span></code>, set theoretical_max to 0.4.</p></li>
+<li><p>Fill the entire column of “desired illuminance” with 0.4. This tells the LEDs to produce 100% intensity (i.e., 0.4/0.4 = 100%).</p></li>
+<li><p>Set the spectral control as desired (leave it as default for natural moonlight spectrum).</p></li>
 <li><p>Make the schedule to last for 2 hours (or a period sufficient to perform the calibration period) for a time period in the near future, at the time the calibration will be performed.</p></li>
 <li><p>Follow the rest of the instructions in <a class="reference internal" href="edit_LED_schedule_csv.html#content-excel-scheduler"><span class="std std-ref">Option 2: Create LED schedule manually using manual_scheduler.xlsx</span></a> to save the <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code></p></li>
 <li><p>This schedule file will instruct <em><span style="font-variant:small-caps;">MoonShineP</span></em> to generate full intensity light for the purpose of calibration.</p></li>
@@ -584,7 +585,7 @@ title="Print to PDF"
 <ul>
 <li><p>If available,</p>
 <ol class="simple">
-<li><p>Layer filters on the lightbox until the radiometer sensor placed on the ground of the animal housing reads a target illuminance between 0.4 lx to 0.5 lx.</p></li>
+<li><p>Layer filters on the lightbox until the radiometer sensor placed on the ground of the animal housing reads a target illuminance between 0.4 lx to 0.5 lx. This target illuminance can be any value between 0.4 lx to 0.5 lx because every additional ND filters layers attenuates illuminance in a certian fraction, meaning it is very diffcult to attenuate the illumiance to a exact pre-determined value.</p></li>
 <li><p>Record this illuminance measurement because this is the calibration point.</p></li>
 <li><p>Put in this calibration point as the theoretical_max value in <em><span style="font-variant:small-caps;">MoonShineR</span>: Moonlight led scheduler</em> when generating a <code class="docutils literal notranslate"><span class="pre">LED_schedule_moon.csv</span></code>. The <em><span style="font-variant:small-caps;">MoonShineP</span></em> system is now calibrated.</p></li>
 </ol>
@@ -603,7 +604,7 @@ title="Print to PDF"
 <figure class="align-default" id="days">
 <img alt="_images/10days.png" src="_images/10days.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 35 </span><span class="caption-text"><span style="font-variant:small-caps;">MoonShineP</span>’s performance in re-creating moonlight illuminance level after calibration. MoonShineR prediction = black line. Radiometer measurements of the re-created illuminance = red line. Note that the lines are very close. This test was performed in a lab setting, running a simulated LED schedule for 9 nights around a full moon.</span><a class="headerlink" href="#days" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text"><span style="font-variant:small-caps;">MoonShineP</span>’s performance in re-creating moonlight illuminance level after calibration. MoonShineR prediction = black line. Radiometer measurements of the re-created illuminance = red line. Note that the lines are very close. This test was performed in a lab setting, running a simulated LED schedule for 9 nights around a full moon.</span><a class="headerlink" href="#days" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -632,7 +633,7 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>Two LED strips may not be enough to re-create the desired illuminance, but more LED strips can be daisy chained together, as follows:</p>
 <ul>
-<li><p>Connect additional LED strips by following <a class="reference internal" href="moonshine_hardware_setup.html#schematic"><span class="std std-numref">Fig. 29</span></a></p></li>
+<li><p>Connect additional LED strips by following <a class="reference internal" href="moonshine_hardware_setup.html#schematic"><span class="std std-numref">Fig. 28</span></a></p></li>
 <li><p>Add LED strips <strong>in multiple of two</strong>.</p></li>
 <li><p>See <a class="reference internal" href="moonshine_software_setup.html#content-lightbox-lednumber3"><span class="std std-ref">Setting LED numbers in moonshine_moon.py and moonshine_sun.py</span></a> for how to update the number of LEDs in the software.</p></li>
 </ul>

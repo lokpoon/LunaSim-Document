@@ -120,7 +120,7 @@ const thebe_selector_output = ".output, .cell_output"
    <span style="font-variant:small-caps;">
     MoonShineR
    </span>
-   : Lux calculator
+   : R package
   </a>
  </li>
  <li class="toctree-l1">
@@ -665,20 +665,20 @@ title="Print to PDF"
 <figure class="align-default" id="schematic">
 <img alt="_images/raspberry-pi2.png" src="_images/raspberry-pi2.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Connection diagram for the Raspberry Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the pins connected to the moonlight array of LED strips for moonlight recreation. The open color circles are connected to the sunlight/twilight array of LED strips, for the recreation of sunlight/twilight (while simutaneously re-creating moonlight). The wire color schematic is for the SK6812, made by BTF-Lighting, Guangdong, China. The RTC module connections are indicated in magenta circles. Right click and select ‘Open image in new tab’ to enlarge figure.</span><a class="headerlink" href="#schematic" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Connection diagram for the Raspberry Pi, RTC module, and LED strips. The solid color circles (red, white, green) indicate the pins connected to the moonlight array of LED strips for moonlight recreation. The open color circles are connected to the sunlight/twilight array of LED strips, for the recreation of sunlight/twilight (while simutaneously re-creating moonlight). The wire color schematic is for the SK6812, made by BTF-Lighting, Guangdong, China. The RTC module connections are indicated in magenta circles. Right click and select ‘Open image in new tab’ to enlarge figure.</span><a class="headerlink" href="#schematic" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="cable">
 <img alt="_images/cable.png" src="_images/cable.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Photo of the actual connection for one array of LED strips. Right click and select ‘Open image in new tab’ to enlarge figure.</span><a class="headerlink" href="#cable" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Photo of the actual connection for one array of LED strips. Right click and select ‘Open image in new tab’ to enlarge figure.</span><a class="headerlink" href="#cable" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ol>
 <li><p>Follow the Raspberry Pi kit assembly instruction.</p></li>
 <li><p>On the bare wire end of the 3-pin cable female connector that comes with the LED strip, put on the female crimp connector. See <a class="reference external" href="https://www.youtube.com/watch?v=JsoqBS1-k7M">this guide</a> for installing crimp pins with needle nose pliers. The user can decide whether to use three single-socket crimp connectors for each wire, or one 5-socket crimp connector for all three wires.</p>
 <ul class="simple">
-<li><p>Follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 29</span></a> (solid color circles) for the pin locations of the first array of LED strips.</p></li>
+<li><p>Follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 28</span></a> (solid color circles) for the pin locations of the first array of LED strips.</p></li>
 </ul>
 </li>
 <li><p>Plug in the fully assembled female crimp connector (after Step 2 is complete) into the Raspberry Pi GPIO pin so that the wires are connected to the correct locations.</p>
@@ -692,12 +692,12 @@ title="Print to PDF"
 <li><p>Screw in the LED voltage-adding wires (red-positive and white-negative) to the power female connector that comes with the DC power supply. Pay attention to the polarity.</p></li>
 <li><p>Plug in DC power supply.</p></li>
 <li><p>Connect additional LED strips to this array from the other end (away from the Raspberry Pi) of the first LED strip. Add an additional DC power supply to each subsequent LED strips. Use 3-pin extension cable when needed to extend the distance between connections.</p></li>
-<li><p>Install the real time clock (RTC) module as shown in <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 29</span></a>. Make sure that it goes into the correct location, occupying five of the GPIO pins.</p></li>
-<li><p>(Optional) To add a second array of LED strips for re-creating sunlight/twilight, while also running moonlight re-creation, follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 29</span></a> (open color circles) for the pin locations of the second LED array. Repeat Steps 2-8.</p>
+<li><p>Install the real time clock (RTC) module as shown in <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 28</span></a>. Make sure that it goes into the correct location, occupying five of the GPIO pins.</p></li>
+<li><p>(Optional) To add a second array of LED strips for re-creating sunlight/twilight, while also running moonlight re-creation, follow <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 28</span></a> (open color circles) for the pin locations of the second LED array. Repeat Steps 2-8.</p>
 <figure class="align-default" id="rtc-pic">
 <a class="reference internal image-reference" href="_images/RTC_pic.png"><img alt="_images/RTC_pic.png" src="_images/RTC_pic.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 31 </span><span class="caption-text">The Raspberry Pi with the RTC and both LED arrays (moonlight and sunlight/twilight) connected. This matches the schemetic of <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 29</span></a>.</span><a class="headerlink" href="#rtc-pic" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">The Raspberry Pi with the RTC and both LED arrays (moonlight and sunlight/twilight) connected. This matches the schemetic of <a class="reference internal" href="#schematic"><span class="std std-numref">Fig. 28</span></a>.</span><a class="headerlink" href="#rtc-pic" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </li>
@@ -712,11 +712,11 @@ title="Print to PDF"
 <figure class="align-default" id="box">
 <img alt="_images/diffusion_box.png" src="_images/diffusion_box.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Construction of a diffusion box housing one LED strip.</span><a class="headerlink" href="#box" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Construction of a diffusion box housing one LED strip.</span><a class="headerlink" href="#box" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="simple">
-<li><p>Construct the wooden box as <a class="reference internal" href="#box"><span class="std std-numref">Fig. 32</span></a> with screws. With:</p>
+<li><p>Construct the wooden box as <a class="reference internal" href="#box"><span class="std std-numref">Fig. 31</span></a> with screws. With:</p>
 <ul class="simple">
 <li><p>5/4” x 6” x 4’ board as the base.</p></li>
 <li><p>A 1” x 4” x 4’ board on each long side.</p></li>
