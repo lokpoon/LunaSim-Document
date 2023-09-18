@@ -193,11 +193,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="code.html">
-   Code
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="reference.html">
    References
   </a>
@@ -478,7 +473,7 @@ title="Print to PDF"
 <span id="content-moonshiner-sun"></span><h1>3. <span style="font-variant:small-caps;">MoonShineR</span>: Sunlight/twilight scheduler<a class="headerlink" href="#span-style-font-variant-small-caps-moonshiner-span-sunlight-twilight-scheduler" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><em><span style="font-variant:small-caps;">MoonShineR</span>: Sunlight/twilight scheduler</em> is designed to be used in conjunction with <em><span style="font-variant:small-caps;">MoonShineP</span></em> to re-create sunlight and twilight cycles in the lab.</p></li>
-<li><p><em><span style="font-variant:small-caps;">MoonShineR</span>: Sunlight/twilight scheduler</em> runs the same set of calculations as <em><span style="font-variant:small-caps;">MoonShineR</span>: Lux calculator</em> to predict sunlight and twilight illuminance. However, unlike in Lux calculator, the output table <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code> contains lists of LED intensity values over time.</p></li>
+<li><p><em><span style="font-variant:small-caps;">MoonShineR</span>: Sunlight/twilight scheduler</em> runs the same set of calculations as <em><span style="font-variant:small-caps;">MoonShineR</span>: R package</em> to predict sunlight and twilight illuminance. However, unlike in R package, the output table <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code> contains lists of LED intensity values over time.</p></li>
 <li><p>Read <a class="reference internal" href="moonlight_LED_scheduler.html#content-moonshiner-moon"><span class="std std-ref">2. MoonShineR: Moonlight scheduler</span></a> first. Most operations are the same for <em><span style="font-variant:small-caps;">MoonShineR</span>: Sunlight &amp; twilight scheduler</em>.</p></li>
 <li><p>This section only addresses operations in <em><span style="font-variant:small-caps;">MoonShineR</span>: Sunlight &amp; twilight scheduler</em> that differ from those in <em><span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler</em>.</p></li>
 <li><p>Download <em><span style="font-variant:small-caps;">MoonShineR</span>: Sunlight/twilight scheduler</em> in <a class="reference internal" href="download.html#content-lightbox-download"><span class="std std-ref">Download files</span></a>.</p></li>
@@ -500,7 +495,7 @@ title="Print to PDF"
 <p>MoonShineR: Sunlight/twilight scheduler misses some features found in the moonlight scheduler, including elevation effect, horizontal obstruction, and cloud simulation. For sunlight, we believe that applying these features to sunlight is not useful since we cannot foresee the user recreating full sunlight intensity. Therefore, applying these features would not make the re-created lighting more realistic. For twilight, while these features might be applicable to an extent, they are not implemented because twilight is a diffuse light source, unlike direct moonlight, and hence behaves very differently (Seidelmann 1992).</p>
 </div>
 <ol>
-<li><p>Refer to <a class="reference internal" href="lux_calculator.html#content-luxcalculator2"><span class="std std-ref">Key features</span></a> to load packages and then perform steps (1-7) as described in <a class="reference internal" href="lux_calculator.html#content-luxcalculator"><span class="std std-ref">1. MoonShineR: R package</span></a> to set the user-definable settings (location, time period, etc.) The time_interval_minutes is constrained to a value of one and cannot be changed. The following instructions will cover the settings and functions specific to <em><span style="font-variant:small-caps;">MoonShineR</span>: Sunlight &amp; twilight scheduler</em>.</p></li>
+<li><p>Refer to <a class="reference internal" href="moonlight_LED_scheduler.html#content-moonshiner-moon"><span class="std std-ref">2. MoonShineR: Moonlight scheduler</span></a> to load packages and then perform steps (1-7) as described to set the user-definable settings (location, time period, etc.) The time_interval_minutes is constrained to a value of one and cannot be changed. The following instructions will cover the settings and functions specific to <em><span style="font-variant:small-caps;">MoonShineR</span>: Sunlight &amp; twilight scheduler</em>.</p></li>
 <li><p>Set the calibration illuminance point. See <a class="reference internal" href="moonshine_calibration.html#content-lightbox-sun-calibration"><span class="std std-ref">Sunlight and twilight re-creation</span></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">theoretical_max</span> <span class="o">&lt;-</span> <span class="mi">600</span> <span class="c1"># (!) Define an intensity upper limit (in lux)</span>
 </pre></div>
@@ -535,7 +530,7 @@ title="Print to PDF"
 <p>Go to <a class="reference internal" href="moonlight_LED_scheduler.html#content-rgbw"><span class="std std-ref">RGBW spectral control</span></a> for details on how to adjust the RGBW intensity output for approximating the spectral-shift characteristics of certain habitats.</p>
 </li>
 <li><p>Run the code in the section “START OF ILLUMINATION COMPUTATION” through to “END OF ILLUMINATION COMPUTATION”.</p></li>
-<li><p>Generate a moon schedule file <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code> by running the codes in the section of “GENERATE LED_schedule_sun.csv”. And plot (See Steps 10-12 in <a class="reference internal" href="lux_calculator.html#content-luxcalculator"><span class="std std-ref">1. MoonShineR: R package</span></a>).</p></li>
+<li><p>Generate a sun schedule file <code class="docutils literal notranslate"><span class="pre">LED_schedule_sun.csv</span></code> by running the codes in the section of “GENERATE LED_schedule_sun.csv”. And plot (See Steps 10-12 in <a class="reference internal" href="lux_calculator.html#content-luxcalculator"><span class="std std-ref">1. MoonShineR: R package</span></a>).</p></li>
 </ol>
 </section>
 </section>

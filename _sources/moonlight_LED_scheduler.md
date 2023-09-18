@@ -15,9 +15,9 @@ kernelspec:
 (content:MoonShineR_moon)=
 # 2. <span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler
 
-- _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler_ is designed to be used in conjunction with _<span style="font-variant:small-caps;">MoonShineP</span>_ to re-create moonlight cycles in the lab.
+- _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler_ is a R script designed to be used in conjunction with _<span style="font-variant:small-caps;">MoonShineP</span>_ to re-create moonlight cycles in the lab.
 
-- _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler_ runs the same set of calculations as _<span style="font-variant:small-caps;">MoonShineR</span>: Lux calculator_ to predict moonlight illuminance. However, unlike in Lux calculator, the output table  `LED_schedule_moon.csv` contains lists of LED intensity values over time. The interval between successive LED intensity values is constrained to one minute (i.e., the LED intensities are refreshed every minute).
+- _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler_ runs the same set of calculations as _<span style="font-variant:small-caps;">MoonShineR</span>: R package_ to predict moonlight illuminance. However, unlike the R package, the output table  `LED_schedule_moon.csv` contains lists of LED intensity values over time. The interval between successive LED intensity values is constrained to one minute (i.e., the LED intensities are refreshed every minute).
 
 - Download _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler_ in {ref}`content:lightbox:download`.
 ## Key features
@@ -28,11 +28,68 @@ kernelspec:
 - Provides option to simulate light attenuation caused by clouds, with the ability to fine tune the cloud behavior in a stochastic model.
 - Provides option to adjust the LED light spectrum by controlling the relative intensity of each RGBW channel. This can be useful in approximating the color shift of certain habitats (e.g., the blue shift in deep clear ocean or lake water, or the red shift of sodium vapor street lighting).
 
+##  Packages required
+- library(suncalc) Calculates astronomical variables given a time and location, including moon phase, moon altitude, sun altitude, and the moon to Earth distance.
+- library(dplyr) Facilitates data wrangling.
+- library(rpmodel) Calculates atmospheric pressure at a given site elevation.
+- library(lubridate) Makes datetime format easier to work with.
+- library(REdaS) Converts between degree angle and radian.
+- library(npreg) Fits smoothing splines.
+- library(ggplot2) Create plots.
+- library(beepr) Makes a notification sound.
+- library(progress) Display a progress bar of the computation progress.
+
+    ```{tip}
+    This website [R Coder](https://r-coder.com/r-tutorials/r-basics/) is a good resource for learning basic R functions. Start here if you are completely new to R and need instructions on how to load R, set the working directory, install packages and run code.
+    ```
 ##  Workflow
+Below is a summary of the main steps required to run _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler_. The code itself is also commented. The “(!)” symbol denotes a line where the user must enter information.
 
-1. Refer to {ref}`content:luxcalculator2` to load packages and then perform steps 1-7 as are described in {ref}`content:luxcalculator` to set the user definable settings (location, time period, etc.) The time_interval_minutes is constrained to 1 and cannot be changed. The following instructions will cover the settings and function specific to _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight scheduler_.
+1. Set the working directory. This is where the `.csv` (schedule file) and .png (illuminance ~ time) plot are saved.
 
-2. Decide whether to change the default darksky_value, a constant value that is added to moonlight illuminance for representing starlight and airglow (Hänel et al. 2018); Hänel et al. (2018) report starlight and airglow to vary between 0.0006 and 0.0009. Leaving it at the default of 0.0008 lx means that even when the moon is below the horizon, the LED array will still light up to re-create 0.0008 lx ({numref}`starlight`). Otherwise, the darksky_value should be set at zero if the user wishes the room to be completely dark when the moon is below the horizon.
+    ```
+    setwd("/Users/lokpoon/Desktop") # (!) 
+    ```
+
+2. Set the geographical location for the simulation.
+
+    ```
+    latitude <- -4.21528 # (!) Latitude in decimal degrees (e.g., -4.21528)
+    longitude <- -69.94056 # (!) Longitude in decimal degrees (e.g., -69.94056)
+    ```
+
+3. Set the site elevation in m above mean sea level.
+
+    ```
+    site_elev <- 0 # (!) site elevation in meters (e.g., 0 = sea level)
+    ```
+     
+    ```{tip}
+    This website [dcode.fr](https://www.dcode.fr/earth-elevation) can be used to determine elevation for a specific geographical coordinate, by accessing NASA Shuttle Radar Topography Mission databases.
+    ```
+
+4. Set the time zone.
+
+    ```
+    time_zone <- "EST" # (!)
+    # For a list of time zone names, enter OlsonNames(tzdir = NULL) in R console
+    ```
+
+5. Set the starting date, starting time, and simulation duration in days.
+
+    ```
+    date_start <- "2022-07-26" # (!) Starting date of the simulation (YYYY-MM-DD)
+    time_start <- "18:00:00" # (!) Starting time of the simulation (hh:mm:ss)
+    duration_day <- 29.5 # (!) Duration of simulation in days
+    ```
+
+6. Set the simulation time interval to 1 (i.e., the temporal resolution). The time_interval_minutes is constrained to 1 and cannot be changed.
+
+    ```
+    time_interval_minutes <- 1 # (!) The temporal resolution in minutes
+    ```
+
+7. Decide whether to change the default darksky_value, a constant value that is added to moonlight illuminance for representing starlight and airglow (Hänel et al. 2018); Hänel et al. (2018) report starlight and airglow to vary between 0.0006 and 0.0009. Leaving it at the default of 0.0008 lx means that even when the moon is below the horizon, the LED array will still light up to re-create 0.0008 lx ({numref}`starlight`). Otherwise, the darksky_value should be set at zero if the user wishes the room to be completely dark when the moon is below the horizon.
 
     ```
     darksky_value <- 0.0008 # (!) Choose from between 0.0006 to 0.0009. Default = 0.0008
@@ -90,7 +147,52 @@ kernelspec:
     ```{figure} /images/moon_table.jpg
     :name: moon_table
 
-    Dataframe of `LED_schedule_moon.csv` file in R. The columns with green-highlighted headers are the RGBW intensity values that <span style="font-variant:small-caps;">MoonShineP</span> read to generate illuminance. The columns with yellow-highlighted headers are also generated by <span style="font-variant:small-caps;">MoonShineR</span> - Lux calculator. This tabulated information is exported to the `.csv` file, which is read by <span style="font-variant:small-caps;">MoonShineP</span>. Right click and select ‘Open image in new tab’ to enlarge figure.
+    Dataframe of `LED_schedule_moon.csv` file in R. The columns with green-highlighted headers are the RGBW intensity values that <span style="font-variant:small-caps;">MoonShineP</span> read to generate illuminance. The columns with yellow-highlighted headers are also generated by <span style="font-variant:small-caps;">MoonShineR</span> - R package. This tabulated information is exported to the `.csv` file, which is read by <span style="font-variant:small-caps;">MoonShineP</span>. Right click and select ‘Open image in new tab’ to enlarge figure.
+    ```
+10. Save a `LED_schedule_moon.csv`, containing the LED intensity values over time.
+
+    ```
+    write.csv(moon_value_table,"lux_calculator_output.csv", row.names = TRUE)
+    ```
+
+    
+11. Display a plot of the illuminance prediction over time, as specified in step 8, by running the code that starts with:
+    ```
+    plot_output <- ggplot() + theme_rectangular_clean + ......
+    ```
+    And ends with:
+    ```
+    plot_output
+    ```
+
+12. Save this plot to working directory ({numref}`one_month`), by running the following line of code: 
+    
+    ```
+    ggsave("plot_output.png", plot_output, width = 4488, height = 2000, units = "px", scale = 1, dpi = 450)
+    ```
+    
+    
+13. Finally, the section of code depicted below checks if you have any lunar eclipse events within your simulation.
+
+    ```
+    if (any(abs(moon_value_table$phase_angle) < 1.5 & moon_value_table$sun_altitude < 0)) { # eclipse defined as a moon with phase angle < 1.5 during nighttime
+      print("ECLIPSE IN SIMULATION!!!")
+      eclipse_list <- (abs(moon_value_table$phase_angle) < 1.5 & moon_value_table$sun_altitude < 0)
+      moon_value_table[which(eclipse_list == TRUE),]
+    } else {
+      print("no eclipse in simulation")
+    }
+    ```
+
+- If there is no eclipse, a "no eclipse in simulation" message will appear in the R console after the simulation is complete.
+
+    
+- If there is an eclipse, “ECLIPSE IN SIMULATION!!!” will appear in the console. _<span style="font-variant:small-caps;">MoonShineR</span>_ will also report a list of all time intervals affected by both the penumbral and umbral stages of the eclipse ({numref}`eclipse`). Note that _<span style="font-variant:small-caps;">MoonShineR</span>_ does not simulate the transient reduction in illuminated fraction or moonlight illuminance during a lunar eclipse (these variables will therefore be incorrectly reported reported by _<span style="font-variant:small-caps;">MoonShineR</span>_ during the event). 
+
+    ```{figure} /images/eclipse.jpg
+    :name: eclipse
+
+    Running a _<span style="font-variant:small-caps;">MoonShineR</span>_ simulation during an eclipse will return a warning message and a list of the minutes of the eclipse event.
     ```
  
 (content:rgbw)=

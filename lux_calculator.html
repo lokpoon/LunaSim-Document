@@ -525,8 +525,8 @@ title="Print to PDF"
 <section id="predict-lux">
 <h2><code class="docutils literal notranslate"><span class="pre">predict_lux()</span></code><a class="headerlink" href="#predict-lux" title="Permalink to this headline">#</a></h2>
 <ul>
-<li><p>The first function in <em><span style="font-variant:sRmall-caps;">MoonShineR</span>: R package</em> is <code class="docutils literal notranslate"><span class="pre">predict_lux()</span></code>, which predicts natural ground illuminance over any defined geographical location and time period in a data.frame object.</p></li>
-<li><p>More information can be seen by entering <code class="docutils literal notranslate"><span class="pre">?MoonShineR::predict_lux</span></code> in R consle. Simply start with the example provided at the bottom of the R help page, shown here:</p>
+<li><p>The first function in <em><span style="font-variant:sRmall-caps;">MoonShineR</span>: R package</em> is <code class="docutils literal notranslate"><span class="pre">predict_lux()</span></code>, which predicts natural ground illuminance over any defined geographical location and time period in a <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> object.</p></li>
+<li><p>More information can be seen by entering <code class="docutils literal notranslate"><span class="pre">?MoonShineR::predict_lux</span></code> in R consle. Simply start with the example provided at the bottom of the R help page, which is also shown here:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moonlight_output</span> <span class="o">&lt;-</span> <span class="n">predict_lux</span><span class="p">(</span><span class="n">latitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.21528</span><span class="p">,</span> <span class="n">longitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">69.94056</span><span class="p">,</span> <span class="n">site_elev</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
                     <span class="n">time_zone</span> <span class="o">=</span> <span class="s2">&quot;EST&quot;</span><span class="p">,</span> <span class="n">date_start</span> <span class="o">=</span> <span class="s2">&quot;2023-02-27&quot;</span><span class="p">,</span> <span class="n">time_start</span> <span class="o">=</span> <span class="s2">&quot;18:00:00&quot;</span><span class="p">,</span>
                     <span class="n">duration_day</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">time_interval_minutes</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">darksky_value</span> <span class="o">=</span> <span class="mf">0.0008</span><span class="p">,</span>
@@ -534,14 +534,21 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p>This example creates a data.frame object named “moonlight_output”, which is a prediction of the nighttime moonlight illuminance in Leticia, Colombia, for 14 days starting on 2023-02-27 at 6pm.</p></li>
+<li><p>This example creates a <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> object named “moonlight_output”, which is a prediction of the nighttime moonlight illuminance in Leticia, Colombia, for 14 days starting on 2023-02-27 at 6pm. The definitions of the columns within the <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> is provided in the R help page, which is also shown here:</p>
+<figure class="align-default" id="column">
+<img alt="_images/columns.jpg" src="_images/columns.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Definition of the output <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> columns.</span><a class="headerlink" href="#column" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
 <li><p>The console also print a message to inform the user if there are lunar eclipse events within the simulation.</p></li>
 <li><p>If there is no eclipse, a “no eclipse in simulation” message will appear in the R console after the simulation is complete.</p></li>
-<li><p>If there is an eclipse, “ECLIPSE IN SIMULATION!!!” will appear in the console. <em><span style="font-variant:small-caps;">MoonShineR</span></em> will also report a list of all time intervals affected by both the penumbral and umbral stages of the eclipse (<a class="reference internal" href="#eclipse"><span class="std std-numref">Fig. 2</span></a>). Note that <em><span style="font-variant:small-caps;">MoonShineR</span></em> does not simulate the transient reduction in illuminated fraction or moonlight illuminance during a lunar eclipse (these variables will therefore be incorrectly reported reported by <em><span style="font-variant:small-caps;">MoonShineR</span></em> during the event).</p>
+<li><p>If there is an eclipse, “ECLIPSE IN SIMULATION!!!” will appear in the console. <em><span style="font-variant:small-caps;">MoonShineR</span></em> will also report a list of all time intervals affected by both the penumbral and umbral stages of the eclipse (<a class="reference internal" href="#eclipse"><span class="std std-numref">Fig. 3</span></a>). Note that <em><span style="font-variant:small-caps;">MoonShineR</span></em> does not simulate the transient reduction in illuminated fraction or moonlight illuminance during a lunar eclipse (these variables will therefore be incorrectly reported reported by <em><span style="font-variant:small-caps;">MoonShineR</span></em> during the event).</p>
 <figure class="align-default" id="eclipse">
 <img alt="_images/eclipse.jpg" src="_images/eclipse.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Running a <em><span style="font-variant:small-caps;">MoonShineR</span></em> simulation during an eclipse will return a warning message and a list of the minutes of the eclipse event.</span><a class="headerlink" href="#eclipse" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Running a <em><span style="font-variant:small-caps;">MoonShineR</span></em> simulation during an eclipse will return a warning message and a list of the minutes of the eclipse event.</span><a class="headerlink" href="#eclipse" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </li>
@@ -551,20 +558,20 @@ title="Print to PDF"
 <section id="plot-lux">
 <h2><code class="docutils literal notranslate"><span class="pre">plot_lux()</span></code><a class="headerlink" href="#plot-lux" title="Permalink to this headline">#</a></h2>
 <ul>
-<li><p>The second function in <em><span style="font-variant:sRmall-caps;">MoonShineR</span>: R package</em> is <code class="docutils literal notranslate"><span class="pre">plot_lux()</span></code>, which takes the data.frame object created by <code class="docutils literal notranslate"><span class="pre">predict_lux()</span></code> to produce a clean looking plot.</p></li>
-<li><p>More information can be seen by entering <code class="docutils literal notranslate"><span class="pre">?MoonShineR::plot_lux</span></code> in R consle. Simply start with the example provided at the bottom of the R help page, shown here:</p>
+<li><p>The second function in <em><span style="font-variant:sRmall-caps;">MoonShineR</span>: R package</em> is <code class="docutils literal notranslate"><span class="pre">plot_lux()</span></code>, which takes the <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> object created by <code class="docutils literal notranslate"><span class="pre">predict_lux()</span></code> to produce a clean looking plot.</p></li>
+<li><p>More information can be seen by entering <code class="docutils literal notranslate"><span class="pre">?MoonShineR::plot_lux</span></code> in R consle. Simply start with the example provided at the bottom of the R help page, which is also shown here:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_lux</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">moonlight_output</span><span class="p">,</span> <span class="n">illuminance_type_plot</span> <span class="o">=</span> <span class="s2">&quot;total_illuminance_all&quot;</span><span class="p">,</span>
          <span class="n">plot_y_max</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>  <span class="n">plot_dayttime_gray_mask</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">plot_twilight</span> <span class="o">=</span> <span class="s2">&quot;astro&quot;</span><span class="p">,</span>
          <span class="n">vertical_time_label</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">time_label_interval_hr</span> <span class="o">=</span> <span class="mi">24</span><span class="p">,</span> <span class="n">time_labe_shift_hr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
-<li><p>This example took the data.frame object named “moonlight_output” we created from the previous section and creates a plot (<a class="reference internal" href="#id1"><span class="std std-numref">Fig. 3</span></a>).</p></li>
+<li><p>This example took the <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> object named “moonlight_output” we created from the previous section and creates a plot (<a class="reference internal" href="#id1"><span class="std std-numref">Fig. 4</span></a>).</p></li>
 <li><p>If the above example works, you can now change the arguments to your desire. See Arguments section in the R help page for detailed descriptions.</p>
 <figure class="align-default" id="id1">
 <img alt="_images/plot_lux.jpeg" src="_images/plot_lux.jpeg" />
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Plot created in the example.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Plot created in the example.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </li>

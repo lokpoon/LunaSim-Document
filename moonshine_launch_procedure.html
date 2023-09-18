@@ -604,11 +604,11 @@ title="Print to PDF"
 </li>
 </ol>
 <ul>
-<li><p>On entering this text, the user will see a new window containing a list of active system services (<a class="reference internal" href="#active-service"><span class="std std-numref">Fig. 35</span></a>).If systemd is running correctly the lines within the yellow box in <a class="reference internal" href="#active-service"><span class="std std-numref">Fig. 35</span></a> will appear.</p>
+<li><p>On entering this text, the user will see a new window containing a list of active system services (<a class="reference internal" href="#active-service"><span class="std std-numref">Fig. 37</span></a>).If systemd is running correctly the lines within the yellow box in <a class="reference internal" href="#active-service"><span class="std std-numref">Fig. 37</span></a> will appear.</p>
 <figure class="align-default" id="active-service">
 <img alt="_images/active_service.png" src="_images/active_service.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 35 </span><span class="caption-text">A list of active systemd service.</span><a class="headerlink" href="#active-service" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">A list of active systemd service.</span><a class="headerlink" href="#active-service" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </li>
@@ -624,12 +624,12 @@ title="Print to PDF"
 <li><p>On entering this text, the user will see a new window containing a summary of CPU usage. The user should now check that every minute there is CPU activity associated with <span style="font-variant:small-caps;">MoonShineP</span> operation (corresponding to when MoonShineP changes illumination values in the LEDs).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Starting 8 sec before the start of every minute, one of the CUP cores (two if running two services, both moon and sunlight recreation) of the CPU cores will increase usage to 100% (<a class="reference internal" href="#htop"><span class="std std-numref">Fig. 36</span></a>). <code class="docutils literal notranslate"><span class="pre">moonshine_moon.service</span></code> will be listed as the top task in the list. The LEDs will be be updated at the start of the minute, and CPU usage will return to normal.</p>
+<p>Starting 8 sec before the start of every minute, one of the CUP cores (two if running two services, both moon and sunlight recreation) of the CPU cores will increase usage to 100% (<a class="reference internal" href="#htop"><span class="std std-numref">Fig. 38</span></a>). <code class="docutils literal notranslate"><span class="pre">moonshine_moon.service</span></code> will be listed as the top task in the list. The LEDs will be be updated at the start of the minute, and CPU usage will return to normal.</p>
 </div>
 <figure class="align-default" id="htop">
 <img alt="_images/htop.png" src="_images/htop.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Two CPUs at 100% usage just before the start of every minute, as the <code class="docutils literal notranslate"><span class="pre">moonshine_moon.py</span></code> and <code class="docutils literal notranslate"><span class="pre">moonshine_sun.py</span></code> are searching for a matching datetime to the current time.</span><a class="headerlink" href="#htop" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Two CPUs at 100% usage just before the start of every minute, as the <code class="docutils literal notranslate"><span class="pre">moonshine_moon.py</span></code> and <code class="docutils literal notranslate"><span class="pre">moonshine_sun.py</span></code> are searching for a matching datetime to the current time.</span><a class="headerlink" href="#htop" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
