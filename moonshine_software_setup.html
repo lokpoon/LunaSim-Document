@@ -109,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="overview.html">
-                    Overview
+                    Updated Sep 21, 2023
                 </a>
             </li>
         </ul>
@@ -573,7 +573,9 @@ title="Print to PDF"
 <p>It must be Python 3.9.9</p>
 </div>
 </li>
-<li><p>Modify the Raspberry Pi to run the ws2811 library.</p>
+<li><p>Reboot the Raspberry Pi.</p></li>
+<li><p>Modify the Raspberry Pi to run the ws2811 library.</p></li>
+</ol>
 <p>Reference: <a class="reference external" href="https://tutorials-raspberrypi.com/connect-control-raspberry-pi-ws2812-rgb-led-strips/">Connect and Control WS2812 RGB LED Strips via Raspberry Pi</a></p>
 <ul class="simple">
 <li><p>In terminal, enter the following sequence of commands:</p></li>
@@ -622,7 +624,7 @@ title="Print to PDF"
 </div>
 </li>
 </ul>
-</li>
+<ol>
 <li><p>Download rpi_ws281x library by entering:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span>
 </pre></div>
@@ -733,6 +735,7 @@ title="Print to PDF"
 <p>In  <code class="docutils literal notranslate"><span class="pre">moonshine_moon.py</span></code>, the line of LED_PIN = 18 specifies the communication with the moonlight LED strip through the <strong>GPIO 18</strong>. In <code class="docutils literal notranslate"><span class="pre">moonshine_sun.py</span></code>, the line of LED_PIN = 21 controls the sunlight/twilight LED strip through <strong>GPIO 21</strong> instead.</p>
 </div>
 </li>
+<li><p>In additional, download <code class="docutils literal notranslate"><span class="pre">clear_moon.py</span></code> and <code class="docutils literal notranslate"><span class="pre">clear_sun.py</span></code> put them directly on the Raspberry Pi Desktop.</p></li>
 </ol>
 </section>
 <section id="setting-up-systemd-service">

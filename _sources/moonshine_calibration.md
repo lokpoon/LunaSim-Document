@@ -17,55 +17,56 @@ kernelspec:
 # 7. <span style="font-variant:small-caps;">MoonShineP</span>: Calibration
 
 ## Moonlight re-creation
-- To achieve realistic moonlight level illuminance, the LED arrays must be physically dimmed. We use neutral density (ND) filter on the lightbox to reduce the light intensity without modifying the color spectrum ({numref}`box`).
+- To achieve realistic moonlight level illuminance, the LED arrays must be physically dimmed. We layer neutral density (ND) filter paper on the lightbox to reduce the light intensity, without modifying the color spectrum ({numref}`box`)), until a ‘calibration value’ is achieved.
 
 - The user must first decide whether to re-create unobstructed ground illumination (i.e., a simulation in which there is no additional dimming), or to recreate light with a desired attenuation level so as to mimic the illumination levels of a natural habitat.
 
-- For the re-creation of full moon illuminance with no additional dimming, we recommend a value between 0.4-0.5 lx as the calibration illuminance point. {ref}`content:lightbox:radiometer` explains why this calibration point can be any value between 0.4-0.5 lx.
-- The brightest possible full moon never exceeds 0.4 lx, and a full moon is typically much dimmer than 0.3 lx. Calibrting to ~0.4 lx does not mean that the full moon re-created will be 0.4 lx, it is just a calibration point so that any illuminance within 0.4 lx will be re-created accuratly. By calibrating the lightbox to ~0.4 lx, we ensure that _<span style="font-variant:small-caps;">MoonShineP</span>_ can re-create the entire range of moonlight illuminance. Meaning that once calibrated to ~0.4 lx, it can recreate any moonlight scenerios.
+- For the re-creation of full moon illuminance with no additional dimming, we recommend a ‘calibration value’ exceeding 0.36 lx but less than approximately 0.5. In brief, this value is achieved as follows: 1)  Configure the LED array to its maximum brightness (i.e., all LEDs illuminated at their maximum value for the particular RGBW ratio used).  2) Using a low-light radiometer to monitor the light level at a fixed position near the experimental arena. 3) Add layers of neutral density filter papers onto the light box until the light is dimmed to > 0.36 lx but < approximately 0.5 lx when measured by the radiometer at its fixed position.
+
+- The justification for the > 0.36 < ~ 0.5 range of calibration values is that the maximum possible ground illuminance of a full moon is 0.36 lx (see Section 4.2 of the paper); most full moons are much dimmer than this. Henceforth we use the example of a calibration value of 0.4 lx. It is important to understand that a calibration value of 0.4 lx does not mean that the full moon re-created by MoonShine will be 0.4 lx. Instead, this calibration value simply ensures that any illuminance below 0.4 lx will be re-created accurately. By calibrating the lightbox to a value exceeding 0.36 lx but less than ~ 0.5 lx (the closer to 0.36 lx, the better), we ensure that _<span style="font-variant:small-caps;">MoonShineP</span>_ can precisely re-create, with optimal accuracy, the entire range of natural moonlight illuminance predicted by _<span style="font-variant:small-caps;">MoonShineR</span>_. 
 
 (content:calibration_schedule)=
 ## Create a calibration schedule
 Use the provided `manual_scheduler.xlsx` (see {ref}`content:excel_scheduler`) to create a `LED_schedule_moon.csv` that turns on the LEDs at full intensity (with spectral control applied).
-1. In `manual_scheduler.xlsx`, set theoretical_max to 0.4.
+1. . In `manual_scheduler.xlsx`, set theoretical_max to the calibration value (here we continue with the example of 0.4 lx). 
 2. Fill the entire column of "desired illuminance" with 0.4. This tells the LEDs to produce 100% intensity (i.e., 0.4/0.4 = 100%).
 3. Set the spectral control as desired (leave it as default for natural moonlight spectrum).
 4. Make the schedule to last for 2 hours (or a period sufficient to perform the calibration period) for a time period in the near future, at the time the calibration will be performed.
 5. Follow the rest of the instructions in {ref}`content:excel_scheduler` to save the `LED_schedule_moon.csv`
 6. This schedule file will instruct _<span style="font-variant:small-caps;">MoonShineP</span>_ to generate full intensity light for the purpose of calibration.
 
-
-
 ### Which ND filter sheets?
+
+Lee ND filter sheets are available with multiple light transmission values. For example:
+    - Lee 298 (ND 0.15, ½ Stop) = Transmission 69.3%
+    - Lee 209 (ND 0.3, 1 Stop) = Transmission 51.2%
+    - Lee 210 (ND 0.6, 2 Stop) = Transmission 23.5%
+    - Lee 211 (ND 0.9, 3 Stop) = Transmission 13.7%
+    - Lee 299 (ND 1.2, 4 Stop) = Transmission 6.6%
+
 To make an informed decision on what combination of ND filter sheets is needed for the user's specific room and setup, perform the following steps:
 
 1. Position the lightboxes at their permanent locations. Ideally the lightboxes should be put on shelves at opposite sides of the room, so that the light is directed to the ceiling and diffusely illuminates the entire room. The room should preferably have a white or light-shaded ceiling so as to minimize the change in the light spectrum.
 2. Using the previously created calibration `LED_schedule_moon.csv`, launch _<span style="font-variant:small-caps;">MoonShineP</span>_ (see {ref}`content:launch`).
 3. Using a radiometer, measure the illuminance at the position of the animal enclosure. Let us say that it measures 100 lx. 
-    - To target a full moon illuminance (0.4 lx), based on the transmission of the ND filter:
-    - Lee ND filter sheet lineup:
-        - Lee 298 (ND 0.15, ½ Stop) = Transmission 69.3%
-        - Lee 209 (ND 0.3, 1 Stop) = Transmission 51.2%
-        - Lee 210 (ND 0.6, 2 Stop) = Transmission 23.5%
-        - Lee 211 (ND 0.9, 3 Stop) = Transmission 13.7%
-        - Lee 299 (ND 1.2, 4 Stop) = Transmission 6.6%
-    - In theory, using two sheets of 4 Stop ND: 100 lx × 6.6% × 6.6% = 0.44 lx 
-    - Use more ND sheets if further dimming is needed to re-create a lower illuminance.
-    - The above calculation is only to get an idea of which ND filter to buy. Next we must calibrate _<span style="font-variant:small-caps;">MoonShineP</span>_ by measuring the illuminance.
+- To target a full moon illuminance > 0.36 < ~0.5 lx, begin by estimating the light value that will be produced by the lightbox using a combination of Lee filters stacked onto the opening of the lightbox.
+- For instance, if two single Lee ND 299 sheet (each with 6.6% transmission) were used to filter the LEDS, the illumination would be reduced from 100 lx to approximately 0.44 lx (100 x 0.066 x 0.066). Since this value is close to the target range, this would be a good starting point.
+- The above calculation is only to get a crude idea of which ND filter to buy. We recommend buying some additional sheets with high transmission percentages (i.e. sheets that block only small amounts of light) for fine-tuning purposes. Next we must calibrate _<span style="font-variant:small-caps;">MoonShineP</span>_ by measuring the illuminance.
+
 
 (content:lightbox:radiometer)=
 ###  Calibrating <span style="font-variant:small-caps;">MoonShineP</span> with a radiometer
 - Using the previously created calibration `LED_schedule_moon.csv`, launch _<span style="font-variant:small-caps;">MoonShineP</span>_ (see {ref}`content:launch`).
 - Next, the calibration method depends on whether a low light sensitive radiometer (able to accurately measure 0.01 lx) is available.
     - If available,
-        1. Layer filters on the lightbox until the radiometer sensor placed on the ground of the animal housing reads a target illuminance between 0.4 lx to 0.5 lx. This target illuminance can be any value between 0.4 lx to 0.5 lx because every additional ND filters layers attenuates illuminance in a certian fraction, meaning it is very diffcult to attenuate the illumiance to a exact pre-determined value.
-        2. Record this illuminance measurement because this is the calibration point.
-        3. Put in this calibration point as the theoretical_max value in _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight led scheduler_ when generating a `LED_schedule_moon.csv`. The _<span style="font-variant:small-caps;">MoonShineP</span>_ system is now calibrated.
-    - If only a non-low light sensitive radiometer is available:
+        1. Layer filters on the lightbox until the radiometer sensor placed on the ground of the animal housing reads a target illuminance between 0.36 lx and ~0.5 lx. Because every additional ND filter layers attenuate illuminance in a certain fraction, it can be difficult to attenuate the illuminance to within this narrow range. We recommend purchasing multiple filter papers with small light-attenuation percentages to make this process easier. 
+        2. Once a value between 0.36 and ~0.5 lx is achieved, record this illuminance measurement. This is the calibration value.
+        3. Put in this calibration value as the theoretical_max value in _<span style="font-variant:small-caps;">MoonShineR</span>: Moonlight led scheduler_ when generating a `LED_schedule_moon.csv`. The _<span style="font-variant:small-caps;">MoonShineP</span>_ system is now calibrated.
+    - If only a non-low light sensitive radiometer is available (i.e., one incapable of reading lower than 0.1 lx, but has a resolution of +/- 1 lx or better):
         1. Instead measure the room illuminance with no filter applied. Then repeat the measurement but now with the radiometer pointing directly at the LED light at a close distance.
         2. The ratio between the room illuminance and direct illuminance should remain relatively constant as more filters are applied.
         3. In this manner estimate how many layers of filter are required to reduce the illuminance to reach the target.
-        4. Then follow the above concepts described for calibrating the system with a low light sensitive radiometer.
+        4. Then follow the above concepts described for calibrating the system described for the low light sensitive radiometer.
 
 ```{figure} /images/10days.png
 :name: 10days

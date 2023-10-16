@@ -49,7 +49,7 @@ Install and load _<span style="font-variant:sRmall-caps;">MoonShineR</span>: R p
 
 - This example creates a `data.frame` object named "moonlight_output", which is a prediction of the nighttime moonlight illuminance in Leticia, Colombia, for 14 days starting on 2023-02-27 at 6pm. The definitions of the columns within the `data.frame` is provided in the R help page, which is also shown here:
 
-    ```{figure} /images/columns.jpg
+    ```{figure} /images/columns2.jpg
     :name: column
 
     Definition of the output `data.frame` columns.
@@ -74,8 +74,9 @@ Install and load _<span style="font-variant:sRmall-caps;">MoonShineR</span>: R p
 
     ```
     plot_lux(df = moonlight_output, illuminance_type_plot = "total_illuminance_all",
-             plot_y_max = 0.3,  plot_dayttime_gray_mask = TRUE, plot_twilight = "astro",
-             vertical_time_label = TRUE, time_label_interval_hr = 24, time_labe_shift_hr = 0)
+             plot_y_max = 0.3,  plot_dayttime_gray_mask = TRUE, plot_eclipse_red_mask = TRUE,
+             plot_twilight = "astro", vertical_time_label = TRUE, time_label_interval_hr = 24,
+             time_labe_shift_hr = 0)
     ```
 
 - This example took the `data.frame` object named "moonlight_output" we created from the previous section and creates a plot ({numref}`plot_lux`).
@@ -86,3 +87,7 @@ Install and load _<span style="font-variant:sRmall-caps;">MoonShineR</span>: R p
 
     Plot created in the example.
     ```
+    
+```{note}
+If plot_eclipse_red_mask = TRUE, and there is an eclipse during the plotted simulation period, the eclipse period will be highlighted red to warn the user that those illuminance is an overestimate because MoonShineR does not model the illuminance reduction due to an eclipse.
+```

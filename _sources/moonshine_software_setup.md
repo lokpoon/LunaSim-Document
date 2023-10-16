@@ -73,6 +73,7 @@ kernelspec:
     ```
 
 8. Check Python version is version (3.9.9) by entering:
+
    
    ```
    python --version
@@ -81,8 +82,9 @@ kernelspec:
    ```{attention}
    It must be Python 3.9.9
    ```
-   
-9. Modify the Raspberry Pi to run the ws2811 library. 
+
+9. Reboot the Raspberry Pi.
+10. Modify the Raspberry Pi to run the ws2811 library. 
    
    Reference: [Connect and Control WS2812 RGB LED Strips via Raspberry Pi](https://tutorials-raspberrypi.com/connect-control-raspberry-pi-ws2812-rgb-led-strips/)
    
@@ -141,7 +143,7 @@ kernelspec:
      sudo reboot
      ```
 
-10. Download rpi_ws281x library by entering:
+11. Download rpi_ws281x library by entering:
     ```
     cd
     ```
@@ -150,7 +152,7 @@ kernelspec:
     git clone https://github.com/jgarff/rpi_ws281x
     ```
 
-11. Next, modify the following lines to specify using the SK6812 protocol: 
+12. Next, modify the following lines to specify using the SK6812 protocol: 
     
     - Using the file explorer, open the `main.c` file found in */home/pi/rpi_ws281x/*
     
@@ -172,7 +174,7 @@ kernelspec:
     The configuration of the `main.c` file.
     ```
     
-12. Next, compile the library for Python.
+13. Next, compile the library for Python.
       
       In terminal, enter the following commands:
       
@@ -189,7 +191,7 @@ kernelspec:
     ```
    
 
-13. Now the Raspberry Pi should be ready to control the SK6812 LED strips.
+14. Now the Raspberry Pi should be ready to control the SK6812 LED strips.
 
 ## Setup real time clock (RTC) and time
 
@@ -247,6 +249,8 @@ A real time clock module is optional but recommended. We recommend that the user
     ```{note}
     In  `moonshine_moon.py`, the line of LED_PIN = 18 specifies the communication with the moonlight LED strip through the **GPIO 18**. In `moonshine_sun.py`, the line of LED_PIN = 21 controls the sunlight/twilight LED strip through **GPIO 21** instead.
     ```
+
+1. In additional, download `clear_moon.py` and `clear_sun.py` put them directly on the Raspberry Pi Desktop.
 (content:systemd)=   
 ## Setting up systemd service
 Running _<span style="font-variant:small-caps;">MoonShineP</span>_ using the Linux systemd service manager allows it to recover and resume light re-creation automatically, in the unlikely event of a crash.
