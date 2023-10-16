@@ -38,11 +38,11 @@ Use the provided `manual_scheduler.xlsx` (see {ref}`content:excel_scheduler`) to
 ### Which ND filter sheets?
 
 Lee ND filter sheets are available with multiple light transmission values. For example:
-    - Lee 298 (ND 0.15, ½ Stop) = Transmission 69.3%
-    - Lee 209 (ND 0.3, 1 Stop) = Transmission 51.2%
-    - Lee 210 (ND 0.6, 2 Stop) = Transmission 23.5%
-    - Lee 211 (ND 0.9, 3 Stop) = Transmission 13.7%
-    - Lee 299 (ND 1.2, 4 Stop) = Transmission 6.6%
+- Lee 298 (ND 0.15, ½ Stop) = Transmission 69.3%
+- Lee 209 (ND 0.3, 1 Stop) = Transmission 51.2%
+- Lee 210 (ND 0.6, 2 Stop) = Transmission 23.5%
+- Lee 211 (ND 0.9, 3 Stop) = Transmission 13.7%
+- Lee 299 (ND 1.2, 4 Stop) = Transmission 6.6%
 
 To make an informed decision on what combination of ND filter sheets is needed for the user's specific room and setup, perform the following steps:
 
