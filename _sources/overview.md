@@ -1,4 +1,4 @@
-### Updated Sep 21, 2023
+
 # Overview
 ## Overview of <span style="font-variant:small-caps;">MoonShineP</span> and its companion program <span style="font-variant:small-caps;">MoonShineR</span>
 
@@ -42,3 +42,5 @@ A flowchart of how <span style="font-variant:small-caps;">MoonShineP</span> work
     this is a line of code
     ```
 - Internal hyperlinks within this documents & links to external websites are indicated in blue text.
+
+#### Manual last updated Oct 15, 2023
