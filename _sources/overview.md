@@ -49,4 +49,4 @@ A flowchart of how <span style="font-variant:small-caps;">MoonShineP</span> work
     ```
 - Internal hyperlinks within this documents & links to external websites are indicated in blue text.
 
-#### Manual last updated Feb 30, 2024
+#### Manual last updated Feb 1, 2024

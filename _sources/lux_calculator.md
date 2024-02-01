@@ -75,7 +75,7 @@ Install and load _<span style="font-variant:sRmall-caps;">MoonShineR</span>: R p
     ```
     plot_lux(df = moonlight_output, illuminance_type_plot = "total_illuminance_all",
              plot_y_max = 0.3,  plot_dayttime_gray_mask = TRUE, plot_eclipse_red_mask = TRUE,
-             plot_twilight = "astro", vertical_time_label = TRUE, time_label_interval_hr = 24,
+             plot_twilight = "astro", vertical_tiqme_label = TRUE, time_label_interval_hr = 24,
              time_labe_shift_hr = 0)
     ```
 
@@ -89,5 +89,5 @@ Install and load _<span style="font-variant:sRmall-caps;">MoonShineR</span>: R p
     ```
     
 ```{note}
-If plot_eclipse_red_mask = TRUE, and there is an eclipse during the plotted simulation period, the eclipse period will be highlighted red to warn the user that those illuminance is an overestimate because MoonShineR does not model the illuminance reduction due to an eclipse.
+If plot_eclipse_red_mask = TRUE, and there is an eclipse during the plotted simulation period, the eclipse period will be highlighted red to warn the user that those illuminances are overestimates. This is necessary because MoonShineR does not model the illuminance reduction during an eclipse.
 ```

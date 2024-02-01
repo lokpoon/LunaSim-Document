@@ -539,7 +539,7 @@ title="Print to PDF"
 </li>
 <li><p>The console also print a message to inform the user if there are lunar eclipse events within the simulation.</p></li>
 <li><p>If there is no eclipse, a “no eclipse in simulation” message will appear in the R console after the simulation is complete.</p></li>
-<li><p>If there is an eclipse, “ECLIPSE IN SIMULATION!!!” will appear in the console. <em><span style="font-variant:small-caps;">MoonShineR</span></em> will also report a list of all time intervals affected by both the penumbral and umbral stages of the eclipse (<a class="reference internal" href="moonlight_LED_scheduler.html#eclipse"><span class="std std-numref">Fig. 8</span></a>). Note that <em><span style="font-variant:small-caps;">MoonShineR</span></em> does not simulate the transient reduction in illuminated fraction or moonlight illuminance during a lunar eclipse (these variables will therefore be incorrectly reported reported by <em><span style="font-variant:small-caps;">MoonShineR</span></em> during the event).</p>
+<li><p>If there is an eclipse, “ECLIPSE IN SIMULATION!!!” will appear in the console. <em><span style="font-variant:small-caps;">MoonShineR</span></em> will also report a list of all time intervals affected by both the penumbral and umbral stages of the eclipse (<a class="reference internal" href="#eclipse"><span class="std std-numref">Fig. 3</span></a>). Note that <em><span style="font-variant:small-caps;">MoonShineR</span></em> does not simulate the transient reduction in illuminated fraction or moonlight illuminance during a lunar eclipse (these variables will therefore be incorrectly reported reported by <em><span style="font-variant:small-caps;">MoonShineR</span></em> during the event).</p>
 <figure class="align-default" id="eclipse">
 <img alt="_images/eclipse.jpg" src="_images/eclipse.jpg" />
 <figcaption>
@@ -557,7 +557,7 @@ title="Print to PDF"
 <li><p>More information can be seen by entering <code class="docutils literal notranslate"><span class="pre">?MoonShineR::plot_lux</span></code> in R consle. Simply start with the example provided at the bottom of the R help page, which is also shown here:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_lux</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">moonlight_output</span><span class="p">,</span> <span class="n">illuminance_type_plot</span> <span class="o">=</span> <span class="s2">&quot;total_illuminance_all&quot;</span><span class="p">,</span>
          <span class="n">plot_y_max</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>  <span class="n">plot_dayttime_gray_mask</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">plot_eclipse_red_mask</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span>
-         <span class="n">plot_twilight</span> <span class="o">=</span> <span class="s2">&quot;astro&quot;</span><span class="p">,</span> <span class="n">vertical_time_label</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">time_label_interval_hr</span> <span class="o">=</span> <span class="mi">24</span><span class="p">,</span>
+         <span class="n">plot_twilight</span> <span class="o">=</span> <span class="s2">&quot;astro&quot;</span><span class="p">,</span> <span class="n">vertical_tiqme_label</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">time_label_interval_hr</span> <span class="o">=</span> <span class="mi">24</span><span class="p">,</span>
          <span class="n">time_labe_shift_hr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -574,7 +574,7 @@ title="Print to PDF"
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If plot_eclipse_red_mask = TRUE, and there is an eclipse during the plotted simulation period, the eclipse period will be highlighted red to warn the user that those illuminance is an overestimate because MoonShineR does not model the illuminance reduction due to an eclipse.</p>
+<p>If plot_eclipse_red_mask = TRUE, and there is an eclipse during the plotted simulation period, the eclipse period will be highlighted red to warn the user that those illuminances are overestimates. This is necessary because MoonShineR does not model the illuminance reduction during an eclipse.</p>
 </div>
 </section>
 </section>
