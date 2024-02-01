@@ -165,7 +165,7 @@ Below is a summary of the main steps required to run _<span style="font-variant:
     plot_output
     ```
 
-12. Save this plot to working directory ({numref}`one_month`), by running the following line of code: 
+12. Save this plot to working directory, by running the following line of code: 
     
     ```
     ggsave("plot_output.png", plot_output, width = 4488, height = 2000, units = "px", scale = 1, dpi = 450)
@@ -187,7 +187,7 @@ Below is a summary of the main steps required to run _<span style="font-variant:
 - If there is no eclipse, a "no eclipse in simulation" message will appear in the R console after the simulation is complete.
 
     
-- If there is an eclipse, “ECLIPSE IN SIMULATION!!!” will appear in the console. _<span style="font-variant:small-caps;">MoonShineR</span>_ will also report a list of all time intervals affected by both the penumbral and umbral stages of the eclipse ({numref}`eclipse`). Note that _<span style="font-variant:small-caps;">MoonShineR</span>_ does not simulate the transient reduction in illuminated fraction or moonlight illuminance during a lunar eclipse (these variables will therefore be incorrectly reported reported by _<span style="font-variant:small-caps;">MoonShineR</span>_ during the event). 
+- If there is an eclipse, “ECLIPSE IN SIMULATION!!!” will appear in the console. _<span style="font-variant:small-caps;">MoonShineR</span>_ will also report a list of all time intervals affected by both the penumbral and umbral stages of the eclipse. Note that _<span style="font-variant:small-caps;">MoonShineR</span>_ does not simulate the transient reduction in illuminated fraction or moonlight illuminance during a lunar eclipse (these variables will therefore be incorrectly reported reported by _<span style="font-variant:small-caps;">MoonShineR</span>_ during the event). 
 
     ```{figure} /images/eclipse.jpg
     :name: eclipse

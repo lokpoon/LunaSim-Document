@@ -64,6 +64,7 @@ In the terminal,
    - _<span style="font-variant:small-caps;">MoonShineP</span>_ should be up and running once the system clock hits 00 second.
    
 
+    
 2. To see if the service is active, enter:
 
     ```
@@ -78,6 +79,10 @@ In the terminal,
     A list of active systemd service.
     ```
 
+    ```{attention}
+    If `moonshine_moon.service` is missing and the LED light is not operating, simply try to reboot the device. After a reboot, `moonshine_moon.service` should launch automatically.
+    ```
+    
 3. Check CPU usage, by entering:
    
    ```

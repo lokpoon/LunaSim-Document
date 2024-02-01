@@ -23,4 +23,7 @@ Files of folder or script are zipped for easier download.
 2. Click the download button.
 3. Unzip the download file if the file is in `.zip`
 
+Source code for the MoonShineR pacakge is available at:
+https://github.com/Crampton-Lab/MoonShineR_package
+
 Throughout this guide we have linked a few external tutorial websites. If any of the links are not working, pdf snapshots of the sites are available in the GitHub repository.

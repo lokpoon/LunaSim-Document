@@ -1,6 +1,12 @@
 
 # Overview
+
+To cite _<span style="font-variant:small-caps;">MoonShine</span>_:
+Poon, L., Jenks, I. T., Crampton, W. G. R. (2024). MoonShine: A software-hardware system for simulating moonlight ground illuminance and re-creating artificial moonlight cycles in a laboratory environment. Methods in Ecology and Evolution. Accepted for publication (Jan 30, 2024).
+
 ## Overview of <span style="font-variant:small-caps;">MoonShineP</span> and its companion program <span style="font-variant:small-caps;">MoonShineR</span>
+
+
 
 _<span style="font-variant:small-caps;">MoonShineP</span>_ is an open-source software-hardware system for re-creating moonlight cycles (as well as sunlight and twilight cycles) in a laboratory setting, using LED light. _<span style="font-variant:small-caps;">MoonShineP</span>_ comprises a Python program running on a Raspberry Pi computer that controls the intensity of an array of individually addressable LEDs positioned in diffusion boxes. _<span style="font-variant:small-caps;">MoonShineP</span>_ uses a companion R package with accompanying R scripts, _<span style="font-variant:small-caps;">MoonShineR</span>_, to predict moonlight and/or solar ground illuminance values (in lux) through a defined time range, at any geographical location. The predicted illuminance values are converted into LED intensity values and saved to a `.csv` schedule file. _<span style="font-variant:small-caps;">MoonShineP</span>_ uses this file to control the LED array. _<span style="font-variant:small-caps;">MoonShineR</span>_ can also be used to predict moonlight ground illuminance for use as a model predictor variable. This document is a tutorial and operating manual for _<span style="font-variant:small-caps;">MoonShineP</span>_ and _<span style="font-variant:small-caps;">MoonShineR</span>_.
 
@@ -43,4 +49,4 @@ A flowchart of how <span style="font-variant:small-caps;">MoonShineP</span> work
     ```
 - Internal hyperlinks within this documents & links to external websites are indicated in blue text.
 
-#### Manual last updated Oct 15, 2023
+#### Manual last updated Feb 30, 2024
