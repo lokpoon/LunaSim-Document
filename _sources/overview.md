@@ -1,7 +1,7 @@
 
 # Overview
 
-To cite _<span style="font-variant:small-caps;">MoonShine</span>_:
+### How to cite _<span style="font-variant:small-caps;">MoonShine</span>_:
 Poon, L., Jenks, I. T., Crampton, W. G. R. (2024). MoonShine: A software-hardware system for simulating moonlight ground illuminance and re-creating artificial moonlight cycles in a laboratory environment. Methods in Ecology and Evolution. Accepted for publication (Jan 30, 2024).
 
 ## <span style="font-variant:small-caps;">MoonShineP</span> and its companion program <span style="font-variant:small-caps;">MoonShineR</span>
